@@ -9,15 +9,15 @@ Use JSON to create elegant form templates based on Material Design.
 
 # Demo
 
-Demo: Coming soon...
+[Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") 
 
 See the demo for examples.
 
 ## Dependencies
 
-1. Angular-Formly (https://github.com/formly-js/angular-formly)
-2. LumX (http://ui.lumapps.com/)
-3. ngMessages (https://docs.angularjs.org/api/ngMessages/directive/ngMessages)
+1. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") 
+2. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") 
+3. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") 
 
 <pre><code>bower install formly lumx ngMessages</code></pre>
 
