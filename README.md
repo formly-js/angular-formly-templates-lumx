@@ -36,15 +36,15 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
 ## Available Form-Fields
 
--lx-text-field (email, password, number, url)
--lx-textarea
--lx-switch
--lx-checkbox
--lx-date-picker
--lx-radio-buttons
--lx-select, lx-select-multiple
--lx-file-input
--lx-subhead
+- lx-text-field (email, password, number, url)
+- lx-textarea
+- lx-switch
+- lx-checkbox
+- lx-date-picker
+- lx-radio-buttons
+- lx-select, lx-select-multiple
+- lx-file-input
+- lx-subhead
   
 ## Examples
   
