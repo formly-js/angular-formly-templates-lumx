@@ -22,4 +22,4 @@ Coming soon...
 ## Getting Started
 
 Add 'Angular-formly-lumx.config.js' to your project.
-Link to the file with a <script src="%path%to%the%file"></script> tag.
+Link to the file with a <code><script src="%path%to%the%file"></script></code> tag.
