@@ -34,6 +34,18 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
     'formly.lumx' // template module (angular-formly.config.js)
   ])</code></pre>
   
+## Available Form-Fields
+
+-lx-text-field (email, password, number, url)
+-lx-textarea
+-lx-switch
+-lx-checkbox
+-lx-date-picker
+-lx-radio-buttons
+-lx-select, lx-select-multiple
+-lx-file-input
+-lx-subhead
+  
 ## Examples
   
   Examples are copied from the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
@@ -56,8 +68,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
   Create form fields by attaching a JSON object in the controller.
   
-  <pre><code>// Simply add form fields using JSON
-  $scope.formFields= [{
+  <pre><code>$scope.formFields= [{
       key: 'email', // {
       type: 'lx-text-field', // formlyTemplate
       mode: 'email', // input type: [email, password, text, url, number]
