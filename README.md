@@ -9,9 +9,7 @@ Use JSON to create elegant form templates based on Material Design.
 
 # Demo
 
-[Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") 
-
-See the demo for examples.
+See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") for examples.
 
 ## Dependencies
 
