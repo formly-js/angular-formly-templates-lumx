@@ -21,5 +21,15 @@ Coming soon...
 
 ## Getting Started
 
-Add 'Angular-formly-lumx.config.js' to your project.
-Link to the file with a <pre><code><script src="%path%to%the%file"></script></code></pre> tag.
+1. Install dependencies (for example, with Bower)
+2. Add 'Angular-formly-lumx.config.js' to your project.
+2. Simply link to the file with a script tag.
+3. Add the dependencies to your Angular module
+
+<pre><code>angular.module('myAppName', [
+    /* Dependencies */
+    'ngMessages',
+    'formly',
+    'lumx',
+    'formly.lumx' // templates loaded here
+  ])</code></pre>
