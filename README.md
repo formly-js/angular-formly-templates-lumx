@@ -38,7 +38,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
   Examples are copied from the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
   
-### HTML
+#### HTML
   
   <pre><code>
   <!-- formly-form directive generates templates -->
@@ -50,7 +50,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
     </formly-form>
 </code></pre>
   
-### Email & Password
+#### Email & Password
   
   Create form fields by attaching a JSON object in the controller.
   
@@ -81,7 +81,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
       }
     }</code></pre>
 
-### Subheads
+#### Subheads
 
 Create Subheaders for your forms. Not in LumX, but a useful additional.
 
