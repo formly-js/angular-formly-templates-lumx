@@ -40,22 +40,19 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
 #### HTML
   
-  <pre><code>
-  <!-- formly-form directive generates templates -->
+  <pre><code><!-- formly-form directive generates templates -->
     <formly-form result="vm.formData" fields="vm.formFields" options="vm.formOptions"
                  ng-submit="vm.submit(form.$valid)" name="form">
       <!-- end of formly-form contents -->
       <br>
       <button class="btn btn--m btn--blue btn--raised" lx-ripple type="submit">Submit</button>
-    </formly-form>
-</code></pre>
+    </formly-form></code></pre>
   
 #### Email & Password
   
   Create form fields by attaching a JSON object in the controller.
   
-  <pre><code>
-  // Simply add form fields using JSON
+  <pre><code>// Simply add form fields using JSON
   $scope.formFields= [{
       key: 'email', // {
       type: 'lx-text-field', // formlyTemplate
@@ -85,8 +82,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 
 Create Subheaders for your forms. Not in LumX, but a useful additional.
 
-<pre><code>
-{
+<pre><code>{
       key: 'subEmail',
       type: 'lx-subhead',
       subhead: 'Text Fields:',
@@ -94,5 +90,4 @@ Create Subheaders for your forms. Not in LumX, but a useful additional.
       style: {
         'text-decoration': 'underline'
       },
-    }
-    </code></pre>
+    }</code></pre>
