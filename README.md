@@ -9,7 +9,9 @@ Use JSON to create elegant form templates based on Material Design.
 
 # Demo
 
-Coming soon...
+Demo: Coming soon...
+
+See the demo for examples.
 
 ## Dependencies
 
