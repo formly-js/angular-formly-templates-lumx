@@ -16,7 +16,7 @@ Coming soon...
 
 ## Dependencies
 
-bower install formly lumx ngMessages
+<code>bower install formly lumx ngMessages</code>
 
 ## Getting Started
 
