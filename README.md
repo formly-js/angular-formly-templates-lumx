@@ -40,7 +40,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
 #### HTML
   
-  Not much necessary. The form only requires the <pre>formly-form</pre> directive tag. For example:
+  Not much necessary. The form only requires the <code>formly-form</code> directive tag. For example:
   
 ```html
   <!-- formly-form directive generates templates -->
