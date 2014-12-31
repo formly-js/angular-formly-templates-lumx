@@ -40,6 +40,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
 #### HTML
   
+```html
   <pre><code><!-- formly-form directive generates templates -->
     <formly-form result="vm.formData" fields="vm.formFields" options="vm.formOptions"
                  ng-submit="vm.submit(form.$valid)" name="form">
