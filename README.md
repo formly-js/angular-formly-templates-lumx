@@ -40,13 +40,13 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   
 #### HTML
   
-  <pre><!-- formly-form directive generates templates -->
+  <pre><code><!-- formly-form directive generates templates -->
     <formly-form result="vm.formData" fields="vm.formFields" options="vm.formOptions"
                  ng-submit="vm.submit(form.$valid)" name="form">
       <!-- end of formly-form contents -->
       <br>
       <button class="btn btn--m btn--blue btn--raised" lx-ripple type="submit">Submit</button>
-    </formly-form></pre>
+    </formly-form><code></pre>
   
 #### Email & Password
   
