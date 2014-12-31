@@ -82,7 +82,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 
 Create Subheaders for your forms. Not in LumX, but a useful additional.
 
-<pre><code>{
+<pre><code>$scope.formFields = [{
       key: 'subEmail',
       type: 'lx-subhead',
       subhead: 'Text Fields:',
@@ -90,4 +90,4 @@ Create Subheaders for your forms. Not in LumX, but a useful additional.
       style: {
         'text-decoration': 'underline'
       },
-    }</code></pre>
+    }]</code></pre>
