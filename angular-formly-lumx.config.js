@@ -48,7 +48,6 @@
   function cacheLumXTemplates($templateCache, usingCustomTemplates, FIELDS) {
     if (usingCustomTemplates) {
       angular.forEach(FIELDS, function (field) {
-        console.log(field.name);
         $templateCache.put('fields/lx-' + field.name + '.html', field.template);
       });
     }
@@ -58,7 +57,6 @@
   function setCustomTemplates(usingCustomTemplates, formlyConfigProvider, FIELDS) {
     if (usingCustomTemplates) {
       angular.forEach(FIELDS, function (field) {
-        console.log(field.name);
         formlyConfigProvider.setTemplateUrl('lx-' + field.name, 'fields/lx-' + field.name + '.html');
       });
     }
