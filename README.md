@@ -31,7 +31,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
     'ngMessages',
     'formly',
     'lumx',
-    'formly.lumx' // templates loaded here
+    'formly.lumx' // template module (angular-formly.config.js)
   ])</code></pre>
   
   ## Examples
