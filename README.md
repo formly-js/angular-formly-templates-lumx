@@ -107,3 +107,7 @@ Create Subheaders for your forms. Not in LumX, but a useful additional.
         'text-decoration': 'underline'
       },
     }]</code></pre>
+    
+## Known Issues
+
+LumX has a conflict with a simlarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select".
