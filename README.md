@@ -18,7 +18,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") 
 4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") 
 
-<pre><code>bower install formly lumx ngMessages</code></pre>
+<pre><code>bower install angular-formly-templates-lumx</code></pre>
 
 ## Getting Started
 
