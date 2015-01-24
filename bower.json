@@ -1,0 +1,23 @@
+{
+  "name": "angular-formly-templates-lumx",
+  "version": "0.1.0",
+  "authors": [
+    "ShMcK <Shawn.McKay@hotmail.com>"
+  ],
+  "description": "Angular-Formly templates based on the LumX Framework",
+  "main": "angular-formly-templates-lumx.js",
+  "keywords": [
+    "angular-formly",
+    "angular-formly-templates",
+    "lumx"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/formly-js/angular-formly-templates-lumx",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
