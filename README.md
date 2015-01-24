@@ -11,14 +11,16 @@ Use JSON in Angular to create simple & elegant forms based on Google's Material 
 
 See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") for examples.
 
+## Bower
+
+<pre><code>bower install angular-formly-templates-lumx</code></pre>
+
 ## Dependencies
 
 1. Angular 1.3.x or greater
 2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") 
 3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") 
-4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") 
-
-<pre><code>bower install angular-formly-templates-lumx</code></pre>
+4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs")
 
 ## Getting Started
 
