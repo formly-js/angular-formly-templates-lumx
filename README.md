@@ -24,17 +24,16 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 
 ## Getting Started
 
-1. Install dependencies (for example, with Bower)
-2. Add 'Angular-formly-lumx.config.js' to your project.
-2. Simply link to the file with a script tag.
-3. Add the dependencies to your Angular module
+1. Install dependencies (for example, with Bower: <pre><code>bower install angular-formly-templates-lumx</code></pre>)
+2. Add the following dependencies to your Angular module:
 
 <pre><code>angular.module('myAppName', [
     /* Dependencies */
+    'angular'
     'ngMessages',
     'formly',
     'lumx',
-    'formly.lumx' // template module (angular-formly.config.js)
+    'formly.lumx'
   ])</code></pre>
   
 ## Available Form-Fields
