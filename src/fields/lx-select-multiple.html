@@ -1,0 +1,30 @@
+<div>
+  <br/>
+
+  <h3><label for="{{::id}}">
+    {{::options.label || 'Select'}} {{::options.required ? '*' : ''}}
+  </label></h3>
+  <lx-select id={{::id}}
+             ng-model="result[options.key || index]"
+             formly-dynamic-name="::id"
+             placeholder="{{::options.placeholder}}"
+             choices="::options.choices"
+             change="::options.change"
+             filter="::options.filter"
+             loading="::options.loading"
+             min-length="::options.minLength"
+             allow-clear="::options.allowClear"
+             multiple
+             aria-label="{{::id}}_label">
+
+    <lx-select-selected>
+      {{$selected[options.selected]}} {{::options.selected2 ? ' - ' + $selected[options.selected2] : ''}}
+    </lx-select-selected>
+
+    <lx-select-choices ng-bind-html="options.choice">
+      {{$choice[options.choice]}} {{::options.choice2 ? ' - ' + $choice[options.choice2] : ''}}
+    </lx-select-choices>
+
+  </lx-select>
+  <p id="{{::id}}_description" ng-if="::options.description">{{::options.description}}</p></div>
+</div>

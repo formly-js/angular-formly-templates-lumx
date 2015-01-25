@@ -1,0 +1,27 @@
+<div>
+  <lx-text-field id="{{::id}}"
+                 label="{{::options.label}} {{::options.required ? '*' : ''}}"
+                 fixed-label="::options.fixedLabel"
+                 model="::result[options.key || index]"
+                 disabled="::options.disabled"
+                 valid="options.formField.$valid && options.formField.$touched"
+                 error="options.formField.$invalid && options.formField.$touched || options.validators"
+                 aria-label="{{::id}}_label">
+    <textarea
+      formly-dynamic-name="::id"
+      ng-model="result[options.key || index]"
+      ng-disabled="::options.disabled"
+      ng-model-options="::options.modelOptions || {}"
+      ng-minlength="::options.minlength"
+      ng-maxlength="::options.maxlength"
+      ng-pattern="::options.patternValue"
+      ng-required="::options.required">
+    </textarea>
+    <ul class="form-error" ng-messages="options.formField.$error"
+        ng-show="options.formField.$invalid && options.formField.$touched || options.validators">
+      <li ng-message="required">Aren't you forgetting something?</li>
+      <li ng-message="minlength">Too short. {{::options.minlength}} or more characters.</li>
+      <li ng-message="maxlength">Too long. {{::options.maxlength}} or less characters.</li>
+      <li ng-message="pattern">This doesn't look right.</li>
+    </ul>
+</div>

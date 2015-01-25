@@ -1,0 +1,37 @@
+<div>
+  <lx-text-field id="{{::id}}"
+                 label="{{::options.label}} {{::options.required ? '*' : ''}}"
+                 fixed-label="::options.fixedLabel"
+                 model="::result[options.key || index]"
+                 disabled="::options.disabled"
+                 valid="options.formField.$valid && options.formField.$touched"
+                 error="options.formField.$invalid && options.formField.$touched || options.validators"
+                 aria-label="{{::id}}_label">
+    <input type="{{::options.mode}}"
+           formly-dynamic-name="::id"
+           ng-model="result[options.key || index]"
+           ng-disabled="::options.disabled"
+           ng-model-options="::options.modelOptions || {}"
+           ng-minlength="::options.minlength"
+           ng-maxlength="::options.maxlength"
+           ng-min="::options.min"
+           ng-max="::options.max"
+           ng-pattern="::options.pattern"
+           ng-required="::options.required">
+  </lx-text-field>
+
+  <ul class="form-error" ng-messages="options.formField.$error"
+      ng-show="options.formField.$invalid && options.formField.$touched|| options.validators">
+    <li ng-message="required">Aren't you forgetting something?</li>
+    <li ng-message="email">Not a valid email.</li>
+    <li ng-message="minlength">Too short. {{::options.minlength}} or more characters.</li>
+    <li ng-message="maxlength">Too long. {{::options.maxlength}} or less characters.</li>
+    <li ng-message="min">Too low. {{::options.min}} or higher.</li>
+    <li ng-message="max">Too high. {{::options.max}} or lower.</li>
+    <li ng-message="pattern">This doesn't look right.</li>
+    <li ng-message="url">Not a valid url. For example: 'https://www.example.com'</li>
+    <li ng-message="number">Not a valid number.</li>
+  </ul>
+</div>
+
+

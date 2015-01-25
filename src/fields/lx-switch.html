@@ -1,0 +1,17 @@
+<div class="switch"
+     ng-class="{mt: options.help}">
+  <input type="checkbox"
+         id="{{::id + '_'+ $index}}"
+         class="switch__input"
+         ng-checked="options.checked"
+         ng-value="::options.value"
+         ng-disabled="::options.disabled"
+         ng-model="result[options.key || index]"
+         formly-dynamic-name="::id"
+         aria-label="{{::id}}_label"/>
+
+  <label for="{{::id + '_'+ $index}}"
+         class="switch__label">{{::options.label}}</label>
+  <span class="switch__help">{{::options.help}}</span>
+</div>
+

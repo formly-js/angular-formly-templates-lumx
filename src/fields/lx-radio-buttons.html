@@ -1,0 +1,24 @@
+<div>
+  <br/>
+
+  <div class="radio-group"
+       aria-label="{{::id}}_label"
+       formly-dynamic-name="::id">
+    <h3><label>{{::options.label}}</label></h3>
+
+    <div class="radio-button"
+         ng-repeat="(key, option) in options.options">
+      <input type="radio"
+             formly-custom-validation="::options.validators"
+             ng-value="::option.value"
+             ng-model="$parent.result[$parent.options.key || $parent.index]"
+             class="radio-button__input"
+             ng-disabled="::options.disabled"
+             ng-checked="::options.checked"
+             id="{{::id + '_'+ $index}}">
+      <label for="{{::id + '_'+ $index}}" class="radio-button__label">{{::option.name}}</label>
+      <span ng-if="::option.help" class="radio-button__help">{{::option.help}}
+      </span>
+    </div>
+  </div>
+</div>
