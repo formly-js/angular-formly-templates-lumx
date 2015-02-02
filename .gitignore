@@ -1,2 +1,5 @@
 .idea
 .gitignore
+bower_components
+demo/bower_components
+demo/dist

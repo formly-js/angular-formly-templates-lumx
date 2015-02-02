@@ -1,0 +1,24 @@
+{
+  "name": "angular-formly-templates-lumx-demo",
+  "version": "0.1.4",
+  "homepage": "https://github.com/formly-js/angular-formly-templates-lumx",
+  "authors": [
+    "ShMcK <me@ShMcK.com>"
+  ],
+  "description": "An angular-formly-templates-lumx demo",
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-formly-templates-lumx": "~0.1.4",
+    "angular-ui-router": "~0.2.13",
+    "ng-prettyjson": "~0.1.6",
+    "angular-sanitize": "~1.3.11"
+  }
+}
