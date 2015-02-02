@@ -32,10 +32,17 @@
     "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.4.3",
     "gulp-embedlr": "^0.5.2",
+    "gulp-if": "^1.2.5",
+    "gulp-jscs": "^1.4.0",
     "gulp-jshint": "^1.9.1",
     "gulp-livereload": "^3.7.0",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-print": "^1.1.0",
     "gulp-util": "^3.0.2",
-    "tiny-lr": "^0.1.5"
+    "jshint-stylish": "^1.0.0",
+    "require-dir": "^0.1.0",
+    "tiny-lr": "^0.1.5",
+    "yargs": "^1.3.3"
   },
   "dependencies": {
     "gulp-rimraf": "^0.1.1"
