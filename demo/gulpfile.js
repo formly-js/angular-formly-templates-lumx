@@ -1,14 +1,16 @@
+'use strict';
+
 var gulp = require('gulp');
+
+gulp.paths = {
+  src: 'src',
+  dist: 'dist',
+  tmp: '.tmp',
+  e2e: 'e2e'
+};
+
 require('require-dir')('./gulp');
-var $ = require('gulp-load-plugins')({lazy: true}),
-	config = require('./gulp/gulp.config')();
 
-
-gulp.task('views', function () {
-	gulp.src(app.index)
-		.pipe(gulp.dest(app.dist));
-
-	gulp.src('app/views/**/*')
-		.pipe(gulp.dest(app.dist + '/views/'));
+gulp.task('default', ['clean'], function () {
+    gulp.start('build');
 });
-

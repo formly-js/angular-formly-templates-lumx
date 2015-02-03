@@ -1,13 +1,14 @@
-var gulp = require('gulp'),
-	$ = require('gulp-load-plugins')();
+'use strict';
 
-gulp.task('watch', ['lint'], function () {
-	gulp.watch(['app/*.js', 'app/**/*.js'], [
-		'lint',
-		'browserify'
-	]);
+var gulp = require('gulp');
+
+var paths = gulp.paths;
+
+gulp.task('watch', ['inject'], function () {
+  gulp.watch([
+    paths.src + '/*.html',
+    paths.src + '/{app,components}/**/*.scss',
+    paths.src + '/{app,components}/**/*.js',
+    'bower.json'
+  ], ['inject']);
 });
-
-gulp.watch(['./index.html', 'app/views/**/*.html'], [
-	'views'
-]);

@@ -1,5 +1,11 @@
 .idea
 .gitignore
+npm-debug.log
 bower_components
+demo/.tmp
+demo/.idea
+demo/.editorconfig
 demo/bower_components
 demo/dist
+demo/node_modules
+
