@@ -1,0 +1,12 @@
+.gitignore
+.idea
+bower_components
+demo/.idea
+demo/.tmp
+demo/bower_components
+demo/dist
+demo/node_modules
+demo/.editorconfig
+demo/.jshintrc
+
+
