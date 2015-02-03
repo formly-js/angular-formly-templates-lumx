@@ -1,15 +1,19 @@
-'use strict';
+(function () {
+  'use strict';
 
-class SidebarService {
-  constructor() {
+  angular.module('demo')
+    .service('SidebarService', SidebarService);
+
+  function SidebarService() {
     this.sidebarIsShown = false;
-  }
-  toggleSidebar() {
-    this.sidebarIsShown = !this.sidebarIsShown;
-  }
-  isSidebarShown() {
-    return this.sidebarIsShown;
-  }
-}
 
-export default SidebarService;
+    this.toggleSidebar = function () {
+      this.sidebarIsShown = !this.sidebarIsShown;
+    };
+    this.isSidebarShown = function () {
+      return this.sidebarIsShown;
+    };
+  }
+
+
+}());

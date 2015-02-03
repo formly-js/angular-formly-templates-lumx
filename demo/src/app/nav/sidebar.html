@@ -1,16 +1,16 @@
-<div class="sidebar" ng-class="{ 'sidebar--is-shown': vm.isSidebarShown() }">
+<div class="sidebar" ng-class="{ 'sidebar--is-shown': vm.sidebar.isSidebarShown() }">
 
   <div class="sidebar-menu">
     <ul>
       <li>
         <a class="sidebar-menu__link"
-           ng-click="vm.toggleSidebar()">Close</a>
+           ng-click="vm.sidebar.toggleSidebar()">Close</a>
       </li>
       <li class="dropdown-divider"></li>
       <li ng-repeat="l in vm.navLinks">
         <a ui-sref="{{l.state}}"
            class="sidebar-menu__link"
-           ng-click="vm.toggleSidebar()"
+           ng-click="vm.sidebar.toggleSidebar()"
            lx-ripple="white">
           <span><i ng-if="l.icon"
                    class="mdi"

@@ -1,11 +1,13 @@
-'use strict';
-/*jshint esnext: true */
+(function () {
+  'use strict';
 
-import SidebarService from './sidebar.service';
+  angular.module('demo')
+    .controller('NavCtrl', NavCtrl);
 
-class NavCtrl {
-  constructor(SidebarService) {
+  function NavCtrl(SidebarService) {
+    var vm = this;
     this.isCollapsed = true;
+    this.sidebar = SidebarService;
     this.outLinks = [{
       text: 'Angular-Formly',
       link: 'https://github.com/formly-js/angular-formly'
@@ -18,52 +20,38 @@ class NavCtrl {
     }];
 
     this.navLinks = [{
-      state: 'state1',
+      state: 'text',
       text: 'Text',
-      icon: 'collections'
+      icon: 'text-format'
     }, {
-      state: 'state3',
+      state: 'text',
       text: 'Numbers',
-      icon: 'account-circle'
+      icon: 'plus-one'
     }, {
-      state: 'state3',
+      state: 'option',
       text: 'Checkboxes',
-      icon: 'account-circle'
+      icon: 'check-box'
     }, {
-      state: 'state3',
+      state: 'option',
       text: 'Switches',
-      icon: 'account-circle'
+      icon: 'radio-button-off'
     }, {
-      state: 'state3',
+      state: 'option',
       text: 'Radio buttons',
-      icon: 'account-circle'
+      icon: 'radio-button-on'
     }, {
-      state: 'state3',
+      state: 'select',
       text: 'Selectors',
-      icon: 'account-circle'
+      icon: 'arrow-drop-down'
     }, {
-      state: 'state3',
+      state: 'select',
       text: 'Dates',
-      icon: 'account-circle'
+      icon: 'today'
     }, {
-      state: 'state3',
+      state: 'select',
       text: 'Files',
-      icon: 'account-circle'
+      icon: 'file-upload'
     }];
-    //this.sidebar = SidebarService;
-
-    this.sidebarIsShown = false;
   }
 
-  toggleSidebar() {
-    this.sidebarIsShown = !this.sidebarIsShown;
-  }
-
-  isSidebarShown() {
-    return this.sidebarIsShown;
-  }
-}
-
-NavCtrl.$inject = ['SidebarService'];
-
-export default NavCtrl;
+}());

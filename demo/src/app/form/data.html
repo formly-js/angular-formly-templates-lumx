@@ -1,7 +1,22 @@
-<div class="container">
-  <h1 class="fs-display-1">Form Data</h1>
+<div>
+  <lx-dialog class="dialog dialog--l" id="user">
 
-  <div style="max-width: 450px">
-    <pre pretty-json="vm.formData"/>
-  </div>
+    <div class="dialog__header">
+      <div class="toolbar bgc-light-blue-500">
+            <span class="toolbar__label tc-white fs-title">
+
+            </span>
+      </div>
+    </div>
+
+    <div class="dialog__content">
+      <pre pretty-json="vm.formData"/>
+    </div>
+
+    <div class="dialog__actions">
+      <button class="btn btn--m btn--black btn--flat"
+              lx-ripple lx-dialog-close>Back
+      </button>
+    </div>
+  </lx-dialog>
 </div>

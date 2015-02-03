@@ -1,6 +1,7 @@
+<div ng-controller="NavCtrl as vm">
 <header class="header" ng-cloak>
   <div class="menubar">
-    <button class="btn btn--l btn--icon btn--white" lx-ripple="white" ng-click="vm.toggleSidebar()">
+    <button class="btn btn--l btn--icon btn--white" lx-ripple="white" ng-click="vm.sidebar.toggleSidebar()">
       <i class="mdi mdi--menu"></i>
     </button>
   </div>
@@ -24,3 +25,4 @@
 
 <div ng-include="'app/nav/sidebar.html'"></div>
 
+</div>

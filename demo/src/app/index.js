@@ -1,10 +1,6 @@
 (function () {
   'use strict';
 
-  import FormCtrl from './form/form.ctrl';
-  import NavCtrl from './nav/nav.ctrl';
-  import SidebarService from './nav/sidebar.service';
-
   angular.module('demo', [
     /* necessary modules */
     'ngMessages',
@@ -16,15 +12,12 @@
     'ui.router',
     'ngPrettyJson'
   ])
-    .controller('FormCtrl', FormCtrl)
-    .service('SidebarService', SidebarService)
-    .controller('NavCtrl', NavCtrl);
-
+    .config(routerSetup)
+    .config(formRoutes);
 
   function routerSetup($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
-
     $locationProvider.html5Mode(true);
   }
 
@@ -32,30 +25,64 @@
     $stateProvider
       .state('form', {
         url: '/',
-
         views: {
-          'nav@': {
-            templateUrl: 'app/nav/nav.html',
-            controller: 'NavCtrl as vm'
-          },
-          'header@': {
-            templateUrl: 'app/views/header.html'
-          },
           'form@': {
             templateUrl: 'app/form/form.html',
-            controller: 'FormCtrl as vm'
-          },
-          'fields@': {
-            templateUrl: 'app/form/fields.html',
-            controller: 'FormCtrl as vm'
+            controller: 'FormCtrl as vm',
+            resolve: {
+              formFields: function (FormFieldService) {
+                return FormFieldService.text;
+              }
+            }
+          }
+        }
+      })
+      .state('text', {
+        url: 'text',
+        views: {
+          'form@': {
+            templateUrl: 'app/form/form.html',
+            controller: 'FormCtrl as vm',
+            resolve: {
+              formFields: function (FormFieldService) {
+                console.log(FormFieldService.text);
+                return FormFieldService.text;
+              }
+            }
+          }
+        }
+      })
+      .state('option', {
+        url: 'options',
+        views: {
+          'form@': {
+            templateUrl: 'app/form/form.html',
+            controller: 'FormCtrl as vm',
+            resolve: {
+              formFields: function (FormFieldService) {
+                console.log(FormFieldService.option);
+                return FormFieldService.option;
+              }
+            }
+          }
+        }
+      })
+      .state('select', {
+        url: 'select',
+        views: {
+          'form@': {
+            templateUrl: 'app/form/form.html',
+            controller: 'FormCtrl as vm',
+            resolve: {
+              formFields: function (FormFieldService) {
+                console.log(FormFieldService.select);
+                return FormFieldService.select;
+              }
+            }
           }
         }
       });
   }
-
-  angular.module('demo')
-    .config(routerSetup)
-    .config(formRoutes);
 
 
 }());

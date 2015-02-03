@@ -21,17 +21,9 @@
 <![endif]-->
 
 <div>
-  <div ui-view="nav"></div>
-
-  <div ui-view="header" id="header"></div>
-  <div class="grid">
-    <div class="grid__col6">
-      <div ui-view="form"></div>
-    </div>
-    <div class="grid__col6">
-      <div ui-view="fields"></div>
-    </div>
-  </div>
+  <div ng-include="'app/nav/nav.html'"></div>
+  <div ng-include="'app/views/header.html'"></div>
+  <div ui-view="form"></div>
 </div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -48,7 +40,7 @@
     e.src = '//www.google-analytics.com/analytics.js';
     r.parentNode.insertBefore(e, r)
   }(window, document, 'script', 'ga'));
-  ga('create', 'UA-XXXXX-X');
+  ga('create', 'UA-44377274-4');
   ga('send', 'pageview');
 </script>
 
