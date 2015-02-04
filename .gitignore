@@ -8,5 +8,10 @@ demo/dist
 demo/node_modules
 demo/.editorconfig
 demo/.jshintrc
+todo.txt
 
+gulp/heroku.js
+demo/web.js
+demo/Procfile
+demo/.gitignore
 

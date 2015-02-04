@@ -6,7 +6,8 @@
 }
 
 body {
-  margin: 0;
+  padding: 0 !important;
+  background-color: #EEEEEE;
 }
 
 a {
@@ -20,5 +21,10 @@ a {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+$icon-font-path: '../assets/fonts';
+
 // injector
+@import '../assets/fonts/md-icons';
+@import '../assets/fonts/roboto';
 // endinjector
