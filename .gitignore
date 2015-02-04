@@ -1,6 +1,7 @@
 .gitignore
 .idea
 bower_components
+node_modules
 demo/.idea
 demo/.tmp
 demo/bower_components
@@ -14,4 +15,5 @@ gulp/heroku.js
 demo/web.js
 demo/Procfile
 demo/.gitignore
+
 
