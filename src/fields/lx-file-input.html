@@ -1,45 +1,32 @@
 <div class="grid">
-  <div class="grid__col6">
-    <lx-file-input label="{{::options.fileLabel}}"
-                   model="::result[options.key || index].fileData"
-                   ng-disabled="::options.disabled"
-                   ng-required="::options.required"
-                   aria-label="{{::id}}_label"></lx-file-input>
-  </div>
+	<div class="grid__col6">
+		<lx-file-input label="{{::options.fileLabel}}"
+		               model="::model[options.key].fileData"
+		               ng-disabled="::options.disabled"
+		               ng-required="::options.required"
+		               aria-describedby="{{::id}}_fileInput"></lx-file-input>
+	</div>
 
-  <div class="grid__col6">
-    <div>
-      <lx-text-field id="{{::id}}"
-                     label="{{::options.label}} {{::options.required ? '*' : ''}}"
-                     fixed-label="::options.fixedLabel"
-                     model="::result[options.key || index].fileName"
-                     disabled="::options.disabled"
-                     valid="options.formField.$valid && options.formField.$touched"
-                     error="options.formField.$invalid && options.formField.$touched || options.validators"
-                     aria-label="{{::id}}_label">
-        <input type="text"
-               formly-dynamic-name="::options.key"
-               data-ng-model="result[options.key || index].fileName"
-               ng-disabled="::options.disabled"
-               ng-model-options="::options.modelOptions || {}"
-               ng-minlength="::options.minlength"
-               ng-maxlength="::options.maxlength"
-               ng-pattern="::options.pattern"
-               ng-required="::options.required">
-      </lx-text-field>
-
-      <ul class="form-error" ng-messages="options.formField.$error"
-          ng-show="options.formField.$invalid && options.formField.$touched|| options.validators">
-        <li ng-message="required">Aren't you forgetting something?</li>
-        <li ng-message="email">Not a valid email.</li>
-        <li ng-message="minlength">Too short. {{::options.minlength}} or more characters.</li>
-        <li ng-message="maxlength">Too long. {{::options.maxlength}} or less characters.</li>
-        <li ng-message="pattern">This doesn't look right.</li>
-        <li ng-message="url">Not a valid url. For example: 'https://www.example.com'</li>
-      </ul>
-    </div>
-
-
-
-  </div>
+	<div class="grid__col6">
+		<div>
+			<lx-text-field id="{{::id}}"
+			               label="{{::options.label}} {{::options.required ? '*' : ''}}"
+			               fixed-label="::options.fixedLabel"
+			               model="::model[options.key].fileName"
+			               disabled="::options.disabled"
+			               valid="options.formField.$valid && options.formField.$touched"
+			               error="options.formField.$invalid && options.formField.$touched || options.validators"
+			               aria-describedby="{{::id}}_fileName">
+				<input type="text"
+				       formly-dynamic-name="::id"
+				       data-ng-model="model[options.key].fileName"
+				       ng-disabled="::options.disabled"
+				       ng-model-options="::options.modelOptions || {}"
+				       ng-minlength="::options.minlength"
+				       ng-maxlength="::options.maxlength"
+				       ng-pattern="::options.pattern"
+				       ng-required="::options.required">
+			</lx-text-field>
+		</div>
+	</div>
 </div>

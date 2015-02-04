@@ -4,7 +4,7 @@
     {{::options.label || 'Select'}} {{::options.required ? '*' : ''}}
   </label></h3>
   <lx-select id={{::id}}
-             ng-model="result[options.key || index]"
+             ng-model="model[options.key]"
              formly-dynamic-name="::id"
              placeholder="{{::options.placeholder}}"
              choices="::options.choices"
@@ -13,7 +13,7 @@
              loading="{{::options.loading}}"
              min-length="::options.minLength"
              allow-clear="::options.allowClear"
-             aria-label="{{::id}}_label">
+             aria-describedby="{{::id}}_select">
 
     <lx-select-selected>
       {{$selected[options.selected]}} {{::options.selected2 ? ' - ' + $selected[options.selected2] : ''}}

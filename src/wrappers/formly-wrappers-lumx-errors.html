@@ -1,0 +1,15 @@
+<div>
+	<formly-transclude></formly-transclude>
+	<ul class="form-error" ng-messages="options.formField.$error"
+	    ng-show="options.formField.$invalid && options.formField.$touched|| options.validators">
+		<li ng-message="required">Aren't you forgetting something?</li>
+		<li ng-message="email">Not a valid email.</li>
+		<li ng-message="minlength">Too short. {{::options.minlength}} or more characters.</li>
+		<li ng-message="maxlength">Too long. {{::options.maxlength}} or less characters.</li>
+		<li ng-message="min">Too low. {{::options.min}} or higher.</li>
+		<li ng-message="max">Too high. {{::options.max}} or lower.</li>
+		<li ng-message="pattern">This doesn't look right.</li>
+		<li ng-message="url">Not a valid url. For example: 'https://www.example.com'</li>
+		<li ng-message="number">Not a valid number.</li>
+	</ul>
+</div>
