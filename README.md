@@ -79,6 +79,7 @@ Handled by ngMessages
   <pre><code>$scope.formFields= [{
       key: 'email', // {
       type: 'lx-text-field', // formlyTemplate
+      wrapper: 'lx-wrapper-errors-text', // error handling with ngMessages
       templateOptions: {
         mode: 'email', // input type: [email, password, text, url, number]
         label: 'Email',
@@ -87,6 +88,7 @@ Handled by ngMessages
     },{
       key: 'password',
       type: 'lx-text-field',
+      wrapper: 'lx-wrapper-errors-text',
       templateOptions: {
         mode: 'password',
         label: 'Password',
