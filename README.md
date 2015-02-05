@@ -24,7 +24,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 
 ## Getting Started
 
-1. Install dependencies (for example, with Bower: <pre><code>bower install angular-formly-templates-lumx</code></pre>)
+1. Install dependencies (for example, with Bower: <pre><code>bower install angular angular-messages angular-formly lumx angular-formly-templates-lumx</code></pre>)
 2. Add the following dependencies to your Angular module:
 
 <pre><code>angular.module('myAppName', [
@@ -47,6 +47,12 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 - lx-select, lx-select-multiple
 - lx-file-input
 - lx-subhead
+
+## Available Wrappers
+Handled by ngMessages
+
+- lx-wrapper-error-required
+- lx-wrapper-errors-text (general validation error messages)
   
 ## Examples
   
@@ -73,17 +79,21 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   <pre><code>$scope.formFields= [{
       key: 'email', // {
       type: 'lx-text-field', // formlyTemplate
-      mode: 'email', // input type: [email, password, text, url, number]
-      label: 'Email',
-      required: true
+      templateOptions: {
+        mode: 'email', // input type: [email, password, text, url, number]
+        label: 'Email',
+        required: true
+       }
     },{
       key: 'password',
       type: 'lx-text-field',
-      mode: 'password',
-      label: 'Password',
-      required: true,
-      minlength: 4,
-      maxlength: 16,
+      templateOptions: {
+        mode: 'password',
+        label: 'Password',
+        required: true,
+        minlength: 4,
+        maxlength: 16,
+      },
       modelOptions: { 
         allowInvalid: true,
         updateOn: 'default blur keydown',
@@ -102,11 +112,13 @@ Create Subheaders for your forms. Not in LumX, but a useful additional.
 <pre><code>$scope.formFields = [{
       key: 'subEmail',
       type: 'lx-subhead',
-      subhead: 'Text Fields:',
-      class: 'fs-headline',
-      style: {
-        'text-decoration': 'underline'
-      },
+      templateOptions: {
+        subhead: 'Text Fields:',
+        class: 'fs-headline',
+        style: {
+          'text-decoration': 'underline'
+        }
+      }
     }]</code></pre>
     
 ## Known Issues
