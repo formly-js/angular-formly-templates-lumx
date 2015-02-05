@@ -36,7 +36,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
     'formly.lumx'
   ])</code></pre>
   
-## Available Form-Fields
+## Form-Fields
 
 - lx-text-field (email, password, number, url)
 - lx-textarea
@@ -48,19 +48,21 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 - lx-file-input
 - lx-subhead
 
-## Available Wrappers
+## Wrappers
 Handled by ngMessages
 
 ### Styles
 - lx-wrapper-description
 - lx-wrapper-card
+- more coming soon...
 
 ### Error Handling
 - lx-wrapper-error-required
 - lx-wrapper-errors-text (general validation error messages)
+- more coming soon...
 
 ### Flex-Box Grids
-Coming soon!
+- lx-wrapper-grid (Coming soon!)
   
 ## Examples
   
