@@ -7,7 +7,7 @@
     var vm = this;
     vm.links = [{
       state: 'text',
-      title: 'Text-Fields'
+      title: 'Text'
     }, {
       state: 'option',
       title: 'Options'
