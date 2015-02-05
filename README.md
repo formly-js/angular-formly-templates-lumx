@@ -60,7 +60,8 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 Handled by ngMessages
 
 ### Styles
-- lx-wrapper-description
+- lx-wrapper-above (text above form field)
+- lx-wrapper-below (text above form field)
 - lx-wrapper-card
 - more coming soon...
 
@@ -119,22 +120,6 @@ Handled by ngMessages
         }
       }
     }</code></pre>
-
-#### Subheads
-
-Create Subheaders for your forms. Not in LumX, but a useful additional.
-
-<pre><code>$scope.formFields = [{
-      key: 'subEmail',
-      type: 'lx-subhead',
-      templateOptions: {
-        subhead: 'Text Fields:',
-        class: 'fs-headline',
-        style: {
-          'text-decoration': 'underline'
-        }
-      }
-    }]</code></pre>
     
 # Known Issues
 
