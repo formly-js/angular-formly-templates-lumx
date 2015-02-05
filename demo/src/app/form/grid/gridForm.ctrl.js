@@ -7,16 +7,17 @@
 
   function GridFormCtrl() {
     var vm = this;
-    vm.formFieldsRow = [{
+    vm.formDataRow = {};
+    vm.formDataCol = {};
+    vm.formDataSpace = {};
+    vm.formFields = [{
       key: 'rowItem1',
       type: 'lx-text-field',
       wrapper: 'lx-wrapper-grid',
       templateOptions: {
         type: 'text',
         fixedLabel: true,
-        label: 'Flex-item = 2',
-        gridFlexItem: '2',
-        gridFlexOrder: '1'
+        label: 'Item 1'
       }
     }, {
       key: 'rowItem2',
@@ -25,9 +26,7 @@
       templateOptions: {
         type: 'text',
         fixedLabel: true,
-        label: 'Flex-item = 6',
-        gridFlexItem: '6',
-        gridFlexOrder: '3'
+        label: 'Item 2'
       }
     }, {
       key: 'rowItem3',
@@ -36,11 +35,35 @@
       templateOptions: {
         type: 'text',
         fixedLabel: true,
-        label: 'Flex-item = 4',
-        gridFlexItem: '4',
-        gridFlexOrder: '2'
+        label: 'Item 3'
       }
     }];
+
+    vm.formFieldsBoxes = [{
+      key: 'box1',
+      type: 'lx-checkbox',
+      wrapper: 'lx-wrapper-grid',
+      templateOptions: {
+        label: 'Item 1'
+      }
+    }, {
+      key: 'box2',
+      type: 'lx-checkbox',
+      wrapper: 'lx-wrapper-grid',
+      templateOptions: {
+        label: 'Item 2'
+      }
+    }, {
+      key: 'box3',
+      type: 'lx-checkbox',
+      wrapper: 'lx-wrapper-grid',
+      templateOptions: {
+        label: 'Item 3'
+      }
+  }];
+
+    vm.formFieldsCopy = angular.copy(vm.formFields);
+    vm.formFieldsBoxesCopy = angular.copy(vm.formFieldsBoxes);
 
   }
 

@@ -7,11 +7,31 @@
 
   function gridFormFields() {
     this.fields = function () {
-
-      /* in progress */
-
-
-      return [];
+      return [{
+        key: 'item1',
+        type: 'lx-text-field',
+        templateOptions: {
+          type: 'text',
+          label: 'Field 1',
+          fixedLabel: true
+        }
+      }, {
+        key: 'item2',
+        type: 'lx-text-field',
+        templateOptions: {
+          type: 'text',
+          label: 'Field 2',
+          fixedLabel: true
+        }
+      }, {
+        key: 'item3',
+        type: 'lx-text-field',
+        templateOptions: {
+          type: 'text',
+          label: 'Field 3',
+          fixedLabel: true
+        }
+      }];
     };
   }
 
@@ -21,7 +41,7 @@
         url: '/grid',
         views: {
           'form@': {
-            templateUrl: 'app/form/formGrid.html',
+            templateUrl: 'app/form/grid/grid-form.html',
             controller: 'GridFormCtrl as vm'
           }
         }

@@ -8,7 +8,10 @@
   <div ng-controller="HeaderLinkCtrl as vm" class="banner-links">
     <div flex-container="row" flex-gutter="24" flex-align="space-between center">
       <div class="p+" ng-repeat="link in vm.links track by $index" flex-item>
-        <a class="tc-white-1 fs-title" ui-sref="{{::link.state}}">{{::link.title}}</a>
+        <a class="tc-white-1 fs-title" ui-sref="{{::link.state}}">
+          <button class="btn btn--l btn--white btn--flat" lx-ripple>{{::link.title}}
+          </button>
+        </a>
       </div>
     </div>
   </div>
