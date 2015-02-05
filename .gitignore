@@ -9,11 +9,10 @@ demo/dist
 demo/node_modules
 demo/.editorconfig
 demo/.jshintrc
-gulp/heroku.js
 demo/web.js
 demo/Procfile
 demo/.gitignore
-todo.txt
 build
+todo.txt
 gulpfile.js
 package.json
