@@ -50,6 +50,9 @@
 		}, {
 			name: 'description',
 			template: "<div><formly-transclude></formly-transclude><p id=\"{{::id}}_description\" ng-if=\"::options.templateOptions.description\">{{::options.templateOptions.description}}</p></div>"
+		}, {
+			name: 'card',
+			template: "<div class=\"card\"><div ng-if=\"::options.templateOptions.cardImage\" class=\"card__img card__img--top\"><img ng-src=\"{{options.templateOptions.cardImage}}\"> <span ng-if=\"::options.templateOptions.cardImageTitle\" class=\"fs-headline tc-white-1 display-block\">{{options.templateOptions.cardImageTitle}}</span></div><div class=\"p+\"><strong class=\"fs-headline display-block\">{{options.templateOptions.cardTitle}}</strong> <span class=\"fs-subhead tc-black-2 display-block\">{{options.templateOptions.cardSubTitle}}</span></div><div class=\"paragraph fs-body-1\"><formly-transclude></formly-transclude></div></div>"
 		}
 	];
 
