@@ -7,7 +7,17 @@
 
   function wrapperFormFields() {
     this.fields = function () {
-      return [];
+      return [{
+        key: 'text0',
+        type: 'lx-text-field',
+        wrapper: 'lx-wrapper-description',
+        templateOptions: {
+          type: 'text',
+          fixedLabel: true,
+          label: 'Element with a description wrapper',
+          description: 'Add "wrapper: \'lx-wrapper-description\'" to any field.'
+        }
+      }];
     };
   }
 
