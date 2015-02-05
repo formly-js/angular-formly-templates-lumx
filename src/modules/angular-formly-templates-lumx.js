@@ -77,7 +77,7 @@
 				formlyConfigProvider.setTemplateUrl(PREFIX + '-' + field.name, 'fields/formly-templates-' + PREFIX + '-' + field.name + '.html');
 			});
 			angular.forEach(WRAPPERS, function (wrapper) {
-				formlyConfigProvider.setTemplateUrl(PREFIX + '-' + wrapper.name, 'wrappers/formly-wrappers-' + PREFIX + '-' + wrapper.name + '.html');
+				formlyConfigProvider.setTemplateUrl(PREFIX + '-wrapper-' + wrapper.name, 'wrappers/formly-wrappers-' + PREFIX + '-' + wrapper.name + '.html');
 			});
 		}
 	}
