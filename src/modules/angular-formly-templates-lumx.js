@@ -85,8 +85,8 @@
 			angular.forEach(FIELDS, function (field) {
 				formlyConfigProvider.setType({
 					name: PREFIX + '-' + field.name,
-					templateUrl: 'fields/formly-templates-' + PREFIX + '-' + field.name + '.html',
-					wrapper: wrapperList
+					templateUrl: 'fields/formly-templates-' + PREFIX + '-' + field.name + '.html'
+					//, wrapper: wrapperList
 				});
 			});
 
