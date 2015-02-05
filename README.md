@@ -21,7 +21,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 ## Dependencies
 
 1. Angular 1.3.x or greater
-2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") 
+2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.0.0)
 3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") 
 4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs")
 
@@ -40,7 +40,7 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
   ])</code></pre>
 
 
- ## HTML
+## HTML
 
    Not much necessary. The form only requires the <code>formly-form</code> directive tag. For example:
 
@@ -72,7 +72,7 @@ Handled by ngMessages
 ### Flex-Box Grids
 - lx-wrapper-grid (Coming soon!)
 
-## Form-Fields
+### Form-Fields
 
 - lx-text-field (email, password, number, url)
 - lx-textarea
@@ -85,7 +85,7 @@ Handled by ngMessages
 - lx-subhead
 
   
-### Email & Password
+#### Email & Password
   
   Create form fields by attaching a JSON object in the controller.
   
@@ -120,7 +120,7 @@ Handled by ngMessages
       }
     }</code></pre>
 
-### Subheads
+#### Subheads
 
 Create Subheaders for your forms. Not in LumX, but a useful additional.
 
