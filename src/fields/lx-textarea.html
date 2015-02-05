@@ -1,20 +1,20 @@
 <div>
   <lx-text-field id="{{::id}}"
-                 label="{{::options.label}} {{::options.required ? '*' : ''}}"
-                 fixed-label="::options.fixedLabel"
+                 label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
+                 fixed-label="::options.templateOptions.fixedLabel"
                  model="::result[options.key || index]"
-                 disabled="::options.disabled"
+                 disabled="::options.templateOptions.disabled"
                  valid="options.formField.$valid && options.formField.$touched"
                  error="options.formField.$invalid && options.formField.$touched || options.validators"
                  aria-describedby="{{::id}}_textarea">
     <textarea
       formly-dynamic-name="::id"
       ng-model="model[options.key]"
-      ng-disabled="::options.disabled"
+      ng-disabled="::options.templateOptions.disabled"
       ng-model-options="::options.modelOptions || {}"
-      ng-minlength="::options.minlength"
-      ng-maxlength="::options.maxlength"
-      ng-pattern="::options.patternValue"
-      ng-required="::options.required">
+      ng-minlength="::options.templateOptions.minlength"
+      ng-maxlength="::options.templateOptions.maxlength"
+      ng-pattern="::options.templateOptions.patternValue"
+      ng-required="::options.templateOptions.required">
     </textarea>
 </div>

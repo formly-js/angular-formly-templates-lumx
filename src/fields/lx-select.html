@@ -1,28 +1,28 @@
 <div>
   <br/>
   <h3><label for="{{::id}}">
-    {{::options.label || 'Select'}} {{::options.required ? '*' : ''}}
+    {{::options.templateOptions.label || 'Select'}} {{::options.templateOptions.required ? '*' : ''}}
   </label></h3>
   <lx-select id={{::id}}
              ng-model="model[options.key]"
              formly-dynamic-name="::id"
              placeholder="{{::options.placeholder}}"
-             choices="::options.choices"
-             change="::options.change"
-             filter="::options.filter"
+             choices="::options.templateOptions.choices"
+             change="::options.templateOptions.change"
+             filter="::options.templateOptions.filter"
              loading="{{::options.loading}}"
-             min-length="::options.minLength"
-             allow-clear="::options.allowClear"
+             min-length="::options.templateOptions.minLength"
+             allow-clear="::options.templateOptions.allowClear"
              aria-describedby="{{::id}}_select">
 
     <lx-select-selected>
-      {{$selected[options.selected]}} {{::options.selected2 ? ' - ' + $selected[options.selected2] : ''}}
+      {{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? ' - ' + $selected[options.templateOptions.selected2] : ''}}
     </lx-select-selected>
 
-    <lx-select-choices ng-bind-html="options.choice">
-      {{$choice[options.choice]}} {{::options.choice2 ? ' - ' + $choice[options.choice2] : ''}}
+    <lx-select-choices ng-bind-html="options.templateOptions.choice">
+      {{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? ' - ' + $choice[options.templateOptions.choice2] : ''}}
     </lx-select-choices>
 
   </lx-select>
-  <p id="{{::id}}_description" ng-if="::options.description">{{::options.description}}</p></div>
+  <p id="{{::id}}_description" ng-if="::options.templateOptions.description">{{::options.templateOptions.description}}</p></div>
 </div>
