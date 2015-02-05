@@ -27,10 +27,10 @@
 			template: "<div class=\"switch\" ng-class=\"{mt: options.templateOptions.help}\"><input type=\"checkbox\" id=\"{{::id + \'_\'+ $index}}\" class=\"switch__input\" ng-checked=\"options.templateOptions.checked\" ng-value=\"::options.templateOptions.value\" ng-disabled=\"::options.templateOptions.disabled\" ng-model=\"model[options.key]\" formly-dynamic-name=\"::id\" aria-describedby=\"{{::id}}_switch\"><label for=\"{{::id + \'_\'+ $index}}\" class=\"switch__label\">{{::options.templateOptions.label}}</label><span class=\"switch__help\">{{::options.templateOptions.help}}</span></div>"
 		}, {
 			name: 'text-field',
-			template: "<div><lx-text-field id=\"{{::id}}\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" fixed-label=\"::options.templateOptions.fixedLabel\" model=\"::result[options.key || index]\" disabled=\"::options.templateOptions.disabled\" valid=\"options.formField.$valid && options.formField.$touched\" error=\"options.formField.$invalid && options.formField.$touched || options.validators\" aria-describedby=\"{{::id}}_textField\"><input type=\"{{::options.templateOptions.mode}}\" formly-dynamic-name=\"::id\" ng-model=\"model[options.key]\" ng-disabled=\"::options.templateOptions.disabled\" ng-model-options=\"::options.modelOptions || {}\" ng-minlength=\"::options.templateOptions.minlength\" ng-maxlength=\"::options.templateOptions.maxlength\" ng-min=\"::options.templateOptions.min\" ng-max=\"::options.templateOptions.max\" ng-pattern=\"::options.templateOptions.pattern\" ng-required=\"::options.templateOptions.required\"></lx-text-field></div>"
+			template: "<div><lx-text-field id=\"{{::id}}\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" fixed-label=\"::options.templateOptions.fixedLabel\" model=\"::result[options.key || index]\" disabled=\"::options.templateOptions.disabled\" valid=\"options.formControl.$valid && options.formControl.$touched\" error=\"options.formControl.$invalid && options.formControl.$touched || options.validators\" aria-describedby=\"{{::id}}_textField\"><input type=\"{{::options.templateOptions.type}}\" formly-dynamic-name=\"::id\" ng-model=\"model[options.key]\" ng-disabled=\"::options.templateOptions.disabled\" ng-model-options=\"::options.modelOptions || {}\" ng-minlength=\"::options.templateOptions.minlength\" ng-maxlength=\"::options.templateOptions.maxlength\" ng-min=\"::options.templateOptions.min\" ng-max=\"::options.templateOptions.max\" ng-pattern=\"::options.templateOptions.pattern\" ng-required=\"::options.templateOptions.required\"></lx-text-field></div>"
 		}, {
 			name: 'textarea',
-			template: "<div><lx-text-field id=\"{{::id}}\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" fixed-label=\"::options.templateOptions.fixedLabel\" model=\"::result[options.key || index]\" disabled=\"::options.templateOptions.disabled\" valid=\"options.formField.$valid && options.formField.$touched\" error=\"options.formField.$invalid && options.formField.$touched || options.validators\" aria-describedby=\"{{::id}}_textarea\"><textarea formly-dynamic-name=\"::id\" ng-model=\"model[options.key]\" ng-disabled=\"::options.templateOptions.disabled\" ng-model-options=\"::options.modelOptions || {}\" ng-minlength=\"::options.templateOptions.minlength\" ng-maxlength=\"::options.templateOptions.maxlength\" ng-pattern=\"::options.templateOptions.patternValue\" ng-required=\"::options.templateOptions.required\"></textarea></lx-text-field></div>"
+			template: "<div><lx-text-field id=\"{{::id}}\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" fixed-label=\"::options.templateOptions.fixedLabel\" model=\"::result[options.key || index]\" disabled=\"::options.templateOptions.disabled\" valid=\"options.formControl.$valid && options.formControl.$touched\" error=\"options.formControl.$invalid && options.formControl.$touched || options.validators\" aria-describedby=\"{{::id}}_textarea\"><textarea formly-dynamic-name=\"::id\" ng-model=\"model[options.key]\" ng-disabled=\"::options.templateOptions.disabled\" ng-model-options=\"::options.modelOptions || {}\" ng-minlength=\"::options.templateOptions.minlength\" ng-maxlength=\"::options.templateOptions.maxlength\" ng-pattern=\"::options.templateOptions.patternValue\" ng-required=\"::options.templateOptions.required\"></textarea></lx-text-field></div>"
 		}, {
 			name: 'file-input',
 			template: "<div class=\"grid\"><div class=\"grid__col6\"><lx-file-input label=\"{{::options.fileLabel}}\" model=\"::model[options.key].fileData\" ng-disabled=\"::options.templateOptions.disabled\" ng-required=\"::options.templateOptions.required\" aria-describedby=\"{{::id}}_fileInput\"></lx-file-input></div><div class=\"grid__col6\"><div><lx-text-field id=\"{{::id}}\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" fixed-label=\"::options.templateOptions.fixedLabel\" model=\"model[options.key].fileName\" disabled=\"::options.templateOptions.disabled\" valid=\"options.formField.$valid && options.formField.$touched\" error=\"options.formField.$invalid && options.formField.$touched || options.validators\" aria-describedby=\"{{::id}}_fileName\"><input type=\"text\" formly-dynamic-name=\"::id\" data-ng-model=\"model[options.key].fileName\" ng-disabled=\"::options.templateOptions.disabled\" ng-model-options=\"::options.modelOptions || {}\" ng-minlength=\"::options.templateOptions.minlength\" ng-maxlength=\"::options.templateOptions.maxlength\" ng-pattern=\"::options.templateOptions.pattern\" ng-required=\"::options.templateOptions.required\"></lx-text-field></div></div></div>"
@@ -43,10 +43,10 @@
 	var WRAPPERS = [
 		{
 			name: 'error-required',
-			template: "<div><formly-transclude></formly-transclude><ul class=\"form-error\" ng-messages=\"options.formField.$error\" ng-show=\"options.formField.$invalid && options.formField.$touched\"><li ng-message=\"required\">Aren\'t you forgetting something?</li></ul></div>"
+			template: "<div><formly-transclude></formly-transclude><ul class=\"form-error\" ng-messages=\"options.formControl.$error\" ng-show=\"options.formControl.$invalid && options.formControl.$touched\"><li ng-message=\"required\">Aren\'t you forgetting something?</li></ul></div>"
 		}, {
 			name: 'errors-text',
-			template: "<div><formly-transclude></formly-transclude><ul class=\"form-error\" ng-messages=\"options.formField.$error\" ng-show=\"options.formField.$invalid && options.formField.$touched|| options.validators\"><li ng-message=\"required\">Aren\'t you forgetting something?</li><li ng-message=\"email\">Not a valid email.</li><li ng-message=\"minlength\">Too short. {{::options.minlength}} or more characters.</li><li ng-message=\"maxlength\">Too long. {{::options.maxlength}} or less characters.</li><li ng-message=\"min\">Too low. {{::options.min}} or higher.</li><li ng-message=\"max\">Too high. {{::options.max}} or lower.</li><li ng-message=\"pattern\">This doesn\'t look right.</li><li ng-message=\"url\">Not a valid url. For example: \'https://www.example.com\'</li><li ng-message=\"number\">Not a valid number.</li></ul></div>"
+			template: "<div><formly-transclude></formly-transclude><ul class=\"form-error\" ng-messages=\"options.formControl.$error\" ng-show=\"options.formControl.$invalid && options.formControl.$touched|| options.validators\"><li ng-message=\"required\">Aren\'t you forgetting something?</li><li ng-message=\"email\">Not a valid email.</li><li ng-message=\"minlength\">Too short. {{::options.minlength}} or more characters.</li><li ng-message=\"maxlength\">Too long. {{::options.maxlength}} or less characters.</li><li ng-message=\"min\">Too low. {{::options.min}} or higher.</li><li ng-message=\"max\">Too high. {{::options.max}} or lower.</li><li ng-message=\"pattern\">This doesn\'t look right.</li><li ng-message=\"url\">Not a valid url. For example: \'https://www.example.com\'</li><li ng-message=\"number\">Not a valid number.</li></ul></div>"
 		}
 	];
 
@@ -73,12 +73,23 @@
 	/*@ngInject*/
 	function setCustomTemplates(usingCustomTemplates, formlyConfigProvider, FIELDS, WRAPPERS, PREFIX) {
 		if (usingCustomTemplates) {
-			angular.forEach(FIELDS, function (field) {
-				formlyConfigProvider.setTemplateUrl(PREFIX + '-' + field.name, 'fields/formly-templates-' + PREFIX + '-' + field.name + '.html');
-			});
+			var wrapperList = [];
 			angular.forEach(WRAPPERS, function (wrapper) {
-				formlyConfigProvider.setTemplateUrl(PREFIX + '-wrapper-' + wrapper.name, 'wrappers/formly-wrappers-' + PREFIX + '-' + wrapper.name + '.html');
+				wrapperList.push(PREFIX + '-wrapper-' + wrapper.name);
+				formlyConfigProvider.setWrapper({
+					name: PREFIX + '-wrapper-' + wrapper.name,
+					templateUrl: 'wrappers/formly-wrappers-' + PREFIX + '-' + wrapper.name + '.html'
+				});
 			});
+
+			angular.forEach(FIELDS, function (field) {
+				formlyConfigProvider.setType({
+					name: PREFIX + '-' + field.name,
+					templateUrl: 'fields/formly-templates-' + PREFIX + '-' + field.name + '.html',
+					wrapper: wrapperList
+				});
+			});
+
 		}
 	}
 

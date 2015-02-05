@@ -4,10 +4,10 @@
                  fixed-label="::options.templateOptions.fixedLabel"
                  model="::result[options.key || index]"
                  disabled="::options.templateOptions.disabled"
-                 valid="options.formField.$valid && options.formField.$touched"
-                 error="options.formField.$invalid && options.formField.$touched || options.validators"
+                 valid="options.formControl.$valid && options.formControl.$touched"
+                 error="options.formControl.$invalid && options.formControl.$touched || options.validators"
                  aria-describedby="{{::id}}_textField">
-    <input type="{{::options.templateOptions.mode}}"
+    <input type="{{::options.templateOptions.type}}"
            formly-dynamic-name="::id"
            ng-model="model[options.key]"
            ng-disabled="::options.templateOptions.disabled"
@@ -20,5 +20,3 @@
            ng-required="::options.templateOptions.required">
   </lx-text-field>
 </div>
-
-

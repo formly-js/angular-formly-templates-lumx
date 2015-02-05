@@ -26,7 +26,9 @@
         label: 'Hidden Pre-checked Box',
         checked: true
       },
-      hideExpression: '!checkbox0'
+      expressionProperties: {
+        hide: '!checkbox0'
+      }
     }, {
       key: 'checkbox2',
       type: 'lx-checkbox',
@@ -214,7 +216,7 @@
       key: 'email',
       type: 'lx-text-field',
       templateOptions: {
-        mode: 'email',
+        type: 'email',
         label: 'Email',
         required: true
       },
@@ -232,7 +234,7 @@
       key: 'password',
       type: 'lx-text-field',
       templateOptions: {
-        mode: 'password',
+        type: 'password',
         label: 'Password',
         required: true,
         minlength: 4,
@@ -252,7 +254,7 @@
       key: 'fixedLabel',
       type: 'lx-text-field',
       templateOptions: {
-        mode: 'text',
+        type: 'text',
         label: 'This Label Doesn\'t Float',
         fixedLabel: true
       }
@@ -266,7 +268,7 @@
       key: 'url0',
       type: 'lx-text-field',
       templateOptions: {
-        mode: 'url',
+        type: 'url',
         label: 'Write a proper URL',
         help: 'http://www.google.com'
       },
@@ -275,7 +277,7 @@
       key: 'disabledText',
       type: 'lx-text-field',
       templateOptions: {
-        mode: 'text',
+        type: 'text',
         label: 'This Field is Disabled',
         disabled: true,
         fixedLabel: true
@@ -284,7 +286,7 @@
       key: 'textPattern',
       type: 'lx-text-field',
       templateOptions: {
-        mode: 'text',
+        type: 'text',
         label: 'Valid Four Letter Word Checker',
         pattern: /^[A-Za-z]{4}$/,
       },
