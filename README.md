@@ -64,7 +64,7 @@ Handled by ngMessages
   
 ```html
   <!-- formly-form directive generates templates -->
-    <formly-form result="vm.formData" fields="vm.formFields" options="vm.formOptions"
+    <formly-form model="vm.formData" fields="vm.formFields" options="vm.formOptions"
                  ng-submit="vm.submit(form.$valid)" name="form">
       <!-- end of formly-form contents -->
       <br>
@@ -81,7 +81,7 @@ Handled by ngMessages
       type: 'lx-text-field', // formlyTemplate
       wrapper: 'lx-wrapper-errors-text', // error handling with ngMessages
       templateOptions: {
-        mode: 'email', // input type: [email, password, text, url, number]
+        type: 'email', // input type: [email, password, text, url, number]
         label: 'Email',
         required: true
        }
@@ -90,7 +90,7 @@ Handled by ngMessages
       type: 'lx-text-field',
       wrapper: 'lx-wrapper-errors-text',
       templateOptions: {
-        mode: 'password',
+        type: 'password',
         label: 'Password',
         required: true,
         minlength: 4,
