@@ -1,3 +1,9 @@
+// injector
+@import '../fonts/md-icons';
+@import '../fonts/roboto';
+
+// endinjector
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -22,9 +28,4 @@ a {
   padding-right: 15px;
 }
 
-$icon-font-path: '../assets/fonts';
-
-// injector
-@import '../assets/fonts/md-icons';
-@import '../assets/fonts/roboto';
-// endinjector
+$icon-font-path: '../app/fonts/';

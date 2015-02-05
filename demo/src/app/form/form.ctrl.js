@@ -13,9 +13,11 @@
       LxDialogService.open();
     };
 
-    vm.prettyJson = function () {
-      return angular.toJson(vm.formFields);
+    vm.prettyJson = function (formFields) {
+      return angular.toJson(formFields);
     };
+
+
 
   }
 

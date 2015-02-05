@@ -1,4 +1,5 @@
 <div>
+	<p>{{options.templateOptions | json}}</p>
   <br/>
   <h3><label for="{{::id}}">
     {{::options.templateOptions.label || 'Select'}} {{::options.templateOptions.required ? '*' : ''}}
@@ -6,23 +7,26 @@
   <lx-select id={{::id}}
              ng-model="model[options.key]"
              formly-dynamic-name="::id"
-             placeholder="{{::options.placeholder}}"
-             choices="::options.templateOptions.choices"
+             formly-custom-validation="options.validators"
+             aria-describedby="{{::id}}_select"
+
+             choices="options.templateOptions.choices"
+
+             placeholder="{{::options.templateOptions.placeholder}}"
              change="::options.templateOptions.change"
              filter="::options.templateOptions.filter"
-             loading="{{::options.loading}}"
+             loading="{{::options.templateOptions.loading}}"
              min-length="::options.templateOptions.minLength"
-             allow-clear="::options.templateOptions.allowClear"
-             aria-describedby="{{::id}}_select">
+             allow-clear="::options.templateOptions.allowClear">
 
     <lx-select-selected>
       {{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? ' - ' + $selected[options.templateOptions.selected2] : ''}}
     </lx-select-selected>
 
-    <lx-select-choices ng-bind-html="options.templateOptions.choice">
+    <lx-select-choices>
       {{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? ' - ' + $choice[options.templateOptions.choice2] : ''}}
     </lx-select-choices>
 
-  </lx-select>
+  </lx-select>z
   <p id="{{::id}}_description" ng-if="::options.templateOptions.description">{{::options.templateOptions.description}}</p></div>
 </div>
