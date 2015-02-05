@@ -1,7 +1,7 @@
 angular-formly-lumx-templates
 =============================
 
-LumX Templates for Angular-Formly
+LumX Templates for Angular-Formly. Modern forms made easy.
 
 # Introduction
 
