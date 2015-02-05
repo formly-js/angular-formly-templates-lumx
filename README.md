@@ -51,8 +51,16 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 ## Available Wrappers
 Handled by ngMessages
 
+### Styles
+- lx-wrapper-description
+- lx-wrapper-card
+
+### Error Handling
 - lx-wrapper-error-required
 - lx-wrapper-errors-text (general validation error messages)
+
+### Flex-Box Grids
+Coming soon!
   
 ## Examples
   
