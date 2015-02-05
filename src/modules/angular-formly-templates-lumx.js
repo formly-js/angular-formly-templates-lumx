@@ -48,14 +48,17 @@
 			name: 'errors-text',
 			template: "<div><formly-transclude></formly-transclude><ul class=\"form-error\" ng-messages=\"options.formControl.$error\" ng-show=\"options.formControl.$invalid && options.formControl.$touched|| options.validators\"><li ng-message=\"required\">Aren\'t you forgetting something?</li><li ng-message=\"email\">Not a valid email.</li><li ng-message=\"minlength\">Too short. {{::options.minlength}} or more characters.</li><li ng-message=\"maxlength\">Too long. {{::options.maxlength}} or less characters.</li><li ng-message=\"min\">Too low. {{::options.min}} or higher.</li><li ng-message=\"max\">Too high. {{::options.max}} or lower.</li><li ng-message=\"pattern\">This doesn\'t look right.</li><li ng-message=\"url\">Not a valid url. For example: \'https://www.example.com\'</li><li ng-message=\"number\">Not a valid number.</li></ul></div>"
 		}, {
-			name: 'description',
-			template: "<div><formly-transclude></formly-transclude><p id=\"{{::id}}_description\" ng-if=\"::options.templateOptions.description\">{{::options.templateOptions.description}}</p></div>"
-		}, {
 			name: 'card',
 			template: "<div class=\"card\"><div ng-if=\"::options.templateOptions.cardImage\" class=\"card__img card__img--top\"><img ng-src=\"{{options.templateOptions.cardImage}}\"> <span ng-if=\"::options.templateOptions.cardImageTitle\" class=\"fs-headline tc-white-1 display-block\">{{options.templateOptions.cardImageTitle}}</span></div><div class=\"p+\"><strong class=\"fs-headline display-block\">{{options.templateOptions.cardTitle}}</strong> <span class=\"fs-subhead tc-black-2 display-block\">{{options.templateOptions.cardSubTitle}}</span></div><div class=\"paragraph fs-body-1\"><formly-transclude></formly-transclude></div></div>"
 		}, {
 			name: 'grid',
 			template: "<div ng-class=\"::options.templateOptions.gridClass\" flex-item=\"{{::options.templateOptions.flexItem}}\" flex-order=\"{{::options.templateOptions.flexOrder}}\"><formly-transclude></formly-transclude></div>"
+		}, {
+			name: 'above',
+			template: "<span ng-if=\"::options.templateOptions.aboveSpace\"><br></span><div><span ng-if=\"::options.templateOptions.aboveText\" ng-class=\"::options.templateOptions.aboveClass || \'fs-headline\'\" ng-style=\"::options.templateOptions.aboveStyle\" aria-describedby=\"{{::id}}_wrapper_above\">{{::options.templateOptions.aboveText}}</span><formly-transclude></formly-transclude></div>"
+		}, {
+			name: 'below',
+			template: "<div><formly-transclude></formly-transclude><span ng-if=\"::options.templateOptions.belowText\" ng-class=\"::options.templateOptions.belowClass || \'p+\'\" ng-style=\"::options.templateOptions.belowStyle\" aria-describedby=\"{{::id}}_wrapper_below\">{{::options.templateOptions.belowText}}</span></div><span ng-if=\"::options.templateOptions.belowSpace\"><br></span>"
 		}
 	];
 

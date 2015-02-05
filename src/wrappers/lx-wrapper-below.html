@@ -1,0 +1,10 @@
+<div>
+	<formly-transclude></formly-transclude>
+<span ng-if="::options.templateOptions.belowText"
+      ng-class="::options.templateOptions.belowClass || 'p+'"
+      ng-style="::options.templateOptions.belowStyle"
+      aria-describedby="{{::id}}_wrapper_below">
+	{{::options.templateOptions.belowText}}</span>
+
+</div>
+<span ng-if="::options.templateOptions.belowSpace"><br/></span>

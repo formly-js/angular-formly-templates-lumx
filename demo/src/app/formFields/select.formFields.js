@@ -8,16 +8,12 @@
   function selectFormFields() {
     this.fields = function () {
       return [{
-        key: 'subSelect',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Selectors:',
-          style: {'text-decoration': 'underline'}
-        }
-      }, {
         key: 'select',
         type: 'lx-select',
+        wrapper: 'lx-wrapper-above',
         templateOptions: {
+          aboveText: 'Selectors: ',
+          aboveStyle: {'text-decoration': 'underline'},
           label: 'Single Select',
           placeholder: 'Choose an Email',
           allowClear: true,
@@ -56,16 +52,13 @@
           ]
         }
       }, {
-        key: 'subDatePicker',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Date Picker',
-          style: {'text-decoration': 'underline'}
-        }
-      }, {
         key: 'dob',
         type: 'lx-date-picker',
+        wrapper: 'lx-wrapper-above',
         templateOptions: {
+          aboveSpace: true,
+          aboveText: 'Date Picker',
+          aboveStyle: {'text-decoration': 'underline'},
           label: 'Pick a Date'
         }
       //}, {

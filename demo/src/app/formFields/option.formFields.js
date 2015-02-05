@@ -8,18 +8,14 @@
   function optionFormFields() {
     this.fields = function () {
       return [{
-        key: 'subCheckbox',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Checkboxes:',
-          style: {'text-decoration': 'underline'}
-        }
-      }, {
         key: 'checkbox0',
         type: 'lx-checkbox',
         value: false,
+        wrapper: 'lx-wrapper-above',
         templateOptions: {
-          label: 'Show Missing Box'
+          label: 'Show Missing Box',
+          aboveText: 'Checkboxes: ',
+          aboveStyle: {'text-decoration': 'underline'}
         }
       }, {
         key: 'checkbox1',
@@ -49,17 +45,14 @@
           disabled: true
         }
       }, {
-        key: 'subSwitch',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Switches:',
-          style: {'text-decoration': 'underline'}
-        }
-      }, {
         key: 'switch0',
         type: 'lx-switch',
+        wrapper: 'lx-wrapper-above',
         templateOptions: {
-          label: 'Untouched Switch'
+          label: 'Untouched Switch',
+          aboveSpace: true,
+          aboveText: 'Switches: ',
+          aboveStyle: {'text-decoration': 'underline'}
         }
       }, {
         key: 'switch1',
@@ -83,16 +76,13 @@
           disabled: true
         }
       }, {
-        key: 'subRadio',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Radio Buttons:',
-          style: {'text-decoration': 'underline'}
-        }
-      }, {
         key: 'radio0',
         type: 'lx-radio-buttons',
+        wrapper: 'lx-wrapper-above',
         templateOptions: {
+          aboveSpace: true,
+          aboveText: 'Radio Buttons',
+          aboveStyle: {'text-decoration': 'underline'},
           label: 'What\'s your favorite number?',
           options: [{
             name: 'One',

@@ -8,57 +8,42 @@
   function wrapperFormFields() {
     this.fields = function () {
       return [{
-        key: 'subCard',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Box Wrappers:',
-          class: 'fs-headline',
-          style: {
-            'text-decoration': 'underline'
-          }
-        }
-      }, {
-        key: 'card0',
-        type: 'lx-radio-buttons',
-        wrapper: 'lx-wrapper-card',
-        templateOptions: {
-          type: 'text',
-          fixedLabel: true,
-          label: 'How do you feel about kittens?',
-          cardTitle: 'Card Wrapper Example',
-          cardSubTitle: 'wrapper: \'lx-wrapper-card\'',
-          cardImage: 'http://placekitten.com/g/200/300',
-          cardImageTitle: 'Kittens!',
-          options: [{
-            name: 'Angry',
-            value: 'Mad person'
-          }, {
-            name: 'Happy',
-            value: 'Normal person'
-          }, {
-            name: 'Meow',
-            value: 'kitten'
-          }]
-        }
-      }, {
-        key: 'subText',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'Info Wrappers',
-          class: 'fs-headline',
-          style: {
-            'text-decoration': 'underline'
-          }
-        }
-      }, {
-        key: 'text0',
+        key: 'textBelow',
         type: 'lx-text-field',
-        wrapper: 'lx-wrapper-description',
+        wrapper: 'lx-wrapper-below',
         templateOptions: {
           type: 'text',
           fixedLabel: true,
-          label: 'Element with a description wrapper',
-          description: 'Add "wrapper: \'lx-wrapper-description\'" to any field.'
+          label: 'Field with text below',
+          belowText: 'Below wrapper with space below',
+          belowSpace: true
+        }
+      }, {
+        key: 'textAbove',
+        type: 'lx-text-field',
+        wrapper: 'lx-wrapper-above',
+        templateOptions: {
+          type: 'text',
+          fixedLabel: true,
+          label: 'Field with above wrapper',
+          aboveText: 'Above wrapper with space above',
+          aboveStyle: {
+            'text-decoration': 'underline'
+          },
+          aboveSpace: true
+        }
+      }, {
+        key: 'textBoth',
+        type: 'lx-text-field',
+        wrapper: ['lx-wrapper-below', 'lx-wrapper-above'],
+        templateOptions: {
+          type: 'text',
+          fixedLabel: true,
+          label: 'Field with both above & below wrapper',
+          aboveText: 'Both above text',
+          belowText: '& below text',
+          aboveClass: 'fs-title',
+          belowClass: 'fs-title'
         }
       }];
     };

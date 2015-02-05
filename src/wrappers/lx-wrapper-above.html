@@ -1,0 +1,9 @@
+<span ng-if="::options.templateOptions.aboveSpace"><br/></span>
+<div>
+<span ng-if="::options.templateOptions.aboveText"
+      ng-class="::options.templateOptions.aboveClass || 'fs-headline'"
+      ng-style="::options.templateOptions.aboveStyle"
+      aria-describedby="{{::id}}_wrapper_above">
+	{{::options.templateOptions.aboveText}}</span>
+	<formly-transclude></formly-transclude>
+</div>

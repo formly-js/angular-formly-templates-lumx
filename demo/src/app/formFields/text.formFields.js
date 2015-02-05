@@ -8,24 +8,58 @@
   function textFormFields() {
     this.fields = function () {
       return [{
-        key: 'subEmail',
-        type: 'lx-subhead',
+        key: 'name',
+        type: 'lx-text-field',
+        wrapper: 'lx-wrapper-above',
         templateOptions: {
-          subhead: 'Text Fields:',
-          class: 'fs-headline',
-          style: {
+          aboveText: 'Text Fields: ',
+          aboveStyle: {
             'text-decoration': 'underline'
-          }
+          },
+          type: 'text',
+          label: 'Name'
+        }
+      }, {
+        key: 'fixedLabel',
+        type: 'lx-text-field',
+        templateOptions: {
+          type: 'text',
+          label: 'This Label Doesn\'t Float',
+          fixedLabel: true
+        }
+      }, {
+        key: 'disabledText',
+        type: 'lx-text-field',
+        templateOptions: {
+          type: 'text',
+          label: 'This Field is Disabled',
+          disabled: true,
+          fixedLabel: true
+        }
+      }, {
+        key: 'textArea',
+        type: 'lx-textarea',
+        wrapper: 'lx-wrapper-above',
+        templateOptions: {
+          aboveText: 'Textarea: ',
+          aboveSpace: true,
+          aboveStyle: {
+            'text-decoration': 'underline'
+          },
+          label: 'Textarea: Write as much as you\'d like'
         }
       }, {
         key: 'email',
         type: 'lx-text-field',
+        wrapper: ['lx-wrapper-error-required', 'lx-wrapper-above'],
         templateOptions: {
+          aboveText: 'Validation: ',
+          aboveStyle: { 'text-decoration': 'underline' },
+          aboveSpace: true,
           type: 'email',
-          label: 'Email',
+          label: 'Email with validation',
           required: true
         },
-        wrapper: 'lx-wrapper-error-required',
         modelOptions: {
           allowInvalid: true,
           updateOn: 'default blur keydown',
@@ -56,20 +90,6 @@
           }
         }
       }, {
-        key: 'fixedLabel',
-        type: 'lx-text-field',
-        templateOptions: {
-          type: 'text',
-          label: 'This Label Doesn\'t Float',
-          fixedLabel: true
-        }
-      }, {
-        key: 'textArea',
-        type: 'lx-textarea',
-        templateOptions: {
-          label: 'Textarea: Write as much as you\'d like'
-        }
-      }, {
         key: 'url0',
         type: 'lx-text-field',
         templateOptions: {
@@ -78,15 +98,6 @@
           help: 'http://www.google.com'
         },
         wrapper: 'lx-wrapper-errors-text'
-      }, {
-        key: 'disabledText',
-        type: 'lx-text-field',
-        templateOptions: {
-          type: 'text',
-          label: 'This Field is Disabled',
-          disabled: true,
-          fixedLabel: true
-        }
       }, {
         key: 'textPattern',
         type: 'lx-text-field',
