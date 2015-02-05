@@ -7,9 +7,12 @@ LumX Templates for Angular-Formly
 
 Use JSON in Angular to create simple & elegant forms based on Google's Material Design specs. 
 
-# Demo
+# Demo & Examples
 
 See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") for examples.
+
+
+# Setup
 
 ## Bower
 
@@ -35,18 +38,23 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
     'lumx',
     'formly.lumx'
   ])</code></pre>
-  
-## Form-Fields
 
-- lx-text-field (email, password, number, url)
-- lx-textarea
-- lx-switch
-- lx-checkbox
-- lx-date-picker
-- lx-radio-buttons
-- lx-select, lx-select-multiple
-- lx-file-input
-- lx-subhead
+
+ ## HTML
+
+   Not much necessary. The form only requires the <code>formly-form</code> directive tag. For example:
+
+ ```html
+   <!-- formly-form directive generates templates -->
+     <formly-form model="vm.formData" fields="vm.formFields" options="vm.formOptions"
+                  ng-submit="vm.submit(form.$valid)" name="form">
+       <!-- end of formly-form contents -->
+       <br>
+       <button class="btn btn--m btn--blue btn--raised" lx-ripple type="submit">Submit</button>
+     </formly-form>
+ ```
+
+# Elements
 
 ## Wrappers
 Handled by ngMessages
@@ -63,26 +71,21 @@ Handled by ngMessages
 
 ### Flex-Box Grids
 - lx-wrapper-grid (Coming soon!)
+
+## Form-Fields
+
+- lx-text-field (email, password, number, url)
+- lx-textarea
+- lx-switch
+- lx-checkbox
+- lx-date-picker
+- lx-radio-buttons
+- lx-select, lx-select-multiple
+- lx-file-input
+- lx-subhead
+
   
-## Examples
-  
-  Examples are copied from the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
-  
-#### HTML
-  
-  Not much necessary. The form only requires the <code>formly-form</code> directive tag. For example:
-  
-```html
-  <!-- formly-form directive generates templates -->
-    <formly-form model="vm.formData" fields="vm.formFields" options="vm.formOptions"
-                 ng-submit="vm.submit(form.$valid)" name="form">
-      <!-- end of formly-form contents -->
-      <br>
-      <button class="btn btn--m btn--blue btn--raised" lx-ripple type="submit">Submit</button>
-    </formly-form>
-```
-  
-#### Email & Password
+### Email & Password
   
   Create form fields by attaching a JSON object in the controller.
   
@@ -117,7 +120,7 @@ Handled by ngMessages
       }
     }</code></pre>
 
-#### Subheads
+### Subheads
 
 Create Subheaders for your forms. Not in LumX, but a useful additional.
 
@@ -133,6 +136,6 @@ Create Subheaders for your forms. Not in LumX, but a useful additional.
       }
     }]</code></pre>
     
-## Known Issues
+# Known Issues
 
 LumX has a conflict with a simlarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select".
