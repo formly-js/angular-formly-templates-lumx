@@ -28,6 +28,6 @@
     "lumx": "~0.3.*"
   },
   "resolutions": {
-    "angular-formly": "~3.0.0 || 2.0.0" // angular-formly npm module available
+    "angular-formly": "~3.0.0 || 2.0.0"
   }
 }
