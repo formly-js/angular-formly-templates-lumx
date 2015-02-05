@@ -1,17 +1,17 @@
-<div class="banner bgc-blue-200 tc-white-1">
+<div class="banner tc-white-1">
   <h1 class="fs-display2">Angular-Formly Templates for LumX</h1>
   <a href="https://github.com/formly-js/angular-formly-templates-lumx">
     <button class="btn btn--l btn--blue btn--raised" lx-ripple>On Github
     </button>
   </a>
-
-  <!-- in progress -->
-  <!--<div ng-controller="HeaderLinkCtrl as vm">-->
-    <!--<div class="tc-white-1" flex-container="row" flex-gutter="24">-->
-      <!--<div class="p+" ng-repeat="link in vm.links track by $index" flex-item="{{$index}}">-->
-        <!--<a ui-sref="{{::link.state}}">{{::link.title}}</a>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-
 </div>
+
+<div ng-controller="HeaderLinkCtrl as vm" class="banner-links bgc-light-blue-500">
+  <div flex-container="row" flex-gutter="24">
+    <div class="p+" ng-repeat="link in vm.links track by $index" flex-item>
+      <a class="tc-white-1" ui-sref="{{::link.state}}">{{::link.title}}</a>
+    </div>
+  </div>
+</div>
+
+
