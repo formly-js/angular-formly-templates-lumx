@@ -7,18 +7,12 @@
   function FormCtrl(LxDialogService, formFields) {
     var vm = this;
     vm.formData = {};
-    vm.formFields = formFields;
+    vm.formFields = formFields();
+    vm.prettyJson = formFields();
 
     vm.submit = function () {
       LxDialogService.open();
     };
-
-    vm.prettyJson = function (formFields) {
-      return angular.toJson(formFields);
-    };
-
-
-
   }
 
 }());
