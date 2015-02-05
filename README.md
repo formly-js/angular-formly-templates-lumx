@@ -60,8 +60,8 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 Handled by ngMessages
 
 ### Styles
-- lx-wrapper-above (text above form field)
-- lx-wrapper-below (text above form field)
+- lx-wrapper-above (styled text above form field)
+- lx-wrapper-below (or below)
 - lx-wrapper-card
 - more coming soon...
 
