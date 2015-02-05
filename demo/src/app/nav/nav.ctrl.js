@@ -6,9 +6,8 @@
 
   function NavCtrl(SidebarService) {
     var vm = this;
-    this.isCollapsed = true;
-    this.sidebar = SidebarService;
-    this.outLinks = [{
+    vm.sidebar = SidebarService;
+    vm.outLinks = [{
       text: 'Angular-Formly',
       link: 'https://github.com/formly-js/angular-formly'
     }, {
@@ -19,7 +18,7 @@
       link: 'https://github.com/formly-js/angular-formly-templates-lumx'
     }];
 
-    this.navLinks = [{
+    vm.navLinks = [{
       state: 'text',
       text: 'Text',
       icon: 'text-format'
@@ -47,10 +46,14 @@
       state: 'select',
       text: 'Dates',
       icon: 'today'
+      //}, {
+      //  state: 'select',
+      //  text: 'Files',
+      //  icon: 'file-upload'
     }, {
-      state: 'select',
-      text: 'Files',
-      icon: 'file-upload'
+      state: 'wrapper',
+      text: 'Wrapper',
+      icon: ''
     }];
   }
 

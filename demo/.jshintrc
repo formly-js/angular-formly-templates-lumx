@@ -20,7 +20,7 @@
   "white": true,
   "validthis": true,
   "globals": {
-    "angular": false,
+    "angular": true,
     // Angular Mocks
     "inject": false,
     // JASMINE

@@ -4,15 +4,11 @@
   angular.module('demo')
     .controller('FormCtrl', FormCtrl);
 
-  function FormCtrl(LxDialogService, formFields) {
+  function FormCtrl(formFields) {
     var vm = this;
     vm.formData = {};
     vm.formFields = formFields();
     vm.prettyJson = formFields();
-
-    vm.submit = function () {
-      LxDialogService.open();
-    };
   }
 
 }());

@@ -1,6 +1,6 @@
 <div class="grid">
 	<div class="grid__col6">
-		<lx-file-input label="{{::options.fileLabel}}"
+		<lx-file-input label="{{::options.templateOptions.fileLabel}}"
 		               model="::model[options.key].fileData"
 		               ng-disabled="::options.templateOptions.disabled"
 		               ng-required="::options.templateOptions.required"
@@ -14,8 +14,8 @@
 			               fixed-label="::options.templateOptions.fixedLabel"
 			               model="model[options.key].fileName"
 			               disabled="::options.templateOptions.disabled"
-			               valid="options.formField.$valid && options.formField.$touched"
-			               error="options.formField.$invalid && options.formField.$touched || options.validators"
+			               valid="options.formControl.$valid && options.formControl.$touched"
+			               error="options.formControl.$invalid && options.formControl.$touched || options.validators"
 			               aria-describedby="{{::id}}_fileName">
 				<input type="text"
 				       formly-dynamic-name="::id"

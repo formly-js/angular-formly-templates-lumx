@@ -7,12 +7,11 @@
 	<lx-select id={{::id}}
 	           ng-model="model[options.key]"
 	           formly-dynamic-name="::id"
-	           formly-custom-validation="options.validators"
 	           aria-describedby="{{::id}}_select"
-	           choices="::options.templateOptions.options"
+	           choices="options.templateOptions.options"
 	           placeholder="{{::options.templateOptions.placeholder}}"
-	           min-length="{{::options.templateOptions.minLength}}"
-	           allow-clear="{{::options.templateOptions.allowClear}}"
+	           min-length="::options.templateOptions.minLength"
+	           allow-clear="::options.templateOptions.allowClear"
 	           multiple>
 
 		<lx-select-selected>
@@ -26,6 +25,4 @@
 		</lx-select-choices>
 
 	</lx-select>
-	<p id="{{::id}}_description" ng-if="::options.templateOptions.description">
-		{{::options.templateOptions.description}}</p></div>
 </div>

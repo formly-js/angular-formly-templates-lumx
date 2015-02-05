@@ -93,7 +93,7 @@
         templateOptions: {
           type: 'text',
           label: 'Valid Four Letter Word Checker',
-          pattern: /^[A-Za-z]{4}$/,
+          pattern: /^[A-Za-z]{4}$/
         },
         wrapper: 'lx-wrapper-errors-text',
         modelOptions: {
@@ -112,14 +112,14 @@
   function stateRoutes($stateProvider) {
     $stateProvider
       .state('text', {
-        url: '/text',
+        url: '/',
         views: {
           'form@': {
             templateUrl: 'app/form/form.html',
             controller: 'FormCtrl as vm',
             resolve: {
-              formFields: function (FormFieldService) {
-                return FormFieldService.text;
+              formFields: function (textFormFields) {
+                return textFormFields.fields;
               }
             }
           }

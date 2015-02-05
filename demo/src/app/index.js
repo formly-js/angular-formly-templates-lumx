@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('demo', [
-    /* necessary modules */
+    /* angular-formly-templates-lumx dependencies */
     'ngMessages',
     'formly',
     'lumx',
@@ -18,7 +18,7 @@
 
   function routerSetup($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/text');
+      .otherwise('/');
     $locationProvider.html5Mode(true);
   }
 

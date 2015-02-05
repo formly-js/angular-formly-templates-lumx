@@ -1,27 +1,27 @@
 <div>
-  <br/>
-  <h3><label for="{{::id}}">
-    {{::options.templateOptions.label || 'Select'}} {{::options.templateOptions.required ? '*' : ''}}
-  </label></h3>
-  <lx-select id={{::id}}
-             ng-model="model[options.key]"
-             formly-dynamic-name="::id"
-             formly-custom-validation="options.validators"
-             aria-describedby="{{::id}}_select"
-             choices="::options.templateOptions.options"
-             placeholder="{{::options.templateOptions.placeholder}}"
-             min-length="{{::options.templateOptions.minLength}}"
-             allow-clear="{{::options.templateOptions.allowClear}}"
-	  >
+	<br/>
 
-    <lx-select-selected>
-      {{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? ' - ' + $selected[options.templateOptions.selected2] : ''}}
-    </lx-select-selected>
+	<h3><label for="{{::id}}">
+		{{::options.templateOptions.label || 'Select'}} {{::options.templateOptions.required ? '*' : ''}}
+	</label></h3>
+	<lx-select id={{::id}}
+	           ng-model="model[options.key]"
+	           formly-dynamic-name="::id"
+	           aria-describedby="{{::id}}_select"
+	           choices="options.templateOptions.options"
+	           placeholder="{{::options.templateOptions.placeholder}}"
+	           min-length="::options.templateOptions.minLength"
+	           allow-clear="::options.templateOptions.allowClear">
 
-    <lx-select-choices>
-      {{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? ' - ' + $choice[options.templateOptions.choice2] : ''}}
-    </lx-select-choices>
+		<lx-select-selected>
+			{{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? ' - ' +
+			$selected[options.templateOptions.selected2] : ''}}
+		</lx-select-selected>
 
-  </lx-select>
-  <p id="{{::id}}_description" ng-if="::options.templateOptions.description">{{::options.templateOptions.description}}</p></div>
+		<lx-select-choices>
+			{{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? ' - ' +
+			$choice[options.templateOptions.choice2] : ''}}
+		</lx-select-choices>
+
+	</lx-select>
 </div>

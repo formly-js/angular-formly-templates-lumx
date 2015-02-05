@@ -68,20 +68,20 @@
         templateOptions: {
           label: 'Pick a Date'
         }
-      }, {
-        key: 'subFileInput',
-        type: 'lx-subhead',
-        templateOptions: {
-          subhead: 'File Input',
-          style: {'text-decoration': 'underline'}
-        }
-      }, {
-        key: 'fileInput0',
-        type: 'lx-file-input',
-        templateOptions: {
-          fileLabel: 'Input a file...',
-          label: 'Filename'
-        }
+      //}, {
+      //  key: 'subFileInput',
+      //  type: 'lx-subhead',
+      //  templateOptions: {
+      //    subhead: 'File Input',
+      //    style: {'text-decoration': 'underline'}
+      //  }
+      //}, {
+        //key: 'fileInput0',
+        //type: 'lx-file-input',
+        //templateOptions: {
+        //  fileLabel: 'Input a file...',
+        //  label: 'Filename'
+        //}
       }];
     };
   }
@@ -89,14 +89,14 @@
   function stateRoutes($stateProvider) {
     $stateProvider
       .state('select', {
-        url: 'select',
+        url: '/select',
         views: {
           'form@': {
             templateUrl: 'app/form/form.html',
             controller: 'FormCtrl as vm',
             resolve: {
-              formFields: function (FormFieldService) {
-                return FormFieldService.select;
+              formFields: function (selectFormFields) {
+                return selectFormFields.fields;
               }
             }
           }

@@ -133,14 +133,14 @@
   function stateRoutes($stateProvider) {
     $stateProvider
       .state('option', {
-        url: 'options',
+        url: '/option',
         views: {
           'form@': {
             templateUrl: 'app/form/form.html',
             controller: 'FormCtrl as vm',
             resolve: {
-              formFields: function (FormFieldService) {
-                return FormFieldService.option;
+              formFields: function (optionFormFields) {
+                return optionFormFields.fields;
               }
             }
           }
