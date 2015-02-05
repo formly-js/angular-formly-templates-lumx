@@ -53,7 +53,9 @@
     }, {
       state: 'wrapper',
       text: 'Wrapper',
-      icon: ''
+    }, {
+      state: 'grid',
+      text: 'Grid'
     }];
   }
 

@@ -1,0 +1,57 @@
+<!-- in progress -->
+
+<div class="grid main-section__content">
+
+  <div class="grid__col5">
+    <div class="card tc-black-2 p-">
+      <h1 class="fs-display1">Form</h1>
+
+      <div class="card__content bgc-white" style="max-width: 450px">
+
+        <!-- flex-container: row -->
+        <div flex-container="row">
+          <formly-form model="vm.formData" fields="vm.formFields"
+                       ng-submit="vm.submit()" name="form">
+            <br>
+            <button class="btn btn--m btn--blue btn--raised" lx-ripple
+                    type="submit">Submit
+            </button>
+          </formly-form>
+        </div>
+
+        <!-- flex-container: col -->
+
+
+        <!-- flex-container gutter -->
+
+
+      </div>
+    </div>
+
+    <div class="card tc-black-2 p-">
+      <h1 class="fs-display1">vm.formData</h1>
+
+      <div class="card__content bgc-blue-200" style="max-width: 450px">
+        <pre pretty-json="vm.formData"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid__col7">
+    <div class="card tc-black-2 p-">
+      <h1 class="fs-display1">fm.formFields</h1>
+
+      <div class="card__content bgc-white" style="max-width: 450px">
+
+        <!-- JSON View -->
+        <pre pretty-json="vm.prettyJson"/>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Form Data -->
+<div ng-include="'app/form/data.html'"></div>
