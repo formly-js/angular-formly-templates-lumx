@@ -6,6 +6,12 @@
     .config(stateRoutes);
 
   function optionFormFields() {
+    this.contents = {
+      title: 'Option Pickers',
+      subhead: 'Checkboxes, Switches, Radio buttons',
+      description: ''
+    };
+
     this.fields = function () {
       return [{
         key: 'checkbox0',
@@ -131,7 +137,11 @@
             resolve: {
               formFields: function (optionFormFields) {
                 return optionFormFields.fields;
+              },
+              contents: function (optionFormFields) {
+                return optionFormFields.contents;
               }
+
             }
           }
         }

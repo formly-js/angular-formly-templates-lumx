@@ -1,5 +1,7 @@
 <div>
   <lx-text-field id="{{::id}}"
+                 icon="{{::options.templateOptions.icon}}"
+                 theme="{{::options.templateOptions.theme}}"
                  label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
                  fixed-label="::options.templateOptions.fixedLabel"
                  model="::model[options.key || index]"

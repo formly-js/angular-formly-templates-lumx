@@ -6,6 +6,12 @@
     .config(stateRoutes);
 
   function cardFormFields() {
+    this.contents = {
+      title: 'Card Wrappers',
+      subhead: '',
+      description: ''
+    };
+
     this.fields = function () {
       return [{
         key: 'card0',
@@ -45,6 +51,9 @@
             resolve: {
               formFields: function (cardFormFields) {
                 return cardFormFields.fields;
+              },
+              contents: function (cardFormFields) {
+                return cardFormFields.contents;
               }
             }
           }

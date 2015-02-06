@@ -3,9 +3,9 @@
 (function () {
   'use strict';
   angular.module('demo')
-    .controller('GridFormCtrl', GridFormCtrl);
+    .controller('FlexBoxFormCtrl', FlexBoxFormCtrl);
 
-  function GridFormCtrl() {
+  function FlexBoxFormCtrl() {
     var vm = this;
     vm.formDataRow = {};
     vm.formDataCol = {};

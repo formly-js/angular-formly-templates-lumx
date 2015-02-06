@@ -6,6 +6,13 @@
     .config(stateRoutes);
 
   function wrapperFormFields() {
+    this.contents = {
+      title: 'Wrappers',
+      subhead: 'Style control around your form fields',
+      description: ''
+    };
+
+
     this.fields = function () {
       return [{
         key: 'textBelow',
@@ -43,7 +50,8 @@
           aboveText: 'Both above text',
           belowText: '& below text',
           aboveClass: 'fs-title',
-          belowClass: 'fs-title'
+          belowClass: 'fs-title',
+          aboveSpace: true
         }
       }];
     };
@@ -60,6 +68,9 @@
             resolve: {
               formFields: function (wrapperFormFields) {
                 return wrapperFormFields.fields;
+              },
+              contents: function (wrapperFormFields) {
+                return wrapperFormFields.contents;
               }
             }
           }

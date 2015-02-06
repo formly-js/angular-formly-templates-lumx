@@ -5,6 +5,7 @@
     'shmck.formFields.select',
     'shmck.formFields.text',
     'shmck.formFields.wrapper',
-    'shmck.formFields.grid'
+    'shmck.formFields.themes',
+    'shmck.formFields.flexBox'
   ]);
 }());

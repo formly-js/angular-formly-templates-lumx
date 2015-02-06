@@ -6,8 +6,25 @@
     .config(stateRoutes);
 
   function selectFormFields() {
+    this.contents = {
+      title: 'Selectors',
+      subhead: 'Date picker, dropdown selects',
+      description: ''
+    };
+
+
     this.fields = function () {
       return [{
+        key: 'dob',
+        type: 'lx-date-picker',
+        wrapper: 'lx-wrapper-above',
+        templateOptions: {
+          aboveSpace: true,
+          aboveText: 'Date Picker',
+          aboveStyle: {'text-decoration': 'underline'},
+          label: 'Pick a Date'
+        }
+      }, {
         key: 'select',
         type: 'lx-select',
         wrapper: 'lx-wrapper-above',
@@ -51,24 +68,14 @@
             {name: 'Adrian', email: 'adrian@email.com', age: 21}
           ]
         }
-      }, {
-        key: 'dob',
-        type: 'lx-date-picker',
-        wrapper: 'lx-wrapper-above',
-        templateOptions: {
-          aboveSpace: true,
-          aboveText: 'Date Picker',
-          aboveStyle: {'text-decoration': 'underline'},
-          label: 'Pick a Date'
-        }
-      //}, {
-      //  key: 'subFileInput',
-      //  type: 'lx-subhead',
-      //  templateOptions: {
-      //    subhead: 'File Input',
-      //    style: {'text-decoration': 'underline'}
-      //  }
-      //}, {
+        //}, {
+        //  key: 'subFileInput',
+        //  type: 'lx-subhead',
+        //  templateOptions: {
+        //    subhead: 'File Input',
+        //    style: {'text-decoration': 'underline'}
+        //  }
+        //}, {
         //key: 'fileInput0',
         //type: 'lx-file-input',
         //templateOptions: {
@@ -90,6 +97,9 @@
             resolve: {
               formFields: function (selectFormFields) {
                 return selectFormFields.fields;
+              },
+              contents: function (selectFormFields) {
+                return selectFormFields.contents;
               }
             }
           }

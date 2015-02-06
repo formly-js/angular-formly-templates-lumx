@@ -20,42 +20,41 @@
 
     vm.navLinks = [{
       state: 'text',
-      text: 'Text',
-      icon: 'text-format'
+      text: 'Text'
+      //icon: 'text-format'
     }, {
       state: 'text',
-      text: 'Numbers',
-      icon: 'plus-one'
+      text: 'Numbers'
+      //icon: 'plus-one'
     }, {
       state: 'option',
-      text: 'Checkboxes',
-      icon: 'check-box'
+      text: 'Checkboxes'
+      //icon: 'check-box'
     }, {
       state: 'option',
-      text: 'Switches',
-      icon: 'radio-button-off'
+      text: 'Switches'
+      //icon: 'radio-button-off'
     }, {
       state: 'option',
-      text: 'Radio buttons',
-      icon: 'radio-button-on'
+      text: 'Radio buttons'
+      //icon: 'radio-button-on'
     }, {
       state: 'select',
-      text: 'Selectors',
-      icon: 'arrow-drop-down'
+      text: 'Selectors'
+      //icon: 'arrow-drop-down'
     }, {
       state: 'select',
-      text: 'Dates',
-      icon: 'today'
-      //}, {
-      //  state: 'select',
-      //  text: 'Files',
-      //  icon: 'file-upload'
+      text: 'Dates'
+      //icon: 'today'
     }, {
       state: 'wrapper',
-      text: 'Wrapper',
+      text: 'Wrapper'
     }, {
-      state: 'grid',
-      text: 'Grid'
+      state: 'themes',
+      text: 'Themes'
+    }, {
+      state: 'flex-box',
+      text: 'FlexBox'
     }];
   }
 

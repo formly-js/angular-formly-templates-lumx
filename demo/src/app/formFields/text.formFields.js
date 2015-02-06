@@ -6,6 +6,13 @@
     .config(stateRoutes);
 
   function textFormFields() {
+    this.contents = {
+      title: 'Text Form Fields',
+      subhead: '',
+      description: ''
+    };
+
+
     this.fields = function () {
       return [{
         key: 'name',
@@ -36,6 +43,19 @@
           disabled: true,
           fixedLabel: true
         }
+        //}, {
+        //  key: 'icon0',
+        //  type: 'lx-text-field',
+        //  wrapper: 'lx-wrapper-above',
+        //  templateOptions: {
+        //    aboveText: 'Icons: ',
+        //    aboveStyle: {
+        //      'text-decoration': 'underline'
+        //    },
+        //    icon: 'account',
+        //    fixedLabel: true,
+        //    label: 'Text Field with an icon'
+        //  }
       }, {
         key: 'textArea',
         type: 'lx-textarea',
@@ -46,7 +66,7 @@
           aboveStyle: {
             'text-decoration': 'underline'
           },
-          label: 'Textarea: Write as much as you\'d like'
+          label: 'Write as much as you\'d like. It\'ll fit.'
         }
       }, {
         key: 'email',
@@ -54,7 +74,7 @@
         wrapper: ['lx-wrapper-error-required', 'lx-wrapper-above'],
         templateOptions: {
           aboveText: 'Validation: ',
-          aboveStyle: { 'text-decoration': 'underline' },
+          aboveStyle: {'text-decoration': 'underline'},
           aboveSpace: true,
           type: 'email',
           label: 'Email with validation',
@@ -131,6 +151,9 @@
             resolve: {
               formFields: function (textFormFields) {
                 return textFormFields.fields;
+              },
+              contents: function (textFormFields) {
+                return textFormFields.contents;
               }
             }
           }
