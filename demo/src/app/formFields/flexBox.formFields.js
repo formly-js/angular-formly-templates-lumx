@@ -2,37 +2,44 @@
   'use strict';
 
   angular.module('shmck.formFields.flexBox', [])
-    .service('fleBoxFormFields', flexBoxFormFields)
+    .service('flexBoxFormFields', flexBoxFormFields)
     .config(stateRoutes);
 
   function flexBoxFormFields() {
     this.contents = {
       title: 'FlexBox Wrappers',
       subhead: 'Make it fit',
-      description: ''
+      description: '',
+      markdownFile: 'app/docs/flexbox.md'
     };
 
     this.fields = function () {
       return [{
-        key: 'item1',
+        key: 'rowItem1',
         type: 'lx-text-field',
+        wrapper: 'lx-wrapper-grid',
         templateOptions: {
           type: 'text',
-          label: 'Field 1'
+          fixedLabel: true,
+          label: 'Item 1'
         }
       }, {
-        key: 'item2',
+        key: 'rowItem2',
         type: 'lx-text-field',
+        wrapper: 'lx-wrapper-grid',
         templateOptions: {
           type: 'text',
-          label: 'Field 2'
+          fixedLabel: true,
+          label: 'Item 2'
         }
       }, {
-        key: 'item3',
+        key: 'rowItem3',
         type: 'lx-text-field',
+        wrapper: 'lx-wrapper-grid',
         templateOptions: {
           type: 'text',
-          label: 'Field 3'
+          fixedLabel: true,
+          label: 'Item 3'
         }
       }];
     };
@@ -45,10 +52,15 @@
         views: {
           'form@': {
             templateUrl: 'app/form/flex-box-form.html',
-            controller: 'FlexBoxFormCtrl as vm'
-          },
-          contents: function (flexBoxFormFields) {
-            return flexBoxFormFields.contents;
+            controller: 'FlexBoxFormCtrl as vm',
+            resolve: {
+              formFields: function (flexBoxFormFields) {
+                return flexBoxFormFields.fields;
+              },
+              contents: function (flexBoxFormFields) {
+                return flexBoxFormFields.contents;
+              }
+            }
           }
         }
       });

@@ -9,7 +9,8 @@
     this.contents = {
       title: 'Option Pickers',
       subhead: 'Checkboxes, Switches, Radio buttons',
-      description: ''
+      description: '',
+      markdownFile: 'app/docs/option.md'
     };
 
     this.fields = function () {

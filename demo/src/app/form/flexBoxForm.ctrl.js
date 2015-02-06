@@ -5,39 +5,13 @@
   angular.module('demo')
     .controller('FlexBoxFormCtrl', FlexBoxFormCtrl);
 
-  function FlexBoxFormCtrl() {
+  function FlexBoxFormCtrl(formFields, contents) {
     var vm = this;
+    vm.contents = contents;
     vm.formDataRow = {};
     vm.formDataCol = {};
     vm.formDataSpace = {};
-    vm.formFields = [{
-      key: 'rowItem1',
-      type: 'lx-text-field',
-      wrapper: 'lx-wrapper-grid',
-      templateOptions: {
-        type: 'text',
-        fixedLabel: true,
-        label: 'Item 1'
-      }
-    }, {
-      key: 'rowItem2',
-      type: 'lx-text-field',
-      wrapper: 'lx-wrapper-grid',
-      templateOptions: {
-        type: 'text',
-        fixedLabel: true,
-        label: 'Item 2'
-      }
-    }, {
-      key: 'rowItem3',
-      type: 'lx-text-field',
-      wrapper: 'lx-wrapper-grid',
-      templateOptions: {
-        type: 'text',
-        fixedLabel: true,
-        label: 'Item 3'
-      }
-    }];
+    vm.formFields = formFields();
 
     vm.formFieldsBoxes = [{
       key: 'box1',

@@ -3,13 +3,13 @@
 ```
 &lt;formly-form model="vm.formData" fields="vm.formFields" class="bgc-blue-grey-500"&gt;&lt;/formly-form&gt;
 ```
-Read more about [lumx color styles](http://ui.lumapps.com/css/colors).
+Read more about [LumX color styles](http://ui.lumapps.com/css/colors).
 
 ### Method 2: Style the formly-field div with `lx-wrapper-div`
   
 ```{ key: 'key', 
     type: 'lx-text-field',
-    wrapper: 'lx-wra3pper-div' // <- div wrapper
+    wrapper: 'lx-wrapper-div' // <- div wrapper
     templateOptions: {
     divClass: 'bgc-blue-grey-500' // <- div background color
     type: 'text',
@@ -18,4 +18,4 @@ Read more about [lumx color styles](http://ui.lumapps.com/css/colors).
    }
 }
 ```
-Read more about [stlying lumx text fields](http://ui.lumapps.com/directives/text-fields).
+Read more about [stlying LumX text fields](http://ui.lumapps.com/directives/text-fields).

@@ -8,14 +8,8 @@
       <br/>
 
       <div class="card__content bgc-white" style="max-width: 450px">
-
-        <!-- markdown -->
-        <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
-
-
-        <br/>
         <!-- Forms -->
-        <h1 class="fs-display1">Examples</h1>
+        <h2 class="fs-display1">Examples</h2>
 
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
           <formly-form model="vm.formData" fields="vm.formFields"
@@ -32,17 +26,23 @@
     </div>
 
     <div class="card tc-black-2 p-">
-      <h1 class="fs-title">vm.formData</h1>
+      <h1 class="fs-title">formData</h1>
 
       <div class="card__content bgc-blue-200" style="max-width: 450px">
         <pre pretty-json="vm.formData"/>
       </div>
     </div>
+
+    <br/>
+    <!-- markdown docs -->
+    <h2 class="fs-display1">Docs</h2>
+
+    <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
   </div>
 
   <div class="grid__col6">
     <div class="card tc-black-2 p-">
-      <h1 class="fs-title">fm.formFields</h1>
+      <h1 class="fs-display1">formFields</h1>
 
       <div class="card__content bgc-white" style="max-width: 450px">
 

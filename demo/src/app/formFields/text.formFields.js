@@ -9,7 +9,8 @@
     this.contents = {
       title: 'Text Form Fields',
       subhead: '',
-      description: ''
+      description: '',
+      markdownFile: 'app/docs/text.md'
     };
 
 

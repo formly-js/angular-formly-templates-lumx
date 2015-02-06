@@ -39,28 +39,34 @@
 
       </div>
       <div class="card tc-black-2 p-">
-        <h1 class="fs-display1">vm.formDataRow</h1>
+        <h1 class="fs-display1">formDataRow</h1>
 
         <div class="card__content bgc-blue-200" style="max-width: 450px">
           <pre pretty-json="vm.formDataRow"/>
         </div>
-        <h1 class="fs-display1">vm.formDataCol</h1>
+        <h1 class="fs-display1">formDataCol</h1>
 
         <div class="card__content bgc-blue-200" style="max-width: 450px">
           <pre pretty-json="vm.formDataCol"/>
         </div>
-        <h1 class="fs-display1">vm.formDataSpace</h1>
+        <h1 class="fs-display1">formDataSpace</h1>
 
         <div class="card__content bgc-blue-200" style="max-width: 450px">
           <pre pretty-json="vm.formDataSpace"/>
         </div>
       </div>
     </div>
+
+    <!-- markdown docs -->
+    <h2 class="fs-display1">Docs</h2>
+
+    <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
+
   </div>
 
   <div class="grid__col5">
     <div class="card tc-black-2 p-">
-      <h1 class="fs-display1">fm.formFields</h1>
+      <h1 class="fs-display1">formFields</h1>
 
       <div class="card__content bgc-white" style="max-width: 450px">
 

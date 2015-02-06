@@ -9,7 +9,8 @@
     this.contents = {
       title: 'Selectors',
       subhead: 'Date picker, dropdown selects',
-      description: ''
+      description: '',
+      markdownFile: 'app/docs/select.md'
     };
 
 

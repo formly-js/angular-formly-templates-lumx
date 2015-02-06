@@ -9,7 +9,7 @@
     this.contents = {
       title: 'Themes',
       subhead: '',
-      markdownFile: 'app/formFields/themes.md',
+      markdownFile: 'app/docs/themes.md',
       formFieldsClass: 'bgc-blue-grey-500 addPadding'
     };
 

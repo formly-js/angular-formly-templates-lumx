@@ -9,7 +9,8 @@
     this.contents = {
       title: 'Wrappers',
       subhead: 'Style control around your form fields',
-      description: ''
+      description: '',
+      markdownFile: 'app/docs/wrapper.md'
     };
 
 
