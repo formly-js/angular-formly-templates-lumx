@@ -1,27 +1,27 @@
 <div ng-controller="NavCtrl as vm">
-<header class="header bgc-light-blue-500" ng-cloak>
-  <div class="menubar">
-    <button class="btn btn--l btn--icon btn--white" lx-ripple="white" ng-click="vm.sidebar.toggleSidebar()">
-      <i class="mdi mdi--menu"></i>
-    </button>
-  </div>
+  <header class="header bgc-light-blue-500" ng-cloak>
+    <div class="menubar">
+      <button class="btn btn--l btn--icon btn--white" lx-ripple="white" ng-click="vm.sidebar.toggleSidebar()">
+        <i class="mdi mdi--menu"></i>
+      </button>
+    </div>
 
-  <h1 class="main-logo">
-    <a ui-sref="shmck.start" class="main-logo__link" lx-ripple="white">
-      <span class="main-nav--title">LumX Templates</span>
-    </a>
-  </h1>
+    <h1 class="main-logo">
+      <a ui-sref="shmck.start" class="main-logo__link" lx-ripple="white">
+        <span class="main-nav--title">LumX Templates</span>
+      </a>
+    </h1>
 
-  <nav class="main-nav main-nav--lap-and-up">
-    <ul>
-      <li ng-repeat="n in vm.outLinks">
-        <a href="{{n.link}}" class="main-nav__link" lx-ripple="white">
-          {{n.text}}</a>
-      </li>
-    </ul>
-  </nav>
-</header>
+    <nav class="main-nav main-nav--lap-and-up">
+      <ul>
+        <li ng-repeat="n in vm.navBarLinks">
+          <a href="{{n.link}}" class="main-nav__link" lx-ripple="white">
+            {{n.text}}</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-<div ng-include="'app/nav/sidebar.html'"></div>
+  <shmck-sidebar></shmck-sidebar>
 
 </div>
