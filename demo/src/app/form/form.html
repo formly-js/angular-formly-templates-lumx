@@ -2,7 +2,7 @@
 
   <div class="grid__col6">
     <div class="card tc-black-2 p-">
-      <h1 class="fs-display1">{{::vm.contents.title}}</h1>
+      <h1 class="fs-display2">{{::vm.contents.title}}</h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
 
       <br/>
@@ -12,8 +12,11 @@
         <!-- markdown -->
         <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
 
+
         <br/>
         <!-- Forms -->
+        <h1 class="fs-display1">Examples</h1>
+
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
           <formly-form model="vm.formData" fields="vm.formFields"
                        ng-submit="vm.submit()" name="form">
@@ -29,7 +32,7 @@
     </div>
 
     <div class="card tc-black-2 p-">
-      <h1 class="fs-display1">vm.formData</h1>
+      <h1 class="fs-title">vm.formData</h1>
 
       <div class="card__content bgc-blue-200" style="max-width: 450px">
         <pre pretty-json="vm.formData"/>
@@ -39,7 +42,7 @@
 
   <div class="grid__col6">
     <div class="card tc-black-2 p-">
-      <h1 class="fs-display1">fm.formFields</h1>
+      <h1 class="fs-title">fm.formFields</h1>
 
       <div class="card__content bgc-white" style="max-width: 450px">
 
