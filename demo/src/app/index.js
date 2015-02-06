@@ -11,6 +11,7 @@
     'ngSanitize',
     'ui.router',
     'ngPrettyJson',
+    'btford.markdown',
     /* modules */
     'shmck.formFields'
   ])

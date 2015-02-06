@@ -8,16 +8,21 @@
       <br/>
 
       <div class="card__content bgc-white" style="max-width: 450px">
-        <p>{{::vm.contents.description}}</p>
+
+        <!-- markdown -->
+        <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
+
         <br/>
         <!-- Forms -->
-        <formly-form model="vm.formData" fields="vm.formFields"
-                     ng-submit="vm.submit()" name="form">
-          <br/>
-          <button class="btn btn--m btn--blue btn--raised" lx-ripple
-                  type="submit">Submit
-          </button>
-        </formly-form>
+        <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
+          <formly-form model="vm.formData" fields="vm.formFields"
+                       ng-submit="vm.submit()" name="form">
+            <br/>
+            <button class="btn btn--m btn--blue btn--raised" lx-ripple
+                    type="submit">Submit
+            </button>
+          </formly-form>
+        </div>
         <!-- end Forms -->
 
       </div>
