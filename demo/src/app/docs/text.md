@@ -1,6 +1,7 @@
 ### lx-text API
 
-```{
+```javascript
+{
   'key': 'modelName',
   'templateOptions': {
     'fixedLabel': false, // [default = false (float label), true = fixed label]

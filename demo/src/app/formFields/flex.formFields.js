@@ -15,32 +15,43 @@
 
     this.fields = function () {
       return [{
-        key: 'rowItem1',
-        type: 'lx-text',
-        wrapper: 'lx-wrapper-flex',
+        'key': 'row',
+        type: 'lx-wrapper-flex-container',
+        //'wrapper': 'lx-wrapper-flex-container',
         templateOptions: {
-          type: 'text',
-          fixedLabel: true,
-          label: 'Item 1'
-        }
-      }, {
-        key: 'rowItem2',
-        type: 'lx-text',
-        wrapper: 'lx-wrapper-flex',
-        templateOptions: {
-          type: 'text',
-          fixedLabel: true,
-          label: 'Item 2'
-        }
-      }, {
-        key: 'rowItem3',
-        type: 'lx-text',
-        wrapper: 'lx-wrapper-flex',
-        templateOptions: {
-          type: 'text',
-          fixedLabel: true,
-          label: 'Item 3'
-        }
+          flexContainer: {
+            container: 'row',
+            align: 'space-between'
+          }
+        },
+        'fields': [{
+          key: 'rowItem1',
+          type: 'lx-text',
+          wrapper: 'lx-wrapper-flex-item',
+          templateOptions: {
+            type: 'text',
+            fixedLabel: true,
+            label: 'Item 1'
+          }
+        }, {
+          key: 'rowItem2',
+          type: 'lx-text',
+          wrapper: 'lx-wrapper-flex-item',
+          templateOptions: {
+            type: 'text',
+            fixedLabel: true,
+            label: 'Item 2'
+          }
+        }, {
+          key: 'rowItem3',
+          type: 'lx-text',
+          wrapper: 'lx-wrapper-flex-item',
+          templateOptions: {
+            type: 'text',
+            fixedLabel: true,
+            label: 'Item 3'
+          }
+        }]
       }];
     };
   }
@@ -65,6 +76,5 @@
         }
       });
   }
-
 
 }());

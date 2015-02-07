@@ -1,6 +1,7 @@
 ### lx-wrapper-above API
 
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-whatever-type'
   'wrapper': 'lx-wrapper-above', // <- add the wrapper
@@ -18,7 +19,8 @@
 ```
 
 ### lx-wrapper-below API
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-whatever-type'
   'wrapper': 'lx-wrapper-below', // <- add the wrapper

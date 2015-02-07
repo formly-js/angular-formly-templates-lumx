@@ -1,13 +1,14 @@
 ### Method 1: Style the `&lt;formly-form&gt;` element
 
-```
+```html
 &lt;formly-form model="vm.formData" fields="vm.formFields" class="bgc-blue-grey-500"&gt;&lt;/formly-form&gt;
 ```
 Read more about [LumX color styles](http://ui.lumapps.com/css/colors).
 
 ### Method 2: Style the formly-field div with `lx-wrapper-div`
   
-```{ key: 'key', 
+```javascript
+{ key: 'key', 
     type: 'lx-text',
     wrapper: 'lx-wrapper-div' // <- div wrapper
     templateOptions: {

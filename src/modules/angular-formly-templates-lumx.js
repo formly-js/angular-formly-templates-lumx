@@ -44,7 +44,10 @@
 		"name": "wrapper-errors-text",
 		"template": "<div><formly-transclude></formly-transclude><ul class=\"form-error\" ng-messages=\"options.formControl.$error\" ng-show=\"options.formControl.$invalid && options.formControl.$touched|| options.validators\"><li ng-message=\"required\">Aren\'t you forgetting something?</li><li ng-message=\"email\">Not a valid email.</li><li ng-message=\"minlength\">Too short. {{::options.minlength}} or more characters.</li><li ng-message=\"maxlength\">Too long. {{::options.maxlength}} or less characters.</li><li ng-message=\"min\">Too low. {{::options.min}} or higher.</li><li ng-message=\"max\">Too high. {{::options.max}} or lower.</li><li ng-message=\"pattern\">This doesn\'t look right.</li><li ng-message=\"url\">Not a valid url. For example: \'https://www.example.com\'</li><li ng-message=\"number\">Not a valid number.</li></ul></div>"
 	}, {
-		"name": "wrapper-flex",
+		"name": "wrapper-flex-container",
+		"template": "<div ng-class=\"::options.templateOptions.flexContainer.class\" ng-style=\"::options.templateOptions.flexContainer.style\" flex-container=\"{{::options.templateOptions.flexContainer.container}}\" flex-align=\"{{::options.templateOptions.flexContainer.align}}\" flex-gutter=\"{{::options.templateOptions.flexContainer.gutter}}\"></div>"
+	}, {
+		"name": "wrapper-flex-item",
 		"template": "<div ng-class=\"::options.templateOptions.flex.class\" flex-item=\"{{::options.templateOptions.flex.item}}\" flex-order=\"{{::options.templateOptions.flex.order}}\"><formly-transclude></formly-transclude></div>"
 	}];
 	angular.module('formly.lumx', []).constant('usingCustomTemplates', true).constant('FIELDS', FIELDS).constant('WRAPPERS', WRAPPERS).constant('PREFIX', 'lx').run(cacheLumXTemplates).config(setCustomTemplates);

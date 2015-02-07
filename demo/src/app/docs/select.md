@@ -1,5 +1,6 @@
 ### lx-date-picker
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-date-picker'
   'templateOptions': {
@@ -12,7 +13,8 @@
 Read more about [lx-date-picker](http://ui.lumapps.com/directives/date-picker).
 
 ### lx-select & lx-select-multiple API
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-select' // 'lx-select-multiple'
   'templateOptions': {

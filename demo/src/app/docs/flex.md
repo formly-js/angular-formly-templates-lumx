@@ -1,14 +1,34 @@
-### lx-wrapper-flex API
+### lx-wrapper-flex-container API
 
-```{
+```javascript
+{
+  'key': 'modelName',
+  'type': 'lx-wrapper-flex-container',
+  'templateOptions': {
+    'container': 'row', // row | column | row-reverse | column-reverse
+    'wrap': 'nowrap', // nowrap | wrap | wrap-reverse
+    'align': 'space-between', // flex-start | flex-end | center | space-between | space-around | stretch
+    'class': 'bgc-red-500', // ng-class
+    'style': 'height: 200px'
+  },
+  'fields': [{
+    /* 'lx-wrapper-flex-item' fields here */
+  }]
+}
+```
+
+### lx-wrapper-flex-item API
+
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-whatever-type'
-  'wrapper': 'lx-wrapper-flex', // <- add the wrapper
+  'wrapper': 'lx-wrapper-flex-item', // <- add the wrapper
   'templateOptions': {
     'flex': {
-      'item': '1' // flex-value number, bigger is more 
-      'order': '1', // ordering boxes
-      'class': 'bgc-red-500' // wrapper div class styles
+      'item': '1' // flex-value number, higher weights the space ratio more 
+      'order': '1', // value for ordering boxes
+      'class': 'bgc-red-500' // ng-class
     }
   }
 }

@@ -1,5 +1,6 @@
 ### lx-checkbox API
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-checkbox'
   'templateOptions': {
@@ -13,7 +14,8 @@
 Read more about [LumX checkboxes](http://ui.lumapps.com/css/checkboxes).
 
 ### lx-switch API
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-switch'
   'templateOptions': {
@@ -27,7 +29,8 @@ Read more about [LumX checkboxes](http://ui.lumapps.com/css/checkboxes).
 Read more about [LumX switches](http://ui.lumapps.com/css/switches).
 
 ### lx-radio API
-```{
+```javascript
+{
   'key': 'modelName',
   'type': 'lx-radio-buttons'
   'templateOptions': {
