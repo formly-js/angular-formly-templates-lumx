@@ -1,23 +1,23 @@
 (function () {
   'use strict';
 
-  angular.module('shmck.formFields.flexBox', [])
-    .service('flexBoxFormFields', flexBoxFormFields)
+  angular.module('shmck.formFields.flex', [])
+    .service('flexFormFields', flexFormFields)
     .config(stateRoutes);
 
-  function flexBoxFormFields() {
+  function flexFormFields() {
     this.contents = {
       title: 'FlexBox Wrappers',
       subhead: 'Make it fit',
-      description: '',
-      markdownFile: 'app/docs/flexbox.md'
+      description: 'Coming soon!',
+      markdownFile: 'app/docs/flex.md'
     };
 
     this.fields = function () {
       return [{
         key: 'rowItem1',
-        type: 'lx-text-field',
-        wrapper: 'lx-wrapper-grid',
+        type: 'lx-text',
+        wrapper: 'lx-wrapper-flex',
         templateOptions: {
           type: 'text',
           fixedLabel: true,
@@ -25,8 +25,8 @@
         }
       }, {
         key: 'rowItem2',
-        type: 'lx-text-field',
-        wrapper: 'lx-wrapper-grid',
+        type: 'lx-text',
+        wrapper: 'lx-wrapper-flex',
         templateOptions: {
           type: 'text',
           fixedLabel: true,
@@ -34,8 +34,8 @@
         }
       }, {
         key: 'rowItem3',
-        type: 'lx-text-field',
-        wrapper: 'lx-wrapper-grid',
+        type: 'lx-text',
+        wrapper: 'lx-wrapper-flex',
         templateOptions: {
           type: 'text',
           fixedLabel: true,
@@ -47,18 +47,18 @@
 
   function stateRoutes($stateProvider) {
     $stateProvider
-      .state('flex-box', {
-        url: '/flex-box',
+      .state('flex', {
+        url: '/flex',
         views: {
           'form@': {
-            templateUrl: 'app/form/flex-box-form.html',
-            controller: 'FlexBoxFormCtrl as vm',
+            templateUrl: 'app/form/flex-form.html',
+            controller: 'FlexFormCtrl as vm',
             resolve: {
-              formFields: function (flexBoxFormFields) {
-                return flexBoxFormFields.fields;
+              formFields: function (flexFormFields) {
+                return flexFormFields.fields;
               },
-              contents: function (flexBoxFormFields) {
-                return flexBoxFormFields.contents;
+              contents: function (flexFormFields) {
+                return flexFormFields.contents;
               }
             }
           }

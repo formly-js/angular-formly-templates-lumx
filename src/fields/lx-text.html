@@ -10,15 +10,10 @@
                  error="options.formControl.$invalid && options.formControl.$touched || options.validators"
                  aria-describedby="{{::id}}_textField">
     <input type="{{::options.templateOptions.type}}"
-           formly-dynamic-name="::id"
+           name="{{::id}}"
            ng-model="model[options.key]"
+           ng-required="::options.templateOptions.required"
            ng-disabled="::options.templateOptions.disabled"
-           ng-model-options="::options.modelOptions || {}"
-           ng-minlength="::options.templateOptions.minlength"
-           ng-maxlength="::options.templateOptions.maxlength"
-           ng-min="::options.templateOptions.min"
-           ng-max="::options.templateOptions.max"
-           ng-pattern="::options.templateOptions.pattern"
-           ng-required="::options.templateOptions.required">
+           ng-model-options="::options.modelOptions || {}">
   </lx-text-field>
 </div>

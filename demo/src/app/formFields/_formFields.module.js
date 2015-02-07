@@ -6,6 +6,6 @@
     'shmck.formFields.text',
     'shmck.formFields.wrapper',
     'shmck.formFields.themes',
-    'shmck.formFields.flexBox'
+    'shmck.formFields.flex'
   ]);
 }());

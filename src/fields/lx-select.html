@@ -6,12 +6,11 @@
 	</label></h3>
 	<lx-select id={{::id}}
 	           ng-model="model[options.key]"
-	           formly-dynamic-name="::id"
+	           name="{{::id}}"
 	           aria-describedby="{{::id}}_select"
 	           choices="options.templateOptions.options"
 	           placeholder="{{::options.templateOptions.placeholder}}"
 	           min-length="::options.templateOptions.minLength"
-	           ng-disabled="::options.templateOptions.disabled"
 	           allow-clear="::options.templateOptions.allowClear">
 
 		<lx-select-selected>

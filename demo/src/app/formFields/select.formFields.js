@@ -20,9 +20,11 @@
         type: 'lx-date-picker',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          aboveSpace: true,
-          aboveText: 'Date Picker',
-          aboveStyle: {'text-decoration': 'underline'},
+          above: {
+            space: true,
+            text: 'Date Picker',
+            style: {'text-decoration': 'underline'}
+          },
           label: 'Pick a Date'
         }
       }, {
@@ -30,8 +32,10 @@
         type: 'lx-select',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          aboveText: 'Selectors: ',
-          aboveStyle: {'text-decoration': 'underline'},
+          above: {
+            text: 'Selectors: ',
+            style: {'text-decoration': 'underline' }
+          },
           label: 'Single Select',
           placeholder: 'Choose an Email',
           allowClear: true,

@@ -26,7 +26,7 @@ Read more about [LumX checkboxes](http://ui.lumapps.com/css/checkboxes).
 ```
 Read more about [LumX switches](http://ui.lumapps.com/css/switches).
 
-### lx-radio-buttons API
+### lx-radio API
 ```{
   'key': 'modelName',
   'type': 'lx-radio-buttons'

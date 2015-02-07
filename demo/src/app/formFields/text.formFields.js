@@ -13,23 +13,24 @@
       markdownFile: 'app/docs/text.md'
     };
 
+    var underlined = { 'text-decoration': 'underline' };
 
     this.fields = function () {
       return [{
         key: 'name',
-        type: 'lx-text-field',
+        type: 'lx-text',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          aboveText: 'Text Fields: ',
-          aboveStyle: {
-            'text-decoration': 'underline'
+          above: {
+            text: 'Text Fields: ',
+            style: underlined
           },
           type: 'text',
           label: 'Name'
         }
       }, {
         key: 'fixedLabel',
-        type: 'lx-text-field',
+        type: 'lx-text',
         templateOptions: {
           type: 'text',
           label: 'This Label Doesn\'t Float',
@@ -37,12 +38,12 @@
         }
       }, {
         key: 'disabledText',
-        type: 'lx-text-field',
+        type: 'lx-text',
         templateOptions: {
           type: 'text',
           label: 'This Field is Disabled',
-          disabled: true,
-          fixedLabel: true
+          fixedLabel: true,
+          disabled: true
         }
         //}, {
         //  key: 'icon0',
@@ -62,21 +63,23 @@
         type: 'lx-textarea',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          aboveText: 'Textarea: ',
-          aboveSpace: true,
-          aboveStyle: {
-            'text-decoration': 'underline'
+          above: {
+            space: true,
+            text: 'Textarea: ',
+            style: underlined
           },
           label: 'Write as much as you\'d like. It\'ll fit.'
         }
       }, {
         key: 'email',
-        type: 'lx-text-field',
+        type: 'lx-text',
         wrapper: ['lx-wrapper-error-required', 'lx-wrapper-above'],
         templateOptions: {
-          aboveText: 'Validation: ',
-          aboveStyle: {'text-decoration': 'underline'},
-          aboveSpace: true,
+          above: {
+            space: true,
+            text: 'Validation: ',
+            style: underlined
+          },
           type: 'email',
           label: 'Email with validation',
           required: true
@@ -92,15 +95,19 @@
         }
       }, {
         key: 'password',
-        type: 'lx-text-field',
+        type: 'lx-text',
         templateOptions: {
           type: 'password',
           label: 'Password',
-          required: true,
-          minlength: 4,
-          maxlength: 16
+          required: true
         },
         wrapper: 'lx-wrapper-error-required',
+        ngModelAttrs: {
+          bound: {
+            'ng-minlength': 4,
+            'ng-maxlength': 16
+          }
+        },
         modelOptions: {
           allowInvalid: true,
           updateOn: 'default blur keydown',
@@ -112,22 +119,26 @@
         }
       }, {
         key: 'url0',
-        type: 'lx-text-field',
+        type: 'lx-text',
+        wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'url',
           label: 'Write a proper URL',
           help: 'http://www.google.com'
-        },
-        wrapper: 'lx-wrapper-errors-text'
+        }
       }, {
         key: 'textPattern',
-        type: 'lx-text-field',
+        type: 'lx-text',
+        wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'text',
-          label: 'Valid Four Letter Word Checker',
-          pattern: /^[A-Za-z]{4}$/
+          label: 'Valid Four Letter Word Checker'
         },
-        wrapper: 'lx-wrapper-errors-text',
+        ngModelAttrs: {
+          bound: {
+            'ng-pattern': /^[A-Za-z]{4}$/
+          }
+        },
         modelOptions: {
           allowInvalid: true,
           updateOn: 'default blur keydown',

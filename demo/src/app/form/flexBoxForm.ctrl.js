@@ -3,9 +3,9 @@
 (function () {
   'use strict';
   angular.module('demo')
-    .controller('FlexBoxFormCtrl', FlexBoxFormCtrl);
+    .controller('FlexFormCtrl', FlexFormCtrl);
 
-  function FlexBoxFormCtrl(formFields, contents) {
+  function FlexFormCtrl(formFields, contents) {
     var vm = this;
     vm.contents = contents;
     vm.formDataRow = {};
@@ -16,21 +16,21 @@
     vm.formFieldsBoxes = [{
       key: 'box1',
       type: 'lx-checkbox',
-      wrapper: 'lx-wrapper-grid',
+      wrapper: 'lx-wrapper-flex',
       templateOptions: {
         label: 'Item 1'
       }
     }, {
       key: 'box2',
       type: 'lx-checkbox',
-      wrapper: 'lx-wrapper-grid',
+      wrapper: 'lx-wrapper-flex',
       templateOptions: {
         label: 'Item 2'
       }
     }, {
       key: 'box3',
       type: 'lx-checkbox',
-      wrapper: 'lx-wrapper-grid',
+      wrapper: 'lx-wrapper-flex',
       templateOptions: {
         label: 'Item 3'
       }

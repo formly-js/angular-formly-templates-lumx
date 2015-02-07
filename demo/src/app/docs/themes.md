@@ -8,13 +8,15 @@ Read more about [LumX color styles](http://ui.lumapps.com/css/colors).
 ### Method 2: Style the formly-field div with `lx-wrapper-div`
   
 ```{ key: 'key', 
-    type: 'lx-text-field',
+    type: 'lx-text',
     wrapper: 'lx-wrapper-div' // <- div wrapper
     templateOptions: {
-    divClass: 'bgc-blue-grey-500' // <- div background color
-    type: 'text',
-    label: 'Name',
-    theme: 'dark' // <- add if background color is dark for lighter text
+      div: {
+        class: 'bgc-blue-grey-500' // <- div background color
+      },
+      type: 'text',
+      label: 'Name',
+      theme: 'dark' // <- add if background color is dark for lighter text
    }
 }
 ```

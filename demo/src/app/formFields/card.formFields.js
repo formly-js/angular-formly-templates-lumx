@@ -15,16 +15,18 @@
     this.fields = function () {
       return [{
         key: 'card0',
-        type: 'lx-radio-buttons',
+        type: 'lx-radio',
         wrapper: 'lx-wrapper-card',
         templateOptions: {
+          card: {
+            title: 'Card Wrapper Example',
+            subtitle: 'wrapper: \'lx-wrapper-card\'',
+            image: 'http://placekitten.com/g/200/300',
+            imageTitle: 'Kittens!'
+          },
           type: 'text',
           fixedLabel: true,
           label: 'How do you feel about kittens?',
-          cardTitle: 'Card Wrapper Example',
-          cardSubTitle: 'wrapper: \'lx-wrapper-card\'',
-          cardImage: 'http://placekitten.com/g/200/300',
-          cardImageTitle: 'Kittens!',
           options: [{
             name: 'Angry',
             value: 'Mad person'

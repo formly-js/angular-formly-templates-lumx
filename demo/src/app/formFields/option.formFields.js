@@ -17,20 +17,21 @@
       return [{
         key: 'checkbox0',
         type: 'lx-checkbox',
-        value: false,
         wrapper: 'lx-wrapper-above',
         templateOptions: {
+          above: {
+            text: 'Checkboxes: ',
+            style: {
+              'text-decoration': 'underline'
+            }
+          },
           label: 'Show Missing Box',
-          aboveText: 'Checkboxes: ',
-          aboveStyle: {'text-decoration': 'underline'}
         }
       }, {
         key: 'checkbox1',
         type: 'lx-checkbox',
-        value: true,
         templateOptions: {
-          label: 'Hidden Pre-checked Box',
-          checked: true
+          label: 'Hidden Box'
         },
         expressionProperties: {
           hide: '!model.checkbox0'
@@ -38,15 +39,19 @@
       }, {
         key: 'checkbox2',
         type: 'lx-checkbox',
-        value: false,
+        ngModelAttrs: {
+          bound: {
+            'ng-checked': true
+          }
+        },
         templateOptions: {
           label: 'Checkbox with Helper',
           help: 'Explaining a little more'
-        }
+        },
+        expressionProperties: {}
       }, {
         key: 'checkbox3',
         type: 'lx-checkbox',
-        value: true,
         templateOptions: {
           label: 'Disabled Box',
           disabled: true
@@ -56,17 +61,23 @@
         type: 'lx-switch',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          label: 'Untouched Switch',
-          aboveSpace: true,
-          aboveText: 'Switches: ',
-          aboveStyle: {'text-decoration': 'underline'}
+          above: {
+            space: true,
+            text: 'Switches: ',
+            style: {
+              'text-decoration': 'underline'
+            }
+          },
+          label: 'Untouched Switch'
         }
       }, {
         key: 'switch1',
         type: 'lx-switch',
+        ngModelAttrs: {
+          'ng-checked': true
+        },
         templateOptions: {
-          label: 'Switched Switch',
-          checked: true
+          label: 'Switched Switch'
         }
       }, {
         key: 'switch2',
@@ -84,12 +95,14 @@
         }
       }, {
         key: 'radio0',
-        type: 'lx-radio-buttons',
+        type: 'lx-radio',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          aboveSpace: true,
-          aboveText: 'Radio Buttons',
-          aboveStyle: {'text-decoration': 'underline'},
+          above: {
+            space: true,
+            text: 'Radio Buttons',
+            style: {'text-decoration': 'underline'}
+          },
           label: 'What\'s your favorite number?',
           options: [{
             name: 'One',
@@ -105,7 +118,7 @@
         }
       }, {
         key: 'radio1',
-        type: 'lx-radio-buttons',
+        type: 'lx-radio',
         templateOptions: {
           label: 'What\'s your least favorite number?',
           options: [{

@@ -5,10 +5,14 @@
   'type': 'lx-whatever-type'
   'wrapper': 'lx-wrapper-above', // <- add the wrapper
   'templateOptions': {
-    'aboveText': 'Some Title',
-    'aboveClass': '', // default class is 'fs-headline'
-    'aboveStyle': { 'text-decoration': 'bold'},
-    'aboveSpace': true // adds a space above
+    'above':{
+      'space': true, // adds a <br/> above
+      'text': 'Some Title',
+      'class': '', // default class is 'fs-headline'
+      'style': {
+        'text-decoration': 'bold',
+        'color': 'white'
+      }
   }
 }
 ```
@@ -19,10 +23,14 @@
   'type': 'lx-whatever-type'
   'wrapper': 'lx-wrapper-below', // <- add the wrapper
   'templateOptions': {
-    'belowText': 'Some Description',
-    'belowClass': '', // default class is 'p+'
-    'belowStyle': { 'text-decoration': 'bold'},
-    'belowSpace': true // adds a space below
+    'below': {
+      'space': true, // adds a <br/> below
+      'text': 'Some description',
+      'class': '', // default class is 'p+'
+      'style': {
+        'text-decoration': 'bold'
+      }
+    }
   }
 }
 ```

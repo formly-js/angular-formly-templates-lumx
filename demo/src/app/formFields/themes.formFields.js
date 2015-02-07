@@ -17,14 +17,16 @@
     this.fields = function () {
       return [{
         key: 'name1',
-        type: 'lx-text-field',
+        type: 'lx-text',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
-          aboveSpace: true,
-          aboveText: 'Themes: ',
-          aboveStyle: {
-            'text-decoration': 'underline',
-            'color': 'white'
+          above: {
+            space: true,
+            text: 'Themes: ',
+            style: {
+              'text-decoration': 'underline',
+              'color': 'white'
+            }
           },
           fixedLabel: true,
           type: 'text',
@@ -33,7 +35,7 @@
         }
       }, {
         key: 'fixedLabel1',
-        type: 'lx-text-field',
+        type: 'lx-text',
         templateOptions: {
           type: 'text',
           label: 'This Label Doesn\'t Float',
@@ -42,13 +44,13 @@
         }
       }, {
         key: 'disabledText1',
-        type: 'lx-text-field',
+        type: 'lx-text',
         templateOptions: {
           type: 'text',
           label: 'This Field is Disabled',
-          disabled: true,
           fixedLabel: true,
-          theme: 'dark'
+          theme: 'dark',
+          disabled: true
         }
       }];
     };

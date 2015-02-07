@@ -1,10 +1,9 @@
 <div>
   <lx-date-picker
-    formly-dynamic-name="::id"
+	  name="{{::id}}"
     model="model[options.key]"
     label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
-    ng-disabled="::options.templateOptions.disabled"
-    ng-required="::options.templateOptions.required"
+    ng-required="options.templateOptions.required"
     aria-describedby="{{::id}}_datePicker">
   </lx-date-picker>
 </div>

@@ -10,13 +10,10 @@
                  error="options.formControl.$invalid && options.formControl.$touched || options.validators"
                  aria-describedby="{{::id}}_textarea">
     <textarea
-      formly-dynamic-name="::id"
+	    name="{{::id}}"
       ng-model="model[options.key]"
+      ng-required="::options.templateOptions.required"
       ng-disabled="::options.templateOptions.disabled"
-      ng-model-options="::options.modelOptions || {}"
-      ng-minlength="::options.templateOptions.minlength"
-      ng-maxlength="::options.templateOptions.maxlength"
-      ng-pattern="::options.templateOptions.patternValue"
-      ng-required="::options.templateOptions.required">
+      ng-model-options="::options.modelOptions || {}">
     </textarea>
 </div>

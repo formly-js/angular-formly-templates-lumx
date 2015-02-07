@@ -40,7 +40,7 @@
       state: 'themes',
       text: 'Themes'
     }, {
-      state: 'flex-box',
+      state: 'flex',
       text: 'FlexBox'
     }];
 
