@@ -9,7 +9,7 @@
     'above':{
       'space': true, // adds a <br/> above
       'text': 'Some Title',
-      'class': '', // default class is 'fs-headline'
+      'className': '', // default class is 'fs-headline'
       'style': {
         'text-decoration': 'bold',
         'color': 'white'
@@ -28,7 +28,7 @@
     'below': {
       'space': true, // adds a <br/> below
       'text': 'Some description',
-      'class': '', // default class is 'p+'
+      'className': '', // default class is 'p+'
       'style': {
         'text-decoration': 'bold'
       }

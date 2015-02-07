@@ -13,7 +13,7 @@ Read more about [LumX color styles](http://ui.lumapps.com/css/colors).
     wrapper: 'lx-wrapper-div' // <- div wrapper
     templateOptions: {
       div: {
-        class: 'bgc-blue-grey-500' // <- div background color
+        className: 'bgc-blue-grey-500' // <- div background color
       },
       type: 'text',
       label: 'Name',

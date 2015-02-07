@@ -71,11 +71,12 @@ Handled by ngMessages
 - more coming soon...
 
 ### Flex-Box Grids
-- lx-wrapper-grid (Coming soon!)
+- lx-wrapper-flex-container (Coming soon!)
+- lx-wrapper-flex-item
 
 ### Form-Fields
 
-- lx-text-field (email, password, number, url)
+- lx-text (email, password, number, url)
 - lx-textarea
 - lx-switch
 - lx-checkbox
@@ -90,9 +91,10 @@ Handled by ngMessages
   
   Create form fields by attaching a JSON object in the controller.
   
-  <pre><code>$scope.formFields= [{
+```javascript
+$scope.formFields= [{
       key: 'email', // {
-      type: 'lx-text-field', // formlyTemplate
+      type: 'lx-text', // formlyTemplate
       wrapper: 'lx-wrapper-errors-text', // error handling with ngMessages
       templateOptions: {
         type: 'email', // input type: [email, password, text, url, number]
@@ -101,7 +103,7 @@ Handled by ngMessages
        }
     },{
       key: 'password',
-      type: 'lx-text-field',
+      type: 'lx-text',
       wrapper: 'lx-wrapper-errors-text',
       templateOptions: {
         type: 'password',
@@ -119,7 +121,8 @@ Handled by ngMessages
           blur: 0
         }
       }
-    }</code></pre>
+    }
+```
     
 # Known Issues
 

@@ -22,36 +22,33 @@
           flexContainer: {
             container: 'row',
             align: 'space-between'
-          }
-        },
-        'fields': [{
-          key: 'rowItem1',
-          type: 'lx-text',
-          wrapper: 'lx-wrapper-flex-item',
-          templateOptions: {
-            type: 'text',
-            fixedLabel: true,
-            label: 'Item 1'
-          }
-        }, {
-          key: 'rowItem2',
-          type: 'lx-text',
-          wrapper: 'lx-wrapper-flex-item',
-          templateOptions: {
-            type: 'text',
-            fixedLabel: true,
-            label: 'Item 2'
-          }
-        }, {
-          key: 'rowItem3',
-          type: 'lx-text',
-          wrapper: 'lx-wrapper-flex-item',
-          templateOptions: {
-            type: 'text',
-            fixedLabel: true,
-            label: 'Item 3'
-          }
-        }]
+          },
+          'fields': [{
+            key: 'rowItem1',
+            type: 'lx-text',
+            templateOptions: {
+              type: 'text',
+              fixedLabel: true,
+              label: 'Item 1'
+            }
+          }, {
+            key: 'rowItem2',
+            type: 'lx-text',
+            templateOptions: {
+              type: 'text',
+              fixedLabel: true,
+              label: 'Item 2'
+            }
+          }, {
+            key: 'rowItem3',
+            type: 'lx-text',
+            templateOptions: {
+              type: 'text',
+              fixedLabel: true,
+              label: 'Item 3'
+            }
+          }]
+        }
       }];
     };
   }

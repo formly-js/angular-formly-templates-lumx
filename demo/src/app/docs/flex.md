@@ -8,12 +8,12 @@
     'container': 'row', // row | column | row-reverse | column-reverse
     'wrap': 'nowrap', // nowrap | wrap | wrap-reverse
     'align': 'space-between', // flex-start | flex-end | center | space-between | space-around | stretch
-    'class': 'bgc-red-500', // ng-class
+    'className': 'bgc-red-500', // ng-class
     'style': 'height: 200px'
+     'fields': [{
+        /* 'lx-wrapper-flex-item' fields here */
+      }]
   },
-  'fields': [{
-    /* 'lx-wrapper-flex-item' fields here */
-  }]
 }
 ```
 
@@ -28,7 +28,7 @@
     'flex': {
       'item': '1' // flex-value number, higher weights the space ratio more 
       'order': '1', // value for ordering boxes
-      'class': 'bgc-red-500' // ng-class
+      'className': 'bgc-red-500' // ng-class
     }
   }
 }

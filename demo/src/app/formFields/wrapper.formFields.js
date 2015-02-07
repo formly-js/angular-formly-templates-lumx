@@ -52,11 +52,11 @@
           above: {
             space: true,
             text: 'Both above text',
-            class: 'fs-title'
+            className: 'fs-title'
           },
           below: {
             text: '& below text.',
-            class: 'fs-title'
+            className: 'fs-title'
           },
           type: 'text',
           fixedLabel: true,
