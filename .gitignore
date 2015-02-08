@@ -7,6 +7,7 @@ demo/.tmp
 demo/bower_components
 demo/dist
 demo/node_modules
+demo/npm-debug.log
 demo/.editorconfig
 demo/.jshintrc
 demo/web.js
