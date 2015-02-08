@@ -11,15 +11,12 @@
 
 ```javascript
 {
-  'key': 'modelName',
+  'key': 'someKey',
   'templateOptions': {
-    'fixedLabel': false, // [default = false (float label), true = fixed label]
     'type': 'text', // html input type values [text, email, password, url, number]
     'label': 'Some Label', // acts as a placeholder & label
-    'theme': 'light', // sets text color [default = 'light', 'dark']
-    'disabled': false, // ng-disabled
-    'required': false, // ng-required
-    'icon': 'account' //COMING SOON
+    'fixedLabel': false, // [default = false (float label), true = fixed label]
+    /* all template related fields here */
   },
   validators: {},
   modelOptions: {}
@@ -29,7 +26,38 @@
 ## Features
 - new [site with improved docs](https://github.com/formly-js/angular-formly-templates-lumx)
 - see [changes to angular-formly](https://github.com/formly-js/angular-formly/blob/master/CHANGELOG.md)
-- add ng-directives using [ngModelAttrs](https://github.com/formly-js/angular-formly#ngmodelattrs-object)
+- add ng-directives using `bound` on [ngModelAttrs](https://github.com/formly-js/angular-formly#ngmodelattrs-object)
+- other directives can be added to templates using `unbound` on ngModelAttrs
+- ngModelAttrs can be manipulated using `expressionProperties`. See example below:
+
+```javascript
+{
+  'key': 'item1',
+  'type': 'lx-checkbox',
+  'tempateOptions': {
+    'value': false
+  }
+},
+{
+  'key': 'item2',
+  'type': 'lx-text',
+  'ngModelAttrs': {
+    'bound': {
+      /* adds ng-directive to field input */
+      'ng-pattern': /[A-Za-z]/,
+      'ng-disabled': false,
+      'ng-maxlength': 10,
+      'ng-required': true
+    },
+    'unbound': {
+       /* add other/custom directives here */
+    }
+  },
+  expressionProperties: {
+    'ngModelAttrs.bound['ng-disabled']: 'model.item1'
+  }
+}
+```
 
 
 ## In Progress
