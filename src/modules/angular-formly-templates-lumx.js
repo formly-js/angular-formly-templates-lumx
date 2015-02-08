@@ -5,7 +5,7 @@
 	var PREFIX = 'lx';
 	var FIELDS = [{
 		"name": "checkbox",
-		"template": "<div class=\"checkbox\" ng-class=\"{mt: options.templateOptions.help}\"><input ng-model=\"model[options.key]\" type=\"checkbox\" class=\"checkbox__input\" ng-disabled=\"options.templateOptions.disabled\" aria-labelledby=\"{{::id}}\"><label class=\"checkbox__label\">{{::options.templateOptions.label}}</label><span class=\"checkbox__help\">{{::options.templateOptions.help}}</span></div>"
+		"template": "<div class=\"checkbox\" ng-class=\"{mt: options.templateOptions.help}\"><input class=\"checkbox__input\" type=\"checkbox\" id=\"{{::id}}\" name=\"{{::id}}\" formly-custom-validation=\"options.validators\" aria-describedby=\"{{::id}}_checkbox\" ng-disabled=\"options.templateOptions.disabled\" ng-model=\"model[options.key]\"><label for=\"{{::id}}\" class=\"checkbox__label\">{{::options.templateOptions.label}}</label><span class=\"checkbox__help\">{{::options.templateOptions.help}}</span></div>"
 	}, {
 		"name": "date-picker",
 		"template": "<div><lx-date-picker model=\"model[options.key]\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" ng-required=\"options.templateOptions.required\" aria-labelledby=\"{{::id}}\"></lx-date-picker></div>"
@@ -14,7 +14,7 @@
 		"template": "<div ng-class=\"::options.templateOptions.flex.className\" style=\"::options.templateOptions.flexContainer.style\" flex-container=\"{{::options.templateOptions.flex.container}}\" flex-align=\"{{::options.templateOptions.flex.align}}\" flex-gutter=\"{{::options.templateOptions.flex.gutter}}\"><formly-form fields=\"options.templateOptions.fields\" model=\"::$parent.model\"></formly-form></div>"
 	}, {
 		"name": "radio",
-		"template": "<div><br><div class=\"radio-group\"><h3><label>{{::options.templateOptions.label}}</label></h3><div class=\"radio-button\" ng-repeat=\"(key, option) in options.templateOptions.options\"><input ng-model=\"$parent.model[$parent.options.key]\" type=\"radio\" ng-disabled=\"::option.disabled\" class=\"radio-button__input\" ng-value=\"::option.value\" aria-labelledby=\"{{::id}} + \'_\' + {{::$index}} + \'_radioButton\'\"><label class=\"radio-button__label\">{{::option.name}}</label><span ng-if=\"::option.help\" class=\"radio-button__help\">{{::option.help}}</span></div></div></div>"
+		"template": "<div><br><div class=\"radio-group\" name=\"{{::id}}\"><h3><label>{{::options.templateOptions.label}}</label></h3><div class=\"radio-button\" ng-repeat=\"(key, option) in options.templateOptions.options\"><input type=\"radio\" formly-custom-validation=\"options.validators\" ng-model=\"$parent.model[$parent.options.key]\" ng-disabled=\"::option.disabled\" class=\"radio-button__input\" ng-value=\"::option.value\" aria-describedby=\"{{::id}} + \'_\' + {{::$index}} + \'_radioButton\'\" id=\"{{::id + \'_\'+ $index}}\"><label for=\"{{::id + \'_\'+ $index}}\" class=\"radio-button__label\">{{::option.name}}</label><span ng-if=\"::option.help\" class=\"radio-button__help\">{{::option.help}}</span></div></div></div>"
 	}, {
 		"name": "select-multiple",
 		"template": "<div><br><h3><label>{{::options.templateOptions.label || \'Select\'}} {{::options.templateOptions.required ? \'*\' : \'\'}}</label></h3><lx-select ng-model=\"model[options.key]\" aria-labelledby=\"{{::id}}\" choices=\"options.templateOptions.options\" placeholder=\"{{::options.templateOptions.placeholder}}\" min-length=\"::options.templateOptions.minLength\" allow-clear=\"::options.templateOptions.allowClear\" multiple=\"multiple\"><lx-select-selected>{{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? \' - \' + $selected[options.templateOptions.selected2] : \'\'}}</lx-select-selected><lx-select-choices>{{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? \' - \' + $choice[options.templateOptions.choice2] : \'\'}}</lx-select-choices></lx-select></div>"
@@ -23,7 +23,7 @@
 		"template": "<div><br><h3><label>{{::options.templateOptions.label || \'Select\'}} {{::options.templateOptions.required ? \'*\' : \'\'}}</label></h3><lx-select ng-model=\"model[options.key]\" aria-labelledby=\"{{::id}}\" choices=\"options.templateOptions.options\" placeholder=\"{{::options.templateOptions.placeholder}}\" min-length=\"::options.templateOptions.minLength\" allow-clear=\"::options.templateOptions.allowClear\"><lx-select-selected>{{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? \' - \' + $selected[options.templateOptions.selected2] : \'\'}}</lx-select-selected><lx-select-choices>{{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? \' - \' + $choice[options.templateOptions.choice2] : \'\'}}</lx-select-choices></lx-select></div>"
 	}, {
 		"name": "switch",
-		"template": "<div class=\"switch\" ng-class=\"{mt: options.templateOptions.help}\"><input ng-model=\"model[options.key]\" type=\"checkbox\" class=\"switch__input\" ng-disabled=\"options.templateOptions.disabled\" aria-labelledby=\"{{::id}}\"><label class=\"switch__label\">{{::options.templateOptions.label}}</label><span class=\"switch__help\">{{::options.templateOptions.help}}</span></div>"
+		"template": "<div class=\"switch\" ng-class=\"{mt: options.templateOptions.help}\"><input type=\"checkbox\" id=\"{{::id}}\" class=\"switch__input\" ng-model=\"model[options.key]\" ng-disabled=\"options.templateOptions.disabled\" name=\"{{::id}}\" aria-describedby=\"{{::id}}_switch\"><label for=\"{{::id}}\" class=\"switch__label\">{{::options.templateOptions.label}}</label><span class=\"switch__help\">{{::options.templateOptions.help}}</span></div>"
 	}, {
 		"name": "text",
 		"template": "<div><lx-text-field model=\"::model[options.key || index]\" id=\"{{::id}}\" fixed-label=\"::options.templateOptions.fixedLabel\" icon=\"{{::options.templateOptions.icon}}\" theme=\"{{::options.templateOptions.theme}}\" label=\"{{::options.templateOptions.label}} {{::options.templateOptions.required ? \'*\' : \'\'}}\" disabled=\"::options.templateOptions.disabled\" valid=\"options.formControl.$valid && options.formControl.$touched\" error=\"options.formControl.$invalid && options.formControl.$touched || options.validators\" aria-labelledby=\"{{::id}}\"><input ng-model=\"model[options.key]\" type=\"{{::options.templateOptions.type}}\" ng-required=\"::options.templateOptions.required\" ng-disabled=\"::options.templateOptions.disabled\" ng-model-options=\"::options.modelOptions || {}\"></lx-text-field></div>"
@@ -64,7 +64,7 @@
 		return 'fields/formly-fields-' + PREFIX + '-' + name + '.html';
 	}
 
-	angular.module(MODULE_NAME, [])
+	angular.module('formlyLumx', [])
 		.config(setCustomTemplates)
 		.run(cacheLumXTemplates);
 

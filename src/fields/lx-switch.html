@@ -1,6 +1,8 @@
 <div class="switch"
      ng-class="{mt: options.templateOptions.help}">
 	<input ng-model="model[options.key]"
+	       id="{{::id}}"
+	       name="{{::id}}"
 	       type="checkbox"
 	       class="switch__input"
 	       ng-disabled="options.templateOptions.disabled"

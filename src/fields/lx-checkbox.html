@@ -1,5 +1,7 @@
 <div class="checkbox" ng-class="{mt: options.templateOptions.help}">
 	<input ng-model="model[options.key]"
+	       id="{{::id}}"
+	       name="{{::id}}"
 	       type="checkbox"
 	       class="checkbox__input"
 	       ng-disabled="options.templateOptions.disabled"

@@ -7,6 +7,8 @@
 		<div class="radio-button"
 		     ng-repeat="(key, option) in options.templateOptions.options">
 			<input ng-model="$parent.model[$parent.options.key]"
+			       id="{{::id}}"
+			       name="{{::id}}"
 			       type="radio"
 			       ng-disabled="::option.disabled"
 			       class="radio-button__input"
