@@ -73,7 +73,7 @@
       }, {
         key: 'email',
         type: 'lx-text',
-        wrapper: ['lx-wrapper-error-required', 'lx-wrapper-above'],
+        wrapper: ['lx-wrapper-above', 'lx-wrapper-errors-required'],
         templateOptions: {
           above: {
             space: true,
@@ -101,7 +101,7 @@
           label: 'Password',
           required: true
         },
-        wrapper: 'lx-wrapper-error-required',
+        wrapper: 'lx-wrapper-errors-required',
         ngModelAttrs: {
           bound: {
             'ng-minlength': 4,

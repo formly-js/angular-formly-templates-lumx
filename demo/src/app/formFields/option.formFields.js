@@ -21,11 +21,9 @@
         templateOptions: {
           above: {
             text: 'Checkboxes: ',
-            style: {
-              'text-decoration': 'underline'
-            }
+            style: { 'text-decoration': 'underline' }
           },
-          label: 'Show Missing Box',
+          label: 'Show Missing Box'
         }
       }, {
         key: 'checkbox1',
@@ -47,8 +45,7 @@
         templateOptions: {
           label: 'Checkbox with Helper',
           help: 'Explaining a little more'
-        },
-        expressionProperties: {}
+        }
       }, {
         key: 'checkbox3',
         type: 'lx-checkbox',

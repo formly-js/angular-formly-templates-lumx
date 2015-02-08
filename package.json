@@ -1,7 +1,7 @@
 {
   "name": "angular-formly-templates-lumx-master",
   "version": "1.0.0",
-  "description": "angular-formly-lumx-templates =============================",
+  "description": "angular-formly-lumx-templates",
   "main": "gulpfile.js",
   "devDependencies": {
     "del": "^1.1.1",
@@ -11,7 +11,6 @@
     "gulp-copy": "0.0.2",
     "gulp-filesize": "0.0.6",
     "gulp-html-minifier": "^0.1.6",
-    "gulp-htmlmin": "^1.0.0",
     "gulp-load-plugins": "^0.8.0",
     "gulp-regex-replace": "^0.2.3",
     "gulp-rename": "^1.2.0",
