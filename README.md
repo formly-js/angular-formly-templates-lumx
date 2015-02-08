@@ -3,6 +3,10 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern forms made easy.
 
+# Now 1.0.0
+
+See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
+
 # Introduction
 
 Use JSON in Angular to create simple & elegant forms based on Google's Material Design specs. 
@@ -16,13 +20,13 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 
 ## Bower
 
-<pre><code>bower install angular-formly-templates-lumx</code></pre>
+`bower install angular angular-formly lumx angular-messages angular-formly-templates-lumx`
 
 ## Dependencies
 
 1. Angular 1.3.x or greater
-2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.0.0)
-3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") 
+2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.0.0+)
+3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") (@0.3.*)
 4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs")
 
 ## Getting Started
@@ -30,34 +34,67 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 1. Install dependencies (for example, with Bower: <pre><code>bower install angular angular-messages angular-formly lumx angular-formly-templates-lumx</code></pre>)
 2. Add the following dependencies to your Angular module:
 
-<pre><code>angular.module('myAppName', [
-    /* Dependencies */
+```javascript
+angular.module('myAppName', [
     'angular'
     'ngMessages',
     'formly',
     'lumx',
     'formly.lumx'
-  ])</code></pre>
-
+  ])
+```
 
 ## HTML
 
    Not much necessary. The form only requires the <code>formly-form</code> directive tag. For example:
 
- ```html
+```html
    <!-- formly-form directive generates templates -->
-     <formly-form model="vm.formData" fields="vm.formFields" options="vm.formOptions"
-                  ng-submit="vm.submit(form.$valid)" name="form">
+     <formly-form model="formData" fields="formFields" options="formOptions"
+                  ng-submit="submit(form.$valid)" name="form">
        <!-- end of formly-form contents -->
        <br>
        <button class="btn btn--m btn--blue btn--raised" lx-ripple type="submit">Submit</button>
      </formly-form>
- ```
+```
+
+## Controller
+
+Add your formData & formFields onto a controller.
+
+```javascript
+angular.module('myAppName').controller('FormCtrl', FormCtrl);
+function FormCtrl ($scope) {
+  $scope.formData = {};  // the data object
+  $scope.formOptions = {}; // optional form parameters
+  $scope.formFields = [{ // an array holding all form fields
+    'key': 'email',    // ng-model name, saved in formData
+    'type': 'lx-text', // field
+    'templateOptions: {  // in this case: 'lx-text' options
+      'type': 'email'
+      'label': 'Email'
+    }
+  }];
+}
+```
 
 # Elements
 
-## Wrappers
-Handled by ngMessages
+Basic form elements.
+
+## Fields
+- lx-text (email, password, number, url)
+- lx-textarea
+- lx-switch
+- lx-checkbox
+- lx-date-picker
+- lx-radio
+- lx-select, lx-select-multiple
+- lx-flex (coming soon)
+
+## Wrappers (coming soon)
+
+Wrap around the form field to add additional functionality.
 
 ### Styles
 - lx-wrapper-above (styled text above form field)
@@ -71,22 +108,8 @@ Handled by ngMessages
 - more coming soon...
 
 ### Flex-Box Grids
-- lx-wrapper-flex-container (Coming soon!)
 - lx-wrapper-flex-item
 
-### Form-Fields
-
-- lx-text (email, password, number, url)
-- lx-textarea
-- lx-switch
-- lx-checkbox
-- lx-date-picker
-- lx-radio-buttons
-- lx-select, lx-select-multiple
-- lx-file-input
-- lx-subhead
-
-  
 #### Email & Password
   
   Create form fields by attaching a JSON object in the controller.
@@ -94,10 +117,10 @@ Handled by ngMessages
 ```javascript
 $scope.formFields= [{
       key: 'email', // {
-      type: 'lx-text', // formlyTemplate
+      type: 'lx-text',
       wrapper: 'lx-wrapper-errors-text', // error handling with ngMessages
       templateOptions: {
-        type: 'email', // input type: [email, password, text, url, number]
+        type: 'email', // input type: [email | password | text | url | number]
         label: 'Email',
         required: true
        }
@@ -109,8 +132,12 @@ $scope.formFields= [{
         type: 'password',
         label: 'Password',
         required: true,
-        minlength: 4,
-        maxlength: 16,
+      },
+      ngModelAttrs: {
+        bound: {
+          'ng-minlength': 4,
+          'ng-maxlength': 16
+        }
       },
       modelOptions: { 
         allowInvalid: true,
@@ -126,4 +153,4 @@ $scope.formFields= [{
     
 # Known Issues
 
-LumX has a conflict with a simlarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select".
+LumX has a conflict with a simlarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select". Solution: choose one framework or the other.
