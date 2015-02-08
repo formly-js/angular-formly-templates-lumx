@@ -8,7 +8,6 @@
 		     ng-repeat="(key, option) in options.templateOptions.options">
 			<input ng-model="$parent.model[$parent.options.key]"
 			       type="radio"
-			       formly-custom-validation="options.validators"
 			       ng-disabled="::option.disabled"
 			       class="radio-button__input"
 			       ng-value="::option.value"

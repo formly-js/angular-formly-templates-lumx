@@ -1,0 +1,10 @@
+<div>
+	<formly-transclude></formly-transclude>
+	<ul class="form-error" ng-messages="options.formControl.$error"
+	    ng-show="options.formControl.$invalid && options.formControl.$touched|| options.validators">
+		<li ng-message="required">{{::options.templateOptions.msg.required || "Aren't you forgetting something?"}}</li>
+		<li ng-message="number">{{::options.templateOptions.msg.number || "Not a valid number."}}</li>
+		<li ng-message="min">Too low. {{::options.min}} or higher.</li>
+		<li ng-message="max">Too high. {{::options.max}} or lower.</li>
+	</ul>
+</div>

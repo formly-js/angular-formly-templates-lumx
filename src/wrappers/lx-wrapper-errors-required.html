@@ -2,6 +2,6 @@
 	<formly-transclude></formly-transclude>
 	<ul class="form-error" ng-messages="options.formControl.$error"
 	    ng-show="options.formControl.$invalid && options.formControl.$touched">
-		<li ng-message="required">Aren't you forgetting something?</li>
+		<li ng-message="required">{{::options.templateOptions.msg.required || "Aren't you forgetting something?"}}</li>
 	</ul>
 </div>
