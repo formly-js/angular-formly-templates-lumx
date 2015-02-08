@@ -6,6 +6,7 @@
   function shmckSidebar() {
 
     var sidebarLinks = [{
+      divider: 'TYPES',
       state: 'text',
       text: 'Text'
       //icon: 'text-format'
@@ -34,8 +35,9 @@
       text: 'Dates'
       //icon: 'today'
     }, {
+      divider: 'WRAPPERS',
       state: 'wrapper',
-      text: 'Wrapper'
+      text: 'Above/Below'
     }, {
       state: 'themes',
       text: 'Themes'
