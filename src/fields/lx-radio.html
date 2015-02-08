@@ -11,7 +11,7 @@
 			       ng-disabled="::option.disabled"
 			       class="radio-button__input"
 			       ng-value="::option.value"
-			       aria-describedby="{{::id}} + '_' + {{::$index}} + '_radioButton'">
+			       aria-labelledby="{{::id}} + '_' + {{::$index}} + '_radioButton'">
 			<label class="radio-button__label">{{::option.name}}</label>
       <span ng-if="::option.help" class="radio-button__help">{{::option.help}}
       </span>

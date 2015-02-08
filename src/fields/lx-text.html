@@ -8,7 +8,7 @@
                  disabled="::options.templateOptions.disabled"
                  valid="options.formControl.$valid && options.formControl.$touched"
                  error="options.formControl.$invalid && options.formControl.$touched || options.validators"
-                 aria-describedby="{{::id}}_textField">
+                 aria-labelledby="{{::id}}">
     <input ng-model="model[options.key]"
            type="{{::options.templateOptions.type}}"
            ng-required="::options.templateOptions.required"

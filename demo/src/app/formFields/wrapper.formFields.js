@@ -30,7 +30,7 @@
         }
       }, {
         key: 'textAbove',
-        type: 'lx-text-field',
+        type: 'lx-text',
         wrapper: 'lx-wrapper-above',
         templateOptions: {
           above: {
@@ -46,7 +46,7 @@
         }
       }, {
         key: 'textBoth',
-        type: 'lx-text-field',
+        type: 'lx-text',
         wrapper: ['lx-wrapper-below', 'lx-wrapper-above'],
         templateOptions: {
           above: {
