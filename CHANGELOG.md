@@ -2,9 +2,16 @@
 
 ## Breaking Changes
 - new dependency: `angular-formly@3.0.*`
+- `<formly-form>` attribute `result` changed to `model`. See example below:
+
+```html
+  <formly-form model="formData" fields="formFields"></formly-form"
+```
+
 - `lx-text-field` shortened to `lx-text`
 - `lx-radio-buttons` shortened to `lx-radio`
 - removed `lx-subhead` in favor of new feature: 'wrappers'
+- `class` properties renamed `className` to avoid need for quotes
 - file structure changed: './src/modules/*'
 - demo added './demo/app'
 - all template related form-fields put into [templateOptions](https://github.com/formly-js/angular-formly#templateoptions-). See the example below:
@@ -63,3 +70,11 @@
 ## In Progress
 - `lx-wrapper-*`. Wrap data around your template for greater style control.
 - `lx-flex` (flexbox feature)
+
+## Inner changes
+- Gulpfile to easily generate templates from fields
+- Many ng-directives removed from templates in favor of ngModelAttrs
+- Some custom select attributes removed
+- `aria-labeledby` changed to `aria-describedby`
+- `ngModel[options.key || $index]` simplified to `ngModel[options.key]`
+- `formly-name-

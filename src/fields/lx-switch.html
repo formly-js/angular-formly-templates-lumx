@@ -1,14 +1,14 @@
 <div class="switch"
      ng-class="{mt: options.templateOptions.help}">
   <input type="checkbox"
-         id="{{::id + '_'+ $index}}"
+         id="{{::id}}"
          class="switch__input"
          ng-model="model[options.key]"
          ng-disabled="options.templateOptions.disabled"
          name="{{::id}}"
          aria-describedby="{{::id}}_switch"/>
 
-  <label for="{{::id + '_'+ $index}}"
+  <label for="{{::id}}"
          class="switch__label">{{::options.templateOptions.label}}</label>
   <span class="switch__help">{{::options.templateOptions.help}}</span>
 </div>

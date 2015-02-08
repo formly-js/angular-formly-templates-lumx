@@ -4,7 +4,7 @@
                  theme="{{::options.templateOptions.theme}}"
                  label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
                  fixed-label="::options.templateOptions.fixedLabel"
-                 model="::model[options.key || index]"
+                 model="::model[options.key]"
                  disabled="::options.templateOptions.disabled"
                  valid="options.formControl.$valid && options.formControl.$touched"
                  error="options.formControl.$invalid && options.formControl.$touched || options.validators"
