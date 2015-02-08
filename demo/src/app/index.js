@@ -6,7 +6,7 @@
     'ngMessages',
     'formly',
     'lumx',
-    'formly.lumx',
+    'formlyLumx',
     /* additional */
     'ngSanitize',
     'ui.router',

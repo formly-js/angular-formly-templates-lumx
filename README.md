@@ -1,7 +1,7 @@
 angular-formly-lumx-templates
 =============================
 
-LumX Templates for Angular-Formly. Modern & flexible forms made easy.
+LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
 # Now 1.0.0
 
@@ -20,29 +20,28 @@ See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") fo
 
 ## Dependencies
 
-1. Angular 1.3.x or greater
-2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.0.0+)
-3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") (@0.3.*)
-4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs")
+1. Angular (@1.3+)
+2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.0+)
+3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") (@0.3+)
+4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") (@1.3+)
 
 ## Getting Started
 
-1. Install dependencies (for example, with Bower: <pre><code>bower install angular angular-messages angular-formly lumx angular-formly-templates-lumx</code></pre>)
+1. Install dependencies (for example, with Bower (see Bower above)
 2. Add the following dependencies to your Angular module:
 
 ```javascript
 angular.module('myAppName', [
-    'angular'
     'ngMessages',
     'formly',
     'lumx',
-    'formly.lumx'
+    'formlyLumx'
   ])
 ```
 
-## HTML
+## View
 
-   Not much necessary. The form only requires the <code>formly-form</code> directive tag. For example:
+   Not much necessary. The form only requires the `formly-form` directive tag. For example:
 
 ```html
    <!-- formly-form directive generates templates -->
@@ -74,11 +73,12 @@ function FormCtrl ($scope) {
 }
 ```
 
-# Elements
+# Components
+
+## Fields
 
 Basic form elements.
 
-## Fields
 - [lx-text](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/text.md) (email, password, number, url)
 - [lx-textarea](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/text.md)
 - [lx-switch](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
@@ -90,7 +90,7 @@ Basic form elements.
 
 ## Wrappers (coming soon)
 
-Wrap around the form field to add additional functionality.
+Wrap around the form field to add additional functionality. See the [Angular-formly docs on wrappers](https://github.com/formly-js/angular-formly#wrapper-stringarray-of-strings "Wrappers").
 
 ### Styles
 - [lx-wrapper-above](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/wrapper.md) (styled text above form field)
@@ -145,7 +145,14 @@ $scope.formFields= [{
       }
     }
 ```
+
+##Roadmap
+- Flexbox grids
+- Automatic error handling with wrappers & ngMessages (only add necessary ngMessages for set attributes)
+- Optimize formlyConfig setup
+- Requests (?)
+
     
-# Known Issues
+## Known Issues
 
 LumX has a conflict with a simlarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select". Solution: choose one framework or the other.

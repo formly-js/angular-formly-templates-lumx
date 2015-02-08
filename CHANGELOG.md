@@ -1,6 +1,7 @@
 #1.0.0
 
 ## Breaking Changes
+- module name changed from `formly.lumx` to `formlyLumx`.
 - new dependency: `angular-formly@3.0.*`
 - `<formly-form>` attribute `result` changed to `model`. See example below:
 
