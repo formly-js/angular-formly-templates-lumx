@@ -6,7 +6,7 @@ LumX Templates for Angular-Formly. Modern forms made easy.
 # Now 1.0.0
 
 See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
-See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/docs "Documentation") for template APIs.
+See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 
 # Introduction
 
@@ -84,23 +84,22 @@ function FormCtrl ($scope) {
 Basic form elements.
 
 ## Fields
-- lx-text (email, password, number, url)
-- lx-textarea
-- lx-switch
-- lx-checkbox
-- lx-date-picker
-- lx-radio
-- lx-select, lx-select-multiple
-- lx-flex (coming soon)
+- [lx-text](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/text.md) (email, password, number, url)
+- [lx-textarea](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/text.md)
+- [lx-switch](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
+- [lx-checkbox](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
+- [lx-radio](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
+- [lx-date-picker](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md)
+- [lx-select](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md), lx-select-multiple
+- [lx-flex](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
 
 ## Wrappers (coming soon)
 
 Wrap around the form field to add additional functionality.
 
 ### Styles
-- lx-wrapper-above (styled text above form field)
-- lx-wrapper-below (or below)
-- lx-wrapper-card
+- [lx-wrapper-above](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/wrapper.md) (styled text above form field)
+- [lx-wrapper-below](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/wrapper.md) (or below)
 - more coming soon...
 
 ### Error Handling
@@ -109,9 +108,9 @@ Wrap around the form field to add additional functionality.
 - more coming soon...
 
 ### Flex-Box Grids
-- lx-wrapper-flex-item
+- [lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
 
-#### Email & Password
+#### Example: Email & Password
   
   Create form fields by attaching a JSON object in the controller.
   
