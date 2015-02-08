@@ -6,16 +6,18 @@ var gulp = require('gulp'),
 	$ = require('gulp-load-plugins')();
 
 var path = {
-	src: ['./src/fields/*.html', './src/wrappers/*.html'],
-	modules: './src/modules/',
+	src: ['src/fields/*.html', 'src/wrappers/*.html'],
+	modules: 'src/modules/',
 	fileName: 'angular-formly-templates-lumx'
 };
 
 var project = {
 	module: 'formly.lumx',
 	prefix: 'lx',
-	dest: path.modules + path.fileName + '.js'
+	dest: path.modules + path.fileName + '.js',
 };
+
+var demoDest = 'demo/bower_components/' + project.fileName + project.dest;
 
 gulp.task('build', ['templates'], function () {
 	var root = path.modules + path.fileName;
@@ -30,6 +32,12 @@ gulp.task('build', ['templates'], function () {
 		.pipe(gulp.dest(path.modules));
 });
 
+
+gulp.task('copyTemplatesToDemo', function () {
+	gulp.src(project.dest)
+		.pipe($.copy(demoDest))
+	.pipe(gulp.dest(demoDest));
+});
 
 gulp.task('templates', ['clean'], function () {
 	var getFirstWrapper = new RegExp('\"' + project.prefix + '\-wrapper');

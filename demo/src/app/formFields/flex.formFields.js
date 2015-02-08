@@ -16,17 +16,19 @@
     this.fields = function () {
       return [{
         'key': 'row',
-        type: 'lx-wrapper-flex-container',
-        //'wrapper': 'lx-wrapper-flex-container',
+        type: 'lx-flex',
         templateOptions: {
-          flexContainer: {
+          flex: {
             container: 'row',
             align: 'space-between'
           },
+          model: this,
           'fields': [{
             key: 'rowItem1',
             type: 'lx-text',
+            wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
+              flex: {},
               type: 'text',
               fixedLabel: true,
               label: 'Item 1'
@@ -34,7 +36,9 @@
           }, {
             key: 'rowItem2',
             type: 'lx-text',
+            wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
+              flex: {},
               type: 'text',
               fixedLabel: true,
               label: 'Item 2'
@@ -42,7 +46,9 @@
           }, {
             key: 'rowItem3',
             type: 'lx-text',
+            wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
+              flex: {},
               type: 'text',
               fixedLabel: true,
               label: 'Item 3'
