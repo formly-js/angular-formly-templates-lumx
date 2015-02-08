@@ -16,5 +16,3 @@ demo/.gitignore
 build
 edits
 todo.txt
-gulpfile.js
-package.json

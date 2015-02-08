@@ -1,0 +1,36 @@
+{
+  "name": "angular-formly-templates-lumx-master",
+  "version": "1.0.0",
+  "description": "angular-formly-lumx-templates =============================",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.10",
+    "gulp-util": "^3.0.3",
+    "gulp-angular-templatecache": "^1.5.0",
+    "gulp-copy": "0.0.2",
+    "gulp-filesize": "0.0.6",
+    "gulp-html-minifier": "^0.1.6",
+    "gulp-htmlmin": "^1.0.0",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-regex-replace": "^0.2.3",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.2",
+    "gulp-trim": "^1.0.1",
+    "gulp-uglify": "^1.1.0",
+    "gulp-wrapper": "^0.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/formly-js/angular-formly-templates-lumx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/formly-js/angular-formly-templates-lumx/issues"
+  },
+  "homepage": "https://github.com/formly-js/angular-formly-templates-lumx"
+}
