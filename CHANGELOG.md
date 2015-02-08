@@ -32,6 +32,7 @@
 
 ## Features
 - new [site with improved docs](https://github.com/formly-js/angular-formly-templates-lumx)
+- docs folder added './docs'
 - see [changes to angular-formly](https://github.com/formly-js/angular-formly/blob/master/CHANGELOG.md)
 - add ng-directives using `bound` on [ngModelAttrs](https://github.com/formly-js/angular-formly#ngmodelattrs-object)
 - other directives can be added to templates using `unbound` on ngModelAttrs
