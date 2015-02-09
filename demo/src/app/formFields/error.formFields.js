@@ -9,7 +9,7 @@
   function errorFormFields() {
     this.contents = {
       title: 'Error Notification',
-      subhead: 'Better validation with ngMessages',
+      subhead: 'easy validation tools',
       description: '',
       markdownFile: 'app/docs/error.md'
     };

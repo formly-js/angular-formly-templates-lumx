@@ -7,8 +7,8 @@
 
   function textFormFields() {
     this.contents = {
-      title: 'Text Form Fields',
-      subhead: '',
+      title: 'Text Fields',
+      subhead: 'input & textarea',
       description: '',
       markdownFile: 'app/docs/text.md'
     };

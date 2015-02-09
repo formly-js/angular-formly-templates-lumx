@@ -8,7 +8,7 @@
   function selectFormFields() {
     this.contents = {
       title: 'Selectors',
-      subhead: 'Date picker, dropdown selects',
+      subhead: 'date picker, dropdown selects',
       description: '',
       markdownFile: 'app/docs/select.md'
     };
@@ -16,26 +16,15 @@
 
     this.fields = function () {
       return [{
-        key: 'dob',
+        key: 'datePicked',
         type: 'lx-date-picker',
-        wrapper: 'lx-wrapper-above',
         templateOptions: {
-          above: {
-            space: true,
-            text: 'Date Picker',
-            style: {'text-decoration': 'underline'}
-          },
           label: 'Pick a Date'
         }
       }, {
         key: 'select',
         type: 'lx-select',
-        wrapper: 'lx-wrapper-above',
         templateOptions: {
-          above: {
-            text: 'Selectors: ',
-            style: {'text-decoration': 'underline' }
-          },
           label: 'Single Select',
           placeholder: 'Choose an Email',
           allowClear: true,

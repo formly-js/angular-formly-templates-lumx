@@ -8,7 +8,7 @@
   function optionFormFields() {
     this.contents = {
       title: 'Option Pickers',
-      subhead: 'Checkboxes, Switches, Radio buttons',
+      subhead: 'checkboxes, switches, & radio buttons',
       description: '',
       markdownFile: 'app/docs/option.md'
     };

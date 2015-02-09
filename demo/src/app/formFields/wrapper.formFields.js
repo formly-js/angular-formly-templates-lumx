@@ -8,8 +8,8 @@
   function wrapperFormFields() {
     this.contents = {
       title: 'Wrappers',
-      subhead: 'Style control around your form fields',
-      description: 'Coming soon!',
+      subhead: 'control and style your form fields',
+      description: '',
       markdownFile: 'app/docs/wrapper.md'
     };
 
@@ -26,7 +26,7 @@
           },
           type: 'text',
           fixedLabel: true,
-          label: 'Field with text below',
+          label: 'Field with text below'
         }
       }, {
         key: 'textAbove',
