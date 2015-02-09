@@ -1,10 +1,9 @@
-<div class="grid main-section__content">
-  <div class="grid__col6">
+<div class="main-section__content" flex-container="row" flex-align="space-between" flex-gutter="20">
+  <div flex-item="50" flex-order="1" class="flex-basis">
     <div class="card tc-black-2 p-">
+      <shmck-divider></shmck-divider>
 
-     <span class="top-divider"></span>
-
-      <h1 class="fs-display2">{{::vm.contents.title}}</h1>
+      <h1 class="fs-display2">{{::vm.contents.title}} <a ng-click="vm.openDialog()"><i class="icon icon--l icon--blue mt mdi mdi-account"></i></a></h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
 
       <br/>
@@ -28,25 +27,18 @@
     </div>
 
     <div class="card tc-black-2 p-">
-      <h1 class="fs-title">formData</h1>
+      <shmck-divider></shmck-divider>
+      <h1 class="fs-title">Form Data</h1>
 
       <div class="card__content bgc-blue-200" style="max-width: 450px">
         <pre pretty-json="vm.formData"/>
       </div>
     </div>
-
-    <br/>
-    <!-- markdown docs -->
-    <div class="docs">
-      <h2 class="fs-display1">Docs</h2>
-
-      <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
-    </div>
   </div>
 
-  <div class="grid__col6">
+  <div flex-item="50" flex-order="2" class="flex-basis flex-wrap">
     <div class="card tc-black-2 p-">
-      <span class="top-divider"></span>
+      <shmck-divider></shmck-divider>
       <h1 class="fs-display1">Form Fields</h1>
 
       <div class="card__content bgc-white" style="max-width: 450px">
@@ -60,3 +52,5 @@
 
   </div>
 </div>
+
+<docs-modal></docs-modal>

@@ -1,0 +1,15 @@
+<lx-dialog class="dialog dialog--l" id="docsModal">
+
+  <div class="dialog__header">
+    <div class="toolbar bgc-light-blue-500">
+            <span class="toolbar__label tc-white fs-title">
+              {{::vm.contents.title}} Docs
+            </span>
+    </div>
+  </div>
+
+  <div class="dialog__content">
+    <div btf-markdown ng-include="::vm.contents.markdownFile"></div>
+  </div>
+</lx-dialog>
+
