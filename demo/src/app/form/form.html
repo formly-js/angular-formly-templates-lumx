@@ -3,7 +3,8 @@
     <div class="card tc-black-2 p-">
       <shmck-divider></shmck-divider>
 
-      <h1 class="fs-display2">{{::vm.contents.title}} <a ng-click="vm.openDialog()"><i class="icon icon--l icon--blue mt mdi mdi-account"></i></a></h1>
+      <a class="docs-icon" ng-click="vm.openDialog()"><img src="../images/file-document-box.svg"/></a>
+      <h1 class="fs-display2">{{::vm.contents.title}}</h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
 
       <br/>
@@ -16,7 +17,7 @@
           <formly-form model="vm.formData" fields="vm.formFields"
                        ng-submit="vm.submit()" name="form">
             <br/>
-            <button class="btn btn--m btn--blue btn--raised" lx-ripple
+            <button class="btn btn--l btn--blue btn--raised" lx-ripple
                     type="submit">Submit
             </button>
           </formly-form>
