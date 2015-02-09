@@ -7,5 +7,26 @@
 }
 
 #main {
-  margin-top: 60px;
+  margin-top: 40px;
+}
+
+.top-divider {
+  -webkit-font-smoothing: antialiased;
+  background-color: rgba(0, 0, 0, 0.117647);
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.870588);
+  display: list-item;
+  font-family: roboto, sans-serif;
+  font-size: 16px;
+  height: 0.989583373069763px;
+  line-height: 26.6666679382324px;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  text-align: left;
+  width: 258.888885498047px;
+
+
 }

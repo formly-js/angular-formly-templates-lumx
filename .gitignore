@@ -1,4 +1,3 @@
-.gitignore
 .idea
 bower_components
 node_modules
@@ -11,9 +10,6 @@ demo/npm-debug.log
 demo/.editorconfig
 demo/web.js
 demo/Procfile
-demo/.gitignore
 build
 edits
 todo.txt
-gulpfile.js
-package.json

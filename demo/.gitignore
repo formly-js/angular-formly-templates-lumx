@@ -1,0 +1,5 @@
+.editorconfig
+node_modules
+bower_components
+.tmp
+.idea
