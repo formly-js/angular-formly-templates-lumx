@@ -66,7 +66,7 @@ function _fieldTemplateUrl (name) { \
 	function cacheLumXTemplates($templateCache) { \
 		if (USING_TEMPLATES) { \
 			angular.forEach(FIELDS, function (field) { \
-				$templateCache.put(\'fields/formly-fields-\' + PREFIX + \'-\' + field.name + \'.html\', field.template); \
+				$templateCache.put(\'fields/formly-templates-\' + PREFIX + \'-\' + field.name + \'.html\', field.template); \
 			}); \
 		angular.forEach(WRAPPERS, function (wrapper) { \
 			$templateCache.put(\'wrappers/formly-wrappers-\' + PREFIX + \'-\' + wrapper.name + \'.html\', wrapper.template); \
