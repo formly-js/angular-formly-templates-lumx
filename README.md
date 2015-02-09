@@ -98,9 +98,10 @@ Wrap around the form field to add additional functionality. See the [Angular-for
 - more coming soon...
 
 ### Error Handling
-- lx-wrapper-error-required
+- lx-wrapper-errors-required
 - lx-wrapper-errors-text (general validation error messages)
-- more coming soon...
+- lx-wrapper-errors-number
+- lx-wrapper-errors-custom
 
 ### Flex-Box Grids
 - [lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)

@@ -39,7 +39,10 @@
       state: 'wrapper',
       text: 'Above/Below'
     }, {
-      state: 'themes',
+      state: 'error',
+      text: 'Errors'
+    }, {
+      state: 'theme',
       text: 'Themes'
     }, {
       state: 'flex',

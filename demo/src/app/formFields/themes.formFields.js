@@ -58,7 +58,7 @@
 
   function stateRoutes($stateProvider) {
     $stateProvider
-      .state('themes', {
+      .state('theme', {
         url: '/themes',
         views: {
           'form@': {

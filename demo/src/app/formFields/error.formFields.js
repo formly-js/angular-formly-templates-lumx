@@ -21,7 +21,14 @@
         wrapper: 'lx-wrapper-errors-required',
         templateOptions: {
           type: 'text',
-          label: 'Default required field notification'
+          label: 'Default required field notification',
+          required: true
+        },
+        modelOptions: {
+          updateOn: 'default blur',
+          debounce: {
+            blur: 0
+          }
         }
       }, {
         key: 'requiredCustom',
@@ -29,10 +36,11 @@
         wrapper: 'lx-wrapper-errors-required',
         templateOptions: {
           msg: {
-            required: 'I hear and I forget. I see and I remember. I do and I understand.'
+            required: 'Say whatever validation message you\'d like..'
           },
           type: 'text',
-          label: 'Custom required field notification'
+          label: 'Custom required field notification',
+          required: true
         }
       }, {
         key: 'textDefault',
@@ -40,7 +48,8 @@
         wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'text',
-          label: 'Default text errors (min: 4, max: 8)'
+          label: 'Default text errors (min: 4, max: 8)',
+          required: true
         },
         ngModelAttrs: {
           bound: {
@@ -64,6 +73,7 @@
         templateOptions: {
           type: 'text',
           label: 'Custom text errors (only letters)',
+          required: true,
           msg: {
             pattern: 'Only letter characters are allowed.'
           }
@@ -89,6 +99,7 @@
         templateOptions: {
           type: 'number',
           label: 'Try putting letters in this number field',
+          required: true,
           msg: {
             number: 'Oops! Must be a number!'
           }
@@ -102,36 +113,38 @@
             blur: 0
           }
         }
-      }, {
-        key: 'customValidator',
-        type: 'lx-type',
-        wrapper: 'lx-wrapper-errors-custom',
-        validators: '',
-        templateOptions: {
-          msg: {
-            custom: {
-              name: 'iceCream',
-              text: 'Sorry, we don\'t have that flavor. Only chocolate, vanilla & strawberry.'
-            }
-          }
-        },
-        modelOptions: {
-          allowInvalid: true,
-          updateOn: 'default blur keydown',
-          debounce: {
-            keydown: 800,
-            default: 800,
-            blur: 0
-          }
-        }
+      //}, {
+      //  key: 'customValidator',
+      //  type: 'lx-text',
+      //  wrapper: 'lx-wrapper-errors-custom',
+      //  validators: 'iceCream',
+      //  templateOptions: {
+      //    required: true,
+      //    label: 'What\'s your favorite ice cream?',
+      //    msg: {
+      //      custom: {
+      //        name: 'iceCream',
+      //        text: 'Sorry, we don\'t have that flavor. Only chocolate, vanilla & strawberry.'
+      //      }
+      //    }
+      //  },
+      //  modelOptions: {
+      //    allowInvalid: true,
+      //    updateOn: 'default blur keydown',
+      //    debounce: {
+      //      keydown: 800,
+      //      default: 800,
+      //      blur: 0
+      //    }
+      //  }
       }, {}];
     };
   }
 
   function stateRoutes($stateProvider) {
     $stateProvider
-      .state('text', {
-        url: '/',
+      .state('error', {
+        url: '/errors',
         views: {
           'form@': {
             templateUrl: 'app/form/form.html',
