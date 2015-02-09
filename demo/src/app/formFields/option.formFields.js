@@ -21,7 +21,7 @@
         templateOptions: {
           above: {
             text: 'Checkboxes: ',
-            style: { 'text-decoration': 'underline' }
+            style: {'text-decoration': 'underline'}
           },
           label: 'Show Missing Box'
         }
@@ -71,7 +71,9 @@
         key: 'switch1',
         type: 'lx-switch',
         ngModelAttrs: {
-          'ng-checked': true
+          bound: {
+            'ng-checked': true
+          }
         },
         templateOptions: {
           label: 'Switched Switch'
