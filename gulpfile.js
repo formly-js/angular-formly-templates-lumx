@@ -55,7 +55,7 @@ gulp.task('templates', ['clean'], function () {
 		.pipe($.replace(/\}\, \{\"name\"\: \n\]/m, '}]'))
 		.pipe($.wrapper({
 			header: '(function () {\'use strict\'; var USING_TEMPLATES = true; var MODULE_NAME = \"' + project.module + '\"; var PREFIX = \"' + project.prefix + '\";',
-			footer: ' function _wrapperTemplateUrl (name) { \
+			footer: 'function _wrapperTemplateUrl (name) { \
 			return \'wrappers/formly-wrappers-\' + PREFIX + \'-\' + name + \'.html\';\
 }\
 function _fieldTemplateUrl (name) { \
@@ -66,10 +66,10 @@ function _fieldTemplateUrl (name) { \
 	function cacheLumXTemplates($templateCache) { \
 		if (USING_TEMPLATES) { \
 			angular.forEach(FIELDS, function (field) { \
-				$templateCache.put(\'fields/formly-templates-\' + PREFIX + \'-\' + field.name + \'.html\', field.template); \
+				$templateCache.put(_fieldTemplateUrl(field.name), field.template); \
 			}); \
 		angular.forEach(WRAPPERS, function (wrapper) { \
-			$templateCache.put(\'wrappers/formly-wrappers-\' + PREFIX + \'-\' + wrapper.name + \'.html\', wrapper.template); \
+			$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
 			});}} \
 		/*@ngInject*/ \
 		function setCustomTemplates(formlyConfigProvider) {\

@@ -1,4 +1,4 @@
-### lx-wrapper-above API
+### lx-wrapper-above
 
 ```javascript
 {
@@ -18,7 +18,7 @@
 }
 ```
 
-### lx-wrapper-below API
+### lx-wrapper-below
 ```javascript
 {
   'key': 'modelName',

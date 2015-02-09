@@ -22,36 +22,88 @@
             container: 'row',
             align: 'space-between'
           },
-          model: this,
           'fields': [{
             key: 'rowItem1',
             type: 'lx-text',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {},
+              flex: {
+                item: 1
+              },
               type: 'text',
               fixedLabel: true,
-              label: 'Item 1'
+              label: 'space-between row'
             }
           }, {
             key: 'rowItem2',
             type: 'lx-text',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {},
+              flex: {
+                item: 2
+              },
               type: 'text',
               fixedLabel: true,
-              label: 'Item 2'
+              label: 'Row'
             }
           }, {
             key: 'rowItem3',
             type: 'lx-text',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {},
+              flex: {
+                item: 3
+              },
               type: 'text',
               fixedLabel: true,
-              label: 'Item 3'
+              label: 'Row'
+            }
+          }]
+        }
+      }, {
+        'key': 'row',
+        type: 'lx-flex',
+        templateOptions: {
+          flex: {
+            container: 'column',
+            align: 'space-between center',
+            gutter: 24
+          },
+          'fields': [{
+            key: 'columnItem1',
+            type: 'lx-text',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              flex: {
+                item: 1
+              },
+              type: 'text',
+              fixedLabel: true,
+              label: 'space-between center'
+            }
+          }, {
+            key: 'columnItem2',
+            type: 'lx-text',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              flex: {
+                item: 2
+              },
+              type: 'text',
+              fixedLabel: true,
+              label: 'Column'
+            }
+          }, {
+            key: 'columnItem3',
+            type: 'lx-text',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              flex: {
+                item: 3
+              },
+              type: 'text',
+              fixedLabel: true,
+              label: 'Column'
             }
           }]
         }
@@ -65,8 +117,8 @@
         url: '/flex',
         views: {
           'form@': {
-            templateUrl: 'app/form/flex-form.html',
-            controller: 'FlexFormCtrl as vm',
+            templateUrl: 'app/form/form.html',
+            controller: 'FormCtrl as vm',
             resolve: {
               formFields: function (flexFormFields) {
                 return flexFormFields.fields;

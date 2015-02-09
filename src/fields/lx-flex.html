@@ -1,9 +1,7 @@
-<div ng-class="::options.templateOptions.flex.className"
-     style="::options.templateOptions.flexContainer.style"
-     flex-container="{{::options.templateOptions.flex.container}}"
+<div flex-container="{{::options.templateOptions.flex.container}}"
      flex-align="{{::options.templateOptions.flex.align}}"
      flex-gutter="{{::options.templateOptions.flex.gutter}}">
 
 	<formly-form fields="options.templateOptions.fields"
-	             model="::$parent.model">
+	             model="$parent.model" name="{{::id}}">
 </div>

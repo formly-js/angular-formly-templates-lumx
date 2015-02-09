@@ -1,4 +1,4 @@
-### lx-wrapper-flex-container API
+### lx-wrapper-flex-container
 
 ```javascript
 {
@@ -17,7 +17,7 @@
 }
 ```
 
-### lx-wrapper-flex-item API
+### lx-wrapper-flex-item
 
 ```javascript
 {

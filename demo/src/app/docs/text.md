@@ -1,4 +1,4 @@
-### lx-text API
+### lx-text
 
 ```javascript
 {

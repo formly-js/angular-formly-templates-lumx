@@ -12,7 +12,7 @@
 ```
 Read more about [lx-date-picker](http://ui.lumapps.com/directives/date-picker).
 
-### lx-select & lx-select-multiple API
+### lx-select & lx-select-multiple
 ```javascript
 {
   'key': 'modelName',

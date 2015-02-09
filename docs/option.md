@@ -1,4 +1,4 @@
-### lx-checkbox API
+### lx-checkbox
 ```javascript
 {
   'key': 'modelName',
@@ -13,7 +13,7 @@
 ```
 Read more about [LumX checkboxes](http://ui.lumapps.com/css/checkboxes).
 
-### lx-switch API
+### lx-switch
 ```javascript
 {
   'key': 'modelName',
