@@ -95,10 +95,6 @@ Basic form elements.
 
 Wrap around the form field to add additional functionality. See the [Angular-formly docs on wrappers](https://github.com/formly-js/angular-formly#wrapper-stringarray-of-strings "Wrappers").
 
-### Styles
-- [lx-wrapper-description](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/description.md)
-
-
 ### Error Handling
 Use ngMessages to dynamically add an array of error messages 
 - [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
