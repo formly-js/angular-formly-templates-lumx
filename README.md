@@ -4,9 +4,9 @@ angular-formly-lumx-templates
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
 # Now 1.0.6
-[Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo")
-See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
-See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
+- View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
+- See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
+- See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 
 
 # Setup
@@ -44,7 +44,7 @@ Run the demo locally or on the [site](https://formly-lumx.herokuapp.com/ "Angula
 
 ## View
 
-   Not much necessary. The form only requires the `formly-form` directive tag. For example:
+Not much necessary. The form only requires the `formly-form` directive tag. For example:
 
 ```html
    <!-- formly-form directive generates templates -->
