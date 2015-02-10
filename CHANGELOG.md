@@ -9,7 +9,7 @@
   <formly-form model="formData" fields="formFields"></formly-form"
 ```
 
-- `lx-text-field` shortened to `lx-text`
+- `lx-text-field` shortened to `lx-input`
 - `lx-radio-buttons` shortened to `lx-radio`
 - removed `lx-subhead` in favor of new feature: 'wrappers'
 - `class` properties renamed `className` to avoid need for quotes

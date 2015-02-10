@@ -79,25 +79,24 @@ function FormCtrl ($scope) {
 
 Basic form elements.
 
-- [lx-text](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/text.md) (email, password, number, url)
-- [lx-textarea](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/text.md)
-- [lx-switch](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
-- [lx-checkbox](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
-- [lx-radio](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/option.md)
-- [lx-date-picker](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md)
+- [lx-input](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/input.md) (email, password, number, url)
+- [lx-textarea](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/textarea.md)
+- [lx-switch](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/switch.md)
+- [lx-checkbox](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/checkbox.md)
+- [lx-radio](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/radio.md)
+- [lx-date-picker](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/datePicker.md)
 - [lx-select](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md), lx-select-multiple
 - [lx-flex](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
 
-## Wrappers (coming soon)
+## Wrappers
 
 Wrap around the form field to add additional functionality. See the [Angular-formly docs on wrappers](https://github.com/formly-js/angular-formly#wrapper-stringarray-of-strings "Wrappers").
 
 ### Styles
-- [lx-wrapper-above](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/wrapper.md) (styled text above form field)
-- [lx-wrapper-below](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/wrapper.md) (or below)
-- more coming soon...
+- [lx-wrapper-description](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/description.md)
 
-### Error Handling
+
+### Error Handling (simplifying soon)
 - lx-wrapper-errors-required
 - lx-wrapper-errors-text (general validation error messages)
 - lx-wrapper-errors-number
@@ -113,7 +112,7 @@ Wrap around the form field to add additional functionality. See the [Angular-for
 ```javascript
 $scope.formFields= [{
       key: 'email', // {
-      type: 'lx-text',
+      type: 'lx-input',
       wrapper: 'lx-wrapper-errors-text', // error handling with ngMessages
       templateOptions: {
         type: 'email', // input type: [email | password | text | url | number]
@@ -122,7 +121,7 @@ $scope.formFields= [{
        }
     },{
       key: 'password',
-      type: 'lx-text',
+      type: 'lx-input',
       wrapper: 'lx-wrapper-errors-text',
       templateOptions: {
         type: 'password',
@@ -149,7 +148,7 @@ $scope.formFields= [{
 
 ##Roadmap
 - Flexbox grids
-- Automatic error handling with wrappers & ngMessages (only add necessary ngMessages for set attributes)
+- Simplified error handling with wrappers & ngMessages (only add necessary ngMessages for set attributes)
 - Optimize formlyConfig setup
 - Requests (?)
 
