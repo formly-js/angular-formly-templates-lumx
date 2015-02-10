@@ -85,7 +85,7 @@ Basic form elements.
 - [lx-checkbox](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/checkbox.md)
 - [lx-radio](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/radio.md)
 - [lx-date-picker](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/datePicker.md)
-- [lx-select](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md), lx-select-multiple
+- [lx-select](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md)
 - [lx-flex](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
 
 ## Wrappers

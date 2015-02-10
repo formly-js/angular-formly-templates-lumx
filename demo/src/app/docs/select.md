@@ -1,9 +1,10 @@
-### lx-select & lx-select-multiple
+### lx-select
 ```javascript
 {
   'key': 'modelName',
   'type': 'lx-select' // 'lx-select-multiple'
   'templateOptions': {
+    'multiple': true, // {{ default: false}}
     'label': 'The label', // default: 'Select'
     'placeholder': 'The placeholder',
     'required': false, // ng-required

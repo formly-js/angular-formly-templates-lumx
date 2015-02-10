@@ -117,7 +117,7 @@
         url: '/flex',
         views: {
           'form@': {
-            templateUrl: 'app/form/form.html',
+            templateUrl: 'app/form/form-flex.html',
             controller: 'FormCtrl as vm',
             resolve: {
               formFields: function (flexFormFields) {

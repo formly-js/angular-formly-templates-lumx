@@ -12,6 +12,7 @@
 - `lx-text-field` more accurately renamed `lx-input`
 - `lx-radio-buttons` shortened to `lx-radio`
 - removed `lx-subhead` renamed `lx-title`
+- `lx-select-multiple` dropped. Now add `templateOptions.multiple: true` to `lx-select`
 - `lx-wrapper-description` added for descriptions below
 - `class` properties renamed `className` to avoid need for quotes
 - file structure changed: './src/modules/*'

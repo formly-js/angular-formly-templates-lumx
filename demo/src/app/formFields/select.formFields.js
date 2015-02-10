@@ -41,6 +41,7 @@
         key: 'selectMultiple',
         type: 'lx-select',
         templateOptions: {
+          multiple: true,
           label: 'Multiple Select',
           placeholder: 'Choose an Email',
           selected: 'name',

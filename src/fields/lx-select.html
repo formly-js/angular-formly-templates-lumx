@@ -9,7 +9,8 @@
 	           choices="options.templateOptions.options"
 	           placeholder="{{::options.templateOptions.placeholder}}"
 	           min-length="::options.templateOptions.minLength"
-	           allow-clear="::options.templateOptions.allowClear">
+	           allow-clear="::options.templateOptions.allowClear"
+	           multiple="{{::options.templateOptions.multiple || undefined}}">
 
 		<lx-select-selected>
 			{{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? ' - ' +

@@ -18,49 +18,15 @@
 //      return [{
 //        key: 'textBelow',
 //        type: 'lx-input',
-//        wrapper: 'lx-wrapper-below',
+//        wrapper: 'lx-wrapper-description',
 //        templateOptions: {
-//          below: {
+//          description: {
 //            space: true,
-//            text: 'Below wrapper with space below.'
+//            text: 'Add a description with lx-wrapper-description.'
 //          },
 //          type: 'text',
 //          fixedLabel: true,
 //          label: 'Field with text below'
-//        }
-//      }, {
-//        key: 'textAbove',
-//        type: 'lx-input',
-//        wrapper: 'lx-wrapper-above',
-//        templateOptions: {
-//          above: {
-//            space: true,
-//            text: 'Above wrapper with space above',
-//            style: {
-//              'text-decoration': 'underline'
-//            }
-//          },
-//          type: 'text',
-//          fixedLabel: true,
-//          label: 'Field with above wrapper'
-//        }
-//      }, {
-//        key: 'textBoth',
-//        type: 'lx-input',
-//        wrapper: ['lx-wrapper-below', 'lx-wrapper-above'],
-//        templateOptions: {
-//          above: {
-//            space: true,
-//            text: 'Both above text',
-//            className: 'fs-title'
-//          },
-//          below: {
-//            text: '& below text.',
-//            className: 'fs-title'
-//          },
-//          type: 'text',
-//          fixedLabel: true,
-//          label: 'Field with both above & below wrapper'
 //        }
 //      }];
 //    };
