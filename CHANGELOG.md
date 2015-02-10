@@ -1,3 +1,8 @@
+#1.0.7
+##Features
+- dynamic error handling with `lx-wrapper-errors`
+- fixed issue with wrappers
+
 #1.0.6
 ##Breaking Changes
 - removed `lx-subhead` renamed `lx-title`

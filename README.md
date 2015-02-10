@@ -99,12 +99,9 @@ Wrap around the form field to add additional functionality. See the [Angular-for
 - [lx-wrapper-description](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/description.md)
 
 
-### Error Handling 
-Will be simplified soon. Expect changes.
-- lx-wrapper-errors-required
-- lx-wrapper-errors-text (general validation error messages)
-- lx-wrapper-errors-number
-- lx-wrapper-errors-custom
+### Error Handling
+Use ngMessages to dynamically add an array of error messages 
+- [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
 
 ### Flex-Box Grids
 - [lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
@@ -121,7 +118,14 @@ $scope.formFields= [{
       templateOptions: {
         type: 'email', // input type: [email | password | text | url | number]
         label: 'Email',
-        required: true
+        required: true,
+        errors: [{
+          name: 'email',
+          message: 'That doesn\'t look like a valid email.'
+          }, {
+          name: 'required',
+          message: 'Your email is required.'
+          }]
        }
     },{
       key: 'password',
@@ -131,6 +135,16 @@ $scope.formFields= [{
         type: 'password',
         label: 'Password',
         required: true,
+        errors: [{
+          name: 'required',
+          message: 'Your password is required'
+        }, {
+          name: 'minlength',
+          message: 'Password must be between 4 & 16 characters.'
+        }, {
+          name: 'maxlength',
+          message: 'Password must be between 4 & 16 characters.
+        }]
       },
       ngModelAttrs: {
         bound: {

@@ -48,6 +48,40 @@
           disabled: true
         }
       }, {
+        key: 'validatedText',
+        type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
+        templateOptions: {
+          type: 'password',
+          required: true,
+          label: 'Password (validation)',
+          errors: [{
+            name: 'required',
+            message: 'Password is required.'
+          }, {
+            name: 'minlength',
+            message: 'Password must be more than 4 characters.'
+          }, {
+            name: 'maxlength',
+            message: 'Password must be less than 8 characters.'
+          }]
+        },
+        ngModelAttrs: {
+          bound: {
+            'ng-minlength': 4,
+            'ng-maxlength': 8
+          }
+        },
+        modelOptions: {
+          allowInvalid: false,
+          updateOn: 'keydown blur',
+          debounce: {
+            keydown: 100,
+            default: 100,
+            blur: 0
+          }
+        }
+      }, {
         key: 'textAreaTitle',
         type: 'lx-title',
         templateOptions: {
