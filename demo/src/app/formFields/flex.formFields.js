@@ -24,7 +24,7 @@
           },
           'fields': [{
             key: 'rowItem1',
-            type: 'lx-text',
+            type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               flex: {
@@ -36,7 +36,7 @@
             }
           }, {
             key: 'rowItem2',
-            type: 'lx-text',
+            type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               flex: {
@@ -48,7 +48,7 @@
             }
           }, {
             key: 'rowItem3',
-            type: 'lx-text',
+            type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               flex: {
@@ -71,7 +71,7 @@
           },
           'fields': [{
             key: 'columnItem1',
-            type: 'lx-text',
+            type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               flex: {
@@ -83,7 +83,7 @@
             }
           }, {
             key: 'columnItem2',
-            type: 'lx-text',
+            type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               flex: {
@@ -95,7 +95,7 @@
             }
           }, {
             key: 'columnItem3',
-            type: 'lx-text',
+            type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               flex: {

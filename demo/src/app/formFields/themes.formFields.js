@@ -17,17 +17,8 @@
     this.fields = function () {
       return [{
         key: 'name1',
-        type: 'lx-text',
-        wrapper: 'lx-wrapper-above',
+        type: 'lx-input',
         templateOptions: {
-          above: {
-            space: true,
-            text: 'Themes: ',
-            style: {
-              'text-decoration': 'underline',
-              'color': 'white'
-            }
-          },
           fixedLabel: true,
           type: 'text',
           label: 'Name',
@@ -35,7 +26,7 @@
         }
       }, {
         key: 'fixedLabel1',
-        type: 'lx-text',
+        type: 'lx-input',
         templateOptions: {
           type: 'text',
           label: 'This Label Doesn\'t Float',
@@ -44,7 +35,7 @@
         }
       }, {
         key: 'disabledText1',
-        type: 'lx-text',
+        type: 'lx-input',
         templateOptions: {
           type: 'text',
           label: 'This Field is Disabled',

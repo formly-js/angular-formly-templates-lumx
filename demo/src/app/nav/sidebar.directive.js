@@ -7,38 +7,25 @@
 
     var sidebarLinks = [{
       divider: 'TYPES',
-      state: 'text',
-      text: 'Text'
-      //icon: 'text-format'
+      state: 'input',
+      text: 'Inputs'
     }, {
-      state: 'text',
-      text: 'Numbers'
-      //icon: 'plus-one'
-    }, {
-      state: 'option',
+      state: 'checkbox',
       text: 'Checkboxes'
-      //icon: 'check-box'
     }, {
-      state: 'option',
+      state: 'switch',
       text: 'Switches'
-      //icon: 'radio-button-off'
     }, {
-      state: 'option',
+      state: 'radio',
       text: 'Radio buttons'
-      //icon: 'radio-button-on'
     }, {
       state: 'select',
       text: 'Selectors'
-      //icon: 'arrow-drop-down'
     }, {
-      state: 'select',
-      text: 'Dates'
-      //icon: 'today'
+      state: 'datePicker',
+      text: 'Date Picker'
     }, {
       divider: 'WRAPPERS',
-      state: 'wrapper',
-      text: 'Above/Below'
-    }, {
       state: 'error',
       text: 'Errors'
     }, {

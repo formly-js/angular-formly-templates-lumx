@@ -1,36 +1,38 @@
 (function () {
   'use strict';
 
-  angular.module('shmck.formFields.text', [])
-    .service('textFormFields', textFormFields)
+  angular.module('shmck.formFields.input', [])
+    .service('inputFormFields', inputFormFields)
     .config(stateRoutes);
 
-  function textFormFields() {
+  function inputFormFields() {
     this.contents = {
-      title: 'Text Fields',
+      title: 'Input Fields',
       subhead: 'input & textarea',
       description: '',
-      markdownFile: 'app/docs/text.md'
+      markdownFile: 'app/docs/input.md'
     };
 
     var underlined = { 'text-decoration': 'underline' };
 
     this.fields = function () {
       return [{
-        key: 'name',
-        type: 'lx-text',
-        wrapper: 'lx-wrapper-above',
+        key: 'inputFieldsTitle',
+        type: 'lx-title',
         templateOptions: {
-          above: {
-            text: 'Text Fields: ',
-            style: underlined
-          },
+          title: 'Input Fields: ',
+          style: underlined
+        }
+      }, {
+        key: 'name',
+        type: 'lx-input',
+        templateOptions: {
           type: 'text',
           label: 'Name'
         }
       }, {
         key: 'fixedLabel',
-        type: 'lx-text',
+        type: 'lx-input',
         templateOptions: {
           type: 'text',
           label: 'This Label Doesn\'t Float',
@@ -38,7 +40,7 @@
         }
       }, {
         key: 'disabledText',
-        type: 'lx-text',
+        type: 'lx-input',
         templateOptions: {
           type: 'text',
           label: 'This Field is Disabled',
@@ -59,21 +61,29 @@
         //    label: 'Text Field with an icon'
         //  }
       }, {
+        key: 'textAreaTitle',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'Textarea: ',
+          style: underlined
+        }
+      }, {
         key: 'textArea',
         type: 'lx-textarea',
-        wrapper: 'lx-wrapper-above',
         templateOptions: {
-          above: {
-            space: true,
-            text: 'Textarea: ',
-            style: underlined
-          },
           label: 'Write as much as you\'d like. It\'ll fit.'
         }
       }, {
+        key: 'validationTitle',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'Validation: ',
+          style: underlined
+        }
+      }, {
         key: 'email',
-        type: 'lx-text',
-        wrapper: ['lx-wrapper-above', 'lx-wrapper-errors-required'],
+        type: 'lx-input',
+        wrapper: ['lx-wrapper-errors-required'],
         templateOptions: {
           above: {
             space: true,
@@ -95,7 +105,7 @@
         }
       }, {
         key: 'password',
-        type: 'lx-text',
+        type: 'lx-input',
         templateOptions: {
           type: 'password',
           label: 'Password',
@@ -119,7 +129,7 @@
         }
       }, {
         key: 'url0',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'url',
@@ -128,7 +138,7 @@
         }
       }, {
         key: 'textPattern',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'text',
@@ -154,18 +164,18 @@
 
   function stateRoutes($stateProvider) {
     $stateProvider
-      .state('text', {
-        url: '/',
+      .state('input', {
+        url: '/input',
         views: {
           'form@': {
             templateUrl: 'app/form/form.html',
             controller: 'FormCtrl as vm',
             resolve: {
-              formFields: function (textFormFields) {
-                return textFormFields.fields;
+              formFields: function (inputFormFields) {
+                return inputFormFields.fields;
               },
-              contents: function (textFormFields) {
-                return textFormFields.contents;
+              contents: function (inputFormFields) {
+                return inputFormFields.contents;
               }
             }
           }

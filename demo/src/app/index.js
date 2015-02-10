@@ -19,9 +19,8 @@
 
   function routerSetup($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/input');
     //$locationProvider.html5Mode(true);
   }
-
 
 }());

@@ -1,17 +1,3 @@
-### lx-date-picker
-```javascript
-{
-  'key': 'modelName',
-  'type': 'lx-date-picker'
-  'templateOptions': {
-    'label': 'A checkbox label',
-    'required': false, // ng-required
-    'disabled': false // ng-disabled
-  }
-}
-```
-Read more about [lx-date-picker](http://ui.lumapps.com/directives/date-picker).
-
 ### lx-select & lx-select-multiple
 ```javascript
 {
@@ -27,14 +13,9 @@ Read more about [lx-date-picker](http://ui.lumapps.com/directives/date-picker).
     'choice': 'A', // dropdown choice display
     'choice2': 'C', // optional second choice display
     'choices': [{
-      'A': 1,
-      'B': 2,
-      'C': 3
+      'A': 1, 'B': 2, 'C': 3
     }, {
-      'A': '4',
-      'B': '5',
-      'C': '6',
-      'D': '7'
+      'A': '4', 'B': '5', 'C': '6', 'D': '7'
     }],
     'minLength': 2,
     'allowClear': false

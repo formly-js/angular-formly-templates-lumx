@@ -16,12 +16,6 @@
 
     this.fields = function () {
       return [{
-        key: 'datePicked',
-        type: 'lx-date-picker',
-        templateOptions: {
-          label: 'Pick a Date'
-        }
-      }, {
         key: 'select',
         type: 'lx-select',
         templateOptions: {

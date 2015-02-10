@@ -17,7 +17,7 @@
     this.fields = function () {
       return [{
         key: 'requiredDefault',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrapper-errors-required',
         templateOptions: {
           type: 'text',
@@ -32,7 +32,7 @@
         }
       }, {
         key: 'requiredCustom',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrapper-errors-required',
         templateOptions: {
           msg: {
@@ -44,7 +44,7 @@
         }
       }, {
         key: 'textDefault',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'text',
@@ -68,7 +68,7 @@
         }
       }, {
         key: 'textCustom',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrapper-errors-text',
         templateOptions: {
           type: 'text',
@@ -94,7 +94,7 @@
         }
       }, {
         key: 'numberCustom',
-        type: 'lx-text',
+        type: 'lx-input',
         wrapper: 'lx-wrappers-errors-number',
         templateOptions: {
           type: 'number',
