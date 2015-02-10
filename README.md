@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.0.8
+# Now 1.0.9
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
@@ -96,13 +96,12 @@ Basic form elements.
 Wrap around the form field to add additional functionality. See the [Angular-formly docs on wrappers](https://github.com/formly-js/angular-formly#wrapper-stringarray-of-strings "Wrappers").
 
 ### Error Handling
-Use ngMessages to dynamically add an array of error messages 
-- [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
+Use ngMessages to dynamically add an array of error messages. Read more about [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
 
-### Flex-Box Grids
-- [lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
+### Flex-Box Grids (coming soon)
+Use containers & flexbox to arrange your form fields into flexible rows & columns. Read more about [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md). 
 
-#### Example: Email & Password
+# Example: Email & Password
   
   Create form fields by attaching a JSON object in the controller.
   
@@ -162,8 +161,6 @@ $scope.formFields= [{
 
 ##Roadmap
 - Flexbox grids
-- Simplified error handling with wrappers & ngMessages (only add necessary ngMessages for set attributes)
-- Optimize formlyConfig setup
 - Requests (?)
 
     
