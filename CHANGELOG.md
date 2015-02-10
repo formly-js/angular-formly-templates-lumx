@@ -1,3 +1,10 @@
+#1.0.9
+- `aria-describedby` & `description` added dynamically with templateManipulators
+- `description` can be styled with `type` + `__help` class. For example: `input__help`, `checkbox__help`.
+##Breaking Changes
+- all `help` attributes changed to `description`
+- `lx-wrapper-description` dropped
+
 #1.0.7
 ##Features
 - dynamic error handling with `lx-wrapper-errors`
