@@ -89,7 +89,7 @@ angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLu
 			});\
 			formlyConfigProvider.templateManipulators.preWrapper.push(function ariaDescribedBy(template, options, scope) { \
 					if (options.templateOptions && angular.isDefined(options.templateOptions.description) && \
-						options.type !== \'lx-radio\' && options.type !== \'lx-title\' && options.type !== \'lx-flex\') { \
+						options.type !== \'lx-radio\') { \
 						var el = angular.element(\'\<a\>\<\/a\>\'); \
 						el.append(template); \
 						var modelEls = angular.element(el[0].querySelectorAll(\'[ng-model]\')); \

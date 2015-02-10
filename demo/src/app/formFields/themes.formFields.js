@@ -8,7 +8,7 @@
   function themeFormFields() {
     this.contents = {
       title: 'Themes',
-      subhead: '',
+      subhead: 'backgrounds + dark/light font themes',
       markdownFile: 'app/docs/themes.md',
       formFieldsClass: 'bgc-blue-grey-500 addPadding'
     };
@@ -16,6 +16,13 @@
 
     this.fields = function () {
       return [{
+        key: 'dark',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'Dark Theme',
+          description: 'Created by styling the \'<formly-form>\''
+        }
+      }, {
         key: 'name1',
         type: 'lx-input',
         templateOptions: {
@@ -34,14 +41,41 @@
           theme: 'dark'
         }
       }, {
-        key: 'disabledText1',
-        type: 'lx-input',
+        key: 'dark',
+        type: 'lx-title',
+        wrapper: 'lx-wrapper-div',
         templateOptions: {
-          type: 'text',
-          label: 'This Field is Disabled',
+          div: {
+            className: 'bgc-yellow-500'
+          },
+          title: 'Light Theme',
+          description: 'Created using \'lx-wrapper-div\''
+        }
+      }, {
+        key: 'name2',
+        type: 'lx-input',
+        wrapper: 'lx-wrapper-div',
+        templateOptions: {
+          div: {
+            className: 'bgc-yellow-500'
+          },
           fixedLabel: true,
-          theme: 'dark',
-          disabled: true
+          type: 'text',
+          label: 'Name',
+          theme: 'light'
+        }
+      }, {
+        key: 'fixedLabel2',
+        type: 'lx-input',
+        wrapper: 'lx-wrapper-div',
+        templateOptions: {
+          div: {
+            className: 'bgc-yellow-500'
+          },
+          type: 'text',
+          label: 'This Label Doesn\'t Float',
+          fixedLabel: true,
+          theme: 'light'
         }
       }];
     };
