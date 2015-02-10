@@ -1,0 +1,9 @@
+<div>
+	<formly-transclude></formly-transclude>
+<span ng-class="::options.templateOptions.description.className || 'p+'"
+      ng-style="::options.templateOptions.description.style"
+      aria-describedby="{{::id}}_wrapper_below">
+	{{::options.templateOptions.description.text}}</span>
+
+</div>
+<span ng-if="::options.templateOptions.description.space"><br/></span>
