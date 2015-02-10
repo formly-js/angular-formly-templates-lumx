@@ -1,3 +1,12 @@
+#1.0.6
+##Breaking Changes
+- removed `lx-subhead` renamed `lx-title`
+- `lx-select-multiple` dropped. Now add `templateOptions.multiple: true` to `lx-select`
+- `lx-text-field` more accurately renamed `lx-input`
+
+##Inner Changes
+- template shrunken
+
 #1.0.0
 
 ## Breaking Changes
@@ -9,10 +18,7 @@
   <formly-form model="formData" fields="formFields"></formly-form"
 ```
 
-- `lx-text-field` more accurately renamed `lx-input`
 - `lx-radio-buttons` shortened to `lx-radio`
-- removed `lx-subhead` renamed `lx-title`
-- `lx-select-multiple` dropped. Now add `templateOptions.multiple: true` to `lx-select`
 - `lx-wrapper-description` added for descriptions below
 - `class` properties renamed `className` to avoid need for quotes
 - file structure changed: './src/modules/*'
@@ -81,4 +87,4 @@
 - Some custom select attributes removed
 - `aria-labeledby` changed to `aria-describedby`
 - `ngModel[options.key || $index]` simplified to `ngModel[options.key]`
-- `formly-name-
+- `formly-dynamic-name` dropped

@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.0.5
+# Now 1.0.6
 
 See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
