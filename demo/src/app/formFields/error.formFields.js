@@ -16,46 +16,20 @@
 
     this.fields = function () {
       return [{
-        key: 'requiredDefault',
+        key: 'email',
         type: 'lx-input',
-        wrapper: 'lx-wrapper-errors-required',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
-          type: 'text',
-          label: 'Default required field notification',
-          required: true
-        },
-        modelOptions: {
-          updateOn: 'default blur',
-          debounce: {
-            blur: 0
-          }
-        }
-      }, {
-        key: 'requiredCustom',
-        type: 'lx-input',
-        wrapper: 'lx-wrapper-errors-required',
-        templateOptions: {
-          msg: {
-            required: 'Say whatever validation message you\'d like..'
-          },
-          type: 'text',
-          label: 'Custom required field notification',
-          required: true
-        }
-      }, {
-        key: 'textDefault',
-        type: 'lx-input',
-        wrapper: 'lx-wrapper-errors-text',
-        templateOptions: {
-          type: 'text',
-          label: 'Default text errors (min: 4, max: 8)',
-          required: true
-        },
-        ngModelAttrs: {
-          bound: {
-            'ng-minlength': 4,
-            'ng-maxlength': 8
-          }
+          type: 'email',
+          label: 'Email with validation (email, required)',
+          required: true,
+          errors: [{
+            name: 'email',
+            message: 'That doesn\'t look like a real email address.'
+          }, {
+            name: 'required',
+            message: 'Forgetting something?'
+          }]
         },
         modelOptions: {
           allowInvalid: true,
@@ -67,45 +41,76 @@
           }
         }
       }, {
-        key: 'textCustom',
+        key: 'password',
         type: 'lx-input',
-        wrapper: 'lx-wrapper-errors-text',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
-          type: 'text',
-          label: 'Custom text errors (only letters)',
+          type: 'password',
+          label: 'Password must be 6-8 characters (ng-minlength, ng-maxlength)',
           required: true,
-          msg: {
-            pattern: 'Only letter characters are allowed.'
-          }
+          errors: [{
+            name: 'minlength',
+            message: 'Too short!'
+          }, {
+            name: 'maxlength',
+            message: 'Too long!'
+          }]
         },
         ngModelAttrs: {
           bound: {
-            'ng-pattern': /[A-Za-z]/
+            'ng-minlength': 6,
+            'ng-maxlength': 8
           }
         },
         modelOptions: {
           allowInvalid: true,
           updateOn: 'default blur keydown',
           debounce: {
-            keydown: 0,
-            default: 0,
+            keydown: 200,
+            default: 200,
             blur: 0
           }
         }
       }, {
-        key: 'numberCustom',
+        key: 'url0',
         type: 'lx-input',
-        wrapper: 'lx-wrappers-errors-number',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
-          type: 'number',
-          label: 'Try putting letters in this number field',
-          required: true,
-          msg: {
-            number: 'Oops! Must be a number!'
+          type: 'url',
+          label: 'Link to a website (url)',
+          errors: [{
+            name: 'url',
+            message: 'For example: http://www.google.com'
+          }]
+        },
+        modelOptions: {
+          allowInvalid: false,
+          updateOn: 'default blur keydown',
+          debounce: {
+            keydown: 200,
+            default: 200,
+            blur: 0
+          }
+        }
+      }, {
+        key: 'textPattern',
+        type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
+        templateOptions: {
+          type: 'text',
+          label: 'Valid Four Letter Word Checker (ng-pattern)',
+          errors: [{
+            name: 'pattern',
+            message: 'Must be a four letter word.'
+          }]
+        },
+        ngModelAttrs: {
+          bound: {
+            'ng-pattern': /^[A-Za-z]{4}$/
           }
         },
         modelOptions: {
-          allowInvalid: true,
+          allowInvalid: false,
           updateOn: 'default blur keydown',
           debounce: {
             keydown: 0,
@@ -115,9 +120,9 @@
         }
       //}, {
       //  key: 'customValidator',
-      //  type: 'lx-text',
+      //  type: 'lx-input',
       //  wrapper: 'lx-wrapper-errors-custom',
-      //  validators: 'iceCream',
+      //  validators: 'ice-cream',
       //  templateOptions: {
       //    required: true,
       //    label: 'What\'s your favorite ice cream?',
@@ -129,7 +134,7 @@
       //    }
       //  },
       //  modelOptions: {
-      //    allowInvalid: true,
+      //    allowInvalid: false,
       //    updateOn: 'default blur keydown',
       //    debounce: {
       //      keydown: 800,
@@ -137,7 +142,7 @@
       //      blur: 0
       //    }
       //  }
-      }, {}];
+      }];
     };
   }
 

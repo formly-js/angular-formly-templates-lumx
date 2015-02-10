@@ -62,41 +62,32 @@ gulp.task('templates', ['clean'], function () {
 		.pipe($.replace(/\}\, \{\"name\"\: \n\]/m, '}]'))
 		.pipe($.wrapper({
 			header: '(function () {\'use strict\'; var USING_TEMPLATES = true; var MODULE_NAME = \"' + project.module + '\"; var PREFIX = \"' + project.prefix + '\";',
-			footer: 'function _wrapperTemplateUrl (name) { \
-			return \'wrappers/formly-wrappers-\' + PREFIX + \'-\' + name + \'.html\';\
-}\
-function _fieldTemplateUrl (name) { \
-	return \'fields/formly-fields-\' + PREFIX + \'-\' + name + \'.html\';\
-}\
-			angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLumXTemplates); \
-			/*@ngInject*/ \
+			footer: 'function _prefixer(name) { return PREFIX + \'-\' + name; } \
+function _wrapperTemplateUrl(name) { return \'wrappers/formly-wrappers-\' + _prefixer(name) + \'.html\'; } \
+function _fieldTemplateUrl(name) { return \'fields/formly-fields-\' + _prefixer(name) + \'.html\'; } \
+angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLumXTemplates); \
+	/*@ngInject*/ \
 	function cacheLumXTemplates($templateCache) { \
 		if (USING_TEMPLATES) { \
 			angular.forEach(FIELDS, function (field) { \
 				$templateCache.put(_fieldTemplateUrl(field.name), field.template); \
 			}); \
-		angular.forEach(WRAPPERS, function (wrapper) { \
-			$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
-			});}} \
-		/*@ngInject*/ \
-		function setCustomTemplates(formlyConfigProvider) {\
-		if (USING_TEMPLATES) { \
-				var wrapperList = []; \
 			angular.forEach(WRAPPERS, function (wrapper) { \
-			wrapperList.push(PREFIX + \'-\' + wrapper + \'-\' + wrapper.name); \
+				$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
+			});}} \
+	/*@ngInject*/ \
+	function setCustomTemplates(formlyConfigProvider) { \
+		if (USING_TEMPLATES) { \
+			var wrapperList = []; \
+			angular.forEach(WRAPPERS, function (wrapper) { \
+				wrapperList.push(_prefixer(wrapper.name)); \
 			}); \
-	angular.forEach(WRAPPERS, function (wrapper) { \
-		formlyConfigProvider.setWrapper({ \
-			name: PREFIX + \'-\' + wrapper + \'-\' + wrapper.name, \
-			templateUrl: _wrapperTemplateUrl(wrapper.name) \
-		}); \
-	}); \
-	angular.forEach(FIELDS, function (field) { \
-		formlyConfigProvider.setType({ \
-			name: PREFIX + \'-\' + field.name, \
-			templateUrl: _fieldTemplateUrl(field.name) \
-		});});}}}());'
-		}))
+			angular.forEach(WRAPPERS, function (wrapper) { \
+				formlyConfigProvider.setWrapper({name: _prefixer(wrapper.name), templateUrl: _wrapperTemplateUrl(wrapper.name)});}); \
+			angular.forEach(FIELDS, function (field) { \
+				formlyConfigProvider.setType({name: _prefixer(field.name), templateUrl: _fieldTemplateUrl(field.name), wrappers: wrapperList}); \
+			});}}}());'
+			}))
 		.pipe($.trim())
 		.pipe($.rename({
 			basename: path.fileName,

@@ -1,0 +1,10 @@
+<div>
+	<formly-transclude></formly-transclude>
+	<ul class="form-error" ng-messages="options.formControl.$error"
+	    ng-show="options.formControl.$invalid && options.formControl.$touched || options.validators"
+		>
+		<li ng-repeat="error in options.templateOptions.errors"
+		    ng-message={{error.name}}>{{::error.message || 'Error'}}
+		</li>
+	</ul>
+</div>
