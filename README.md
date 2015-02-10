@@ -64,8 +64,8 @@ function FormCtrl ($scope) {
   $scope.formOptions = {}; // optional form parameters
   $scope.formFields = [{ // an array holding all form fields
     'key': 'email',    // ng-model name, saved in formData
-    'type': 'lx-text', // field
-    'templateOptions: {  // in this case: 'lx-text' options
+    'type': 'lx-input', // field
+    'templateOptions: {  // in this case: 'lx-input' options
       'type': 'email'
       'label': 'Email'
     }
@@ -96,7 +96,8 @@ Wrap around the form field to add additional functionality. See the [Angular-for
 - [lx-wrapper-description](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/description.md)
 
 
-### Error Handling (simplifying soon)
+### Error Handling 
+Will be simplified soon. Expect changes.
 - lx-wrapper-errors-required
 - lx-wrapper-errors-text (general validation error messages)
 - lx-wrapper-errors-number
