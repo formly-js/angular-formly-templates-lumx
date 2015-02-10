@@ -14,26 +14,33 @@ var path = {
 var project = {
 	module: 'formlyLumx',
 	prefix: 'lx',
-	dest: path.modules + path.fileName + '.js',
+	dest: path.modules + path.fileName + '.js'
 };
 
-var demoDest = 'demo/bower_components/' + project.fileName + project.dest;
+var demoDest = 'demo/bower_components/' + path.fileName;
 
 gulp.task('build', ['templates'], function () {
-	var root = path.modules + path.fileName;
-	del([root + '.min.js']);
-	gulp.src(project.dest)
-		.pipe($.uglify())
-		.pipe($.rename({
-			basename: path.fileName,
-			extname: '.min.js'
-		}))
-		.pipe($.filesize())
-		.pipe(gulp.dest(path.modules));
+	//gulp.src(project.dest)
+	//	.pipe($.copy(demoDest))
+	//	.pipe(gulp.dest(demoDest));
+	//var root = path.modules + path.fileName;
+	//del([root + '.min.js']);
+	//gulp.src(project.dest)
+	//	.pipe($.uglify())
+	//	.pipe($.rename({
+	//		basename: path.fileName,
+	//		extname: '.min.js'
+	//	}))
+	//	.pipe($.filesize())
+	//	.pipe(gulp.dest(path.modules));
+	//
+	//gulp.src(project.dest)
+	//	.pipe($.copy(demoDest))
+	//	.pipe(gulp.dest(demoDest));
 });
 
 
-gulp.task('copyTemplatesToDemo', function () {
+gulp.task('copy', function () {
 	gulp.src(project.dest)
 		.pipe($.copy(demoDest))
 		.pipe(gulp.dest(demoDest));

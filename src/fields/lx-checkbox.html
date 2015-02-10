@@ -1,11 +1,9 @@
-<div class="checkbox" ng-class="{mt: options.templateOptions.help}">
+<div class="checkbox" ng-class="{mt+: options.templateOptions.help}">
 	<input ng-model="model[options.key]"
-	       id="{{::id}}"
-	       name="{{::id}}"
 	       type="checkbox"
+	       id={{::id}}
 	       class="checkbox__input"
-	       ng-disabled="options.templateOptions.disabled"
 	       aria-labelledby="{{::id}}">
-	<label class="checkbox__label">{{::options.templateOptions.label}}</label>
+	<label for={{::id}} class="checkbox__label">{{::options.templateOptions.label}}</label>
 	<span class="checkbox__help">{{::options.templateOptions.help}}</span>
 </div>

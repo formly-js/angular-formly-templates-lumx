@@ -1,5 +1,5 @@
 <div class="switch"
-     ng-class="{mt: options.templateOptions.help}">
+     ng-class="{mt+: options.templateOptions.help}">
 	<input ng-model="model[options.key]"
 	       id="{{::id}}"
 	       name="{{::id}}"
@@ -8,7 +8,7 @@
 	       ng-disabled="options.templateOptions.disabled"
 	       aria-labelledby="{{::id}}"/>
 
-	<label class="switch__label">{{::options.templateOptions.label}}</label>
+	<label for={{::id}} class="switch__label">{{::options.templateOptions.label}}</label>
 	<span class="switch__help">{{::options.templateOptions.help}}</span>
 </div>
 
