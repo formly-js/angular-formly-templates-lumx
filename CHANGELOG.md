@@ -9,9 +9,10 @@
   <formly-form model="formData" fields="formFields"></formly-form"
 ```
 
-- `lx-text-field` shortened to `lx-input`
+- `lx-text-field` more accurately renamed `lx-input`
 - `lx-radio-buttons` shortened to `lx-radio`
-- removed `lx-subhead` in favor of new feature: 'wrappers'
+- removed `lx-subhead` renamed `lx-title`
+- `lx-wrapper-description` added for descriptions below
 - `class` properties renamed `className` to avoid need for quotes
 - file structure changed: './src/modules/*'
 - demo added './demo/app'
@@ -49,7 +50,7 @@
 },
 {
   'key': 'item2',
-  'type': 'lx-text',
+  'type': 'lx-input',
   'ngModelAttrs': {
     'bound': {
       /* adds ng-directive to field input */

@@ -8,7 +8,7 @@
   function selectFormFields() {
     this.contents = {
       title: 'Selectors',
-      subhead: 'date picker, dropdown selects',
+      subhead: 'select, multiple-select',
       description: '',
       markdownFile: 'app/docs/select.md'
     };
@@ -39,7 +39,7 @@
         }
       }, {
         key: 'selectMultiple',
-        type: 'lx-select-multiple',
+        type: 'lx-select',
         templateOptions: {
           label: 'Multiple Select',
           placeholder: 'Choose an Email',
