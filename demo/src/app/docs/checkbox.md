@@ -7,7 +7,7 @@
     'disabled': false, // ng-disabled
     'checked': false, // ng-checked
     'label': 'A checkbox label',
-    'help': 'A checkbox help description'
+    'description': 'A checkbox help description'
   }
 }
 ```

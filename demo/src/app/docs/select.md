@@ -7,6 +7,7 @@
     'multiple': true, // {{ default: false}}
     'label': 'The label', // default: 'Select'
     'placeholder': 'The placeholder',
+    'description': 'A description below',
     'required': false, // ng-required
     'disabled': false, // ng-disabled
     'selected': 'A', // displays current selected property as placeholder

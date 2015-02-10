@@ -7,7 +7,7 @@
     'disabled': false, // ng-disabled
     'checked': false, // ng-checked
     'label': 'A switch label',
-    'help': 'A switch help description'
+    'description': 'A switch help description'
   }
 }
 ```

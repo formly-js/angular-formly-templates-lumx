@@ -37,7 +37,7 @@
         type: 'lx-switch',
         templateOptions: {
           label: 'Switch with Helper',
-          help: 'Explaining a little more'
+          description: 'Explaining a little more'
         }
       }, {
         key: 'switch3',

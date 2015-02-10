@@ -5,6 +5,7 @@
   'type': 'lx-date-picker'
   'templateOptions': {
     'label': 'A checkbox label',
+    'description': 'A description',
     'required': false, // ng-required
     'disabled': false // ng-disabled
   }

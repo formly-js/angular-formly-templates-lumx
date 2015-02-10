@@ -8,7 +8,7 @@
     'options': [{
       'name': 'item 1',
       'value': '1', // ng-value
-      'help': 'item 1 help description',
+      'description': 'item 1 help description',
       'checked': false, // ng-checked
       'disabled': false, // ng-disabled
     }]

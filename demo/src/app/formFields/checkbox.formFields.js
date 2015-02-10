@@ -40,7 +40,7 @@
         },
         templateOptions: {
           label: 'Checkbox with Helper',
-          help: 'Explaining a little more'
+          description: 'Explaining a little more'
         }
       }, {
         key: 'checkbox3',

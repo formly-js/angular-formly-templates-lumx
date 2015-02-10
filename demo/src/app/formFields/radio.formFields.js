@@ -40,15 +40,15 @@
           options: [{
             name: 'One',
             value: 1,
-            help: 'The First'
+            description: 'The First'
           }, {
             name: 'Seven',
             value: 7,
-            help: 'The Lucky One'
+            description: 'The Lucky One'
           }, {
             name: 'Thirteen',
             value: 13,
-            help: 'The Unlucky One',
+            description: 'The Unlucky One',
             disabled: true
           }]
         }

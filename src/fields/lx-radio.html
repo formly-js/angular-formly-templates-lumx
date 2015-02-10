@@ -14,7 +14,7 @@
 			       ng-value="::option.value"
 			       aria-labelledby="{{::id + '_' + $index + '_radioButton'}}">
 			<label for="{{::id + '_' + $index}}" class="radio-button__label">{{::option.name}}</label>
-      <span ng-if="::option.help" class="radio-button__help">{{::option.help}}
+      <span ng-if="::option.description" class="radio-button__help">{{::option.description}}
       </span>
 		</div>
 	</div>

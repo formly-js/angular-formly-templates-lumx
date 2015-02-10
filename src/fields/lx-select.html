@@ -5,7 +5,6 @@
 		{{::options.templateOptions.label || 'Select'}} {{::options.templateOptions.required ? '*' : ''}}
 	</label></h3>
 	<lx-select ng-model="model[options.key]"
-	           aria-labelledby="{{::id}}"
 	           choices="options.templateOptions.options"
 	           placeholder="{{::options.templateOptions.placeholder}}"
 	           min-length="::options.templateOptions.minLength"
