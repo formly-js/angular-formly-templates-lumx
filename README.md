@@ -4,13 +4,10 @@ angular-formly-lumx-templates
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
 # Now 1.0.6
-
+[Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo")
 See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 
-# Demo with Examples
-
-See the [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo") for examples.
 
 # Setup
 
@@ -38,6 +35,12 @@ angular.module('myAppName', [
     'formlyLumx'
   ])
 ```
+
+## Demo
+Run the demo locally or on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
+- Install (eg. with Bower).
+- Go into the demo directory `cd demo`
+- Run [Gulp](http://gulpjs.com/): `gulp serve` 
 
 ## View
 
@@ -79,7 +82,7 @@ function FormCtrl ($scope) {
 
 Basic form elements.
 
-- [lx-input](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/input.md) (email, password, number, url)
+- [lx-input](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/input.md) (text, email, password, number, url)
 - [lx-textarea](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/textarea.md)
 - [lx-switch](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/switch.md)
 - [lx-checkbox](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/checkbox.md)
