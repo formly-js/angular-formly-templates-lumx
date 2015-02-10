@@ -21,7 +21,7 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'email',
-          label: 'Email with validation (email, required)',
+          label: 'Email',
           required: true,
           errors: [{
             name: 'email',
@@ -46,7 +46,7 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'password',
-          label: 'Password must be 6-8 characters (ng-minlength, ng-maxlength)',
+          label: 'Password (6-8 characters)',
           required: true,
           errors: [{
             name: 'minlength',
@@ -98,7 +98,7 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'text',
-          label: 'Valid Four Letter Word Checker (ng-pattern)',
+          label: 'Four letter word (ng-pattern)',
           errors: [{
             name: 'pattern',
             message: 'Must be a four letter word.'
