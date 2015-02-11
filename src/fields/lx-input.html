@@ -1,15 +1,14 @@
 <div>
-  <lx-text-field model="::model[options.key]"
-                 fixed-label="::options.templateOptions.fixedLabel"
-                 theme="{{::options.templateOptions.theme}}"
-                 label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
-                 disabled="::options.templateOptions.disabled"
-                 valid="options.formControl.$valid && options.formControl.$touched"
-                 error="options.formControl.$invalid && options.formControl.$touched || options.validators">
-    <input ng-model="model[options.key]"
-           type="{{::options.templateOptions.type}}"
-           ng-required="::options.templateOptions.required"
-           ng-disabled="::options.templateOptions.disabled"
-           ng-model-options="::options.modelOptions || {}">
-  </lx-text-field>
+	<lx-text-field model="::model[options.key]"
+	               fixed-label="::options.templateOptions.fixedLabel"
+	               theme="{{::options.templateOptions.theme}}"
+	               label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
+	               disabled="::options.templateOptions.disabled"
+	               valid="options.formControl.$valid && options.formControl.$touched"
+	               error="options.formControl.$invalid && options.formControl.$touched">
+		<input ng-model="model[options.key]"
+		       type="{{::options.templateOptions.type}}"
+		       ng-required="::options.templateOptions.required"
+		       ng-disabled="::options.templateOptions.disabled">
+	</lx-text-field>
 </div>

@@ -6,7 +6,8 @@
     .directive('iceCream', iceCream)
     .config(stateRoutes);
 
-  function errorFormFields() {
+  /*@ngInject*/
+  function errorFormFields($timeout) {
     this.contents = {
       title: 'Error Notification',
       subhead: 'easy validation tools',
@@ -22,6 +23,7 @@
         templateOptions: {
           type: 'email',
           label: 'Email',
+          description: 'default html validation & ng-required',
           required: true,
           errors: [{
             name: 'email',
@@ -47,6 +49,7 @@
         templateOptions: {
           type: 'password',
           label: 'Password (6-8 characters)',
+          description: 'ng-minlength, ng-maxlength',
           required: true,
           errors: [{
             name: 'minlength',
@@ -78,6 +81,7 @@
         templateOptions: {
           type: 'url',
           label: 'Link to a website (url)',
+          description: 'default html validation',
           errors: [{
             name: 'url',
             message: 'For example: http://www.google.com'
@@ -98,7 +102,8 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'text',
-          label: 'Four letter word (ng-pattern)',
+          label: 'Four letter word',
+          description: 'ng-pattern',
           errors: [{
             name: 'pattern',
             message: 'Must be a four letter word.'
@@ -118,30 +123,27 @@
             blur: 0
           }
         }
-      //}, {
-      //  key: 'customValidator',
-      //  type: 'lx-input',
-      //  wrapper: 'lx-wrapper-errors-custom',
-      //  validators: 'ice-cream',
-      //  templateOptions: {
-      //    required: true,
-      //    label: 'What\'s your favorite ice cream?',
-      //    msg: {
-      //      custom: {
-      //        name: 'iceCream',
-      //        text: 'Sorry, we don\'t have that flavor. Only chocolate, vanilla & strawberry.'
-      //      }
-      //    }
-      //  },
-      //  modelOptions: {
-      //    allowInvalid: false,
-      //    updateOn: 'default blur keydown',
-      //    debounce: {
-      //      keydown: 800,
-      //      default: 800,
-      //      blur: 0
-      //    }
-      //  }
+      }, {
+        key: 'customValidator',
+        type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
+        validators: {
+          flavorInStock: function (viewValue, modelValue) {
+            var value = modelValue || viewValue || '';
+            return $timeout(function () {
+              var flavors = ['chocolate', 'vanilla', 'strawberry'];
+              return (flavors.indexOf(value.toLowerCase()) !== -1);
+            }, 500);
+          }
+        },
+        templateOptions: {
+          label: 'What\'s your favorite ice cream?',
+          description: 'Validators. Try: chocolate, vanilla or strawberry',
+          errors: [{
+            name: 'flavorInStock',
+            message: 'Sorry, we don\'t have that flavor.'
+          }]
+        }
       }];
     };
   }
