@@ -2,9 +2,8 @@
 @import '../fonts/md-icons';
 @import '../fonts/roboto';
 @import '../../bower_components/lumx/dist/scss/_lumx.scss';
-@import 'styles/lumx.css';
-
 // endinjector
+@import '../../bower_components/lumx/dist/lumx.css';
 
 .browsehappy {
   margin: 0.2em 0;
@@ -32,4 +31,4 @@ a {
 
 $icon-font-path: '../app/fonts/';
 
-@import '../../bower_components/lumx/dist/lumx.css';
+

@@ -46,9 +46,9 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
-    .pipe($.uncss({
-      html: [paths.src + '/index.html', paths.src + '/app/nav/nav.html']
-    }))
+    //.pipe($.uncss({
+    //  html: [paths.src + '/index.html', paths.src + '/app/nav/nav.html']
+    //}))
     .pipe($.csso())
     .pipe(cssFilter.restore())
     .pipe(assets.restore())
