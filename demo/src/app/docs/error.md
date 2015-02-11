@@ -14,7 +14,7 @@
   },
   ngModelAttrs: {
     bound: {
-      'ng-minlength': 4
+      'minlength': 4
     }
   },
   modelOptions: {

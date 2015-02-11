@@ -75,7 +75,7 @@
       /* adds ng-directive to field input */
       'ng-pattern': /[A-Za-z]/,
       'ng-disabled': false,
-      'ng-maxlength': 10,
+      'maxlength': 10,
       'ng-required': true
     },
     'unbound': {

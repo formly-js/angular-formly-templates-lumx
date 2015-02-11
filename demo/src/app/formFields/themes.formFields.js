@@ -16,14 +16,14 @@
 
     this.fields = function () {
       return [{
-        key: 'dark',
+        key: 'darkTitle',
         type: 'lx-title',
         templateOptions: {
           title: 'Dark Theme',
           description: 'Created by styling the \'<formly-form>\''
         }
       }, {
-        key: 'name1',
+        key: 'dark1',
         type: 'lx-input',
         templateOptions: {
           fixedLabel: true,
@@ -32,7 +32,7 @@
           theme: 'dark'
         }
       }, {
-        key: 'fixedLabel1',
+        key: 'dark2',
         type: 'lx-input',
         templateOptions: {
           type: 'text',
@@ -41,7 +41,7 @@
           theme: 'dark'
         }
       }, {
-        key: 'dark',
+        key: 'lightTitle',
         type: 'lx-title',
         wrapper: 'lx-wrapper-div',
         templateOptions: {
@@ -52,7 +52,7 @@
           description: 'Created using \'lx-wrapper-div\''
         }
       }, {
-        key: 'name2',
+        key: 'light1',
         type: 'lx-input',
         wrapper: 'lx-wrapper-div',
         templateOptions: {
@@ -65,7 +65,7 @@
           theme: 'light'
         }
       }, {
-        key: 'fixedLabel2',
+        key: 'light2',
         type: 'lx-input',
         wrapper: 'lx-wrapper-div',
         templateOptions: {

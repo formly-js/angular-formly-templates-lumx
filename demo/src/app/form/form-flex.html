@@ -4,6 +4,7 @@
       <shmck-divider></shmck-divider>
 
       <a class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
+
       <h1 class="fs-display2">{{::vm.contents.title}}</h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
 
@@ -13,10 +14,10 @@
         <!-- Forms -->
         <h2 class="fs-display1">Examples</h2>
 
-        <ng-form="flexFormExample">
+        <!--<form name="flexFormExample">-->
           <formly-form form="flexFormExample" model="vm.formData" fields="vm.formFields" no-ng-form>
           </formly-form>
-        </ng-form>
+        <!--</form>-->
         <!-- end Forms -->
 
       </div>

@@ -143,8 +143,8 @@ $scope.formFields= [{
       },
       ngModelAttrs: {
         bound: {
-          'ng-minlength': 4,
-          'ng-maxlength': 16
+          'minlength': 4,
+          'maxlength': 16
         }
       },
       modelOptions: { 
