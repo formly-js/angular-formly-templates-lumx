@@ -68,8 +68,8 @@
         },
         ngModelAttrs: {
           bound: {
-            'minlength': 4,
-            'maxlength': 8
+            'ng-minlength': 4,
+            'ng-maxlength': 8
           }
         },
         modelOptions: {
