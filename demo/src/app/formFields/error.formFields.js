@@ -123,27 +123,27 @@
             blur: 0
           }
         }
-      }, {
-        key: 'customValidator',
-        type: 'lx-input',
-        wrapper: 'lx-wrapper-errors',
-        validators: {
-          flavorInStock: function (viewValue, modelValue) {
-            var value = modelValue || viewValue || '';
-            return $timeout(function () {
-              var flavors = ['chocolate', 'vanilla', 'strawberry'];
-              return (flavors.indexOf(value.toLowerCase()) !== -1);
-            }, 500);
-          }
-        },
-        templateOptions: {
-          label: 'What\'s your favorite ice cream?',
-          description: 'Validators. Try: chocolate, vanilla or strawberry',
-          errors: [{
-            name: 'flavorInStock',
-            message: 'Sorry, we don\'t have that flavor.'
-          }]
-        }
+      //}, {
+      //  key: 'customValidator',
+      //  type: 'lx-input',
+      //  wrapper: 'lx-wrapper-errors',
+      //  validators: {
+      //    flavorInStock: function (viewValue, modelValue) {
+      //      var value = modelValue || viewValue || '';
+      //      return $timeout(function () {
+      //        var flavors = ['chocolate', 'vanilla', 'strawberry'];
+      //        return (flavors.indexOf(value.toLowerCase()) !== -1);
+      //      }, 500);
+      //    }
+      //  },
+      //  templateOptions: {
+      //    label: 'What\'s your favorite ice cream?',
+      //    description: 'Validators. Try: chocolate, vanilla or strawberry',
+      //    errors: [{
+      //      name: 'flavorInStock',
+      //      message: 'Sorry, we don\'t have that flavor.'
+      //    }]
+      //  }
       }];
     };
   }
