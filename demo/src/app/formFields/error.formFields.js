@@ -22,8 +22,8 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'email',
-          label: 'Email',
-          description: 'default html validation & ng-required',
+          label: 'Email    |  html email validation & ng-required',
+          fixedLabel: true,
           required: true,
           errors: [{
             name: 'email',
@@ -48,8 +48,8 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'password',
-          label: 'Password (6-8 characters)',
-          description: 'ng-minlength, ng-maxlength',
+          fixedLabel: true,
+          label: 'Password (6-8 characters)   |  ng-minlength, ng-maxlength',
           required: true,
           errors: [{
             name: 'minlength',
@@ -80,8 +80,8 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'url',
-          label: 'Link to a website (url)',
-          description: 'default html validation',
+          fixedLabel: true,
+          label: 'Link to a website (url)    |  html url validation',
           errors: [{
             name: 'url',
             message: 'For example: http://www.google.com'
@@ -102,8 +102,8 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'text',
-          label: 'Four letter word',
-          description: 'ng-pattern',
+          fixedLabel: true,
+          label: 'Four letter word    |  ng-pattern',
           errors: [{
             name: 'pattern',
             message: 'Must be a four letter word.'

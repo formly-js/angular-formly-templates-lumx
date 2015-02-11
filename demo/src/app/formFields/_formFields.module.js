@@ -7,9 +7,9 @@
     'shmck.formFields.select',
     'shmck.formFields.datePicker',
     'shmck.formFields.input',
-    //'shmck.formFields.wrapper',
     'shmck.formFields.themes',
     'shmck.formFields.flex',
-    'shmck.formFields.error'
+    'shmck.formFields.error',
+    'shmck.formFields.ngModelAttrs'
   ]);
 }());

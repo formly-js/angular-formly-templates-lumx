@@ -1,0 +1,93 @@
+//@font-face {
+//  font-family: md-icons;
+//  font-style: normal;
+//  font-weight: normal;
+//  src: url("../../fonts/md-icons/md-icons.eot?#iefix") format("embedded-opentype"), url("../../fonts/md-icons/md-icons.woff2") format("woff2"), url("../../fonts/md-icons/md-icons.woff") format("woff"), url("../../fonts/md-icons/md-icons.ttf") format("truetype"), url("../../fonts/md-icons/md-icons.svg#md-icons") format("svg");
+//}
+//
+//.mdi {
+//  display: inline-block;
+//  font: normal normal normal 14px/1 md-icons;
+//  font-size: inherit;
+//  text-rendering: auto;
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//}
+//
+//.mdi--menu:before {
+//  content: "";
+//}
+//
+//.checkbox__input:not(:checked) + .checkbox__label:before {
+//  -webkit-transform: scale(1);
+//  -moz-transform: scale(1);
+//  -ms-transform: scale(1);
+//  -o-transform: scale(1);
+//  transform: scale(1); }
+//.checkbox__input:not(:checked) + .checkbox__label:after {
+//  -webkit-transform: scale(0);
+//  -moz-transform: scale(0);
+//  -ms-transform: scale(0);
+//  -o-transform: scale(0);
+//  transform: scale(0); }
+//.checkbox__input:checked + .checkbox__label:before {
+//  -webkit-transform: scale(0);
+//  -moz-transform: scale(0);
+//  -ms-transform: scale(0);
+//  -o-transform: scale(0);
+//  transform: scale(0); }
+//.checkbox__input:checked + .checkbox__label:after {
+//  -webkit-transform: scale(1);
+//  -moz-transform: scale(1);
+//  -ms-transform: scale(1);
+//  -o-transform: scale(1);
+//  transform: scale(1); }
+//.checkbox__input[disabled] + .checkbox__label {
+//  cursor: not-allowed; }
+//.checkbox__input[disabled] + .checkbox__label:before, .checkbox__input[disabled] + .checkbox__label:after {
+//  color: rgba(0, 0, 0, 0.26); }
+//
+//.checkbox__label {
+//  position: relative;
+//  padding-left: 30px;
+//  font-weight: 400;
+//  line-height: 24px;
+//  cursor: pointer;
+//  -webkit-user-select: none;
+//  -moz-user-select: none;
+//  -ms-user-select: none;
+//  user-select: none; }
+//.checkbox__label:before, .checkbox__label:after {
+//  display: inline-block;
+//  font: normal normal normal 14px/1 md-icons;
+//  font-size: inherit;
+//  text-rendering: auto;
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  font-size: 24px;
+//  font-size: 1.5rem;
+//  line-height: 24px;
+//  -webkit-transition-property: -webkit-transform;
+//  -moz-transition-property: -moz-transform;
+//  transition-property: transform;
+//  -webkit-transition-duration: 0.2s;
+//  -moz-transition-duration: 0.2s;
+//  transition-duration: 0.2s; }
+//.checkbox__label:before {
+//  content: ""; }
+//.checkbox__label:after {
+//  content: "";
+//  color: #009688; }
+//
+//.checkbox__help {
+//  display: block;
+//  padding-left: 30px;
+//  font-size: 12px;
+//  font-size: 0.75rem;
+//  font-weight: 300;
+//  color: rgba(0, 0, 0, 0.54);
+//  text-align: left; }
+//

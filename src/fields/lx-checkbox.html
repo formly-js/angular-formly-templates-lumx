@@ -1,6 +1,8 @@
-<div class="checkbox" ng-class="{'mt+': options.templateOptions.description}">
+<div class="checkbox">
 	<input ng-model="model[options.key]"
 	       type="checkbox"
 	       class="checkbox__input">
 	<label for={{::id}} class="checkbox__label">{{::options.templateOptions.label}}</label>
+	<span ng-if="::options.templateOptions.description"
+	      class="checkbox__help">{{::options.templateOptions.description}}</span>
 </div>

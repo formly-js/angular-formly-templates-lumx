@@ -48,6 +48,25 @@
           disabled: true
         }
       }, {
+        key: 'textAreaTitle',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'Textarea: ',
+          style: underlined
+        }
+      }, {
+        key: 'textArea',
+        type: 'lx-textarea',
+        templateOptions: {
+          label: 'Write as much as you\'d like. It\'ll fit.'
+        }
+      }, {
+        key: 'validationTitle',
+        type: 'lx-title',
+        templateOptions: {
+          label: 'Validation'
+        }
+      }, {
         key: 'validatedText',
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
@@ -80,19 +99,6 @@
             default: 100,
             blur: 0
           }
-        }
-      }, {
-        key: 'textAreaTitle',
-        type: 'lx-title',
-        templateOptions: {
-          title: 'Textarea: ',
-          style: underlined
-        }
-      }, {
-        key: 'textArea',
-        type: 'lx-textarea',
-        templateOptions: {
-          label: 'Write as much as you\'d like. It\'ll fit.'
         }
       }];
     };

@@ -8,7 +8,7 @@
   function flexFormFields() {
     this.contents = {
       title: 'FlexBox Wrappers',
-      subhead: 'coming soon!',
+      subhead: 'coming soon',
       description: '',
       markdownFile: 'app/docs/flex.md'
     };

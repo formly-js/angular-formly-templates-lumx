@@ -34,6 +34,10 @@
     }, {
       state: 'flex',
       text: 'FlexBox'
+    }, {
+      divider: 'FEATURES',
+      state: 'ngModelAttrs',
+      text: 'ngModelAttrs'
     }];
 
     return {

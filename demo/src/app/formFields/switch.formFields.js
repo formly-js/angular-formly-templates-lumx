@@ -19,10 +19,19 @@
         key: 'switch0',
         type: 'lx-switch',
         templateOptions: {
-          label: 'Untouched Switch'
+          label: 'Regular switch'
         }
       }, {
         key: 'switch1',
+        type: 'lx-switch',
+        templateOptions: {
+          label: 'Triggered Switch'
+        },
+        expressionProperties: {
+          hide: '!model.switchNormal'
+        }
+      }, {
+        key: 'switch2',
         type: 'lx-switch',
         ngModelAttrs: {
           bound: {
@@ -33,14 +42,14 @@
           label: 'Switched Switch'
         }
       }, {
-        key: 'switch2',
+        key: 'switch3',
         type: 'lx-switch',
         templateOptions: {
           label: 'Switch with Helper',
           description: 'Explaining a little more'
         }
       }, {
-        key: 'switch3',
+        key: 'switch4',
         type: 'lx-switch',
         templateOptions: {
           label: 'Disabled Switch',
