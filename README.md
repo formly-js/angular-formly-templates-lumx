@@ -95,7 +95,7 @@ Basic form elements.
 
 Wrap around the form field to add additional functionality. See the [Angular-formly docs on wrappers](https://github.com/formly-js/angular-formly#wrapper-stringarray-of-strings "Wrappers").
 
-### Error Handling
+### Error Handling (Changes soon to use angular-formly built in messages)
 Use ngMessages to dynamically add an array of error messages. Read more about [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
 
 ### Flex-Box Grids (coming soon)

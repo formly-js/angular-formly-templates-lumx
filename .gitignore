@@ -10,6 +10,7 @@ demo/npm-debug.log
 demo/.editorconfig
 demo/web.js
 demo/Procfile
+demo-es6
 build
 edits
 todo.txt

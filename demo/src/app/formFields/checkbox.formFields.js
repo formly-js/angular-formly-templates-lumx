@@ -5,6 +5,8 @@
     .service('checkboxFormFields', checkboxFormFields)
     .config(stateRoutes);
 
+
+  /*@ngInject*/
   function checkboxFormFields() {
     this.contents = {
       title: 'Checkbox',
@@ -13,13 +15,12 @@
       markdownFile: 'app/docs/checkbox.md'
     };
 
-
     this.fields = function () {
       return [{
-        key: 'checkbox0',
-        type: 'lx-checkbox',
-        templateOptions: {
-          label: 'Show Missing Box'
+        'key': 'checkbox0',
+        'type': 'lx-checkbox',
+        'templateOptions': {
+          'label': 'Show Missing Box'
         }
       }, {
         key: 'checkbox1',

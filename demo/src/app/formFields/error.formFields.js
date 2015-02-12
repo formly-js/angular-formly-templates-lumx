@@ -53,10 +53,10 @@
           required: true,
           errors: [{
             name: 'minlength',
-            message: 'Too short!'
+            message: 'Password must be 6 characters or longer.'
           }, {
             name: 'maxlength',
-            message: 'Too long!'
+            message: 'Password must not be longer than 8 characters.'
           }]
         },
         ngModelAttrs: {
@@ -123,27 +123,28 @@
             blur: 0
           }
         }
-      //}, {
-      //  key: 'customValidator',
-      //  type: 'lx-input',
-      //  wrapper: 'lx-wrapper-errors',
-      //  validators: {
-      //    flavorInStock: function (viewValue, modelValue) {
-      //      var value = modelValue || viewValue || '';
-      //      return $timeout(function () {
-      //        var flavors = ['chocolate', 'vanilla', 'strawberry'];
-      //        return (flavors.indexOf(value.toLowerCase()) !== -1);
-      //      }, 500);
-      //    }
-      //  },
-      //  templateOptions: {
-      //    label: 'What\'s your favorite ice cream?',
-      //    description: 'Validators. Try: chocolate, vanilla or strawberry',
-      //    errors: [{
-      //      name: 'flavorInStock',
-      //      message: 'Sorry, we don\'t have that flavor.'
-      //    }]
-      //  }
+        //}, {
+        //  key: 'customValidator',
+        //  type: 'lx-input',
+        //  wrapper: 'lx-wrapper-errors',
+        //  validators: {
+        //    flavorInStock: {
+        //      expression:  function () {
+        //        return $timeout(function () {
+        //          var flavors = ['chocolate', 'vanilla', 'strawberry'];
+        //          return (flavors.indexOf(value.toLowerCase()) !== -1);
+        //        }, 500);
+        //      },
+        //      message: 'Sorry, we don\'t have that flavor.'
+        //    }
+        //  },
+        //  templateOptions: {
+        //    label: 'What\'s your favorite ice cream?',
+        //    description: 'Validators. Try: chocolate, vanilla or strawberry',
+        //    errors: [{
+        //      name: 'flavorInStock'
+        //    }]
+        //  }
       }];
     };
   }

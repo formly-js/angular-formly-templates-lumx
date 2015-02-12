@@ -7,8 +7,9 @@
     'formly',
     'lumx',
     'formlyLumx',
-    /* additional */
+    /* angular & 3rd party */
     'ngSanitize',
+    'ngResource',
     'ui.router',
     'ngPrettyJson',
     'btford.markdown',

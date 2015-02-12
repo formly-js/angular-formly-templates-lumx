@@ -74,8 +74,8 @@
     top: 60px;
     bottom: 0;
   }
-  #main {
-    margin-left: 240px;
+  .main-section__content {
+    margin-left: 236px;
   }
 }
 
@@ -85,6 +85,9 @@
     top: 60px;
     bottom: 0;
     left: -260px;
+  }
+  .main-section__content {
+    justify-content: center;
   }
 }
 

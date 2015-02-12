@@ -1,21 +1,31 @@
+.main-section__content {
+  margin-top: 34px;
+  padding: 10px;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+
+.content-fields {
+  max-width: 700px;
+  min-width: 100px;
+  flex-grow: 4;
+
+}
+
+.content-json {
+  max-width: 700px;
+  min-width: 200px;
+  flex-grow: 6;
+}
+
 .addPadding {
   padding: 15px;
 }
 
 .docs {
   padding: 15px;
-}
-
-#main {
-  margin-top: 34px;
-}
-
-.main-section__content {
-  padding: 10px;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
 }
 
 .docs-icon {
