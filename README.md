@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.0.9
+# Now 1.0.10
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
@@ -38,8 +38,9 @@ angular.module('myAppName', [
 
 ## Demo
 Run the demo locally or on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
-- Install (eg. with Bower).
+- Install (eg. with Bower). `bower install`
 - Go into the demo directory `cd demo`
+- Download packages `bower install && npm install`
 - Run [Gulp](http://gulpjs.com/): `gulp serve` 
 
 ## View
