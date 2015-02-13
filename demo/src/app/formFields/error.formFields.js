@@ -24,8 +24,10 @@
           type: 'email',
           label: 'Email    |  html email validation & ng-required',
           fixedLabel: true,
-          required: true,
-          errors: [{
+          required: true
+        },
+        validation: {
+          messages: [{
             name: 'email',
             message: 'That doesn\'t look like a real email address.'
           }, {
@@ -50,8 +52,10 @@
           type: 'password',
           fixedLabel: true,
           label: 'Password (6-8 characters)   |  ng-minlength, ng-maxlength',
-          required: true,
-          errors: [{
+          required: true
+        },
+        validation: {
+          messages: [{
             name: 'minlength',
             message: 'Password must be 6 characters or longer.'
           }, {
@@ -81,8 +85,10 @@
         templateOptions: {
           type: 'url',
           fixedLabel: true,
-          label: 'Link to a website (url)    |  html url validation',
-          errors: [{
+          label: 'Link to a website (url)    |  html url validation'
+        },
+        validation: {
+          messages: [{
             name: 'url',
             message: 'For example: http://www.google.com'
           }]
@@ -104,7 +110,9 @@
           type: 'text',
           fixedLabel: true,
           label: 'Four letter word    |  ng-pattern',
-          errors: [{
+        },
+        validation: {
+          messages: [{
             name: 'pattern',
             message: 'Must be a four letter word.'
           }]

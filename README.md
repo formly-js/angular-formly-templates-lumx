@@ -109,37 +109,41 @@ Use containers & flexbox to arrange your form fields into flexible rows & column
 $scope.formFields= [{
       key: 'email', // {
       type: 'lx-input',
-      wrapper: 'lx-wrapper-errors-text', // error handling with ngMessages
+      wrapper: 'lx-wrapper-errors', // error handling with ngMessages
       templateOptions: {
         type: 'email', // input type: [email | password | text | url | number]
         label: 'Email',
-        required: true,
-        errors: [{
-          name: 'email',
-          message: 'That doesn\'t look like a valid email.'
-          }, {
-          name: 'required',
-          message: 'Your email is required.'
-          }]
+        required: true
+       },
+       validation: {
+       messages: [{
+        name: 'email',
+        message: 'That doesn\'t look like a valid email.',
+        }, {
+        name: 'required',
+        message: 'Your email is required.'
+       }]
        }
     },{
       key: 'password',
       type: 'lx-input',
-      wrapper: 'lx-wrapper-errors-text',
+      wrapper: 'lx-wrapper-errors',
       templateOptions: {
         type: 'password',
         label: 'Password',
-        required: true,
-        errors: [{
+        required: true
+      },
+      validation: {
+        messages: [{
           name: 'required',
           message: 'Your password is required'
-        }, {
+          }, {
           name: 'minlength',
           message: 'Password must be between 4 & 16 characters.'
-        }, {
+          }, {
           name: 'maxlength',
           message: 'Password must be between 4 & 16 characters.
-        }]
+         }]
       },
       ngModelAttrs: {
         bound: {

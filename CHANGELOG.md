@@ -1,3 +1,6 @@
+#1.0.10
+- Errors now handled by new `validation.messages` pipeline. See examples in demo under "Errors"
+
 #1.0.9
 - `aria-describedby` & `description` added dynamically with templateManipulators
 - `description` can be styled with `type` + `__help` class. For example: `input__help`, `checkbox__help`.

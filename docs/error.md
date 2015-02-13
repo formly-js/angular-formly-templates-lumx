@@ -6,9 +6,11 @@
   type: 'lx-input',
   wrapper: 'lx-wrapper-errors',
   templateOptions: {
-    required: true,
-    errors: [{
-      name: required,
+    required: true
+  },
+  validation: {
+    messages: [{
+      name: 'required',
       message: 'This field is required.'
     }]
   },

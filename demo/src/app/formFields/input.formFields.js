@@ -73,8 +73,10 @@
         templateOptions: {
           type: 'password',
           required: true,
-          label: 'Password (validation)',
-          errors: [{
+          label: 'Password (validation)'
+        },
+        validation: {
+          messages: [{
             name: 'required',
             message: 'Password is required.'
           }, {
