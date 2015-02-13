@@ -5,10 +5,8 @@
 
 #1.0.9
 - `aria-describedby` & `description` added dynamically with templateManipulators
-- `description` can be styled with `type` + `__help` class. For example: `input__help`, `checkbox__help`.
 ##Breaking Changes
 - all `help` attributes changed to `description`
-- `lx-wrapper-description` dropped
 
 #1.0.7
 ##Features
@@ -32,11 +30,10 @@
 - `<formly-form>` attribute `result` changed to `model`. See example below:
 
 ```html
-  <formly-form model="formData" fields="formFields"></formly-form"
+  <formly-form model="formData" fields="formFields"></formly-form">
 ```
 
 - `lx-radio-buttons` shortened to `lx-radio`
-- `lx-wrapper-description` added for descriptions below
 - `class` properties renamed `className` to avoid need for quotes
 - file structure changed: './src/modules/*'
 - demo added './demo/app'
@@ -92,11 +89,6 @@
   }
 }
 ```
-
-
-## In Progress
-- `lx-wrapper-*`. Wrap data around your template for greater style control.
-- `lx-flex` (flexbox feature)
 
 ## Inner changes
 - Gulpfile to easily generate templates from fields
