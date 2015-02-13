@@ -4,9 +4,10 @@
   angular.module('demo')
     .controller('NavCtrl', NavCtrl);
 
-  function NavCtrl(SidebarService) {
+  function NavCtrl(SidebarService, version) {
     var vm = this;
     vm.sidebar = SidebarService;
+    vm.version = version;
     vm.navBarLinks = [{
       text: 'Angular-Formly',
       link: 'https://github.com/formly-js/angular-formly'
