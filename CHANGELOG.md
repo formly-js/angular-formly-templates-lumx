@@ -1,5 +1,7 @@
 #1.0.10
-- Errors now handled by new `validation.messages` pipeline. See examples in demo under "Errors"
+- Errors now handled by new `validation.messages` pipeline in `angular-formly@3.0.9`. See examples in demo under "Errors"
+##Breaking Changes (less of these in the near future!)
+- Dropped `templateOptions.errors` in `lx-wrapper-errors`
 
 #1.0.9
 - `aria-describedby` & `description` added dynamically with templateManipulators
