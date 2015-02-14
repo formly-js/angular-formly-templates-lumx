@@ -143,7 +143,7 @@ $scope.formFields= [{
           message: 'Password must be between 4 & 16 characters.'
           }, {
           name: 'maxlength',
-          message: 'Password must be between 4 & 16 characters.
+          message: 'Password must be between 4 & 16 characters.'
          }]
       },
       ngModelAttrs: {
