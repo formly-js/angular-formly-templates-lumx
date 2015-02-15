@@ -3,7 +3,6 @@
 	               fixed-label="::options.templateOptions.fixedLabel"
 	               theme="{{::options.templateOptions.theme}}"
 	               label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
-	               disabled="::options.templateOptions.disabled"
 	               valid="options.formControl.$valid && options.formControl.$touched"
 	               error="options.formControl.$invalid && options.formControl.$touched">
 		<input ng-model="model[options.key]"
