@@ -5,8 +5,8 @@ LumX Templates for Angular-Formly. Modern & flexible forms configured easily in 
 
 # Now 1.0.10
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
-- See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
+- See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 
 
 # Setup
@@ -47,8 +47,14 @@ Run the demo locally or on the [site](https://formly-lumx.herokuapp.com/ "Angula
 
 Not much necessary. The form only requires the `formly-form` directive tag. For example:
 
+####Basic Setup
 ```html
-   <!-- formly-form directive generates templates -->
+  <!-- formly-form directive generates templates -->
+  <formly-form model="formData" fields="formFields"></formly-form>
+```
+
+####With Submit & Options
+```html
      <formly-form model="formData" fields="formFields" options="formOptions"
                   ng-submit="submit(form.$valid)" name="form">
        <!-- end of formly-form contents -->
@@ -62,7 +68,8 @@ Not much necessary. The form only requires the `formly-form` directive tag. For 
 Add your formData & formFields onto a controller.
 
 ```javascript
-angular.module('myAppName').controller('FormCtrl', FormCtrl);
+angular.module('myAppName')
+  .controller('FormCtrl', FormCtrl);
 function FormCtrl ($scope) {
   $scope.formData = {};  // the data object
   $scope.formOptions = {}; // optional form parameters
@@ -83,7 +90,7 @@ function FormCtrl ($scope) {
 
 Basic form elements.
 
-- [lx-input](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/input.md) (text, email, password, number, url)
+- [lx-input](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/input.md) (text | email | password | number | url)
 - [lx-textarea](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/textarea.md)
 - [lx-switch](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/switch.md)
 - [lx-checkbox](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/checkbox.md)
@@ -96,11 +103,24 @@ Basic form elements.
 
 Wrap around the form field to add additional functionality. See the [Angular-formly docs on wrappers](https://github.com/formly-js/angular-formly#wrapper-stringarray-of-strings "Wrappers").
 
-### Error Handling (Changes soon to use angular-formly built in messages)
-Use ngMessages to dynamically add an array of error messages. Read more about [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
+### Error Handling
+Use ngMessages to dynamically add an array of error messages.
+```javascript
+$scope.formFields = {
+  validation: {
+    messages: [{
+      name: 'required',
+      message: 'This field is required.'
+    }]
+  }
+};
+```
+
+Read more about [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
+
 
 ### Flex-Box Grids (coming soon)
-Use containers & flexbox to arrange your form fields into flexible rows & columns. Read more about [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md). 
+Use containers & flex-box to arrange your form fields into flexible rows & columns. Read more about [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md).
 
 # Example: Email & Password
   
