@@ -36,13 +36,7 @@
           }]
         },
         modelOptions: {
-          allowInvalid: true,
-          updateOn: 'default blur keydown',
-          debounce: {
-            keydown: 500,
-            default: 500,
-            blur: 0
-          }
+          allowInvalid: false
         }
       }, {
         key: 'password',
@@ -70,13 +64,7 @@
           }
         },
         modelOptions: {
-          allowInvalid: true,
-          updateOn: 'default blur keydown',
-          debounce: {
-            keydown: 200,
-            default: 200,
-            blur: 0
-          }
+          allowInvalid: false
         }
       }, {
         key: 'url0',
@@ -94,13 +82,7 @@
           }]
         },
         modelOptions: {
-          allowInvalid: false,
-          updateOn: 'default blur keydown',
-          debounce: {
-            keydown: 200,
-            default: 200,
-            blur: 0
-          }
+          allowInvalid: false
         }
       }, {
         key: 'textPattern',
@@ -123,13 +105,7 @@
           }
         },
         modelOptions: {
-          allowInvalid: false,
-          updateOn: 'default blur keydown',
-          debounce: {
-            keydown: 0,
-            default: 0,
-            blur: 0
-          }
+          allowInvalid: false
         }
         //}, {
         //  key: 'customValidator',

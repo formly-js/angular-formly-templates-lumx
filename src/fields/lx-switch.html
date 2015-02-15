@@ -1,8 +1,7 @@
 <div class="switch">
 	<input ng-model="model[options.key]"
 	       type="checkbox"
-	       class="switch__input"
-	       ng-disabled="options.templateOptions.disabled"/>
+	       class="switch__input"/>
 
 	<label for={{::id}} class="switch__label">{{::options.templateOptions.label}}</label>
 	<span ng-if="::options.templateOptions.description"

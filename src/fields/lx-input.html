@@ -7,8 +7,6 @@
 	               valid="options.formControl.$valid && options.formControl.$touched"
 	               error="options.formControl.$invalid && options.formControl.$touched">
 		<input ng-model="model[options.key]"
-		       type="{{::options.templateOptions.type}}"
-		       ng-required="::options.templateOptions.required"
-		       ng-disabled="::options.templateOptions.disabled">
+		       type="{{::options.templateOptions.type}}">
 	</lx-text-field>
 </div>

@@ -84,10 +84,31 @@ angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLu
 			}); \
 			angular.forEach(WRAPPERS, function (wrapper) { \
 				formlyConfigProvider.setWrapper({name: _prefixer(wrapper.name), templateUrl: _wrapperTemplateUrl(wrapper.name)});}); \
+			/* set types */ \
 			angular.forEach(FIELDS, function (field) { \
-				formlyConfigProvider.setType({name: _prefixer(field.name), templateUrl: _fieldTemplateUrl(field.name), wrappers: wrapperList}); \
-			});\
-			}}}());'
+				/* without defaults */ \
+				if (field.name === \'title\' || field.name === \'flex\') { \
+					formlyConfigProvider.setType({ \
+						name: _prefixer(field.name), \
+						templateUrl: _fieldTemplateUrl(field.name), \
+						wrappers: wrapperList \
+					}); \
+				} else { \
+					/* with defaults */ \
+					formlyConfigProvider.setType({ \
+						name: _prefixer(field.name), \
+						templateUrl: _fieldTemplateUrl(field.name), \
+						wrappers: wrapperList, \
+						defaultOptions: { \
+							ngModelAttrs: { \
+								required: { \
+									bound: \'ng-required\', \
+									attributes: \'required\' \
+								}, \
+								disabled: { \
+									bound: \'ng-disabled\', \
+									attributes: \'disabled\' \
+								}}}});}});}}}());'
 		}))
 		.pipe($.trim())
 		.pipe($.rename({
