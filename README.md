@@ -67,11 +67,11 @@ function FormCtrl ($scope) {
   $scope.formData = {};  // the data object
   $scope.formOptions = {}; // optional form parameters
   $scope.formFields = [{ // an array holding all form fields
-    'key': 'email',    // ng-model name, saved in formData
-    'type': 'lx-input', // field
-    'templateOptions: {  // in this case: 'lx-input' options
-      'type': 'email'
-      'label': 'Email'
+    key: 'email',    // ng-model name, saved in formData
+    type: 'lx-input', // field
+    templateOptions: {  // in this case: 'lx-input' options
+      type: 'email'
+      label: 'Email'
     }
   }];
 }
@@ -117,13 +117,13 @@ $scope.formFields= [{
         required: true
        },
        validation: {
-       messages: [{
-        name: 'email',
-        message: 'That doesn\'t look like a valid email.',
-        }, {
-        name: 'required',
-        message: 'Your email is required.'
-       }]
+        messages: [{
+          name: 'email',
+          message: 'That doesn\'t look like a valid email.',
+          }, {
+          name: 'required',
+          message: 'Your email is required.'
+        }]
        }
     },{
       key: 'password',
@@ -143,7 +143,7 @@ $scope.formFields= [{
           message: 'Password must be between 4 & 16 characters.'
           }, {
           name: 'maxlength',
-          message: 'Password must be between 4 & 16 characters.
+          message: 'Password must be between 4 & 16 characters.'
          }]
       },
       ngModelAttrs: {
