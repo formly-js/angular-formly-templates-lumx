@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.0.10
+# Now 1.0.11
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
@@ -18,7 +18,7 @@ LumX Templates for Angular-Formly. Modern & flexible forms configured easily in 
 ## Dependencies
 
 1. Angular (@1.3+)
-2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.0+)
+2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.1+)
 3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") (@0.3+)
 4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") (@1.3+)
 
@@ -38,14 +38,14 @@ angular.module('myAppName', [
 
 ## Demo
 Run the demo locally or view it on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
-- Install (eg. with Bower). `bower install`
+- clone this github repo
 - Go into the demo directory `cd demo`
 - Download packages `bower install && npm install`
 - Run [Gulp](http://gulpjs.com/): `gulp serve` 
 
 ## View
 
-Not much necessary. The form only requires the `<formly-form>` directive tag. For example:
+Not much necessary. The form just requires the `<formly-form>` directive tag. For example:
 
 #####Basic Setup
 ```html
@@ -191,4 +191,4 @@ $scope.formFields= [{
     
 ## Known Issues
 
-LumX has a conflict with a simlarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select". Solution: choose one framework or the other.
+LumX has a conflict with a similarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select". Solution: choose one css framework or the other.
