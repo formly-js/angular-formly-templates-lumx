@@ -45,5 +45,14 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "jspm": {
+    "directories": {
+      "lib": "lib",
+      "packages": "jspm_packages"
+    },
+    "dependencies": {
+      "gulp-ruby-sass": "^1.0.0-alpha.3"
+    }
   }
 }

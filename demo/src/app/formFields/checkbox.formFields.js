@@ -17,38 +17,48 @@
 
     this.fields = function () {
       return [{
-        'key': 'checkbox0',
+        'key': 'checkBoxExample',
         'type': 'lx-checkbox',
         'templateOptions': {
           'label': 'Show Missing Box'
         }
       }, {
-        key: 'checkbox1',
+        key: 'hiddenBox',
         type: 'lx-checkbox',
         templateOptions: {
           label: 'Hidden Box'
         },
         expressionProperties: {
-          hide: '!model.checkbox0'
+          hide: '!model.checkBoxExample'
         }
       }, {
-        key: 'checkbox2',
+        key: 'checkedCheckBox',
         type: 'lx-checkbox',
-        ngModelAttrs: {
-          bound: {
-            'ng-checked': true
-          }
-        },
+        templateOptions: {
+          label: 'Checked Checkbox',
+          checked: true
+        }
+      }, {
+        key: 'helperBox',
+        type: 'lx-checkbox',
         templateOptions: {
           label: 'Checkbox with Helper',
           description: 'Explaining a little more'
         }
       }, {
-        key: 'checkbox3',
+        key: 'disabledBox',
         type: 'lx-checkbox',
         templateOptions: {
           label: 'Disabled Box',
           disabled: true
+        }
+      }, {
+        key:'checkedDisabledBox',
+        type: 'lx-checkbox',
+        templateOptions: {
+          label: 'Checked & Disabled Box',
+          disabled: true,
+          checked: true
         }
       }];
     };

@@ -16,13 +16,13 @@
 
     this.fields = function () {
       return [{
-        key: 'switch0',
+        key: 'regularSwitch',
         type: 'lx-switch',
         templateOptions: {
           label: 'Regular switch'
         }
       }, {
-        key: 'switch1',
+        key: 'hiddenSwitch',
         type: 'lx-switch',
         templateOptions: {
           label: 'Triggered Switch'
@@ -31,29 +31,33 @@
           hide: '!model.switchNormal'
         }
       }, {
-        key: 'switch2',
+        key: 'checkedSwitch',
         type: 'lx-switch',
-        ngModelAttrs: {
-          bound: {
-            'ng-checked': true
-          }
-        },
         templateOptions: {
-          label: 'Switched Switch'
+          label: 'Switched Switch',
+          checked: true
         }
       }, {
-        key: 'switch3',
+        key: 'helperSwitch',
         type: 'lx-switch',
         templateOptions: {
           label: 'Switch with Helper',
           description: 'Explaining a little more'
         }
       }, {
-        key: 'switch4',
+        key: 'disabledSwitch',
         type: 'lx-switch',
         templateOptions: {
           label: 'Disabled Switch',
           disabled: true
+        }
+      }, {
+        key:'disabledCheckedSwitch',
+        type: 'lx-switch',
+        templateOptions: {
+          label: 'Disabled & Checked Switch',
+          disabled: true,
+          checked: true
         }
       }];
     };
