@@ -37,7 +37,7 @@ angular.module('myAppName', [
 ```
 
 ## Demo
-Run the demo locally or on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
+Run the demo locally or view it on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - Install (eg. with Bower). `bower install`
 - Go into the demo directory `cd demo`
 - Download packages `bower install && npm install`
@@ -45,15 +45,15 @@ Run the demo locally or on the [site](https://formly-lumx.herokuapp.com/ "Angula
 
 ## View
 
-Not much necessary. The form only requires the `formly-form` directive tag. For example:
+Not much necessary. The form only requires the `<formly-form>` directive tag. For example:
 
-####Basic Setup
+#####Basic Setup
 ```html
   <!-- formly-form directive generates templates -->
   <formly-form model="formData" fields="formFields"></formly-form>
 ```
 
-####With Submit & Options
+#####With Submit & Options
 ```html
      <formly-form model="formData" fields="formFields" options="formOptions"
                   ng-submit="submit(form.$valid)" name="form">
