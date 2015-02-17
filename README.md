@@ -97,7 +97,8 @@ Basic form elements.
 - [lx-radio](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/radio.md)
 - [lx-date-picker](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/datePicker.md)
 - [lx-select](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md)
-- [lx-flex](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md) (coming soon)
+- [lx-flex](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md)
+- [lx-title](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/title.md)
 
 ## Wrappers
 
@@ -120,7 +121,8 @@ Read more about [lx-wrapper-errors](https://github.com/formly-js/angular-formly-
 
 
 ### Flex-Box Grids
-Use containers & flex-box to arrange your form fields into flexible rows & columns. Read more about [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md).
+Use containers & flex-box to arrange your form fields into flexible rows & columns.
+See docs on [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md).
 
 # Example: Email & Password
   
