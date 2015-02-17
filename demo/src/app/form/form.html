@@ -4,7 +4,8 @@
   <div flex-item="40" class="content-fields">
     <div class="card tc-black-2 p-">
       <shmck-divider></shmck-divider>
-      <a class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
+      <a ng-if="vm.contents.angularDocs" class="docs-icon" ng-href="{{vm.contents.angularDocs}}" target="_blank">Angular Docs</a>
+      <a ng-if="vm.contents.markdownFile" class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
 
       <h1 class="fs-display2">{{::vm.contents.title}}</h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
@@ -47,7 +48,7 @@
       <h1 class="fs-title">Form Data</h1>
 
       <div class="card__content bgc-blue-200" style="max-width: 450px">
-        <pre pretty-json="vm.formData"/>
+        <pre pretty-json="vm.formData"></pre>
       </div>
     </div>
   </div>

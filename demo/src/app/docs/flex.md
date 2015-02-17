@@ -3,7 +3,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-wrapper-flex-container',
+  'type': 'lx-wrapper-flex',
   'templateOptions': {
     'container': 'row', // row | column | row-reverse | column-reverse
     'wrap': 'nowrap', // nowrap | wrap | wrap-reverse

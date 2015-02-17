@@ -10,6 +10,6 @@
     'shmck.formFields.themes',
     'shmck.formFields.flex',
     'shmck.formFields.error',
-    'shmck.formFields.ngModelAttrs'
+    'shmck.formFields.modelOptions'
   ]);
 }());
