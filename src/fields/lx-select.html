@@ -1,8 +1,6 @@
 <div>
-	<br/>
-
-	<h3><label>
-		{{::options.templateOptions.label || 'Select'}} {{::options.templateOptions.required ? '*' : ''}}
+	<h3 ng-if="::options.templateOptions.label"><label>
+		{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}
 	</label></h3>
 	<lx-select ng-model="model[options.key]"
 	           choices="options.templateOptions.options"

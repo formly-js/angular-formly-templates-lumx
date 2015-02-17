@@ -15,6 +15,12 @@
 
     this.fields = function () {
       return [{
+        key: 'rowTitle',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'container: row, align: space-between'
+        }
+      }, {
         'key': 'row',
         type: 'lx-flex',
         templateOptions: {
@@ -27,21 +33,15 @@
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {
-                item: 1
-              },
               type: 'text',
               fixedLabel: true,
-              label: 'space-between row'
+              label: 'Row'
             }
           }, {
             key: 'rowItem2',
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {
-                item: 2
-              },
               type: 'text',
               fixedLabel: true,
               label: 'Row'
@@ -51,9 +51,6 @@
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {
-                item: 3
-              },
               type: 'text',
               fixedLabel: true,
               label: 'Row'
@@ -61,7 +58,13 @@
           }]
         }
       }, {
-        'key': 'row',
+        key: 'colTitle',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'container: column, align: space-between'
+        }
+      }, {
+        'key': 'column',
         type: 'lx-flex',
         templateOptions: {
           flex: {
@@ -74,21 +77,15 @@
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {
-                item: 1
-              },
               type: 'text',
               fixedLabel: true,
-              label: 'space-between center'
+              label: 'Column'
             }
           }, {
             key: 'columnItem2',
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {
-                item: 2
-              },
               type: 'text',
               fixedLabel: true,
               label: 'Column'
@@ -98,12 +95,66 @@
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              flex: {
-                item: 3
-              },
               type: 'text',
               fixedLabel: true,
               label: 'Column'
+            }
+          }]
+        }
+      }, {
+        key: 'mixedTitle',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'container: row, align: center'
+        }
+      }, {
+        'key': 'row',
+        type: 'lx-flex',
+        templateOptions: {
+          flex: {
+            container: 'row',
+            align: 'center center',
+            gutter: 8
+          },
+          'fields': [{
+            key: 'mixed1',
+            type: 'lx-input',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              type: 'number',
+              fixedLabel: true,
+              label: 'Address number'
+            }
+          }, {
+            key: 'mixed2',
+            type: 'lx-input',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              type: 'text',
+              fixedLabel: true,
+              label: 'Street Name'
+            }
+          }, {
+            key: 'mixed3',
+            type: 'lx-select',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              placeholder: 'Street Type',
+              selected: 'type',
+              choice: 'type',
+              options: [
+                {type: 'St.'},
+                {type: 'Ave.'},
+                {type: 'Blvd.'},
+                {type: 'Cres.'}
+              ]
+            }
+          }, {
+            key: 'mixed4',
+            type: 'lx-checkbox',
+            wrapper: 'lx-wrapper-flex-item',
+            templateOptions: {
+              label: 'mail list'
             }
           }]
         }
@@ -117,7 +168,7 @@
         url: '/flex',
         views: {
           'form@': {
-            templateUrl: 'app/form/form-flex.html',
+            templateUrl: 'app/form/form.html',
             controller: 'FormCtrl as vm',
             resolve: {
               formFields: function (flexFormFields) {
