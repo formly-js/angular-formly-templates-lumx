@@ -13,10 +13,15 @@
       markdownFile: 'app/docs/radio.md'
     };
 
+    this.formData = {
+      radio: '',
+      radioWithDescription: ''
+    };
+
 
     this.fields = function () {
       return [{
-        key: 'radio0',
+        key: 'radio',
         type: 'lx-radio',
         templateOptions: {
           label: 'What\'s your favorite number?',
@@ -33,7 +38,7 @@
           }]
         }
       }, {
-        key: 'radio1',
+        key: 'radioWithDescription',
         type: 'lx-radio',
         templateOptions: {
           label: 'What\'s your least favorite number?',
@@ -70,6 +75,9 @@
               },
               contents: function (radioFormFields) {
                 return radioFormFields.contents;
+              },
+              formData: function (radioFormFields) {
+                return radioFormFields.formData;
               }
             }
           }

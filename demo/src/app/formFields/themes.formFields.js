@@ -13,6 +13,13 @@
       formFieldsClass: 'bgc-blue-grey-500 addPadding'
     };
 
+    this.formData = {
+      dark1: '',
+      dark2: '',
+      light1: '',
+      light2: ''
+    };
+
 
     this.fields = function () {
       return [{
@@ -95,6 +102,9 @@
               },
               contents: function (themeFormFields) {
                 return themeFormFields.contents;
+              },
+              formData: function (themeFormFields) {
+                return themeFormFields.formData;
               }
             }
           }

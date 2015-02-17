@@ -13,6 +13,15 @@
       markdownFile: 'app/docs/input.md'
     };
 
+    this.formData = {
+      name: '',
+      fixedLabel: '',
+      disabledText: '',
+      textArea: 'Once upon a midnight dreary, while I pondered, weak and weary, \
+      Over many a quaint and curious volume of forgotten forms—',
+      validatedText :''
+    };
+
     var underlined = { 'text-decoration': 'underline' };
 
     this.fields = function () {
@@ -120,6 +129,9 @@
               },
               contents: function (inputFormFields) {
                 return inputFormFields.contents;
+              },
+              formData: function (inputFormFields) {
+                return inputFormFields.formData;
               }
             }
           }

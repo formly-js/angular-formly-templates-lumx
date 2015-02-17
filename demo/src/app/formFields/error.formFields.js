@@ -15,6 +15,13 @@
       markdownFile: 'app/docs/error.md'
     };
 
+    this.formData = {
+      email: '',
+      password: '',
+      url: '',
+      textPattern: ''
+    };
+
     this.fields = function () {
       return [{
         key: 'email',
@@ -67,7 +74,7 @@
           allowInvalid: false
         }
       }, {
-        key: 'url0',
+        key: 'url',
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
@@ -147,6 +154,9 @@
               },
               contents: function (errorFormFields) {
                 return errorFormFields.contents;
+              },
+              formData: function (errorFormFields) {
+                return errorFormFields.formData;
               }
             }
           }

@@ -15,6 +15,14 @@
       markdownFile: 'app/docs/checkbox.md'
     };
 
+    this.formData = {
+      hiddenBox: '',
+      checkedCheckBox: '',
+      helperBox: '',
+      disabledBox: '',
+      checkedDisabledBox: ''
+    };
+
     this.fields = function () {
       return [{
         'key': 'checkBoxExample',
@@ -78,6 +86,9 @@
               },
               contents: function (checkboxFormFields) {
                 return checkboxFormFields.contents;
+              },
+              formData: function (checkboxFormFields) {
+                return checkboxFormFields.formData;
               }
             }
           }

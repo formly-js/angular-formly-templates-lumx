@@ -13,6 +13,7 @@
       markdownFile: 'app/docs/datePicker.md'
     };
 
+    this.formData = {};
 
     this.fields = function () {
       return [{
@@ -39,6 +40,9 @@
               },
               contents: function (datePickerFormFields) {
                 return datePickerFormFields.contents;
+              },
+              formData: function (datePickerFormFields) {
+                return datePickerFormFields.formData;
               }
             }
           }

@@ -13,6 +13,20 @@
       markdownFile: 'app/docs/flex.md'
     };
 
+    this.formData = {
+      rowItem1: '',
+      rowItem2: '',
+      rowItem3: '',
+      columnItem1: '',
+      columnItem2: '',
+      columnItem3: '',
+      mixedItem1: '',
+      addressNumber: '',
+      addressStreetName: '',
+      addressStreetType: '',
+      addressMailList: ''
+    };
+
     this.fields = function () {
       return [{
         key: 'rowTitle',
@@ -117,7 +131,7 @@
             gutter: 8
           },
           'fields': [{
-            key: 'mixed1',
+            key: 'addressNumber',
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
@@ -126,7 +140,7 @@
               label: 'Address number'
             }
           }, {
-            key: 'mixed2',
+            key: 'addressStreetName',
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
@@ -135,7 +149,7 @@
               label: 'Street Name'
             }
           }, {
-            key: 'mixed3',
+            key: 'addressStreetType',
             type: 'lx-select',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
@@ -154,7 +168,7 @@
               ]
             }
           }, {
-            key: 'mixed4',
+            key: 'addressMailList',
             type: 'lx-checkbox',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
@@ -180,6 +194,9 @@
               },
               contents: function (flexFormFields) {
                 return flexFormFields.contents;
+              },
+              formData: function (flexFormFields) {
+                return flexFormFields.formData;
               }
             }
           }

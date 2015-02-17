@@ -13,13 +13,40 @@
       markdownFile: 'app/docs/select.md'
     };
 
+    this.formData = {
+      singleSelect: '',
+      singleSelectTwo: '',
+      multipleSelect: ''
+    };
+
 
     this.fields = function () {
       return [{
-        key: 'select',
+        key: 'singleSelect',
         type: 'lx-select',
         templateOptions: {
-          label: 'Single Select',
+          label: 'Basic Single Select',
+          placeholder: 'Choose a Person',
+          selected: 'name',
+          choice: 'name',
+          options: [{
+            name: 'Adam'
+          }, {
+            name: 'Amalie'
+          }, {
+            name: 'Wladimir'
+          }, {
+            name: 'Samantha'
+          }, {
+            name: 'Estefania'
+          }]
+        }
+      }, {
+        key: 'singleSelectTwo',
+        type: 'lx-select',
+        templateOptions: {
+          space: true,
+          label: 'Advanced Single Select',
           placeholder: 'Choose an Email',
           allowClear: true,
           selected: 'name',
@@ -38,9 +65,10 @@
           ]
         }
       }, {
-        key: 'selectMultiple',
+        key: 'multipleSelect',
         type: 'lx-select',
         templateOptions: {
+          space: true,
           multiple: true,
           label: 'Multiple Select',
           placeholder: 'Choose an Email',
@@ -89,6 +117,9 @@
               },
               contents: function (selectFormFields) {
                 return selectFormFields.contents;
+              },
+              formData: function (selectFormFields) {
+                return selectFormFields.formData;
               }
             }
           }

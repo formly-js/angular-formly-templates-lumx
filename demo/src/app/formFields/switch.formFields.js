@@ -13,6 +13,14 @@
       markdownFile: 'app/docs/switch.md'
     };
 
+    this.formData = {
+      regularSwitch: '',
+      hiddenSwitch: '',
+      checkedSwitch: '',
+      helperSwitch: '',
+      disabledSwitch: '',
+      disabledCheckedSwitch: ''
+    };
 
     this.fields = function () {
       return [{
@@ -77,6 +85,9 @@
               },
               contents: function (switchFormFields) {
                 return switchFormFields.contents;
+              },
+              formData: function (switchFormFields) {
+                return switchFormFields.formData;
               }
             }
           }
