@@ -7,7 +7,7 @@
     .config(stateRoutes);
 
   /*@ngInject*/
-  function errorFormFields($timeout) {
+  function errorFormFields($timeout, $q) {
     this.contents = {
       title: 'Error Notification',
       subhead: 'easy validation tools',
@@ -30,6 +30,7 @@
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
+          focus: true,
           type: 'email',
           label: 'Email    |  html email validation & ng-required',
           fixedLabel: true,
@@ -116,28 +117,32 @@
         modelOptions: {
           allowInvalid: false
         }
-        //}, {
-        //  key: 'customValidator',
-        //  type: 'lx-input',
-        //  wrapper: 'lx-wrapper-errors',
-        //  validators: {
-        //    flavorInStock: {
-        //      expression:  function () {
-        //        return $timeout(function () {
-        //          var flavors = ['chocolate', 'vanilla', 'strawberry'];
-        //          return (flavors.indexOf(value.toLowerCase()) !== -1);
-        //        }, 500);
-        //      },
-        //      message: 'Sorry, we don\'t have that flavor.'
+      //}, {
+        //key: 'customValidator',
+        //type: 'lx-input',
+        //wrapper: 'lx-wrapper-errors',
+        //validators: {
+        //  flavorInStock: {
+        //    expression: function (modelValue, viewValue) {
+        //      var value = modelValue || viewValue || '';
+        //      return $timeout(function () {
+        //        //var flavors = ['chocolate', 'vanilla', 'strawberry'];
+        //        //return (flavors.indexOf(value.toLowerCase()) !== -1) ? $q.when : $q.reject;
+        //        return value === 'chocolate';
+        //      }, 500);
         //    }
-        //  },
-        //  templateOptions: {
-        //    label: 'What\'s your favorite ice cream?',
-        //    description: 'Validators. Try: chocolate, vanilla or strawberry',
-        //    errors: [{
-        //      name: 'flavorInStock'
-        //    }]
         //  }
+        //},
+        //templateOptions: {
+        //  label: 'What\'s your favorite ice cream?',
+        //  description: 'Validators. Try: chocolate, vanilla or strawberry'
+        //},
+        //validation: {
+        //  messages: [{
+        //    name: 'flavorInStock',
+        //    message: 'Sorry we don\'t have that flavor. How about chocolate?'
+        //  }]
+        //}
       }];
     };
   }

@@ -24,6 +24,7 @@
         key: 'radio',
         type: 'lx-radio',
         templateOptions: {
+          focus: true,
           label: 'What\'s your favorite number?',
           options: [{
             name: 'One',

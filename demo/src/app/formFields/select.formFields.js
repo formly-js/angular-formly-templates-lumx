@@ -25,6 +25,7 @@
         key: 'singleSelect',
         type: 'lx-select',
         templateOptions: {
+          focus: true,
           label: 'Basic Single Select',
           placeholder: 'Choose a Person',
           selected: 'name',

@@ -25,10 +25,11 @@
 
     this.fields = function () {
       return [{
-        'key': 'checkBoxExample',
-        'type': 'lx-checkbox',
-        'templateOptions': {
-          'label': 'Show Missing Box'
+        key: 'checkBoxExample',
+        type: 'lx-checkbox',
+        templateOptions: {
+          focus: true,
+          label: 'Show Missing Box'
         }
       }, {
         key: 'hiddenBox',

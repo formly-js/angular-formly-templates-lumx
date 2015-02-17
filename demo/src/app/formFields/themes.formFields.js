@@ -35,6 +35,7 @@
         key: 'dark1',
         type: 'lx-input',
         templateOptions: {
+          focus: true,
           fixedLabel: true,
           type: 'text',
           label: 'Name',

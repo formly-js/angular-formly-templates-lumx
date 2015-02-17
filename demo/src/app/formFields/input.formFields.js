@@ -36,6 +36,7 @@
         key: 'name',
         type: 'lx-input',
         templateOptions: {
+          focus: true,
           type: 'text',
           label: 'Name'
         }
