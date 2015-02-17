@@ -8,9 +8,10 @@
   function flexFormFields() {
     this.contents = {
       title: 'FlexBox Wrappers',
-      subhead: 'coming soon',
-      description: '',
-      markdownFile: 'app/docs/flex.md'
+      subhead: 'lx-flex, lx-wrapper-flex-item',
+      description: 'Create an item with a type of "lx-flex". Inside of the templateOptions, you can add fields wrapped in "lx-wrapper-flex-item"',
+      markdownFile: 'app/docs/flex.md',
+      notes: 'Due to style issues, lx-select requires a little hack -> style: { position: \'relative\',bottom: \'11px\'}. This keeps everything in line.'
     };
 
     this.formData = {

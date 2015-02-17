@@ -9,6 +9,8 @@
     this.contents = {
       title: 'Themes',
       subhead: 'backgrounds + dark/light font themes',
+      description: 'Themes can be set on the root <formly-form> element or can added by styling with "lx-div-wrapper".' +
+        'For readability, dark colored backgrounds should set the theme: dark, light colored backgrounds to theme: light.',
       markdownFile: 'app/docs/themes.md',
       formFieldsClass: 'bgc-blue-grey-500 addPadding'
     };

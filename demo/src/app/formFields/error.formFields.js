@@ -11,7 +11,9 @@
     this.contents = {
       title: 'Error Notification',
       subhead: 'easy validation tools',
-      description: '',
+      description: 'To add validation error messages, add wrapper: "lx-wrapper-errors" to your field' +
+      'Messages are handled under validation.messages with a name & message.' +
+      'The "name" value corresponds to formName.$error.{{name}}.',
       markdownFile: 'app/docs/error.md'
     };
 

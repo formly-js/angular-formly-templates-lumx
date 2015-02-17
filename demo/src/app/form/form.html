@@ -10,7 +10,16 @@
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
       <br/>
 
+
       <div class="card__content bgc-white">
+        <div ng-if="::vm.contents.description">
+          <br/>
+          <p>{{::vm.contents.description}}</p>
+          <br/>
+        </div>
+
+
+
 
         <!-- Forms -->
         <h2 class="fs-display1">Examples</h2>
@@ -25,6 +34,12 @@
 
         </div>
         <!-- end Forms -->
+
+        <div ng-if="::vm.contents.notes">
+          <br/>
+          <p>{{::vm.contents.notes}}</p>
+          <br/>
+        </div>
 
       </div>
     </div>

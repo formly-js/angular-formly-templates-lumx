@@ -11,27 +11,20 @@
     'className': 'bgc-red-500', // ng-class
     'style': 'height: 200px'
      'fields': [{
-        /* 'lx-wrapper-flex-item' fields here */
+        {
+          'key': 'modelName',
+          'type': 'lx-whatever-type'
+          'wrapper': 'lx-wrapper-flex-item', // <- add the wrapper
+          'templateOptions': {
+            'flex': {
+              'item': '1' // flex-value number, higher weights the space ratio more 
+              'order': '1', // value for ordering boxes
+              'className': 'bgc-red-500' // ng-class
+            }
+          }
+        }
       }]
   },
 }
 ```
-
-### lx-wrapper-flex-item
-
-```javascript
-{
-  'key': 'modelName',
-  'type': 'lx-whatever-type'
-  'wrapper': 'lx-wrapper-flex-item', // <- add the wrapper
-  'templateOptions': {
-    'flex': {
-      'item': '1' // flex-value number, higher weights the space ratio more 
-      'order': '1', // value for ordering boxes
-      'className': 'bgc-red-500' // ng-class
-    }
-  }
-}
-```
-
 Read more about [LumX flexbox](http://ui.lumapps.com/css/flexbox).
