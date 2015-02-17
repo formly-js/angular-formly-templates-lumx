@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.0.11
+# Now 1.0.12
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
@@ -119,7 +119,7 @@ $scope.formFields = {
 Read more about [lx-wrapper-errors](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/errors.md)
 
 
-### Flex-Box Grids (coming soon)
+### Flex-Box Grids
 Use containers & flex-box to arrange your form fields into flexible rows & columns. Read more about [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md).
 
 # Example: Email & Password
@@ -185,8 +185,7 @@ $scope.formFields= [{
 ```
 
 ##Roadmap
-- Flexbox grids
-- Requests (?)
+- Requests (?). Post an issue.
 
     
 ## Known Issues

@@ -1,3 +1,7 @@
+#1.0.12
+- Flexbox grid working.
+- Still requires style fixes for 'lx-select' with Flexbox.
+
 #1.0.10
 - Errors now handled by new `validation.messages` pipeline in `angular-formly@3.0.9`. See examples in demo under "Errors"
 ##Breaking Changes (less of these in the near future!)
