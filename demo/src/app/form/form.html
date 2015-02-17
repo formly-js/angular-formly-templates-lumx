@@ -19,16 +19,14 @@
         </div>
 
 
-
-
         <!-- Forms -->
         <h2 class="fs-display1">Examples</h2>
 
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
-          <formly-form model="vm.formData" fields="vm.formFields" ng-submit="vm.submit()">
+          <formly-form model="vm.formData" fields="vm.formFields">
             <br/>
             <button class="btn btn--l btn--blue btn--raised" lx-ripple
-                    type="submit">Submit
+                    ng-click="vm.submit()" type="submit">Submit
             </button>
           </formly-form>
 
@@ -63,13 +61,13 @@
 
       <div class="card__content bgc-white" style="max-width: 450px">
         <!-- JSON View -->
-        <pre pretty-json="vm.prettyJson"></pre>
+        <!--<pre pretty-json="vm.prettyJson"></pre>-->
 
-        <!--<ul>-->
-          <!--<li ng-repeat="i in vm.prettyJson">-->
-
-          <!--</li>-->
-        <!--</ul>-->
+        <pre>[</pre>
+        <pre ng-repeat="item in vm.fieldJson track by $index"
+             class="bgc-yellow-100"
+             pretty-json="vm.fieldJson[$index]"></pre>
+        <pre>]</pre>
 
       </div>
     </div>

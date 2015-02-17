@@ -22,7 +22,6 @@
   function routerSetup($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/input');
-    //$locationProvider.html5Mode(true);
   }
 
 }());
