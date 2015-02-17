@@ -10,10 +10,7 @@ demo/npm-debug.log
 demo/.editorconfig
 demo/web.js
 demo/Procfile
-demo-es6/.sass-cache
-demo-es6/bower_components
-demo-es6/node_modules
-demo-es6/steps.txt
 build
 edits
 todo.txt
+demo-es6
