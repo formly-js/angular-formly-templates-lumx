@@ -139,6 +139,10 @@
             type: 'lx-select',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
+              style: {
+                position: 'relative',
+                bottom: '11px' // hack
+              },
               placeholder: 'Street Type',
               selected: 'type',
               choice: 'type',
