@@ -11,6 +11,7 @@
     'shmck.formFields.flex',
     'shmck.formFields.error',
     'shmck.formFields.modelOptions',
-    'shmck.formFields.validators'
+    'shmck.formFields.validators',
+    'shmck.formFields.expression'
   ]);
 }());

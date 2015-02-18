@@ -9,8 +9,7 @@
     this.contents = {
       title: 'Input Fields',
       subhead: 'input & textarea',
-      description: '',
-      markdownFile: 'app/docs/input.md'
+      docFile: 'app/docs/input.md'
     };
 
     this.formData = {

@@ -9,8 +9,7 @@
     this.contents = {
       title: 'Selectors',
       subhead: 'select, multiple-select',
-      description: '',
-      markdownFile: 'app/docs/select.md'
+      docFile: 'app/docs/select.md'
     };
 
     this.formData = {

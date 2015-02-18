@@ -8,9 +8,7 @@
   function radioFormFields() {
     this.contents = {
       title: 'Radio',
-      subhead: '',
-      description: '',
-      markdownFile: 'app/docs/radio.md'
+      docFile: 'app/docs/radio.md'
     };
 
     this.formData = {

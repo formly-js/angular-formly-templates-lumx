@@ -41,6 +41,9 @@
     }, {
       state: 'validators',
       text: 'Validators'
+    }, {
+      state: 'expression',
+      text: 'Expression Properties'
     }];
 
     return {

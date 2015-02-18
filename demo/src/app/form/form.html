@@ -6,13 +6,13 @@
       <shmck-divider></shmck-divider>
       <a ng-if="vm.contents.angularDocs" class="docs-icon" ng-href="{{vm.contents.angularDocs}}" target="_blank">Angular
         Docs</a>
-      <a ng-if="vm.contents.markdownFile" class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
+      <a ng-if="vm.contents.docFile" class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
 
       <h1 class="fs-display2">{{::vm.contents.title}}</h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
       <br/>
 
-      <shmck-contents contents="{{::vm.contents.description}}"></shmck-contents>
+      <shmck-contents contents="::vm.contents.description"></shmck-contents>
 
       <shmck-container title="Examples" bgc="bgc-white">
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
@@ -26,9 +26,8 @@
       </shmck-container>
 
       <!-- end Forms -->
-      <shmck-contents contents="{{::vm.contents.notes}}"></shmck-contents>
+      <shmck-contents contents="::vm.contents.notes"></shmck-contents>
     </div>
-
 
     <shmck-form-data form-data="::vm.formData"></shmck-form-data>
   </section>

@@ -8,9 +8,7 @@
   function datePickerFormFields() {
     this.contents = {
       title: 'Date Picker',
-      subhead: '',
-      description: '',
-      markdownFile: 'app/docs/datePicker.md'
+      docFile: 'app/docs/datePicker.md'
     };
 
     this.formData = {};

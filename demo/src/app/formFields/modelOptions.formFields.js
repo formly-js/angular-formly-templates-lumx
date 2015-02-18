@@ -9,10 +9,8 @@
     this.contents = {
       title: 'modelOptions',
       subhead: 'more coming',
-      description: 'All fields should only validate with numbers, no letters or special characters.' +
-      'Use that to test out modelOptions. View the changes in "formData"',
-      angularDocs: 'https://docs.angularjs.org/api/ng/directive/ngModelOptions',
-      notes: 'Defaults are pretty good. AllowInvalid: false & updateOn: blur'
+      description: 'app/notes/modelOptionsDescription.md',
+      angularDocs: 'https://docs.angularjs.org/api/ng/directive/ngModelOptions'
     };
 
     this.formData = {

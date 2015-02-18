@@ -10,9 +10,7 @@
   function checkboxFormFields() {
     this.contents = {
       title: 'Checkbox',
-      subhead: '',
-      description: '',
-      markdownFile: 'app/docs/checkbox.md'
+      docFile: 'app/docs/checkbox.md'
     };
 
     this.formData = {

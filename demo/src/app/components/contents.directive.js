@@ -7,7 +7,7 @@
     return {
       templateUrl: 'app/components/contents.tmpl.html',
       scope: {
-        contents: '@'
+        contents: '='
       }
     };
   }

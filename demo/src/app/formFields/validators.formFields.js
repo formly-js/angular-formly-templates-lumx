@@ -9,12 +9,12 @@
   function validatorsFormFields($timeout, $q) {
     this.contents = {
       title: 'validators',
-      subhead: '',
-      description: ''
+      subhead: 'sync & async, pending'
     };
 
     this.formData = {
-      iceCreamFlavor: ''
+      iceCreamFlavor: '',
+      iceCreamFlavor2: ''
     };
 
     this.fields = function () {
@@ -44,7 +44,7 @@
           }]
         }
       }, {
-        key: 'iceCreamFlavor',
+        key: 'iceCreamFlavor2',
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
         validators: {
