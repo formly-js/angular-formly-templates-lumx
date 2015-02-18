@@ -117,32 +117,6 @@
         modelOptions: {
           allowInvalid: false
         }
-      //}, {
-        //key: 'customValidator',
-        //type: 'lx-input',
-        //wrapper: 'lx-wrapper-errors',
-        //validators: {
-        //  flavorInStock: {
-        //    expression: function (modelValue, viewValue) {
-        //      var value = modelValue || viewValue || '';
-        //      return $timeout(function () {
-        //        //var flavors = ['chocolate', 'vanilla', 'strawberry'];
-        //        //return (flavors.indexOf(value.toLowerCase()) !== -1) ? $q.when : $q.reject;
-        //        return value === 'chocolate';
-        //      }, 500);
-        //    }
-        //  }
-        //},
-        //templateOptions: {
-        //  label: 'What\'s your favorite ice cream?',
-        //  description: 'Validators. Try: chocolate, vanilla or strawberry'
-        //},
-        //validation: {
-        //  messages: [{
-        //    name: 'flavorInStock',
-        //    message: 'Sorry we don\'t have that flavor. How about chocolate?'
-        //  }]
-        //}
       }];
     };
   }

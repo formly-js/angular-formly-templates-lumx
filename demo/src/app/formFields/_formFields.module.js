@@ -10,6 +10,7 @@
     'shmck.formFields.themes',
     'shmck.formFields.flex',
     'shmck.formFields.error',
-    'shmck.formFields.modelOptions'
+    'shmck.formFields.modelOptions',
+    'shmck.formFields.validators'
   ]);
 }());

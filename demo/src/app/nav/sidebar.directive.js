@@ -38,6 +38,9 @@
       divider: 'FEATURES',
       state: 'modelOptions',
       text: 'Model Options'
+    }, {
+      state: 'validators',
+      text: 'Validators'
     }];
 
     return {
