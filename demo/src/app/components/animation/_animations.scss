@@ -1,0 +1,58 @@
+/* page transitions */
+.form-view.ng-enter {
+  -webkit-animation: fadeIn 0.7s both ease;
+  -moz-animation: fadeIn 0.7s both ease;
+  animation: fadeIn 0.7s both ease;
+}
+.form-view.ng-leave {
+  -webkit-animation: fadeOut 0.3s both ease;
+  -moz-animation: fadeOut 0.3s both ease;
+  animation: fadeOut 0.3s both ease;
+}
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dropDown {
+  0% {
+    opacity: 1;
+    top: 0;
+    height: 30px;
+  }
+  100% {
+    opacity: 0;
+    top: -50px;
+    height: 0;
+  }
+}
+
+@keyframes dropUp {
+  0% {
+    opacity: 0;
+    top: -50px;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+    height: 30px;
+  }
+}

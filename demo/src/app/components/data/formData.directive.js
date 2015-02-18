@@ -5,7 +5,7 @@
 
   function shmckFormData() {
     return {
-      templateUrl: 'app/components/formData.tmpl.html',
+      templateUrl: 'app/components/data/formData.tmpl.html',
       scope: {
         formData: '='
       }

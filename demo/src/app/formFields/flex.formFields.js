@@ -48,7 +48,6 @@
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              focus: true,
               type: 'text',
               fixedLabel: true,
               label: 'Row'

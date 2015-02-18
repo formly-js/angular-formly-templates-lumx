@@ -35,6 +35,7 @@
           }
         },
         templateOptions: {
+          focus: true,
           label: 'What\'s your favorite ice cream?'
         },
         validation: {
@@ -42,6 +43,9 @@
             name: 'flavorInStock',
             message: 'Sorry we don\'t have that flavor. How about chocolate, vanilla or strawberry?'
           }]
+        },
+        modelOptions: {
+          updateOn: 'keyup blur'
         }
       }, {
         key: 'iceCreamFlavor2',
@@ -68,6 +72,9 @@
             name: 'flavorInStock',
             message: 'Sorry we don\'t have that flavor. How about chocolate, vanilla or strawberry?'
           }]
+        },
+        modelOptions: {
+          updateOn: 'keyup'
         }
       }];
     };

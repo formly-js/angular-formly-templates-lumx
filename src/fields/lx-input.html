@@ -2,6 +2,7 @@
 	<lx-text-field model="::model[options.key]"
 	               fixed-label="::options.templateOptions.fixedLabel"
 	               theme="{{::options.templateOptions.theme}}"
+	               disabled="options.templateOptions.disabled"
 	               label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
 	               valid="options.formControl.$valid && options.formControl.$touched"
 	               error="options.formControl.$invalid && options.formControl.$touched">

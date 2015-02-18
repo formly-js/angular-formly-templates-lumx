@@ -5,7 +5,7 @@
 
   function shmckDocsModal() {
     return {
-      templateUrl: 'app/components/docsModal.tmpl.html',
+      templateUrl: 'app/components/data/docsModal.tmpl.html',
       bindToController: true
     };
   }

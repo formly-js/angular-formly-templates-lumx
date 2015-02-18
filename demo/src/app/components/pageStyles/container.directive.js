@@ -5,7 +5,7 @@
 
   function shmckContainer() {
     return {
-      templateUrl: 'app/components/container.tmpl.html',
+      templateUrl: 'app/components/pageStyles/container.tmpl.html',
       scope: {
         title: '@',
         bgc: '@'

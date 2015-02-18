@@ -29,15 +29,6 @@
           label: 'Regular switch'
         }
       }, {
-        key: 'hiddenSwitch',
-        type: 'lx-switch',
-        templateOptions: {
-          label: 'Triggered Switch'
-        },
-        expressionProperties: {
-          hide: '!model.switchNormal'
-        }
-      }, {
         key: 'checkedSwitch',
         type: 'lx-switch',
         templateOptions: {

@@ -10,6 +10,7 @@
     /* angular & 3rd party */
     'ngSanitize',
     'ngResource',
+    'ngAnimate',
     'ui.router',
     'ngPrettyJson',
     'btford.markdown',

@@ -7,16 +7,50 @@
 
   function expressionFormFields() {
     this.contents = {
-      title: 'Expression Properties',
-      subhead: '',
-      description: ''
+      title: 'Expression Properties'
     };
 
 
-    this.formData = {};
+    this.formData = {
+      showHidden: '',
+      disableNextField: ''
+    };
 
     this.fields = function () {
-      return [];
+      return [{
+        key: 'showHidden',
+        type: 'lx-checkbox',
+        templateOptions: {
+          focus: true,
+          label: 'Show Hidden Field'
+        }
+      }, {
+        key: 'hiddenField',
+        type: 'lx-title',
+        templateOptions: {
+          title: 'This Field was Hidden'
+        },
+        expressionProperties: {
+          hide: '!model.showHidden'
+        }
+      }, {
+        key: 'disableNextField',
+        type: 'lx-checkbox',
+        templateOptions: {
+          label: 'Disable Next Field'
+        }
+      }, {
+        key: 'probablyNotNeeded',
+        type: 'lx-input',
+        templateOptions: {
+          label: 'This Field Can Be Disabled',
+          fixedLabel: true,
+          required: true
+        },
+        expressionProperties: {
+          'templateOptions.disabled': 'model.disableNextField'
+        }
+      }];
     };
   }
 

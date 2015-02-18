@@ -5,7 +5,7 @@
 
   function shmckContents() {
     return {
-      templateUrl: 'app/components/contents.tmpl.html',
+      templateUrl: 'app/components/pageStyles/contents.tmpl.html',
       scope: {
         contents: '='
       }

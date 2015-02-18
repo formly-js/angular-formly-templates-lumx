@@ -1,0 +1,22 @@
+<div class="sidebar" ng-class="{ 'sidebar--is-shown': vm.sidebar.isSidebarShown() }">
+  <div class="sidebar-menu">
+    <ul ng-repeat="(key, value) in vm.sidebarLinks track by $index">
+      <li class="dropdown-divider">
+      <li class="sidebar-menu__link bgc-blue-grey-50"
+          ng-click="vm.sidebar.toggleSidebarItem($index)"
+          lx-ripple="white">{{::key}}
+        <i ng-if="vm.sidebar.items[$index]" class="mdi mdi--arrow-drop-up"></i>
+        <i ng-if="!vm.sidebar.items[$index]" class="mdi mdi--arrow-drop-down"></i>
+      </li>
+      <div ng-show="vm.sidebar.items[$index]">
+        <li ng-repeat="item in value"
+            ui-sref="{{::item.state}}"
+            class="sidebar-menu__link"
+            ng-click="vm.sidebar.toggleSidebar()"
+            lx-ripple="white">{{::item.text}}
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
+

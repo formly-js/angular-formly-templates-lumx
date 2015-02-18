@@ -27,16 +27,7 @@
         type: 'lx-checkbox',
         templateOptions: {
           focus: true,
-          label: 'Show Missing Box'
-        }
-      }, {
-        key: 'hiddenBox',
-        type: 'lx-checkbox',
-        templateOptions: {
-          label: 'Hidden Box'
-        },
-        expressionProperties: {
-          hide: '!model.checkBoxExample'
+          label: 'Basic Checkbox'
         }
       }, {
         key: 'checkedCheckBox',

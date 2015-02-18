@@ -5,7 +5,7 @@
 
   function shmckJsonFields() {
     return {
-      templateUrl: 'app/components/jsonFields.tmpl.html',
+      templateUrl: 'app/components/data/jsonFields.tmpl.html',
       scope: {
         fields: '='
       }
