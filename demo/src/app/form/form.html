@@ -1,7 +1,7 @@
 <div class="main-section__content" flex-container="row">
 
   <!-- Form Field Inputs -->
-  <div flex-item="40" class="content-fields">
+  <section flex-item="40" class="content-fields">
     <div class="card tc-black-2 p-">
       <shmck-divider></shmck-divider>
       <a ng-if="vm.contents.angularDocs" class="docs-icon" ng-href="{{vm.contents.angularDocs}}" target="_blank">Angular
@@ -12,6 +12,7 @@
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
       <br/>
 
+      <shmck-contents contents="{{::vm.contents.description}}"></shmck-contents>
 
       <shmck-container title="Examples" bgc="bgc-white">
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
@@ -25,17 +26,17 @@
       </shmck-container>
 
       <!-- end Forms -->
-      <shmck-contents contents="{{vm.contents.notes}}"></shmck-contents>
+      <shmck-contents contents="{{::vm.contents.notes}}"></shmck-contents>
     </div>
 
 
     <shmck-form-data form-data="::vm.formData"></shmck-form-data>
-  </div>
+  </section>
 
   <!-- Form Field JSON -->
-  <div flex-item="40" class="content-json">
+  <section flex-item="40" class="content-json">
     <shmck-json-fields fields="::vm.jsonFields"></shmck-json-fields>
-  </div>
+  </section>
 
 </div>
 
