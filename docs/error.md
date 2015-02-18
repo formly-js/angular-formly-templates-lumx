@@ -6,6 +6,7 @@
   type: 'lx-input',
   wrapper: 'lx-wrapper-errors',
   templateOptions: {
+    pending: 'Checking...',  // pending message for async validators
     required: true
   },
   validation: {

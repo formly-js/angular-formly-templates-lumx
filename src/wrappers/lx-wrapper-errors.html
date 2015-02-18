@@ -6,4 +6,8 @@
 		    ng-message={{::error.name}}>{{::error.message}}
 		</li>
 	</ul>
+	<span class="display-block"
+	      ng-if="options.templateOptions.pending && options.formControl.$touched && options.formControl.$pending">
+	{{::options.templateOptions.pending || 'Checking...'}}
+	</span>
 </div>
