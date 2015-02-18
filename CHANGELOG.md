@@ -1,3 +1,6 @@
+#1.0.14
+- added `pending` to `lx-wrapper-errors` for use with async validators. See demo for an example.
+
 #1.0.13
 - Flexbox grid working.
 - Flexbox still requires style fixes for 'lx-select' with Flexbox. See example in demo.

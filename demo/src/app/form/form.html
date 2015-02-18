@@ -4,7 +4,8 @@
   <div flex-item="40" class="content-fields">
     <div class="card tc-black-2 p-">
       <shmck-divider></shmck-divider>
-      <a ng-if="vm.contents.angularDocs" class="docs-icon" ng-href="{{vm.contents.angularDocs}}" target="_blank">Angular Docs</a>
+      <a ng-if="vm.contents.angularDocs" class="docs-icon" ng-href="{{vm.contents.angularDocs}}" target="_blank">Angular
+        Docs</a>
       <a ng-if="vm.contents.markdownFile" class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
 
       <h1 class="fs-display2">{{::vm.contents.title}}</h1>
@@ -12,17 +13,7 @@
       <br/>
 
 
-      <div class="card__content bgc-white">
-        <div ng-if="::vm.contents.description">
-          <br/>
-          <p>{{::vm.contents.description}}</p>
-          <br/>
-        </div>
-
-
-        <!-- Forms -->
-        <h2 class="fs-display1">Examples</h2>
-
+      <shmck-container title="Examples" bgc="bgc-white">
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
           <formly-form model="vm.formData" fields="vm.formFields">
             <br/>
@@ -30,50 +21,22 @@
                     ng-click="vm.submit()" type="submit">Submit
             </button>
           </formly-form>
-
         </div>
-        <!-- end Forms -->
+      </shmck-container>
 
-        <div ng-if="::vm.contents.notes">
-          <br/>
-          <p>{{::vm.contents.notes}}</p>
-          <br/>
-        </div>
-
-      </div>
+      <!-- end Forms -->
+      <shmck-contents contents="{{vm.contents.notes}}"></shmck-contents>
     </div>
 
-    <div class="card tc-black-2 p-">
-      <shmck-divider></shmck-divider>
-      <h1 class="fs-title">Form Data</h1>
 
-      <div class="card__content bgc-blue-200" style="max-width: 450px">
-        <pre pretty-json="vm.formData"></pre>
-      </div>
-    </div>
+    <shmck-form-data form-data="::vm.formData"></shmck-form-data>
   </div>
-
 
   <!-- Form Field JSON -->
   <div flex-item="40" class="content-json">
-    <div class="card tc-black-2 p-">
-      <shmck-divider></shmck-divider>
-      <h1 class="fs-display1">Form Fields</h1>
-
-      <div class="card__content bgc-white" style="max-width: 450px">
-        <!-- JSON View -->
-        <!--<pre pretty-json="vm.prettyJson"></pre>-->
-
-        <pre>[</pre>
-        <pre ng-repeat="item in vm.fieldJson track by $index"
-             class="bgc-yellow-100"
-             pretty-json="vm.fieldJson[$index]"></pre>
-        <pre>]</pre>
-
-      </div>
-    </div>
+    <shmck-json-fields fields="::vm.jsonFields"></shmck-json-fields>
   </div>
 
 </div>
 
-<docs-modal></docs-modal>
+<shmck-docs-modal></shmck-docs-modal>
