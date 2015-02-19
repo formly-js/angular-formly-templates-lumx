@@ -12,6 +12,9 @@
     'shmck.formFields.error',
     'shmck.formFields.modelOptions',
     'shmck.formFields.validators',
-    'shmck.formFields.expression'
+    'shmck.formFields.expression',
+    'shmck.formFields.ngModelAttrs',
+    'shmck.formFields.ctrlLink',
+    'shmck.formFields.watcher'
   ]);
 }());

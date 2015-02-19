@@ -7,13 +7,18 @@
 
   function expressionFormFields() {
     this.contents = {
-      title: 'Expression Properties'
+      title: 'Expression Properties',
+      docsLink: 'http://formly-js.github.io/angular-formly/#/example/intro/expression-properties'
     };
 
 
     this.formData = {
       showHidden: '',
-      disableNextField: ''
+      disableNextField: '',
+      probablyNotNeeded: '',
+      setMaxLength: 4,
+      textWithSetMaxLength: 'four',
+      editLabel: ''
     };
 
     this.fields = function () {
@@ -41,14 +46,42 @@
         }
       }, {
         key: 'probablyNotNeeded',
-        type: 'lx-input',
+        type: 'lx-checkbox',
         templateOptions: {
           label: 'This Field Can Be Disabled',
-          fixedLabel: true,
-          required: true
         },
         expressionProperties: {
           'templateOptions.disabled': 'model.disableNextField'
+        }
+      }, {
+        key: 'setMaxLength',
+        type: 'lx-input',
+        templateOptions: {
+          type: 'number',
+          label: 'Set the max length of the next text field'
+        }
+      }, {
+        key: 'textWithSetMaxLength',
+        type: 'lx-input',
+        templateOptions: {
+          label: 'Text with max length set'
+        },
+        ngModelAttrs: {
+          maxLength: {
+            bound: 'ng-maxlength'
+          }
+        },
+        expressionProperties: {
+          'templateOptions.maxLength': 'model.setMaxLength'
+        }
+      }, {
+        key: 'editLabel',
+        type: 'lx-input',
+        templateOptions: {
+          label: 'Text'
+        },
+        expressionProperties: {
+          'templateOptions.label': '$viewValue || "Edit this label"'
         }
       }];
     };

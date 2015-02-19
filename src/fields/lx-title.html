@@ -1,8 +1,8 @@
-<span ng-if="::options.templateOptions.space || true"><br/></span>
+<span ng-if="::to.space || true"><br/></span>
 <div>
-<span ng-class="::options.templateOptions.className || 'fs-title'"
-      ng-style="::options.templateOptions.style"
+<span ng-class="::to.className || 'fs-title'"
+      ng-style="::to.style"
       aria-describedby="{{::id}}">
-	{{::options.templateOptions.title}}</span>
+	{{to.title}}</span>
 	<formly-transclude></formly-transclude>
 </div>

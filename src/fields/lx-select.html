@@ -1,23 +1,24 @@
-<span ng-if="::options.templateOptions.space"><br/></span>
-<div ng-style="::options.templateOptions.style">
-	<h3 ng-if="::options.templateOptions.label"><label>
-		{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}
+<span ng-if="::to.space"><br/></span>
+<div ng-style="::to.style">
+	<h3 ng-if="::to.label"><label>
+		{{to.label}} {{::to.required ? '*' : ''}}
 	</label></h3>
 	<lx-select ng-model="model[options.key]"
-	           choices="options.templateOptions.options"
-	           placeholder="{{::options.templateOptions.placeholder}}"
-	           min-length="::options.templateOptions.minLength"
-	           allow-clear="::options.templateOptions.allowClear"
-	           ng-attr-multiple="{{::options.templateOptions.multiple}}">
+	           ng-disabled="{{to.disabled}}"
+	           choices="to.options"
+	           placeholder="{{::to.placeholder}}"
+	           min-length="::to.minLength"
+	           allow-clear="::to.allowClear"
+	           ng-attr-multiple="{{::to.multiple}}">
 
 		<lx-select-selected>
-			{{$selected[options.templateOptions.selected]}} {{::options.templateOptions.selected2 ? ' - ' +
-			$selected[options.templateOptions.selected2] : ''}}
+			{{$selected[to.selected]}} {{::to.selected2 ? ' - ' +
+			$selected[to.selected2] : ''}}
 		</lx-select-selected>
 
 		<lx-select-choices>
-			{{$choice[options.templateOptions.choice]}} {{::options.templateOptions.choice2 ? ' - ' +
-			$choice[options.templateOptions.choice2] : ''}}
+			{{$choice[to.choice]}} {{::to.choice2 ? ' - ' +
+			$choice[to.choice2] : ''}}
 		</lx-select-choices>
 
 	</lx-select>

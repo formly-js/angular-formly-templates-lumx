@@ -1,9 +1,9 @@
 <div>
 	<div class="radio-group">
-		<h3><label>{{::options.templateOptions.label}}</label></h3>
+		<h3><label>{{to.label}}</label></h3>
 
 		<div class="radio-button"
-		     ng-repeat="option in options.templateOptions.options">
+		     ng-repeat="option in to.options">
 			<input ng-model="$parent.model[$parent.options.key]"
 			       id="{{::id + '_' + $index}}"
 			       type="radio"

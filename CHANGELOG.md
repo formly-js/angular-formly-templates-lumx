@@ -1,14 +1,19 @@
+#1.0.15 (coming)
+- update to `angular-formly@3.1.1` fix
+- dropped one-way bindings on `label`s, can now be dynamic
+
 #1.0.14
 - added `pending` to `lx-wrapper-errors` for use with async validators. See demo for an example.
+- `lx-input` `disabled` and `validators` improved
 
 #1.0.13
-- Flexbox grid working.
-- Flexbox still requires style fixes for 'lx-select' with Flexbox. See example in demo.
+- flexbox grid working.
+- flexbox still requires style fixes for `lx-select` with flexbox. See example in demo.
 
 #1.0.10
-- Errors now handled by new `validation.messages` pipeline in `angular-formly@3.0.9`. See examples in demo under "Errors"
+- errors now handled by new `validation.messages` pipeline in `angular-formly@3.0.9`. See examples in demo under "Errors"
 ##Breaking Changes (less of these in the near future!)
-- Dropped `templateOptions.errors` in `lx-wrapper-errors`
+- dropped `templateOptions.errors` in `lx-wrapper-errors`
 
 #1.0.9
 - `aria-describedby` & `description` added dynamically with templateManipulators

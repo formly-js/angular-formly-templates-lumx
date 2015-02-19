@@ -7,7 +7,7 @@
 		</li>
 	</ul>
 	<span class="display-block"
-	      ng-if="options.templateOptions.pending && options.formControl.$touched && options.formControl.$pending">
-	{{::options.templateOptions.pending || 'Checking...'}}
+	      ng-if="to.pending && options.formControl.$touched && options.formControl.$pending">
+	{{::to.pending || 'Checking...'}}
 	</span>
 </div>

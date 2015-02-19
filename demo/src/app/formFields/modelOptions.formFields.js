@@ -7,10 +7,9 @@
 
   function modelOptionsFormFields() {
     this.contents = {
-      title: 'modelOptions',
-      subhead: 'more coming',
+      title: 'Model Options',
       description: 'app/notes/modelOptionsDescription.md',
-      angularDocs: 'https://docs.angularjs.org/api/ng/directive/ngModelOptions'
+      docsLink: 'https://docs.angularjs.org/api/ng/directive/ngModelOptions'
     };
 
     this.formData = {

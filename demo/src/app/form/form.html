@@ -5,9 +5,9 @@
   <section flex-item="40" class="content-fields">
     <div class="card tc-black-2 p-">
       <shmck-divider></shmck-divider>
-      <a ng-if="vm.contents.angularDocs" class="docs-icon" ng-href="{{vm.contents.angularDocs}}" target="_blank">Angular
-        Docs</a>
+      <a ng-if="vm.contents.docsLink" class="docs-icon" ng-href="{{vm.contents.docsLink}}" target="_blank">Docs</a>
       <a ng-if="vm.contents.docFile" class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
+
 
       <h1 class="fs-display2">{{::vm.contents.title}}</h1>
       <span class="fs-headline">{{::vm.contents.subhead}}</span>
@@ -26,11 +26,10 @@
         </div>
       </shmck-container>
 
-      <!-- end Forms -->
+      <shmck-form-data form-data="::vm.formData"></shmck-form-data>
+
       <shmck-contents contents="::vm.contents.notes"></shmck-contents>
     </div>
-
-    <shmck-form-data form-data="::vm.formData"></shmck-form-data>
   </section>
 
   <!-- Form Field JSON -->

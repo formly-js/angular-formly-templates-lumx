@@ -1,12 +1,13 @@
 <div>
 	<lx-text-field model="::model[options.key]"
-	               fixed-label="::options.templateOptions.fixedLabel"
-	               theme="{{::options.templateOptions.theme}}"
-	               disabled="options.templateOptions.disabled"
-	               label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
+	               icon="{{::to.icon}}"
+	               fixed-label="::to.fixedLabel"
+	               theme="{{::to.theme}}"
+	               disabled="to.disabled"
+	               label="{{to.label}} {{::to.required ? '*' : ''}}"
 	               valid="options.formControl.$valid && options.formControl.$touched"
 	               error="options.formControl.$invalid && options.formControl.$touched">
 		<input ng-model="model[options.key]"
-		       type="{{::options.templateOptions.type}}">
+		       type="{{::to.type}}">
 	</lx-text-field>
 </div>

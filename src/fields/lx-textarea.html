@@ -1,9 +1,9 @@
 <div>
   <lx-text-field model="::model[options.key]"
-                 fixed-label="::options.templateOptions.fixedLabel"
-                 icon="{{::options.templateOptions.icon}}"
-                 theme="{{::options.templateOptions.theme}}"
-                 label="{{::options.templateOptions.label}} {{::options.templateOptions.required ? '*' : ''}}"
+                 fixed-label="::to.fixedLabel"
+                 icon="{{::to.icon}}"
+                 theme="{{::to.theme}}"
+                 label="{{to.label}} {{::to.required ? '*' : ''}}"
                  valid="options.formControl.$valid && options.formControl.$touched"
                  error="options.formControl.$invalid && options.formControl.$touched || options.validators">
     <textarea

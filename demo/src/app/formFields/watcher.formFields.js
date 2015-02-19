@@ -7,13 +7,15 @@
 
   function watcherFormFields() {
     this.contents = {
-      title: 'Watchers'
+      title: 'Watchers',
+      subhead: 'coming soon...',
+      docsLink: 'https://github.com/formly-js/angular-formly#watcher-objectarray-of-watches'
     };
 
     this.formData = {};
 
     this.fields = function () {
-      return [];
+      return [{}];
     };
   }
 

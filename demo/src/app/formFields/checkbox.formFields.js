@@ -49,7 +49,8 @@
         templateOptions: {
           label: 'Disabled Box',
           disabled: true
-        }
+        },
+
       }, {
         key:'checkedDisabledBox',
         type: 'lx-checkbox',

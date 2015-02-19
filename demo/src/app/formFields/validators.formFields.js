@@ -8,8 +8,9 @@
   /*@ngInject*/
   function validatorsFormFields($timeout, $q) {
     this.contents = {
-      title: 'validators',
-      subhead: 'sync & async, pending'
+      title: 'Validators',
+      subhead: 'sync & async, pending',
+      docsLink: 'http://formly-js.github.io/angular-formly/#/example/advanced/validators'
     };
 
     this.formData = {

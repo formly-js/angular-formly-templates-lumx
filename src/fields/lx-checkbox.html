@@ -1,9 +1,9 @@
 <div class="checkbox">
 	<input ng-model="model[options.key]"
 	       type="checkbox"
-	       ng-checked="{{::options.templateOptions.checked}}"
+	       ng-checked="::to.checked"
 	       class="checkbox__input">
-	<label for={{::id}} class="checkbox__label">{{::options.templateOptions.label}}</label>
-	<span ng-if="::options.templateOptions.description"
-	      class="checkbox__help">{{::options.templateOptions.description}}</span>
+	<label for={{::id}} class="checkbox__label">{{to.label}}</label>
+	<span ng-if="::to.description"
+	      class="checkbox__help">{{::to.description}}</span>
 </div>

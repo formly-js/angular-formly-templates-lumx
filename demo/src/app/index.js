@@ -18,7 +18,7 @@
     'shmck.formFields'
   ])
     .config(routerSetup).
-    constant('version', '1.0.13');
+    constant('version', '1.0.15');
 
   function routerSetup($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

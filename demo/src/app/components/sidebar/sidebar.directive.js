@@ -44,6 +44,15 @@
       }, {
         state: 'expression',
         text: 'Expression Properties'
+      }, {
+        state: 'ngModelAttrs',
+        text: 'ngModel Atributes'
+      }, {
+        state: 'ctrlLink',
+        text: 'Controller / Link'
+      }, {
+        state: 'watcher',
+        text: 'Watchers'
       }]
     };
 
@@ -63,6 +72,3 @@
   }
 
 }());
-
-/* TODO: ShMcK  */
-//
