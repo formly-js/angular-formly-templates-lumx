@@ -55,11 +55,9 @@ Not much necessary. The form just requires the `<formly-form>` directive tag. Fo
 
 #####With Submit & Options
 ```html
-     <formly-form model="formData" fields="formFields" options="formOptions"
-                  ng-submit="submit(form.$valid)" name="form">
-       <!-- end of formly-form contents -->
+     <formly-form model="formData" fields="formFields" options="formOptions">
        <br>
-       <button class="btn btn--m btn--blue btn--raised" lx-ripple type="submit">Submit</button>
+       <button ng-click="submit()">Submit</button>
      </formly-form>
 ```
 
@@ -68,8 +66,7 @@ Not much necessary. The form just requires the `<formly-form>` directive tag. Fo
 Add your formData & formFields onto a controller.
 
 ```javascript
-angular.module('myAppName')
-  .controller('FormCtrl', FormCtrl);
+angular.module('myAppName').controller('FormCtrl', FormCtrl);
 function FormCtrl ($scope) {
   $scope.formData = {};  // the data object
   $scope.formOptions = {}; // optional form parameters
@@ -126,7 +123,7 @@ See docs on [lx-flex & lx-wrapper-flex-item](https://github.com/formly-js/angula
 
 # Example: Email & Password
   
-  Create form fields by attaching a JSON object in the controller.
+  Create form fields by attaching a JSON-like object in the controller.
   
 ```javascript
 $scope.formFields= [{
@@ -187,6 +184,8 @@ $scope.formFields= [{
 ```
 
 ##Roadmap
+- dropdown select
+- e2e tests
 - Requests (?). Post an issue.
 
     
