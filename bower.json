@@ -16,6 +16,7 @@
   "ignore": [
     "**/.*",
     ".idea",
+    ".gitignore",
     "node_modules",
     "bower_components",
     "test",
@@ -23,13 +24,12 @@
     "edits",
     "demo",
     "demo-es6",
-    "LICENSE.md",
     "todo.txt"
   ],
   "dependencies": {
-    "angular": "~1.3.*",
-    "angular-messages": "~1.3.*",
-    "angular-formly": "~3.1.3",
-    "lumx": "~0.3.8"
+    "angular": "^1.3.2",
+    "angular-messages": "^1.3.2",
+    "angular-formly": "~3.1.5",
+    "lumx": "^0.3.8"
   }
 }

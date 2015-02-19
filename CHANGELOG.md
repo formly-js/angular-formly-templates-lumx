@@ -1,7 +1,6 @@
 #1.0.15 (coming)
-- update to `angular-formly@3.1.5` fix
 - dropped one-way bindings on `label`s, can now be dynamic
-- reduced template/config size
+- reduced template/config size with `angular-formly@3.1.5` fix
 
 #1.0.14
 - added `pending` to `lx-wrapper-errors` for use with async validators. See demo for an example.
