@@ -1,3 +1,7 @@
+#1.1.1
+- `lx-wrapper-errors` bugfix
+- `lx-dropdown` added
+
 #1.1.0
 - added `styles/angular-formly-templates-lumx.css` for spacing and error styles
 - updates for new version of lumx
