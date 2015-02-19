@@ -4,7 +4,6 @@
 		{{to.label}} {{::to.required ? '*' : ''}}
 	</label></h3>
 	<lx-select ng-model="model[options.key]"
-	           ng-disabled="{{to.disabled}}"
 	           choices="to.options"
 	           placeholder="{{::to.placeholder}}"
 	           min-length="::to.minLength"

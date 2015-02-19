@@ -3,16 +3,16 @@
 		<h3><label>{{to.label}}</label></h3>
 
 		<div class="radio-button"
-		     ng-repeat="option in to.options">
+		     ng-repeat="o in to.options">
 			<input ng-model="$parent.model[$parent.options.key]"
 			       id="{{::id + '_' + $index}}"
 			       type="radio"
-			       ng-disabled="::option.disabled"
+			       ng-disabled="::o.disabled"
 			       class="radio-button__input"
-			       ng-value="::option.value"
+			       ng-value="::o.value"
 			       aria-labelledby="{{::id + '_' + $index + '_radioButton'}}">
-			<label for="{{::id + '_' + $index}}" class="radio-button__label">{{::option.name}}</label>
-      <span ng-if="::option.description" class="radio-button__help">{{::option.description}}
+			<label for="{{::id + '_' + $index}}" class="radio-button__label">{{::o.name}}</label>
+      <span ng-if="::o.description" class="radio-button__help">{{::o.description}}
       </span>
 		</div>
 	</div>
