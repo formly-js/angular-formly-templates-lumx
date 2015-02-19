@@ -47,40 +47,6 @@
           allowInvalid: false
         }
       }, {
-        key: 'password',
-        type: 'lx-input',
-        wrapper: 'lx-wrapper-errors',
-        templateOptions: {
-          type: 'password',
-          fixedLabel: true,
-          label: 'Password (6-8 characters)   |  ng-minlength, ng-maxlength',
-          minlength: 6,
-          maxlength: 8,
-          required: true
-        },
-        validation: {
-          messages: [{
-            name: 'minlength',
-            message: 'Password must be 6 characters or longer.'
-          }, {
-            name: 'maxlength',
-            message: 'Password must not be longer than 8 characters.'
-          }]
-        },
-        ngModelAttrs: {
-          minlength: {
-            bound: 'ng-minlength',
-            attribute: 'minlength'
-          },
-          maxlength: {
-            bound: 'ng-maxlength',
-            attribute: 'maxlength'
-          }
-        },
-        modelOptions: {
-          allowInvalid: false
-        }
-      }, {
         key: 'url',
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',

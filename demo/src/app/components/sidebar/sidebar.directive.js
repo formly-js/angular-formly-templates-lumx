@@ -22,6 +22,9 @@
         state: 'select',
         text: 'Selectors'
       }, {
+        state: 'dropdown',
+        text: 'Dropdowns'
+      }, {
         state: 'datePicker',
         text: 'Date Picker'
       }],

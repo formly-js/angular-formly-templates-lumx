@@ -15,7 +15,7 @@
     };
 
     /* toggle sidebar items */
-    this.items = [true, true, true];
+    this.items = [false, true, true];
     this.toggleSidebarItem = function (index) {
       this.items[index] = !this.items[index];
     };
