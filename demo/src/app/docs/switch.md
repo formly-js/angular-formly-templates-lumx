@@ -4,10 +4,10 @@
   'key': 'modelName',
   'type': 'lx-switch'
   'templateOptions': {
+    'label': 'A switch label',
+    'description': 'A switch help description',
     'disabled': false, // ng-disabled
     'checked': false, // ng-checked
-    'label': 'A switch label',
-    'description': 'A switch help description'
   }
 }
 ```

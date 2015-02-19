@@ -1,12 +1,11 @@
-<div>
-  <lx-text-field model="::model[options.key]"
-                 fixed-label="::to.fixedLabel"
-                 icon="{{::to.icon}}"
-                 theme="{{::to.theme}}"
-                 label="{{to.label}} {{::to.required ? '*' : ''}}"
-                 valid="options.formControl.$valid && options.formControl.$touched"
-                 error="options.formControl.$invalid && options.formControl.$touched || options.validators">
+<lx-text-field model="::model[options.key]"
+               fixed-label="::to.fixedLabel"
+               icon="{{::to.icon}}"
+               theme="{{::to.theme}}"
+               label="{{to.label}} {{::to.required ? '*' : ''}}"
+               valid="options.formControl.$valid && options.formControl.$touched"
+               error="options.formControl.$invalid && options.formControl.$touched || options.validators">
     <textarea
-      ng-model="model[options.key]">
+	    ng-model="model[options.key]">
     </textarea>
-</div>
+</lx-text-field>

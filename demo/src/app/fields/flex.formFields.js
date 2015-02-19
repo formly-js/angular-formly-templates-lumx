@@ -10,8 +10,7 @@
       title: 'FlexBox Wrappers',
       subhead: 'lx-flex, lx-wrapper-flex-item',
       description: 'app/notes/flexDescription.md',
-      docFile: 'app/docs/flex.md',
-      notes: 'app/notes/flexNotes.md'
+      docFile: 'app/docs/flex.md'
     };
 
     this.formData = {
@@ -24,8 +23,7 @@
       mixedItem1: '',
       addressNumber: '',
       addressStreetName: '',
-      addressStreetType: '',
-      addressMailList: ''
+      addressStreetType: ''
     };
 
     this.fields = function () {
@@ -154,10 +152,6 @@
             type: 'lx-select',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
-              style: {
-                position: 'relative',
-                bottom: '11px' // hack
-              },
               placeholder: 'Street Type',
               selected: 'type',
               choice: 'type',
@@ -167,13 +161,6 @@
                 {type: 'Blvd.'},
                 {type: 'Cres.'}
               ]
-            }
-          }, {
-            key: 'addressMailList',
-            type: 'lx-checkbox',
-            wrapper: 'lx-wrapper-flex-item',
-            templateOptions: {
-              label: 'mail list'
             }
           }]
         }

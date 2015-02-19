@@ -5,6 +5,8 @@
   'type': 'lx-radio-buttons'
   'templateOptions': {
     'label': 'Choose an item: ',
+    'disabled': false,
+    'required': false,
     'options': [{
       'name': 'item 1',
       'value': '1', // ng-value

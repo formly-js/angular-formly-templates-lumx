@@ -4,10 +4,10 @@
   'key': 'modelName',
   'type': 'lx-checkbox'
   'templateOptions': {
+  'label': 'A checkbox label',
+    'description': 'A checkbox help description,
     'disabled': false, // ng-disabled
-    'checked': false, // ng-checked
-    'label': 'A checkbox label',
-    'description': 'A checkbox help description'
+    'checked': false // ng-checked
   }
 }
 ```

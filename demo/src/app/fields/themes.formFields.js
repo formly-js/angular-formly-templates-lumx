@@ -28,10 +28,7 @@
         type: 'lx-title',
         templateOptions: {
           title: 'Dark Theme',
-          className: 'tc-white fs-title',
-          style: {
-            'padding-left': 10
-          }
+          className: 'tc-white fs-title'
         }
       }, {
         key: 'dark1',
@@ -60,9 +57,6 @@
         templateOptions: {
           div: {
             className: 'bgc-yellow-500 fs-title',
-            style: {
-              'padding-left': 10
-            }
           },
           title: 'Light Theme'
         }

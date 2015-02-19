@@ -1,3 +1,8 @@
+#1.1.0
+- added `styles/angular-formly-templates-lumx.css` for spacing and error styles
+- updates for new version of lumx
+- `lx-input` now can use `icons`
+
 #1.0.15
 - dropped one-way bindings on `label`s, can now be dynamic
 - reduced template/config size with `angular-formly@3.1.5` updates

@@ -1,11 +1,14 @@
 {
   "name": "angular-formly-templates-lumx",
-  "version": "1.0.15",
+  "version": "1.1.0",
   "authors": [
     "ShMcK <me@ShMcK.com>"
   ],
   "description": "Angular-Formly templates based on the LumX Framework",
-  "main": "./src/modules/angular-formly-templates-lumx.js",
+  "main": [
+    "./src/modules/angular-formly-templates-lumx.js",
+    "./src/styles/angular-formly-templates-lumx.css"
+  ],
   "keywords": [
     "angular-formly",
     "angular-formly-templates",

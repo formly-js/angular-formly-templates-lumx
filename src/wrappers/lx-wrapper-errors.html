@@ -7,7 +7,7 @@
 		</li>
 	</ul>
 	<span class="form-pending"
-	      ng-if="to.pending && options.formControl.$touched && options.formControl.$pending">
+	      ng-if="(::to.pending) && options.formControl.$pending && options.formControl.$touched">
 	{{::to.pending || 'Checking...'}}
 	</span>
 </div>

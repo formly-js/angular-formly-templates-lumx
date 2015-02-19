@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.0.15
+# Now 1.1.0
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
@@ -35,6 +35,8 @@ angular.module('myAppName', [
     'formlyLumx'
   ])
 ```
+
+It's also recommended to add a link to `./styles/angular-formly-templates-lumx.css`.
 
 ## Demo
 Run the demo locally or view it on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
@@ -151,6 +153,8 @@ $scope.formFields= [{
       templateOptions: {
         type: 'password',
         label: 'Password',
+        minlength: 4,
+        maxlength: 16,
         required: true
       },
       validation: {
@@ -166,9 +170,13 @@ $scope.formFields= [{
          }]
       },
       ngModelAttrs: {
-        bound: {
-          'minlength': 4,
-          'maxlength': 16
+        minlength: {
+          bound: 'ng-minlength',
+          attribute: 'minlength'
+        },
+        maxlength: {
+          bound: 'ng-maxlength',
+          attribute: 'maxlength'
         }
       },
       modelOptions: { 
@@ -184,6 +192,7 @@ $scope.formFields= [{
 ```
 
 ##Roadmap
+- improved css form styles
 - dropdown select
 - e2e tests
 - Requests (?). Post an issue.

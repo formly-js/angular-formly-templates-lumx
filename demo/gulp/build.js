@@ -47,7 +47,9 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     //.pipe($.uncss({
-    //  html: [paths.src + '/{app,components}/**/*.html', paths.src + '/index.html']
+    //  html: [paths.src + '/{app,components}/**/*.html',
+    //    paths.src + '/index.html',
+    //    'bower_components/angular-formly-templates-lumx/**/*.html']
     //}))
     .pipe($.csso())
     .pipe(cssFilter.restore())

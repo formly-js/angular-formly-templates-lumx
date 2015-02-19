@@ -1,4 +1,4 @@
-### lx-wrapper-flex-container
+### lx-wrapper-flex
 
 ```javascript
 {
