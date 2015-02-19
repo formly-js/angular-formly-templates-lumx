@@ -28,7 +28,10 @@
         type: 'lx-title',
         templateOptions: {
           title: 'Dark Theme',
-          description: 'Created by styling the \'<formly-form>\''
+          className: 'tc-white fs-title',
+          style: {
+            'padding-left': 10
+          }
         }
       }, {
         key: 'dark1',
@@ -36,6 +39,7 @@
         templateOptions: {
           fixedLabel: true,
           type: 'text',
+          icon: 'account-outline',
           label: 'Name',
           theme: 'dark'
         }
@@ -43,8 +47,9 @@
         key: 'dark2',
         type: 'lx-input',
         templateOptions: {
-          type: 'text',
-          label: 'This Label Doesn\'t Float',
+          type: 'email',
+          icon: 'email-outline',
+          label: 'Email',
           fixedLabel: true,
           theme: 'dark'
         }
@@ -54,10 +59,12 @@
         wrapper: 'lx-wrapper-div',
         templateOptions: {
           div: {
-            className: 'bgc-yellow-500'
+            className: 'bgc-yellow-500 fs-title',
+            style: {
+              'padding-left': 10
+            }
           },
-          title: 'Light Theme',
-          description: 'Created using \'lx-wrapper-div\''
+          title: 'Light Theme'
         }
       }, {
         key: 'light1',
@@ -70,6 +77,7 @@
           fixedLabel: true,
           type: 'text',
           label: 'Name',
+          icon: 'account',
           theme: 'light'
         }
       }, {
@@ -80,8 +88,9 @@
           div: {
             className: 'bgc-yellow-500'
           },
-          type: 'text',
-          label: 'This Label Doesn\'t Float',
+          type: 'email',
+          label: 'Email',
+          icon: 'email',
           fixedLabel: true,
           theme: 'light'
         }

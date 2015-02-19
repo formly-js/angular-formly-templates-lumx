@@ -5,8 +5,8 @@
       <li class="sidebar-menu__link bgc-blue-grey-50"
           ng-click="vm.sidebar.toggleSidebarItem($index)"
           lx-ripple="white">{{::key}}
-        <i ng-if="vm.sidebar.items[$index]" class="mdi mdi--arrow-drop-up"></i>
-        <i ng-if="!vm.sidebar.items[$index]" class="mdi mdi--arrow-drop-down"></i>
+        <i ng-if="vm.sidebar.items[$index]" class="mdi mdi-menu-up"></i>
+        <i ng-if="!vm.sidebar.items[$index]" class="mdi mdi-menu-down"></i>
       </li>
       <div ng-show="vm.sidebar.items[$index]">
         <li ng-repeat="item in value"

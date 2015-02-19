@@ -13,8 +13,9 @@
     };
 
     this.formData = {
-      name: '',
+      floatLabel: '',
       fixedLabel: '',
+      fixedIcon: '',
       disabledText: '',
       textArea: 'Once upon a midnight dreary, while I pondered, weak and weary, \
       Over many a quaint and curious volume of forgotten forms—',
@@ -25,55 +26,44 @@
 
     this.fields = function () {
       return [{
-        key: 'inputFieldsTitle',
-        type: 'lx-title',
-        templateOptions: {
-          title: 'Input Fields: ',
-          style: underlined
-        }
-      }, {
-        key: 'name',
+        key: 'floatLabel',
         type: 'lx-input',
         templateOptions: {
           focus: true,
           type: 'text',
-          label: 'Name'
+          label: 'Float Label'
         }
       }, {
         key: 'fixedLabel',
         type: 'lx-input',
         templateOptions: {
           type: 'text',
-          label: 'This Label Doesn\'t Float',
+          label: 'Fixed Label',
           fixedLabel: true
+        }
+      }, {
+        key: 'fixedIcon',
+        type: 'lx-input',
+        templateOptions: {
+          type: 'text',
+          fixedLabel: true,
+          icon: 'account',
+          label: 'With Icon'
         }
       }, {
         key: 'disabledText',
         type: 'lx-input',
         templateOptions: {
           type: 'text',
-          label: 'This Field is Disabled',
+          label: 'Disabled',
           fixedLabel: true,
           disabled: true
-        }
-      }, {
-        key: 'textAreaTitle',
-        type: 'lx-title',
-        templateOptions: {
-          title: 'Textarea: ',
-          style: underlined
         }
       }, {
         key: 'textArea',
         type: 'lx-textarea',
         templateOptions: {
-          label: 'Write as much as you\'d like. It\'ll fit.'
-        }
-      }, {
-        key: 'validationTitle',
-        type: 'lx-title',
-        templateOptions: {
-          label: 'Validation'
+          label: 'Textarea example'
         }
       }, {
         key: 'validatedText',
@@ -81,8 +71,10 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'password',
-          required: true,
-          label: 'Password (validation)'
+          label: 'Validation example (4-8 characters)',
+          minlength: 4,
+          maxlength: 8,
+          required: true
         },
         validation: {
           messages: [{
@@ -97,10 +89,15 @@
           }]
         },
         ngModelAttrs: {
-          bound: {
-            'ng-minlength': 4,
-            'ng-maxlength': 8
+          minlength: {
+            bound: 'ng-minlength',
+            attribute: 'minlength'
+          },
+          maxlength: {
+            bound: 'ng-maxlength',
+            attribute: 'maxlength'
           }
+
         },
         modelOptions: {
           allowInvalid: false,

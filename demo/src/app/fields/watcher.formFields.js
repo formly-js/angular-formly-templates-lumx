@@ -15,7 +15,13 @@
     this.formData = {};
 
     this.fields = function () {
-      return [{}];
+      return [{
+        key: 'comingSoon',
+        type: 'lx-input',
+        templateOptions: {
+          label: 'coming soon...'
+        }
+      }];
     };
   }
 

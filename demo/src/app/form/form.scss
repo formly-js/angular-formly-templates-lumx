@@ -1,37 +1,25 @@
-section {
-  padding-left: 10px;
-}
 .main-section__content {
-  margin-top: 34px;
-  padding: 10px;
-  align-content: center;
+  margin-top: 36px;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 100%;
 }
-
-.content-fields {
+.content {
+  padding-left: 10px;
   max-width: 700px;
+}
+.content-fields {
   min-width: 100px;
   flex-grow: 4;
-
 }
-
 .content-json {
-  max-width: 700px;
   min-width: 200px;
   flex-grow: 6;
 }
-
-.addPadding {
-  padding: 15px;
+div.card {
+  padding: 10px !important;
 }
-
-.docs {
-  padding: 15px;
-}
-
 .docs-icon {
   float: right;
   opacity: 0.5;
+  margin-right: 10px;
 }

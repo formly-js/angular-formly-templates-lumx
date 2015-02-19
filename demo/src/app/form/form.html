@@ -2,11 +2,11 @@
 <div class="main-section__content" flex-container="row" ng-cloak>
 
   <!-- Form Field Inputs -->
-  <section flex-item="40" class="content-fields">
+  <section flex-item="40" class="content content-fields">
     <div class="card tc-black-2 p-">
       <shmck-divider></shmck-divider>
-      <a ng-if="vm.contents.docsLink" class="docs-icon" ng-href="{{vm.contents.docsLink}}" target="_blank">Docs</a>
-      <a ng-if="vm.contents.docFile" class="docs-icon" ng-click="vm.openDialog()"><i class="mdi mdi--file"></i>Docs</a>
+      <a ng-if="vm.contents.docsLink" class="docs-icon" ng-href="{{vm.contents.docsLink}}" target="_blank">Docs <i class="mdi mdi-file"></i></a>
+      <a ng-if="vm.contents.docFile" class="docs-icon" ng-click="vm.openDialog()">Docs <i class="mdi mdi-file"></i></a>
 
 
       <h1 class="fs-display2">{{::vm.contents.title}}</h1>
@@ -33,7 +33,7 @@
   </section>
 
   <!-- Form Field JSON -->
-  <section flex-item="40" class="content-json">
+  <section flex-item="40" class="content content-json">
     <shmck-json-fields fields="::vm.jsonFields"></shmck-json-fields>
   </section>
 

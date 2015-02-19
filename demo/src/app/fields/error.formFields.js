@@ -54,6 +54,8 @@
           type: 'password',
           fixedLabel: true,
           label: 'Password (6-8 characters)   |  ng-minlength, ng-maxlength',
+          minlength: 6,
+          maxlength: 8,
           required: true
         },
         validation: {
@@ -66,9 +68,13 @@
           }]
         },
         ngModelAttrs: {
-          bound: {
-            'ng-minlength': 6,
-            'ng-maxlength': 8
+          minlength: {
+            bound: 'ng-minlength',
+            attribute: 'minlength'
+          },
+          maxlength: {
+            bound: 'ng-maxlength',
+            attribute: 'maxlength'
           }
         },
         modelOptions: {
@@ -100,6 +106,7 @@
           type: 'text',
           fixedLabel: true,
           label: 'Four letter word    |  ng-pattern',
+          pattern: /^[A-Za-z]{4}$/
         },
         validation: {
           messages: [{
@@ -108,8 +115,9 @@
           }]
         },
         ngModelAttrs: {
-          bound: {
-            'ng-pattern': /^[A-Za-z]{4}$/
+          pattern: {
+            bound: 'ng-pattern',
+            attribute: 'pattern'
           }
         },
         modelOptions: {

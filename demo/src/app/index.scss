@@ -1,8 +1,6 @@
 // injector
-@import '../fonts/md-icons';
-@import '../fonts/roboto';
-@import '../../bower_components/lumx/dist/scss/_lumx.scss';
 // endinjector
+@import '../../bower_components/mdi/materialdesignicons.css';
 @import '../../bower_components/lumx/dist/lumx.css';
 
 .browsehappy {
@@ -20,15 +18,5 @@ body {
 a {
   text-decoration: none;
 }
-
-.container {
-  width: 1305px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-$icon-font-path: '../app/fonts/';
 
 
