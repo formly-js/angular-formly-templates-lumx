@@ -10,7 +10,8 @@
       title: 'FlexBox Wrappers',
       subhead: 'lx-flex, lx-wrapper-flex-item',
       description: 'app/notes/flexDescription.md',
-      docFile: 'app/docs/flex.md'
+      docFile: 'app/docs/flex.md',
+      notes: 'app/notes/flexNotes.md'
     };
 
     this.formData = {
@@ -21,7 +22,7 @@
       columnItem2: '',
       columnItem3: '',
       mixedItem1: '',
-      addressNumber: '',
+      addressStreetNumber: '',
       addressStreetName: '',
       addressStreetType: ''
     };
@@ -130,13 +131,14 @@
             gutter: 8
           },
           'fields': [{
-            key: 'addressNumber',
+            key: 'addressStreetNumber',
             type: 'lx-input',
             wrapper: 'lx-wrapper-flex-item',
             templateOptions: {
               type: 'number',
               fixedLabel: true,
-              label: 'Address number'
+              label: 'Street #',
+              className: 'street-number'
             }
           }, {
             key: 'addressStreetName',

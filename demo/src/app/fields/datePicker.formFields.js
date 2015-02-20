@@ -18,7 +18,6 @@
         key: 'datePicker',
         type: 'lx-date-picker',
         templateOptions: {
-          focus: true,
           label: 'Pick a Date'
         }
       }];

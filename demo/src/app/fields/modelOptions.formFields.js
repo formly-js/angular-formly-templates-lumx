@@ -25,7 +25,6 @@
         key: 'defaultOnBlur',
         type: 'lx-input',
         templateOptions: {
-          focus: true,
           fixedLabel: true,
           required: true,
           label: 'When user changes fields'

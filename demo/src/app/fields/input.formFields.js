@@ -29,7 +29,6 @@
         key: 'floatLabel',
         type: 'lx-input',
         templateOptions: {
-          focus: true,
           type: 'text',
           label: 'Float Label'
         }

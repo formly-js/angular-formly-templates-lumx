@@ -5,7 +5,7 @@
                label="{{to.label}} {{::to.required ? '*' : ''}}"
                valid="options.formControl.$valid && options.formControl.$touched"
                error="options.formControl.$invalid && options.formControl.$touched || options.validators">
-    <textarea
-	    ng-model="model[options.key]">
+    <textarea ng-model="model[options.key]"
+	    rows="{{::to.rows}}" cols="{{::to.cols}}">
     </textarea>
 </lx-text-field>

@@ -28,7 +28,6 @@
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
-          focus: true,
           type: 'email',
           label: 'Email    |  html email validation & ng-required',
           fixedLabel: true,
@@ -64,31 +63,28 @@
         modelOptions: {
           allowInvalid: false
         }
-      }, {
-        key: 'textPattern',
-        type: 'lx-input',
-        wrapper: 'lx-wrapper-errors',
-        templateOptions: {
-          type: 'text',
-          fixedLabel: true,
-          label: 'Four letter word    |  ng-pattern',
-          pattern: /^[A-Za-z]{4}$/
-        },
-        validation: {
-          messages: [{
-            name: 'pattern',
-            message: 'Must be a four letter word.'
-          }]
-        },
-        ngModelAttrs: {
-          pattern: {
-            bound: 'ng-pattern',
-            attribute: 'pattern'
-          }
-        },
-        modelOptions: {
-          allowInvalid: false
-        }
+      //}, {
+      //  key: 'textPattern',
+      //  type: 'lx-input',
+      //  wrapper: 'lx-wrapper-errors',
+      //  templateOptions: {
+      //    type: 'text',
+      //    fixedLabel: true,
+      //    label: 'Four letter word    |  pattern',
+      //    pattern: /^[a-zA-Z]{4}$/,
+      //    required: true
+      //  },
+      //  validation: {
+      //    messages: [{
+      //      name: 'pattern',
+      //      message: 'Must be a four letter word.'
+      //    }]
+      //  },
+      //  ngModelAttrs: {
+      //    pattern: {
+      //      attribute: 'pattern'
+      //    }
+      //  }
       }];
     };
   }

@@ -86,13 +86,20 @@ angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLu
 				formlyConfigProvider.setWrapper({name: _prefixer(wrapper.name), templateUrl: _wrapperTemplateUrl(wrapper.name)});}); \
 			/* set types */ \
 			angular.forEach(FIELDS, function (field) { \
+			if (field.name === \'title\') { \
 			formlyConfigProvider.setType({ \
 				name: _prefixer(field.name), \
 				templateUrl: _fieldTemplateUrl(field.name), \
-				wrappers: wrapperList \
-				}); \
-			}); \
-		}}}());'
+				wrappers: wrapperList, \
+				defaultOptions: { \
+					noFormControl: true \
+				}}); \
+} else { \
+	formlyConfigProvider.setType({ \
+		name: _prefixer(field.name), \
+		templateUrl: _fieldTemplateUrl(field.name), \
+		wrappers: wrapperList \
+	});}});}}}());'
 		}))
 		.pipe($.trim())
 		.pipe($.rename({

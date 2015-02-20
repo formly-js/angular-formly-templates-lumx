@@ -26,7 +26,6 @@
         key: 'showHidden',
         type: 'lx-checkbox',
         templateOptions: {
-          focus: true,
           label: 'Show Hidden Field'
         }
       }, {

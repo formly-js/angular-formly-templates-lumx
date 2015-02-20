@@ -18,6 +18,15 @@
       iceCreamFlavor2: ''
     };
 
+    function flavorInStock(modelValue, viewValue) {
+      return $timeout(function () {
+        var value = modelValue || viewValue || '';
+        var flavors = ['chocolate', 'vanilla', 'strawberry'];
+        var fn = (flavors.indexOf(value.toLowerCase()) !== -1) ? $q.when : $q.reject;
+        return fn();
+      }, 800);
+    }
+
     this.fields = function () {
       return [{
         key: 'iceCreamFlavor',
@@ -25,18 +34,10 @@
         wrapper: 'lx-wrapper-errors',
         validators: {
           flavorInStock: {
-            expression: function (modelValue, viewValue) {
-              return $timeout(function () {
-                var value = modelValue || viewValue || '';
-                var flavors = ['chocolate', 'vanilla', 'strawberry'];
-                var fn = (flavors.indexOf(value.toLowerCase()) !== -1) ? $q.when : $q.reject;
-                return fn();
-              }, 800);
-            }
+            expression: flavorInStock
           }
         },
         templateOptions: {
-          focus: true,
           label: 'What\'s your favorite ice cream?'
         },
         validation: {
@@ -54,19 +55,12 @@
         wrapper: 'lx-wrapper-errors',
         validators: {
           flavorInStock: {
-            expression: function (modelValue, viewValue) {
-              return $timeout(function () {
-                var value = modelValue || viewValue || '';
-                var flavors = ['chocolate', 'vanilla', 'strawberry'];
-                var fn = (flavors.indexOf(value.toLowerCase()) !== -1) ? $q.when : $q.reject;
-                return fn();
-              }, 800);
-            }
+            expression: flavorInStock
           }
         },
         templateOptions: {
           label: 'What\'s your favorite ice cream? (pending message)',
-          pending: 'Checking...'
+          pending: 'Checking for ice cream flavor...'
         },
         validation: {
           messages: [{

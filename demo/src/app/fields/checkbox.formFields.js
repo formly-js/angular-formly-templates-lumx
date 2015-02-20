@@ -26,7 +26,6 @@
         key: 'checkBoxExample',
         type: 'lx-checkbox',
         templateOptions: {
-          focus: true,
           label: 'Basic Checkbox'
         }
       }, {

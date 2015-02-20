@@ -25,7 +25,6 @@
         key: 'regularSwitch',
         type: 'lx-switch',
         templateOptions: {
-          focus: true,
           label: 'Regular switch'
         }
       }, {
