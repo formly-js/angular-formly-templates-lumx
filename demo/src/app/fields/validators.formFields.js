@@ -59,7 +59,7 @@
           }
         },
         templateOptions: {
-          label: 'What\'s your favorite ice cream? (pending message)',
+          label: 'What\'s your favorite ice cream? (pending)',
           pending: 'Checking for ice cream flavor...'
         },
         validation: {

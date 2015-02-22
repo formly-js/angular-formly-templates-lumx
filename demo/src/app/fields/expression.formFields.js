@@ -47,7 +47,7 @@
         key: 'probablyNotNeeded',
         type: 'lx-checkbox',
         templateOptions: {
-          label: 'This Field Can Be Disabled',
+          label: 'Can Be Disabled',
         },
         expressionProperties: {
           'templateOptions.disabled': 'model.disableNextField'
@@ -57,7 +57,7 @@
         type: 'lx-input',
         templateOptions: {
           type: 'number',
-          label: 'Set the max length of the next text field'
+          label: 'Set next field max length'
         }
       }, {
         key: 'textWithSetMaxLength',

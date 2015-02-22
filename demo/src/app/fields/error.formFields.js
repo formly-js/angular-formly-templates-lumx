@@ -29,7 +29,7 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'email',
-          label: 'Email    |  html email validation & ng-required',
+          label: 'Email',
           fixedLabel: true,
           required: true
         },
@@ -52,7 +52,7 @@
         templateOptions: {
           type: 'url',
           fixedLabel: true,
-          label: 'Link to a website (url)    |  html url validation'
+          label: 'Link to a url'
         },
         validation: {
           messages: [{

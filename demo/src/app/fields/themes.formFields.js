@@ -56,7 +56,7 @@
         wrapper: 'lx-wrapper-div',
         templateOptions: {
           div: {
-            className: 'bgc-yellow-500 fs-title',
+            className: 'bgc-yellow-500 fs-title'
           },
           title: 'Light Theme'
         }
