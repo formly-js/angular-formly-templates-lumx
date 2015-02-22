@@ -66,40 +66,33 @@ gulp.task('templates', ['clean'], function () {
 function _wrapperTemplateUrl(name) { return \'wrappers/formly-wrappers-\' + _prefixer(name) + \'.html\'; } \
 function _fieldTemplateUrl(name) { return \'fields/formly-fields-\' + _prefixer(name) + \'.html\'; } \
 angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLumXTemplates); \
-	/*@ngInject*/ \
 	function cacheLumXTemplates($templateCache) { \
-		if (USING_TEMPLATES) { \
-			angular.forEach(FIELDS, function (field) { \
-				$templateCache.put(_fieldTemplateUrl(field.name), field.template); \
-			}); \
-			angular.forEach(WRAPPERS, function (wrapper) { \
-				$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
-			});}} \
-	/*@ngInject*/ \
+			if (USING_TEMPLATES) { \
+				FIELDS.map(function (field) { \
+					$templateCache.put(_fieldTemplateUrl(field.name), field.template); \
+				}); \
+				WRAPPERS.map(function (wrapper) { \
+					$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
+				});}}/*@ngInject*/ \
 	function setCustomTemplates(formlyConfigProvider) { \
 		if (USING_TEMPLATES) { \
 			var wrapperList = []; \
-			angular.forEach(WRAPPERS, function (wrapper) { \
-				wrapperList.push(_prefixer(wrapper.name)); \
+			wrapperList = WRAPPERS.map(function (wrapper) { \
+				return _prefixer(wrapper.name); \
 			}); \
-			angular.forEach(WRAPPERS, function (wrapper) { \
-				formlyConfigProvider.setWrapper({name: _prefixer(wrapper.name), templateUrl: _wrapperTemplateUrl(wrapper.name)});}); \
+			WRAPPERS.map(function (wrapper) { \
+				formlyConfigProvider.setWrapper({ \
+					name: _prefixer(wrapper.name), \
+					templateUrl: _wrapperTemplateUrl(wrapper.name) \
+				}); \
+			}); \
 			/* set types */ \
-			angular.forEach(FIELDS, function (field) { \
-			if (field.name === \'title\') { \
-			formlyConfigProvider.setType({ \
-				name: _prefixer(field.name), \
-				templateUrl: _fieldTemplateUrl(field.name), \
-				wrappers: wrapperList, \
-				defaultOptions: { \
-					noFormControl: true \
-				}}); \
-} else { \
-	formlyConfigProvider.setType({ \
-		name: _prefixer(field.name), \
-		templateUrl: _fieldTemplateUrl(field.name), \
-		wrappers: wrapperList \
-	});}});}}}());'
+			FIELDS.map(function (field) { \
+				formlyConfigProvider.setType({ \
+					name: _prefixer(field.name), \
+					templateUrl: _fieldTemplateUrl(field.name), \
+					wrappers: wrapperList \
+				});});}}}());'
 		}))
 		.pipe($.trim())
 		.pipe($.rename({
