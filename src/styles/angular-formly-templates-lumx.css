@@ -2,11 +2,13 @@
 .form-pending {
   color: rgba(0, 0, 0, 0.541176);
   font-size: 0.85em;
+  list-style: none;
 }
 
 .form-error {
   color: #F44336;
   font-size: 0.85em;
+  list-style: none;
 }
 
 /* spacing fixes */
