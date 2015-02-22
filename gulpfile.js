@@ -19,26 +19,7 @@ var project = {
 
 var demoDest = 'demo/bower_components/' + path.fileName;
 
-gulp.task('build', ['templates'], function () {
-	//gulp.src(project.dest)
-	//	.pipe($.copy(demoDest))
-	//	.pipe(gulp.dest(demoDest));
-	//var root = path.modules + path.fileName;
-	//del([root + '.min.js']);
-	//gulp.src(project.dest)
-	//	.pipe($.uglify())
-	//	.pipe($.rename({
-	//		basename: path.fileName,
-	//		extname: '.min.js'
-	//	}))
-	//	.pipe($.filesize())
-	//	.pipe(gulp.dest(path.modules));
-	//
-	//gulp.src(project.dest)
-	//	.pipe($.copy(demoDest))
-	//	.pipe(gulp.dest(demoDest));
-});
-
+gulp.task('build', ['templates'])
 
 gulp.task('copy', function () {
 	gulp.src(project.dest)
@@ -76,16 +57,13 @@ angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLu
 				});}}/*@ngInject*/ \
 	function setCustomTemplates(formlyConfigProvider) { \
 		if (USING_TEMPLATES) { \
-			var wrapperList = []; \
-			wrapperList = WRAPPERS.map(function (wrapper) { \
-				return _prefixer(wrapper.name); \
+			var wrapperList = WRAPPERS.map(function (wrapper) { \
+			formlyConfigProvider.setWrapper({ \
+				name: _prefixer(wrapper.name), \
+				templateUrl: _wrapperTemplateUrl(wrapper.name) \
 			}); \
-			WRAPPERS.map(function (wrapper) { \
-				formlyConfigProvider.setWrapper({ \
-					name: _prefixer(wrapper.name), \
-					templateUrl: _wrapperTemplateUrl(wrapper.name) \
-				}); \
-			}); \
+	return _prefixer(wrapper.name); \
+		}); \
 			/* set types */ \
 			FIELDS.map(function (field) { \
 				formlyConfigProvider.setType({ \
