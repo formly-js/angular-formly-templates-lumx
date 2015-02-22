@@ -11,8 +11,8 @@
     'ngSanitize',
     'ngResource',
     'ngAnimate',
+    'ngTouch',
     'ui.router',
-    'ngPrettyJson',
     'btford.markdown',
     /* modules */
     'shmck.formFields'

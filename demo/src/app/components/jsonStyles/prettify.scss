@@ -1,0 +1,27 @@
+pre {
+  //outline: 1px solid #ccc;
+  padding: 5px;
+  margin: 5px;
+  font-family: roboto, sans-serif;
+  font-size: 0.9em;
+}
+
+.string {
+  color: rgba(0, 0, 0, 0.5);;
+}
+
+.number {
+  color: rgba(0, 0, 0, 0.5);;
+}
+
+.boolean {
+  color: rgba(0, 0, 0, 0.5);;
+}
+
+.null {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.key {
+  color: rgba(0, 0, 0, 0.541176);
+}

@@ -1,7 +1,11 @@
 <shmck-container title="Form Fields">
   <pre>[</pre>
-    <pre ng-repeat="item in fields track by $index"
-         class="bgc-yellow-100 aftl-json-field-item"
-         pretty-json="fields[$index]" lx-scrollbar></pre>
+    <!--<pretty-json json="fields[$index]" ng-repeat="item in fields track by $index"-->
+         <!--class="bgc-yellow-100 aftl-json-field-item">-->
+         <!--</pretty-json>-->
+  <pre ng-repeat="item in fields track by $index" class="bgc-yellow-100"
+       ng-bind-html="item | json | prettify" lx-scrollbar></pre>
+
   <pre>]</pre>
+
 </shmck-container>
