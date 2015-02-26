@@ -1,3 +1,7 @@
+#1.1.2
+- module config/run updated to work with angular-formly@3.2+
+- take advantage of [extends](https://github.com/formly-js/angular-formly#extends-string)
+
 #1.1.1
 - `lx-wrapper-errors` bugfix
 - `lx-dropdown` added

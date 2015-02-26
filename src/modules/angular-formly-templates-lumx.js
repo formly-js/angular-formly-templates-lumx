@@ -57,8 +57,29 @@
 		return 'fields/formly-fields-' + _prefixer(name) + '.html';
 	}
 
-	angular.module(MODULE_NAME, ['formly']).config(setCustomTemplates).run(cacheLumXTemplates);
-	function cacheLumXTemplates($templateCache) {
+	/*@ngInject*/
+	function setWrappers(formlyConfigProvider) {
+		if (USING_TEMPLATES) {
+			WRAPPERS.map(function (wrapper) {
+				formlyConfigProvider.setWrapper({
+					name: _prefixer(wrapper.name),
+					templateUrl: _wrapperTemplateUrl(wrapper.name)
+				});
+				return _prefixer(wrapper.name);
+			});
+		}
+	}
+
+	/*@ngInject*/
+	function setFields(formlyConfig, apiCheck) {
+		if (USING_TEMPLATES) {
+			FIELDS.map(function (field) {
+				formlyConfig.setType({name: _prefixer(field.name), templateUrl: _fieldTemplateUrl(field.name)});
+			});
+		}
+	}
+
+	function cacheTemplates($templateCache) {
 		if (USING_TEMPLATES) {
 			FIELDS.map(function (field) {
 				$templateCache.put(_fieldTemplateUrl(field.name), field.template);
@@ -69,24 +90,5 @@
 		}
 	}
 
-	/*@ngInject*/
-	function setCustomTemplates(formlyConfigProvider) {
-		if (USING_TEMPLATES) {
-			var wrapperList = WRAPPERS.map(function (wrapper) {
-				formlyConfigProvider.setWrapper({
-					name: _prefixer(wrapper.name),
-					templateUrl: _wrapperTemplateUrl(wrapper.name)
-				});
-				return _prefixer(wrapper.name);
-			});
-			/* set types */
-			FIELDS.map(function (field) {
-				formlyConfigProvider.setType({
-					name: _prefixer(field.name),
-					templateUrl: _fieldTemplateUrl(field.name),
-					wrappers: wrapperList
-				});
-			});
-		}
-	}
+	angular.module(MODULE_NAME, ['formly']).config(setWrappers).run(setFields).run(cacheTemplates);
 }());

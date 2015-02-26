@@ -46,31 +46,37 @@ gulp.task('templates', ['clean'], function () {
 			footer: 'function _prefixer(name) { return PREFIX + \'-\' + name; } \
 function _wrapperTemplateUrl(name) { return \'wrappers/formly-wrappers-\' + _prefixer(name) + \'.html\'; } \
 function _fieldTemplateUrl(name) { return \'fields/formly-fields-\' + _prefixer(name) + \'.html\'; } \
-angular.module(MODULE_NAME, [\'formly\']).config(setCustomTemplates).run(cacheLumXTemplates); \
-	function cacheLumXTemplates($templateCache) { \
-			if (USING_TEMPLATES) { \
-				FIELDS.map(function (field) { \
-					$templateCache.put(_fieldTemplateUrl(field.name), field.template); \
-				}); \
-				WRAPPERS.map(function (wrapper) { \
-					$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
-				});}}/*@ngInject*/ \
-	function setCustomTemplates(formlyConfigProvider) { \
+ /*@ngInject*/ \
+			function setWrappers(formlyConfigProvider) { \
 		if (USING_TEMPLATES) { \
-			var wrapperList = WRAPPERS.map(function (wrapper) { \
-			formlyConfigProvider.setWrapper({ \
-				name: _prefixer(wrapper.name), \
-				templateUrl: _wrapperTemplateUrl(wrapper.name) \
-			}); \
-	return _prefixer(wrapper.name); \
-		}); \
-			/* set types */ \
+			WRAPPERS.map(function (wrapper) { \
+				formlyConfigProvider.setWrapper({ \
+					name: _prefixer(wrapper.name), \
+					templateUrl: _wrapperTemplateUrl(wrapper.name) \
+				}); \
+				return _prefixer(wrapper.name); \
+			}); } } \
+	/*@ngInject*/ \
+	function setFields(formlyConfig) { \
+		if (USING_TEMPLATES) { \
 			FIELDS.map(function (field) { \
-				formlyConfigProvider.setType({ \
+				formlyConfig.setType({ \
 					name: _prefixer(field.name), \
-					templateUrl: _fieldTemplateUrl(field.name), \
-					wrappers: wrapperList \
-				});});}}}());'
+					templateUrl: _fieldTemplateUrl(field.name) \
+					 }); }); } } \
+	function cacheTemplates($templateCache) { \
+		if (USING_TEMPLATES) { \
+			FIELDS.map(function (field) { \
+				$templateCache.put(_fieldTemplateUrl(field.name), field.template); \
+			}); \
+			WRAPPERS.map(function (wrapper) { \
+				$templateCache.put(_wrapperTemplateUrl(wrapper.name), wrapper.template); \
+			}); } } \
+	angular.module(MODULE_NAME, [\'formly\']) \
+		.config(setWrappers) \
+		.run(setFields) \
+		.run(cacheTemplates); \
+}());'
 		}))
 		.pipe($.trim())
 		.pipe($.rename({

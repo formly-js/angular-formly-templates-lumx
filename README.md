@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.1.1
+# Now 1.1.2
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
@@ -18,7 +18,7 @@ LumX Templates for Angular-Formly. Modern & flexible forms configured easily in 
 ## Dependencies
 
 1. Angular (@1.3+)
-2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.1)
+2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.3)
 3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") (@0.3+)
 4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") (@1.3+)
 
@@ -192,9 +192,8 @@ $scope.formFields= [{
 ```
 
 ##Roadmap
-- improved css form styles
-- dropdown select
 - e2e tests
+- apiCheck validation to provide feedback with form building type errors
 - Requests (?). Post an issue.
 
     
