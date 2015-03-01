@@ -17,7 +17,7 @@
 
       <shmck-container title="Examples" bgc="bgc-white">
         <div ng-class="::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''">
-          <formly-form model="vm.formData" fields="vm.formFields">
+          <formly-form model="vm.formData" fields="vm.formFields" id="formly-fields">
             <br/>
             <button class="btn btn--l btn--blue btn--raised" lx-ripple
                     ng-click="vm.submit()" type="submit">Submit

@@ -13,4 +13,4 @@ demo/Procfile
 build
 edits
 todo.txt
-demo-es6
+demo/e2e

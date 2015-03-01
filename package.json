@@ -1,6 +1,6 @@
 {
   "name": "angular-formly-templates-lumx-master",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "angular-formly-lumx-templates",
   "main": "gulpfile.js",
   "devDependencies": {

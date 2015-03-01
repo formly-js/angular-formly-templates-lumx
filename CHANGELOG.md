@@ -1,3 +1,7 @@
+#1.2.0
+- added template validation using [apiCheck.js](https://github.com/kentcdodds/apiCheck.js). Read more about validateOptions [here](https://github.com/formly-js/angular-formly#validateoptions-function).
+- set `USING_TEMPLATE_VALIDATION` to `false` in the src/modules/angular-formly-tempaltes-lumx.js file to skip validation
+
 #1.1.2
 - module config/run updated to work with angular-formly@3.2+
 - take advantage of [extends](https://github.com/formly-js/angular-formly#extends-string)

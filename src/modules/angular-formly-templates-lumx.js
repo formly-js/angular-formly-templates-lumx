@@ -1,6 +1,7 @@
 (function () {
 	'use strict';
 	var USING_TEMPLATES = true;
+	var USING_TEMPLATE_VALIDATION = true;
 	var MODULE_NAME = "formlyLumx";
 	var PREFIX = "lx";
 	var FIELDS = [{
@@ -70,12 +71,105 @@
 		}
 	}
 
+	function addFieldValidationOptions(apiCheck) {
+		var VALIDATION_FIELDS = [{
+			"name": "checkbox",
+			"validateOptions": {
+				"label": apiCheck.string,
+				"description": apiCheck.string,
+				"checked": apiCheck.boolean,
+				"required": apiCheck.boolean
+			}
+		}, {
+			"name": "date-picker",
+			"validateOptions": {"label": apiCheck.string, "required": apiCheck.boolean}
+		}, {
+			"name": "input",
+			"validateOptions": {
+				"label": apiCheck.string,
+				"icon": apiCheck.string,
+				"fixedLabel": apiCheck.boolean,
+				"disabled": apiCheck.boolean,
+				"className": apiCheck.string,
+				"theme": apiCheck.oneOf(['light', 'dark']),
+				"type": apiCheck.oneOf(['text', 'number', 'email', 'password', 'url', 'tel']),
+				"required": apiCheck.boolean
+			}
+		}, {
+			"name": "radio",
+			"validateOptions": {
+				"label": apiCheck.string,
+				"description": apiCheck.string,
+				"options": apiCheck.arrayOf({
+					"name": apiCheck.string,
+					"value": apiCheck.oneOfType([apiCheck.string, apiCheck.number]),
+					"disabled": apiCheck.boolean
+				}),
+				"required": apiCheck.boolean
+			}
+		}, {
+			"name": "select",
+			"validateOptions": {
+				"label": apiCheck.string,
+				"placeholder": apiCheck.string,
+				"min-length": apiCheck.number,
+				"allow-clear": apiCheck.boolean,
+				"ng-attr-multiple": apiCheck.boolean,
+				"selected": apiCheck.string,
+				"selected2": apiCheck.string,
+				"choice": apiCheck.string,
+				"choice2": apiCheck.string,
+				"choices": apiCheck.array,
+				"required": apiCheck.boolean
+			}
+		}, {
+			"name": "switch",
+			"validateOptions": {
+				"label": apiCheck.string,
+				"description": apiCheck.string,
+				"checked": apiCheck.boolean,
+				"required": apiCheck.boolean
+			}
+		}, {
+			"name": "textarea",
+			"validateOptions": {
+				"label": apiCheck.string,
+				"icon": apiCheck.string,
+				"theme": apiCheck.oneOf(['light', 'dark']),
+				"required": apiCheck.boolean,
+				"rows": apiCheck.number,
+				"cols": apiCheck.number
+			}
+		}];
+		VALIDATION_FIELDS.map(function (validationField) {
+			FIELDS.map(function (field) {
+				if (field.name === validationField.name) {
+					field.validateOptions = validationField.validateOptions;
+				}
+			});
+		});
+	}
+
 	/*@ngInject*/
 	function setFields(formlyConfig, apiCheck) {
 		if (USING_TEMPLATES) {
-			FIELDS.map(function (field) {
-				formlyConfig.setType({name: _prefixer(field.name), templateUrl: _fieldTemplateUrl(field.name)});
-			});
+			if (USING_TEMPLATE_VALIDATION) {        /* validate options using apiCheck to reduce developer errors */
+				addFieldValidationOptions(apiCheck);
+				FIELDS.map(function (field) {
+					formlyConfig.setType({
+						name: _prefixer(field.name),
+						templateUrl: _fieldTemplateUrl(field.name),
+						validateOptions: function (options) {
+							options.data.apiCheck = apiCheck.warn(apiCheck.shape({templateOptions: apiCheck.shape(field.templateOptions || {}).optional}), arguments);
+						}
+					});
+				});
+			} else {        /* skip validating options */
+				apiCheck.disable();
+				FIELDS.map(function (field) {
+					formlyConfig.setType({name: _prefixer(field.name), templateUrl: _fieldTemplateUrl(field.name)});
+				});
+			}
 		}
 	}
 
