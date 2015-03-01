@@ -30,10 +30,9 @@
     "todo.txt"
   ],
   "dependencies": {
-    "angular": "^1.3.2",
-    "angular-messages": "^1.3.2",
+    "angular": "~1.3.14",
+    "angular-messages": "~1.3.14",
     "angular-formly": "~3.3.2",
-    "lumx": "^0.3.8",
-    "angular-touch": "~1.3.13"
+    "lumx": "0.3.17"
   }
 }
