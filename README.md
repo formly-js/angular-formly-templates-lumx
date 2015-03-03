@@ -3,12 +3,10 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# 1.2 Coming soon!
-- See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
-
-# Currently 1.1.2
+# Currently 1.2.0
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
+- See the [ChangeLog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 
 
 # Setup
@@ -140,13 +138,11 @@ $scope.formFields= [{
         required: true
        },
        validation: {
-        messages: [{
-          name: 'email',
-          message: 'That doesn\'t look like a valid email.',
-          }, {
-          name: 'required',
-          message: 'Your email is required.'
-        }]
+        messages: {
+          email: function (viewValue, modelValue, scope) {
+            return 'That doesn\'t look like a valid email.'
+          }
+        }
        }
     },{
       key: 'password',
@@ -158,18 +154,6 @@ $scope.formFields= [{
         minlength: 4,
         maxlength: 16,
         required: true
-      },
-      validation: {
-        messages: [{
-          name: 'required',
-          message: 'Your password is required'
-          }, {
-          name: 'minlength',
-          message: 'Password must be between 4 & 16 characters.'
-          }, {
-          name: 'maxlength',
-          message: 'Password must be between 4 & 16 characters.'
-         }]
       },
       ngModelAttrs: {
         minlength: {
@@ -195,7 +179,7 @@ $scope.formFields= [{
 
 ## ApiCheck Validation (new with 1.2)
 Formly will now warn you in the console if you enter invalid data into your field options.
-Read more about [apiCheck](https://github.com/kentcdodds/apiCheck.js);
+Read more about [apiCheck](https://github.com/kentcdodds/apiCheck.js).
 
 ## Validation Message Defaults (new with 1.2)
 Validation messages can be set as defaults in the module file.

@@ -34,17 +34,12 @@
         wrapper: 'lx-wrapper-errors',
         validators: {
           flavorInStock: {
-            expression: flavorInStock
+            expression: flavorInStock,
+            message: '"Sorry, we don\'t have that flavor in stock. How about chocolate?"'
           }
         },
         templateOptions: {
           label: 'What\'s your favorite ice cream?'
-        },
-        validation: {
-          messages: [{
-            name: 'flavorInStock',
-            message: 'Sorry we don\'t have that flavor. How about chocolate, vanilla or strawberry?'
-          }]
         },
         modelOptions: {
           updateOn: 'keyup blur'
@@ -55,18 +50,13 @@
         wrapper: 'lx-wrapper-errors',
         validators: {
           flavorInStock: {
-            expression: flavorInStock
+            expression: flavorInStock,
+            message: '"Sorry, we don\'t have that flavor in stock. How about chocolate?"'
           }
         },
         templateOptions: {
           label: 'What\'s your favorite ice cream? (pending)',
           pending: 'Checking for ice cream flavor...'
-        },
-        validation: {
-          messages: [{
-            name: 'flavorInStock',
-            message: 'Sorry we don\'t have that flavor. How about chocolate, vanilla or strawberry?'
-          }]
         },
         modelOptions: {
           updateOn: 'keyup'
@@ -90,7 +80,7 @@
               contents: function (validatorsFormFields) {
                 return validatorsFormFields.contents;
               },
-              formData: function(validatorsFormFields) {
+              formData: function (validatorsFormFields) {
                 return validatorsFormFields.formData;
               }
             }

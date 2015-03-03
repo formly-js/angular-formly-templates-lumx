@@ -17,9 +17,7 @@
 
     this.formData = {
       email: '',
-      password: '',
-      url: '',
-      textPattern: ''
+      url: ''
     };
 
     this.fields = function () {
@@ -34,13 +32,11 @@
           required: true
         },
         validation: {
-          messages: [{
-            name: 'email',
-            message: 'That doesn\'t look like a real email address.'
-          }, {
-            name: 'required',
-            message: 'Forgetting something?'
-          }]
+          messages: {
+            email: function () {
+              return 'That doesn\'t look like a real email address.';
+            }
+          }
         },
         modelOptions: {
           allowInvalid: false
@@ -55,10 +51,11 @@
           label: 'Link to a url'
         },
         validation: {
-          messages: [{
-            name: 'url',
-            message: 'For example: http://www.google.com'
-          }]
+          messages: {
+            url: function () {
+              return 'For example: http://www.google.com';
+            }
+          }
         },
         modelOptions: {
           allowInvalid: false

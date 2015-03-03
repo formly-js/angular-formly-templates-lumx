@@ -1,6 +1,8 @@
 #1.2.0
+##Features
 - set default `VALIDATION_MESSAGES` in the module file easily. For example:
 ```javascript
+/* angular-formly-templates-lumx.js */
 var VALIDATION_MESSAGES = [{
   name: 'required',
   message: 'Aren\'t you forgetting something?'
@@ -10,6 +12,22 @@ var VALIDATION_MESSAGES = [{
 In other words, if you put invalid data into the template, you get a warning in the console.
 - set `USING_TEMPLATE_VALIDATION` to `false` in the src/modules/angular-formly-tempaltes-lumx.js file to skip validation. You may want to do this for deployment.
 - updated to `angular-formly@4.0`
+
+##Breaking Changes
+- No more validation.messages as an array. This parallels a more dynamic way of doing validation.messages in angular-formly.
+```javascript
+/* Old */
+validation: {
+  messages: [{name: 'required', message: 'This field is required.'}]
+}
+/* New */
+validation: {
+  required: function(viewValue, modelValue, scope) {
+    return scope.to.label + ' is required';
+  }
+}
+```
+- Validators have changed. See the examples in the demo, or view a [validators example](http://formly-js.github.io/angular-formly/#/example/advanced/validators) from the angular-formly docs
 
 
 #1.1.2

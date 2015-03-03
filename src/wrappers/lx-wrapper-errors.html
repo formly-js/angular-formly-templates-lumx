@@ -1,9 +1,10 @@
 <div>
 	<formly-transclude></formly-transclude>
 	<ul class="form-error" ng-messages="options.formControl.$error"
-	    ng-show="options.formControl.$invalid && options.formControl.$touched">
-		<li ng-repeat="error in ::options.validation.messages"
-		    ng-message={{::error.name}}>{{::error.message}}
+	    ng-show="options.validation.errorExistsAndShouldBeVisible">
+		<li ng-repeat="(name, message) in ::options.validation.messages"
+		    ng-message={{::name}}>
+			{{message(options.formControl.$viewValue, options.formControl.$modelValue, this)}}
 		</li>
 	</ul>
 	<span class="form-pending"

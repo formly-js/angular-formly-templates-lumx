@@ -19,10 +19,10 @@
       disabledText: '',
       textArea: 'Once upon a midnight dreary, while I pondered, weak and weary, \
       Over many a quaint and curious volume of forgotten forms—',
-      validatedText :''
+      validatedText: ''
     };
 
-    var underlined = { 'text-decoration': 'underline' };
+    var underlined = {'text-decoration': 'underline'};
 
     this.fields = function () {
       return [{
@@ -70,22 +70,10 @@
         wrapper: 'lx-wrapper-errors',
         templateOptions: {
           type: 'password',
-          label: 'Validation example (4-8 characters)',
+          label: 'Validation Example',
           minlength: 4,
           maxlength: 8,
           required: true
-        },
-        validation: {
-          messages: [{
-            name: 'required',
-            message: 'Password is required.'
-          }, {
-            name: 'minlength',
-            message: 'Password must be more than 4 characters.'
-          }, {
-            name: 'maxlength',
-            message: 'Password must be less than 8 characters.'
-          }]
         },
         ngModelAttrs: {
           minlength: {

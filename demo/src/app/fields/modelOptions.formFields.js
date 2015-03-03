@@ -19,11 +19,22 @@
       mixed: ''
     };
 
+    var numbersRegex =  /^\d+$/;
+    var numbersOnlyValidator = {
+      numbersOnly: {
+        expression: function (viewValue, modelValue) {
+          var value = viewValue || modelValue || '';
+          return numbersRegex.test(value);
+        },
+        message: '"Numbers only please."'
+      }
+    };
+
     this.fields = function () {
-      var numbers =  /^\d+$/;
       return [{
         key: 'defaultOnBlur',
         type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
           fixedLabel: true,
           required: true,
@@ -32,21 +43,11 @@
         modelOptions: {
           updateOn: 'default blur'
         },
-        validators: {
-          numbersOnly: function (modelValue, viewValue) {
-            var value = modelValue || viewValue || '';
-            return numbers.test(value);
-          }
-        },
-        validation: {
-          messages: [{
-            name: 'numbersOnly',
-            message: 'Numbers only please.'
-          }]
-        }
+        validators: numbersOnlyValidator
       }, {
         key: 'onKeyUp',
         type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
           fixedLabel: true,
           required: true,
@@ -58,15 +59,11 @@
             keyup: 300
           }
         },
-        validators: {
-          numbersOnly: function (modelValue, viewValue) {
-            var value = modelValue || viewValue || '';
-            return numbers.test(value);
-          }
-        }
+        validators: numbersOnlyValidator
       }, {
         key: 'onlyValid',
         type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
           fixedLabel: true,
           required: true,
@@ -75,15 +72,11 @@
         modelOptions: {
           allowInvalid: false
         },
-        validators: {
-          numbersOnly: function (modelValue, viewValue) {
-            var value = modelValue || viewValue || '';
-            return numbers.test(value);
-          }
-        }
+        validators: numbersOnlyValidator
       }, {
         key: 'mixed',
         type: 'lx-input',
+        wrapper: 'lx-wrapper-errors',
         templateOptions: {
           fixedLabel: true,
           required: true,
@@ -97,12 +90,7 @@
             keyUp: 300
           }
         },
-        validators: {
-          numbersOnly: function (modelValue, viewValue) {
-            var value = modelValue || viewValue || '';
-            return numbers.test(value);
-          }
-        }
+        validators: numbersOnlyValidator
       }];
     };
   }
