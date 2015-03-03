@@ -193,7 +193,11 @@ $scope.formFields= [{
     }
 ```
 
-## Validation Messages
+## ApiCheck Validation (new with 1.2)
+Formly will now warn you in the console if you enter invalid data into your field options.
+Read more about [apiCheck](https://github.com/kentcdodds/apiCheck.js);
+
+## Validation Message Defaults (new 1.2)
 Validation messages can be set as defaults in the module file.
 
 ```javascript
@@ -203,12 +207,9 @@ Validation messages can be set as defaults in the module file.
  	}
 ```
 
-Validation messages can also be set on the fly
-
 
 ##Roadmap
 - e2e tests
-- apiCheck validation to provide feedback with form building type errors
 - Requests (?). Post an issue.
 
     
