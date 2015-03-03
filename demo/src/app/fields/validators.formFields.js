@@ -18,7 +18,7 @@
       iceCreamFlavor2: ''
     };
 
-    function flavorInStock(modelValue, viewValue) {
+    function flavorInStock(viewValue, modelValue) {
       return $timeout(function () {
         var value = modelValue || viewValue || '';
         var flavors = ['chocolate', 'vanilla', 'strawberry'];
@@ -27,17 +27,20 @@
       }, 800);
     }
 
+    var flavorInStockValidator = {
+      flavorInStock: {
+        expression: flavorInStock,
+        //message: '"Sorry, we don\'t have " + $viewValue + " in stock. How about chocolate?"'
+        message: '"Sorry, we don\'t have that flavor in stock. How about chocolate?"'
+      }
+    };
+
     this.fields = function () {
       return [{
         key: 'iceCreamFlavor',
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
-        validators: {
-          flavorInStock: {
-            expression: flavorInStock,
-            message: '"Sorry, we don\'t have that flavor in stock. How about chocolate?"'
-          }
-        },
+        validators: flavorInStockValidator,
         templateOptions: {
           label: 'What\'s your favorite ice cream?'
         },
@@ -48,12 +51,7 @@
         key: 'iceCreamFlavor2',
         type: 'lx-input',
         wrapper: 'lx-wrapper-errors',
-        validators: {
-          flavorInStock: {
-            expression: flavorInStock,
-            message: '"Sorry, we don\'t have that flavor in stock. How about chocolate?"'
-          }
-        },
+        validators: flavorInStockValidator,
         templateOptions: {
           label: 'What\'s your favorite ice cream? (pending)',
           pending: 'Checking for ice cream flavor...'

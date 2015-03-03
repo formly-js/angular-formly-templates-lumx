@@ -3,8 +3,8 @@
                icon="{{::to.icon}}"
                theme="{{::to.theme}}"
                label="{{to.label}} {{::to.required ? '*' : ''}}"
-               valid="options.formControl.$valid && options.formControl.$touched"
-               error="options.formControl.$invalid && options.formControl.$touched || options.validators">
+               valid="fc.$valid && fc.$touched"
+               error="fc.$invalid && fc.$touched">
     <textarea ng-model="model[options.key]"
 	    rows="{{::to.rows}}" cols="{{::to.cols}}">
     </textarea>

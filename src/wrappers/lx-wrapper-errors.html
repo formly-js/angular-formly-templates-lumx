@@ -1,14 +1,14 @@
 <div>
 	<formly-transclude></formly-transclude>
-	<ul class="form-error" ng-messages="options.formControl.$error"
+	<ul class="form-error" ng-messages="fc.$error"
 	    ng-show="options.validation.errorExistsAndShouldBeVisible">
 		<li ng-repeat="(name, message) in ::options.validation.messages"
 		    ng-message={{::name}}>
-			{{message(options.formControl.$viewValue, options.formControl.$modelValue, this)}}
+			{{message(fc.$viewValue, fc.$modelValue, this)}}
 		</li>
 	</ul>
 	<span class="form-pending"
-	      ng-if="to.pending && options.formControl.$pending && options.formControl.$touched">
+	      ng-if="to.pending && fc.$pending && fc.$touched">
 	{{::to.pending || 'Checking...'}}
 	</span>
 </div>
