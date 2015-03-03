@@ -43,7 +43,20 @@ gulp.task('templates', ['clean'], function () {
 		.pipe($.replace(/\)\;/g, '}, {"name": ')) // }, {name: '
 		.pipe($.replace(/\}\, \{\"name\"\: \n\]/m, '}]'))
 		.pipe($.wrapper({
-			header: '(function () {\'use strict\'; var USING_TEMPLATES = true; var USING_TEMPLATE_VALIDATION = true; var MODULE_NAME = \"' + project.module + '\"; var PREFIX = \"' + project.prefix + '\";',
+			header: '(function () {\'use strict\'; var USING_TEMPLATES = true; var USING_TEMPLATE_VALIDATION = true; \
+			/* Custom validation message defaults here */ \
+			var VALIDATION_MESSAGES = [{ \
+			 name: \'required\', \
+			 message: \'This field is required\' \
+			 }, { \
+			name: \'maxlength\', \
+			message: \'This field is too long.\' \
+			}, { \
+			name: \'minlength\', \
+				message: \'This field is too short.\' \
+	}]; \
+	/* Module Templates + Data */ \
+			var MODULE_NAME = \"' + project.module + '\"; var PREFIX = \"' + project.prefix + '\";',
 			footer: ' \
 			function _prefixer(name) { return PREFIX + \'-\' + name; } \
 			function _wrapperTemplateUrl(name) { return \'wrappers/formly-wrappers-\' + _prefixer(name) + \'.html\'; } \
@@ -59,7 +72,8 @@ gulp.task('templates', ['clean'], function () {
 				return _prefixer(wrapper.name); \
 			}); } } \
 	function addFieldValidationOptions(apiCheck) { \
-		var VALIDATION_FIELDS = [{ \
+	/* validation using apiCheck.js */ \
+		var APICHECK_VALIDATION_FIELDS = [{ \
 			"name": "checkbox", \
 			"validateOptions": { \
 				"label": apiCheck.string, \
@@ -131,7 +145,7 @@ gulp.task('templates', ['clean'], function () {
 				"cols": apiCheck.number \
 			} \
 		}]; \
-		VALIDATION_FIELDS.map(function (validationField) { \
+		APICHECK_VALIDATION_FIELDS.map(function (validationField) { \
 			FIELDS.map(function (field) { \
 				if (field.name === validationField.name) { \
 					field.validateOptions = validationField.validateOptions; \
@@ -170,6 +184,15 @@ gulp.task('templates', ['clean'], function () {
 			} \
 		} \
 	} \
+	function setDefaults(formlyConfig, formlyValidationMessages) { \
+		formlyConfig.extras.ngModelAttrsManipulatorPreferBound = true; \
+		VALIDATION_MESSAGES.map(function (validation) { \
+			formlyValidationMessages.addStringMessage(validation.name, validation.message); \
+		}); \
+		formlyValidationMessages.messages.pattern = function (viewValue, modelValue, scope) { \
+			return (viewValue || modelValue) + \' is invalid\'; \
+		}; \
+	} \
 	function cacheTemplates($templateCache) { \
 		if (USING_TEMPLATES) { \
 			FIELDS.map(function (field) { \
@@ -180,7 +203,7 @@ gulp.task('templates', ['clean'], function () {
 			}); \
 		} \
 	} \
-	angular.module(MODULE_NAME, [\'formly\']).config(setWrappers).run(setFields).run(cacheTemplates); \
+	angular.module(MODULE_NAME, [\'formly\']).config(setWrappers).run(setFields).run(setDefaults).run(cacheTemplates); \
 }());'
 		}))
 		.pipe($.trim())

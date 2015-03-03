@@ -1,6 +1,16 @@
 #1.2.0
+- set default `VALIDATION_MESSAGES` in the module file easily. For example:
+```javascript
+var VALIDATION_MESSAGES = [{
+  name: 'required',
+  message: 'Aren\'t you forgetting something?'
+}];
+```
 - added template validation using [apiCheck.js](https://github.com/kentcdodds/apiCheck.js). Read more about validateOptions [here](https://github.com/formly-js/angular-formly#validateoptions-function).
-- set `USING_TEMPLATE_VALIDATION` to `false` in the src/modules/angular-formly-tempaltes-lumx.js file to skip validation
+In other words, if you put invalid data into the template, you get a warning in the console.
+- set `USING_TEMPLATE_VALIDATION` to `false` in the src/modules/angular-formly-tempaltes-lumx.js file to skip validation. You may want to do this for deployment.
+- updated to `angular-formly@4.0`
+
 
 #1.1.2
 - module config/run updated to work with angular-formly@3.2+

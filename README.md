@@ -3,10 +3,12 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Now 1.1.2
+# 1.2 Coming soon!
+- See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
+
+# Currently 1.1.2
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
-- See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
 
 
 # Setup
@@ -18,7 +20,7 @@ LumX Templates for Angular-Formly. Modern & flexible forms configured easily in 
 ## Dependencies
 
 1. Angular (@1.3+)
-2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@3.3)
+2. [Angular-Formly](https://github.com/formly-js/angular-formly "Angular-Formly") (@4.0)
 3. [LumX Framework](http://ui.lumapps.com/ "LumX Framework") (@0.3+)
 4. [ngMessages](https://docs.angularjs.org/api/ngMessages/directive/ngMessages "ngMessages Docs") (@1.3+)
 
@@ -190,6 +192,19 @@ $scope.formFields= [{
       }
     }
 ```
+
+## Validation Messages
+Validation messages can be set as defaults in the module file.
+
+```javascript
+ var VALIDATION_MESSAGES = [{
+ 		name: 'required',
+ 		message: 'This field is required'
+ 	}
+```
+
+Validation messages can also be set on the fly
+
 
 ##Roadmap
 - e2e tests
