@@ -197,14 +197,14 @@ $scope.formFields= [{
 Formly will now warn you in the console if you enter invalid data into your field options.
 Read more about [apiCheck](https://github.com/kentcdodds/apiCheck.js);
 
-## Validation Message Defaults (new 1.2)
+## Validation Message Defaults (new with 1.2)
 Validation messages can be set as defaults in the module file.
 
 ```javascript
  var VALIDATION_MESSAGES = [{
  		name: 'required',
  		message: 'This field is required'
- 	}
+}
 ```
 
 
