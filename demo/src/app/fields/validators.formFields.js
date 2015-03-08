@@ -30,7 +30,7 @@
     var flavorInStockValidator = {
       flavorInStock: {
         expression: flavorInStock,
-        //message: '"Sorry, we don\'t have " + $viewValue + " in stock. How about chocolate?"'
+        //message: '"View Value: " + $viewValue'
         message: '"Sorry, we don\'t have that flavor in stock. How about chocolate?"'
       }
     };

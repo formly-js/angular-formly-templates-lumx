@@ -1,6 +1,6 @@
 {
   "name": "angular-formly-templates-lumx",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "authors": [
     "ShMcK <me@ShMcK.com>"
   ],
@@ -32,7 +32,7 @@
   "dependencies": {
     "angular": "~1.3.14",
     "angular-messages": "~1.3.14",
-    "angular-formly": "~4.0.3",
-    "lumx": "0.3.17"
+    "angular-formly": "~4.0.6",
+    "lumx": "0.3.20"
   }
 }
