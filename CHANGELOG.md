@@ -1,3 +1,10 @@
+#1.2.2
+#Features
+- Improved accessibility with ngAria
+
+#Fixes
+- Dependency issue with apiCheck
+
 #1.2.0
 ##Features
 - set default `VALIDATION_MESSAGES` in the module file easily. For example:

@@ -3,7 +3,7 @@ angular-formly-lumx-templates
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Currently 1.2.1
+# Currently 1.2.2
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 - See the [ChangeLog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
@@ -13,7 +13,7 @@ LumX Templates for Angular-Formly. Modern & flexible forms configured easily in 
 
 ## Bower
 
-`bower install angular angular-formly lumx angular-messages angular-formly-templates-lumx`
+`bower install angular angular-formly lumx angular-messages angular-aria angular-formly-templates-lumx`
 
 ## Dependencies
 
@@ -30,6 +30,7 @@ LumX Templates for Angular-Formly. Modern & flexible forms configured easily in 
 ```javascript
 angular.module('myAppName', [
     'ngMessages',
+    'ngAria',
     'formly',
     'lumx',
     'formlyLumx'

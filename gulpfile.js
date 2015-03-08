@@ -154,18 +154,18 @@ gulp.task('templates', ['clean'], function () {
 		}); \
 	} \
 	/*@ngInject*/ \
-	function setFields(formlyConfig, apiCheck) { \
+	function setFields(formlyConfig, formlyApiCheck) { \
 		if (USING_TEMPLATES) { \
 			if (USING_TEMPLATE_VALIDATION) { \
 				/* validate options using apiCheck to reduce developer errors */ \
-				addFieldValidationOptions(apiCheck); \
+				addFieldValidationOptions(formlyApiCheck); \
 				FIELDS.map(function (field) { \
 					formlyConfig.setType({ \
 						name: _prefixer(field.name), \
 						templateUrl: _fieldTemplateUrl(field.name), \
 						validateOptions: function (options) { \
-							options.data.apiCheck = apiCheck.warn(apiCheck.shape({ \
-								templateOptions: apiCheck.shape( \
+							options.data.apiCheck = formlyApiCheck.warn(formlyApiCheck.shape({ \
+								templateOptions: formlyApiCheck.shape( \
 									field.templateOptions || {} \
 								).optional \
 							}), arguments); \

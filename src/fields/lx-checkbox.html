@@ -1,9 +1,11 @@
 <div class="checkbox">
 	<input ng-model="model[options.key]"
 	       type="checkbox"
+	       role="checkbox"
 	       ng-checked="::to.checked"
+	       aria-checked="::to.checked"
 	       class="checkbox__input">
-	<label for={{::id}} class="checkbox__label">{{to.label}}</label>
+	<label for={{::id}} class="checkbox__label" aria-label="{{::to.label}}">{{to.label}}</label>
 	<span ng-if="::to.description"
 	      class="checkbox__help">{{::to.description}}</span>
 </div>

@@ -6,6 +6,7 @@
                valid="fc.$valid && fc.$touched"
                error="fc.$invalid && fc.$touched">
     <textarea ng-model="model[options.key]"
-	    rows="{{::to.rows}}" cols="{{::to.cols}}">
+              aria-label="{{::to.label}}"
+              rows="{{::to.rows}}" cols="{{::to.cols}}">
     </textarea>
 </lx-text-field>
