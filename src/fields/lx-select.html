@@ -10,12 +10,12 @@
 	           ng-attr-multiple="{{::to.multiple}}">
 
 		<lx-select-selected>
-			{{$selected[to.selected]}} {{::to.selected2 ? ' - ' +
+			{{$selected[to.selected] || $selected}} {{::to.selected2 ? ' - ' +
 			$selected[to.selected2] : ''}}
 		</lx-select-selected>
 
 		<lx-select-choices>
-			{{$choice[to.choice]}} {{::to.choice2 ? ' - ' +
+			{{$choice[to.choice] || $choice}} {{::to.choice2 ? ' - ' +
 			$choice[to.choice2] : ''}}
 		</lx-select-choices>
 

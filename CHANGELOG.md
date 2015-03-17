@@ -1,4 +1,5 @@
-#1.3.0
+#1.3.2
+- allow simpler `lx-select` templates. For example: `options: ['a', 'b']`
 - files in `dist` folder. Shortened titles to `formlyLumx`.
 - removed `lx-title`. Use `template: <h1>Some Title</h1><br/>` or other custom titles instead.
 
