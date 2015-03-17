@@ -7,8 +7,8 @@ var gulp = require('gulp'),
 
 var path = {
 	src: ['src/fields/*.html', 'src/wrappers/*.html'],
-	modules: 'src/modules/',
-	fileName: 'angular-formly-templates-lumx'
+	modules: 'dist',
+	fileName: 'formlyLumx'
 };
 
 var project = {
@@ -20,7 +20,7 @@ var project = {
 
 var demoDest = 'demo/bower_components/' + path.fileName;
 
-gulp.task('build', ['templates'])
+gulp.task('build', ['templates']);
 
 gulp.task('copy', function () {
 	gulp.src(project.dest)

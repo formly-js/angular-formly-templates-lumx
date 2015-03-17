@@ -1,3 +1,7 @@
+#1.3.0
+- files in `dist` folder. Shortened titles to `formlyLumx`.
+- removed `lx-title`. Use `template: <h1>Some Title</h1><br/>` or other custom titles instead.
+
 #1.2.2
 #Features
 - Improved accessibility with ngAria

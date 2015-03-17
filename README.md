@@ -1,11 +1,11 @@
-angular-formly-lumx-templates
-=============================
+FormlyLumx
+==========
 
 [![Join the chat at https://gitter.im/formly-js/angular-formly-templates-lumx](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/formly-js/angular-formly-templates-lumx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Currently 1.2.2
+# Currently 1.3.0
 - View [Demo](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Documentation") for template APIs.
 - See the [ChangeLog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Templates-LumX Changes") for details.
