@@ -1,3 +1,6 @@
+#1.3.3
+- less strict bower dependencies
+
 #1.3.2
 - allow simpler `lx-select` templates. For example: `options: ['a', 'b']`
 - files in `dist` folder. Shortened titles to `formlyLumx`.
