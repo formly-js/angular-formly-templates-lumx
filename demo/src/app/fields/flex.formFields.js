@@ -31,21 +31,30 @@
       return [{
         type: 'lx-flex',
         templateOptions: {
-          flexContainer: 'row',
+          flex: {
+            container: 'row',
+            item: 5
+          },
 
           fields: [
             {
               type: 'lx-input',
               key: 'firstName',
               templateOptions: {
-                label: 'First Name'
+                label: 'First Name',
+                flex: {
+                  item: 5
+                }
               }
             },
             {
               type: 'lx-input',
               key: 'lastName',
               templateOptions: {
-                label: 'Last Name'
+                label: 'Last Name',
+                flex: {
+                  item: 5
+                }
               }
             }
           ]
@@ -56,7 +65,8 @@
           flex: {
             container: 'column',
             align: 'space-between center',
-            gutter: 24
+            gutter: 24,
+            item: 10
           },
           'fields': [{
             key: 'columnItem1',
@@ -91,7 +101,8 @@
           flex: {
             container: 'row',
             align: 'center center',
-            gutter: 8
+            gutter: 8,
+            item: 3
           },
           'fields': [{
             key: 'addressStreetNumber',
@@ -99,8 +110,7 @@
             templateOptions: {
               type: 'number',
               fixedLabel: true,
-              label: 'Street #',
-              className: 'street-number'
+              label: 'Street #'
             }
           }, {
             key: 'addressStreetName',

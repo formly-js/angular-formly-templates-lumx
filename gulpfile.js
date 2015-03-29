@@ -14,11 +14,10 @@ var path = {
 var project = {
 	module: 'formlyLumx',
 	prefix: 'lx',
-	dest: path.modules + path.fileName + '.js',
-
+	dest: './' + path.modules + '/' + path.fileName + '.js'
 };
 
-var demoDest = 'demo/bower_components/' + path.fileName;
+var demoDest = 'demo/bower_components/angular-formly-templates-lumx/';
 
 gulp.task('build', ['templates']);
 
