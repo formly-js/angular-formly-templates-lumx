@@ -1,7 +1,20 @@
-<formly-form class="aftl-flex-fields"
-             model="$parent.model"
-             fields="to.fields"
-             flex-container="{{::to.flex.container}}"
-             flex-align="{{::to.flex.align}}"
-             flex-gutter="{{::to.flex.gutter}}">
-</formly-form>
+<div class="aftl-flex-fields"
+     model="$parent.model"
+     flex-container="{{::to.flex.container}}"
+     flex-align="{{::to.flex.align || 'space-between'}}"
+     flex-gutter="{{::to.flex.gutter || '24'}}">
+	<div formly-field
+	     ng-repeat="field in to.fields track by $index"
+	     ng-if="!field.hide"
+	     class="{{::colClass[$index]}} formly-field {{field.type ? 'formly-field-' + field.type : ''}}"
+	     options="field"
+	     model="field.model || model"
+	     fields="fields"
+	     form="form"
+	     form-id="formId"
+	     form-state="options.formState"
+	     index="$index"
+	     flex-item="{{::to.flex.item || '1'}}"
+	     flex-order="{{::to.flex.order}}">
+	</div>
+</div>
