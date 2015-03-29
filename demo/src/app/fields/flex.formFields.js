@@ -41,20 +41,14 @@
               type: 'lx-input',
               key: 'firstName',
               templateOptions: {
-                label: 'First Name',
-                flex: {
-                  item: 5
-                }
+                label: 'First Name'
               }
             },
             {
               type: 'lx-input',
               key: 'lastName',
               templateOptions: {
-                label: 'Last Name',
-                flex: {
-                  item: 5
-                }
+                label: 'Last Name'
               }
             }
           ]

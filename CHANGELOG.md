@@ -3,7 +3,7 @@
 
 ## Breaking Changes
 - rewritten `lx-flex` to handle previous functionality.
-- killed of `lx-wrapper-flex`. To update just remove `lx-wrapper-flex`, and your project should continue to work.
+- `lx-wrapper-flex` no longer necessary for most cases. Just set the default flex in the `lx-flex` parent
 
 #1.3.3
 - less strict bower dependencies
