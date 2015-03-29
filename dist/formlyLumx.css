@@ -12,13 +12,25 @@
 }
 
 /* spacing fixes */
-.lx-select {
+.aftl-select {
   position: relative;
-  bottom: 11px;
+  bottom: -11px;
 }
 
-.aftl-title {
-  margin-top: 10px;
-  padding-left: 5px;
+
+/* inline styles */
+.inline-wrapper {
+  display: inline;
 }
 
+.inline--before {
+  display: inline-block;
+}
+
+.inline--content {
+  display: inline-block;
+}
+
+.inline--after {
+  display: inline-block;
+}
