@@ -3,7 +3,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-wrapper-flex',
+  'type': 'lx-flex',
   'templateOptions': {
     'container': 'row', // row | column | row-reverse | column-reverse
     'wrap': 'nowrap', // nowrap | wrap | wrap-reverse
@@ -11,17 +11,14 @@
     'className': 'bgc-red-500', // ng-class
     'style': 'height: 200px'
      'fields': [{
-        {
           'key': 'modelName',
           'type': 'lx-whatever-type'
-          'wrapper': 'lx-wrapper-flex-item', // <- add the wrapper
           'templateOptions': {
-            'flex': {
-              'item': '1' // flex-value number, higher weights the space ratio more 
-              'order': '1', // value for ordering boxes
-              'className': 'bgc-red-500' // ng-class
-            }
-          }
+              'flex' {
+                item': '1' // flex-value number, higher weights the space ratio more
+                'flex-order': '1', // value for ordering boxes
+              }
+              'label': 'Some Label'
         }
       }]
   },

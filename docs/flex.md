@@ -14,8 +14,11 @@
           'key': 'modelName',
           'type': 'lx-whatever-type'
           'templateOptions': {
-              'flex-item': '1' // flex-value number, higher weights the space ratio more
-              'flex-order': '1', // value for ordering boxes
+              'flex' {
+                item': '1' // flex-value number, higher weights the space ratio more
+                'flex-order': '1', // value for ordering boxes
+              }
+              'label': 'Some Label'
         }
       }]
   },

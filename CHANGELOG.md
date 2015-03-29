@@ -1,3 +1,10 @@
+#2.0.0
+- updated advanced form layouts
+
+## Breaking Changes
+- rewritten `lx-flex` to handle previous functionality
+- killed of `lx-wrapper-flex`. To update just remove `lx-wrapper-flex`, and your project should continue to work.
+
 #1.3.3
 - less strict bower dependencies
 

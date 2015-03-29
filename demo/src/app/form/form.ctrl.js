@@ -7,6 +7,7 @@
   function FormCtrl(formFields, contents, formData, LxDialogService) {
     var vm = this;
     vm.contents = contents;
+    console.log(contents);
     vm.formData = formData || {};
     vm.formFields = formFields();
     vm.submit = function () {

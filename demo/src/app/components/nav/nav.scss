@@ -2,6 +2,16 @@ header {
   position: fixed;
 }
 
+.main-nav--title {
+  margin-left: 45px;
+  margin-top: 0;
+}
+
+.main-nav--icon {
+  position: absolute;
+  margin: 5px;
+}
+
 .main-logo__link {
   text-decoration: none;
   color: white;
