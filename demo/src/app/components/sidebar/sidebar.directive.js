@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
   angular.module('demo')
     .directive('shmckSidebar', shmckSidebar);
@@ -27,6 +27,9 @@
       }, {
         state: 'datePicker',
         text: 'Date Picker'
+      }, {
+        state: 'flex',
+        text: 'Flex'
       }],
       WRAPPERS: [{
         state: 'error',
@@ -34,9 +37,6 @@
       }, {
         state: 'theme',
         text: 'Themes'
-      }, {
-        state: 'flex',
-        text: 'FlexBox'
       }],
       FEATURES: [{
         state: 'modelOptions',
@@ -66,7 +66,7 @@
       templateUrl: 'app/components/sidebar/sidebar.tmpl.html',
       controllerAs: 'vm',
       bindToController: true,
-      controller: function (SidebarService) {
+      controller: function(SidebarService) {
         var vm = this;
         vm.sidebarLinks = sidebarLinks;
         vm.sidebar = SidebarService;
