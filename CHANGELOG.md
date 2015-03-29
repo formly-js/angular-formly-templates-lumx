@@ -1,5 +1,6 @@
 #1.4.0
 - updated advanced form layouts
+- new: `lx-wrapper-inline` for inline styles.
 
 ## Breaking Changes
 - rewritten `lx-flex` to handle previous functionality.

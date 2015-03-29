@@ -7,7 +7,8 @@
 
   function inlineFormFields() {
     this.contents = {
-      title: 'Inline Wrapper'
+      title: 'Inline Wrapper',
+      docFile: 'app/docs/input.md'
     };
 
     this.formData = {};
