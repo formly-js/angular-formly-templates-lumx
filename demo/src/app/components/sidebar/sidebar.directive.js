@@ -37,6 +37,9 @@
       }, {
         state: 'theme',
         text: 'Themes'
+      }, {
+        state: 'inline',
+        text: 'Inline'
       }],
       FEATURES: [{
         state: 'modelOptions',

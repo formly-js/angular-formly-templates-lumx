@@ -9,9 +9,10 @@
     'shmck.formFields.datePicker',
     'shmck.formFields.input',
     'shmck.formFields.dropdown',
+    'shmck.formFields.flex',
     /* WRAPPERS */
     'shmck.formFields.themes',
-    'shmck.formFields.flex',
+    'shmck.formFields.inline',
     'shmck.formFields.error',
     /* FEATURES */
     'shmck.formFields.modelOptions',
