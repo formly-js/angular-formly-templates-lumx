@@ -24,12 +24,7 @@
 
     this.fields = function () {
       return [{
-        key: 'darkTitle',
-        type: 'lx-title',
-        templateOptions: {
-          title: 'Dark Theme',
-          className: 'tc-white fs-title'
-        }
+        template: '<div class="tc-white fs-title"><h3>Dark Theme</h3></div>'
       }, {
         key: 'dark1',
         type: 'lx-input',
@@ -51,15 +46,7 @@
           theme: 'dark'
         }
       }, {
-        key: 'lightTitle',
-        type: 'lx-title',
-        wrapper: 'lx-wrapper-div',
-        templateOptions: {
-          div: {
-            className: 'bgc-yellow-500 fs-title'
-          },
-          title: 'Light Theme'
-        }
+        template: '<div class="bgc-yellow-500 fs-title"><h3>Light Theme</h3></div>'
       }, {
         key: 'light1',
         type: 'lx-input',

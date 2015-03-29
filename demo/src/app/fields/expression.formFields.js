@@ -29,11 +29,7 @@
           label: 'Show Hidden Field'
         }
       }, {
-        key: 'hiddenField',
-        type: 'lx-title',
-        templateOptions: {
-          title: 'This Field was Hidden'
-        },
+        template: '<h1>This was hidden!</h1>',
         expressionProperties: {
           hide: '!model.showHidden'
         }
