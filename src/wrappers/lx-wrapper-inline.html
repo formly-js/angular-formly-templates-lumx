@@ -1,5 +1,7 @@
-<span>
-	<span class="lx-inline-before">Before</span>
-	<formly-transclude class="lx-inline-content"></formly-transclude>
-	<span class="lx-inline-after">After</span>
+<span class="inline-wrapper">
+	<span class="inline--before">{{::to.inline.before}}</span>
+	<span class="inline--content">
+		<formly-transclude></formly-transclude>
+	</span>
+	<span class="inline--after">{{::to.inline.after}}</span>
 </span>

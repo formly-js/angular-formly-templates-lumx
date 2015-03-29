@@ -3,16 +3,21 @@
 //@import '../../bower_components/mdi/materialdesignicons.css';
 //@import '../../bower_components/lumx/dist/lumx.css';
 
-.lx-inline-before {
-  color: green;
-}
+.inline-wrapper {
 
-.lx-inline-content {
-  color: red;
-}
 
-.lx-inline-after {
-  color: purple;
+  .inline--before {
+
+    color: green;
+  }
+  .inline--content {
+
+    color: red;
+  }
+  .inline--after {
+
+    color: purple;
+  }
 }
 
 .browsehappy {
