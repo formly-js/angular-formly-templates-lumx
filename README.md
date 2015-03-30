@@ -44,9 +44,9 @@ It's also recommended to add a link to `./styles/angular-formly-templates-lumx.c
 ## Demo
 Run the demo locally or view it on the [site](https://formly-lumx.herokuapp.com/ "Angular-Formly-Lumx Demo").
 - clone this github repo
-- Go into the demo directory `cd demo`
-- Download packages `bower install && npm install`
-- Run Webpack `npm start`. On windows: `npm-start-win`
+- go into the demo directory `cd demo`
+- download packages `bower install && npm install`
+- run Webpack `npm start`. On windows: `npm-start-win`
 
 ## View
 
