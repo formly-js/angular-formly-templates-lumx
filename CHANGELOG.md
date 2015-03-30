@@ -1,4 +1,5 @@
 #1.4.0
+- demo re-written using ES6 & Webpack
 - updated advanced form layouts
 - new: `lx-wrapper-inline` for inline styles.
 

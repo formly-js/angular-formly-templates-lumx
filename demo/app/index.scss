@@ -1,0 +1,25 @@
+@import './bower_components/lumx/dist/lumx.css';
+@import './bower_components/angular-formly-templates-lumx/dist/formlyLumx.css';
+@import './main/main.scss';
+@import './core/nav/nav.scss';
+@import './components/animation/pageTransitions.scss';
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0 !important;
+  background-color: #EEEEEE;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+

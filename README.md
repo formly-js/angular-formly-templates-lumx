@@ -46,7 +46,7 @@ Run the demo locally or view it on the [site](https://formly-lumx.herokuapp.com/
 - clone this github repo
 - Go into the demo directory `cd demo`
 - Download packages `bower install && npm install`
-- Run [Gulp](http://gulpjs.com/): `gulp serve` 
+- Run Webpack `npm start`. On windows: `npm-start-win`
 
 ## View
 

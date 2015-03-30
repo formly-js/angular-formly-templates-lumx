@@ -1,0 +1,41 @@
+<header class="header bgc-light-blue-600" ng-cloak>
+  <div class="menubar">
+    <button class="btn btn--l btn--icon btn--white" lx-ripple="white" ng-click="vm.sidebar.toggleSidebar()">
+      <i class="mdi mdi-menu"></i>
+    </button>
+  </div>
+
+  <h1 class="main-logo">
+    <a ui-sref="text" class="main-logo__link" lx-ripple="white">
+      <img class="main-nav--icon" src="images/angular-formly.png"/>
+      <span class="main-nav--title">Formly LumX </span>
+      <span class="main-nav--version">v{{::vm.version}}</span>
+    </a>
+  </h1>
+
+  <nav class="main-nav main-nav--lap-and-up">
+    <ul>
+      <li ng-repeat="n in vm.links">
+        <a href="{{n.link}}" class="main-nav__link" lx-ripple="white">
+          {{n.text}}</a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="main-nav main-nav--palm">
+    <lx-dropdown position="right" from-top="true" width="150px">
+      <button class="btn btn--l btn--white btn--icon" lx-ripple="white" lx-dropdown-toggle>
+        <i class="mdi mdi-dots-vertical"></i>
+      </button>
+
+      <lx-dropdown-menu>
+        <ul>
+          <li ng-repeat="n in vm.links">
+            <a ng-href="{{::n.link}}" class="main-nav__link" lx-ripple="white">
+              <span style="color: rgba(0, 0, 0, 0.541176)">{{n.text}}</span>
+            </a>
+          </li>
+        </ul>
+      </lx-dropdown-menu>
+    </lx-dropdown>
+  </nav>
+</header>

@@ -2,8 +2,6 @@
 	<input ng-model="model[options.key]"
 	       type="checkbox"
 	       role="checkbox"
-	       ng-checked="::to.checked"
-	       aria-checked="::to.checked"
 	       class="switch__input"/>
 	<label for={{::id}} class="switch__label" aria-label="{{::to.label}}">{{to.label}}</label>
 	<span ng-if="::to.description"

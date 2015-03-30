@@ -1,31 +1,17 @@
 {
-  "name": "FormlyLumx demo",
+  "name": "FormlyLumxDemo",
   "version": "1.4.0",
+  "repository": {
+    "type": "git",
+    "url": "github.com/formlyjs/angular-formly-templates-lumx"
+  },
   "authors": [
     "ShMcK <me@shmck.com>"
   ],
   "dependencies": {
-    "jquery": "~2.1.1",
-    "angular": "~1.3.14",
-    "angular-messages": "~1.3.14",
-    "angular-sanitize": "~1.3.14",
-    "angular-resource": "~1.3.14",
-    "angular-animate": "~1.3.14",
-    "angular-touch": "~1.3.14",
-    "angular-aria": "~1.3.14",
-    "angular-formly": "~4.0.6",
-    "lumx": "^0.3.20",
-    "angular-formly-templates-lumx": "~1.3.1",
-    "angular-ui-router": "~0.2.13",
-    "angular-markdown-directive": "^0.3.1"
-  },
-  "devDependencies": {
-    "angular-mocks": "~1.3.11"
-  },
-  "resolutions": {
-    "jquery": "~2.1.1",
-    "angular": "~1.3.14",
-    "angular-formly": "~4.0.6",
-    "api-check": "~6.0.10"
+    "lumx": "~0.3.24",
+    "angular-formly-templates-lumx": "~1.4.0",
+    "angular-markdown-directive": "~0.3.1",
+    "mdi": "~1.0.8-beta"
   }
 }
