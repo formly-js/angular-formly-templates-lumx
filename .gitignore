@@ -10,6 +10,6 @@ demo/e2e
 gulpfile.js
 demo/node_modules
 demo/app/bower_components
-demo/web.js
 demo/Procfile
+demo/server
 demoOld
