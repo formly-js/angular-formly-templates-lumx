@@ -4,11 +4,11 @@ var webpack = require('webpack'),
 	path = require('path');
 
 module.exports = {
-	context: __dirname + '/app',
+	context: __dirname + '/src',
 	entry: './index.js',
 	output: {
-		path: __dirname + '/app',
-		filename: 'bundle.js'
+		path: __dirname + '/dist',
+		filename: 'formlyLumx.js'
 	},
 	//stats: {
 	//	colors: true,
@@ -19,7 +19,7 @@ module.exports = {
 
 	resolve: {
 		extensions: ['', '.js'],
-		modulesDirectories: ['node_modules', 'bower_components']
+		modulesDirectories: ['node_modules']
 	},
 
 	module: {
@@ -29,12 +29,6 @@ module.exports = {
 				loader: 'ng-annotate!babel!jshint',
 				exclude: /node_modules|dist|bower_components/
 			}, {
-				test: /\.json$/,
-				loader: 'json'
-			}, {
-				test: /\.md$/,
-				loader: 'html!markdown'
-			}, {
 				test: /\.html$/,
 				loader: 'raw'
 			}, {
@@ -43,12 +37,6 @@ module.exports = {
 			}, {
 				test: /\.css$/,
 				loader: 'style!css!postcss'
-			}, {
-				test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
-				loader: "file"
-			}, {
-				test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file-loader?name=res/[name].[ext]?[hash]'
 			}
 		]
 	},

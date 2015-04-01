@@ -1,6 +1,6 @@
 {
   "name": "Formly LumX",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "authors": [
     "ShMcK <me@ShMcK.com>"
   ],
@@ -33,8 +33,8 @@
     "angular": "~1.3.14",
     "angular-messages": "~1.3.14",
     "angular-aria": "~1.3.14",
-    "angular-formly": "~4.2.1",
-    "lumx": "~0.3.23"
+    "angular-formly": "~4.2.5",
+    "lumx": "~0.3.25"
   },
   "resolutions": {
     "angular-formly": "^4.0.6"

@@ -4,6 +4,7 @@ export default () => {
    */
   //require('file!./bower_components/mdi/css/materialdesignicons.css');
   require('./index.scss');
+  require('file!./bower_components/mdi/fonts/');
 
   /**
    *  JS

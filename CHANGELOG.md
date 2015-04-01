@@ -1,3 +1,7 @@
+#1.5.0
+- formlyLumx.js re-written in webpack
+- you can now more easily edit and customize your own templates. Compile them by running "webpack" in the console.
+
 #1.4.0
 - demo re-written using ES6 & Webpack
 - updated advanced form layouts

@@ -1,23 +1,24 @@
 {
-  "name": "Formly LumX",
-  "version": "1.4.0",
+  "name": "FormlyLumX",
+  "version": "1.5.0",
   "description": "Angular-Formly templates based on the LumX Framework",
   "main": "gulpfile.js",
   "devDependencies": {
+    "autoprefixer-core": "^5.1.8",
+    "babel-loader": "^4.3.0",
+    "css-loader": "^0.9.1",
+    "csswring": "^3.0.2",
     "del": "^1.1.1",
-    "gulp": "^3.8.10",
-    "gulp-util": "^3.0.3",
-    "gulp-angular-templatecache": "^1.5.0",
-    "gulp-copy": "0.0.2",
-    "gulp-filesize": "0.0.6",
-    "gulp-html-minifier": "^0.1.6",
-    "gulp-load-plugins": "^0.8.0",
-    "gulp-regex-replace": "^0.2.3",
-    "gulp-rename": "^1.2.0",
-    "gulp-replace": "^0.5.2",
-    "gulp-trim": "^1.0.1",
-    "gulp-uglify": "^1.1.0",
-    "gulp-wrapper": "^0.1.5"
+    "jshint": "^2.6.3",
+    "jshint-loader": "^0.8.3",
+    "ng-annotate": "^0.15.4",
+    "ng-annotate-loader": "0.0.2",
+    "postcss": "^4.0.6",
+    "postcss-loader": "^0.3.0",
+    "postcss-nested": "^0.2.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^1.0.1",
+    "webpack": "^1.7.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,7 +27,7 @@
     "type": "git",
     "url": "https://github.com/formly-js/angular-formly-templates-lumx.git"
   },
-  "author": "",
+  "author": "ShMcK <me@shmck.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/formly-js/angular-formly-templates-lumx/issues"

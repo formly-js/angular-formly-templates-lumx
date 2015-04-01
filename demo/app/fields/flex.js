@@ -86,7 +86,6 @@ function flexFormFields() {
         }]
       }
     }, {
-      'key': 'row',
       type: 'lx-flex',
       templateOptions: {
         flex: {

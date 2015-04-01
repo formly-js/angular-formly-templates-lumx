@@ -11,7 +11,7 @@
   "private": true,
   "main": "app/index.js",
   "scripts": {
-    "start": "node node_modules/.bin/webpack-dev-server --content-base app",
+    "start": "node server/app.js",
     "start-win": "node_modules\\.bin\\webpack-dev-server.cmd -—content-base app",
     "test": "karma start test/config/karma.conf.js",
     "build": "NODE_ENV=production node node_modules/.bin/webpack && cp app/index.html app/index.html",
