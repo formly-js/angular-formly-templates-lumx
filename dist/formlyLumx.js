@@ -265,7 +265,7 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"checkbox\">\n\t<input ng-model=\"model[options.key]\"\n\t       type=\"checkbox\"\n\t       role=\"checkbox\"\n\t       class=\"checkbox__input\">\n\t<label for={{::id}} class=\"checkbox__label\" aria-label=\"{{::to.label}}\">{{to.label}}</label>\n\t<span ng-if=\"::to.description\"\n\t      class=\"checkbox__help\">{{::to.description}}</span>\n</div>\n\n\n<div class=\\\"checkbox\\\">\n\t<input ng-model=\\\"model[options.key]\\\"\n\t       type=\\\"checkbox\\\"\n\t       role=\\\"checkbox\\\"\n         class=\\\"checkbox__input\\\">\n\t<label for=\\\"{{::id}}\\\" class=\\\"checkbox__label\\\"\n\t\t\t\taria-label=\\\"{{::to.label}}\\\">{{to.label}}</label>\n\t<span ng-if=\\\"::to.description\\\"\n\t      class=\\\"checkbox__help\\\">{{::to.description}}</span></div>"
+	module.exports = "<div class=\"checkbox\">\n\t<input ng-model=\"model[options.key]\"\n\t       type=\"checkbox\"\n\t       role=\"checkbox\"\n\t       class=\"checkbox__input\">\n\t<label for={{::id}} class=\"checkbox__label\" aria-label=\"{{::to.label}}\">{{to.label}}</label>\n\t<span ng-if=\"::to.description\"\n\t      class=\"checkbox__help\">{{::to.description}}</span>\n</div>"
 
 /***/ },
 /* 2 */

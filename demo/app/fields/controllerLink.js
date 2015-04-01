@@ -32,7 +32,7 @@ function ctrlLinkFormFields() {
       templateOptions: {
         label: 'Confirmation Message.'
       },
-      link: function(scope, el, attrs, ctrl) {
+      link: function(scope, el) {
         el.bind('click', function() {
           var confirmation = confirm('Are you sure?');
           if (confirmation) {

@@ -1,5 +1,6 @@
 .gitignore
 .idea
+.npm-debug
 bower_components
 node_modules
 demo/.idea

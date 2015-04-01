@@ -7,6 +7,7 @@ function checkboxFormFields() {
     title: 'Checkbox',
     docFile: 'docs/checkbox.md'
   };
+
   this.formData = {
     hiddenBox: '',
     checkedCheckBox: true,
@@ -14,6 +15,7 @@ function checkboxFormFields() {
     disabledBox: '',
     checkedDisabledBox: true
   };
+
   this.fields = function() {
     return [{
       key: 'checkBoxExample',
