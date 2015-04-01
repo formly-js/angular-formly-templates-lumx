@@ -53,7 +53,7 @@
 	/* angular & 3rd party */
 	"ngSanitize", "ngAnimate", "ngTouch", "ui.router", "btford.markdown",
 	/* modules */
-	__webpack_require__(2).name, __webpack_require__(3).name, __webpack_require__(4).name, __webpack_require__(5).name]).constant("version", "1.4.0").config(["$urlRouterProvider", function routerSetup($urlRouterProvider) {
+	__webpack_require__(2).name, __webpack_require__(3).name, __webpack_require__(4).name, __webpack_require__(5).name]).constant("version", "1.5.1").config(["$urlRouterProvider", function routerSetup($urlRouterProvider) {
 	  $urlRouterProvider.otherwise("/input");
 	}]);
 
@@ -85,10 +85,10 @@
 	  __webpack_require__(46);
 	  __webpack_require__(45);
 	  //require('moment');
-	  __webpack_require__(17);
+	  __webpack_require__(34);
 	  __webpack_require__(41);
 	  //require('imports!./bower_components/showdown/compressed/Showdown.js');
-	  __webpack_require__(18);
+	  __webpack_require__(35);
 	};
 
 /***/ },
@@ -97,7 +97,7 @@
 
 	"use strict";
 
-	module.exports = angular.module("app.layout", []).service("SidebarService", __webpack_require__(14)).directive("shmckNav", __webpack_require__(15)).directive("shmckSidebar", __webpack_require__(16));
+	module.exports = angular.module("app.layout", []).service("SidebarService", __webpack_require__(6)).directive("shmckNav", __webpack_require__(7)).directive("shmckSidebar", __webpack_require__(8));
 
 /***/ },
 /* 3 */
@@ -105,7 +105,7 @@
 
 	"use strict";
 
-	module.exports = angular.module("app.components", []).directive("shmckProgressSpinner", __webpack_require__(6)).directive("shmckFormData", __webpack_require__(7)).directive("shmckDocsModal", __webpack_require__(8)).directive("shmckJsonFields", __webpack_require__(9)).directive("shmckContents", __webpack_require__(10)).directive("shmckContainer", __webpack_require__(11)).directive("shmckDivider", __webpack_require__(12)).filter("prettify", __webpack_require__(13));
+	module.exports = angular.module("app.components", []).directive("shmckProgressSpinner", __webpack_require__(9)).directive("shmckFormData", __webpack_require__(10)).directive("shmckDocsModal", __webpack_require__(11)).directive("shmckJsonFields", __webpack_require__(12)).directive("shmckContents", __webpack_require__(13)).directive("shmckContainer", __webpack_require__(14)).directive("shmckDivider", __webpack_require__(15)).filter("prettify", __webpack_require__(16));
 
 /***/ },
 /* 4 */
@@ -113,7 +113,7 @@
 
 	"use strict";
 
-	module.exports = angular.module("app.main", []).controller("MainCtrl", __webpack_require__(35));
+	module.exports = angular.module("app.main", []).controller("MainCtrl", __webpack_require__(17));
 
 /***/ },
 /* 5 */
@@ -123,164 +123,14 @@
 
 	module.exports = angular.module("shmck.formFields", [
 	/* TYPES */
-	__webpack_require__(19).name, __webpack_require__(20).name, __webpack_require__(21).name, __webpack_require__(22).name, __webpack_require__(23).name, __webpack_require__(24).name, __webpack_require__(25).name, __webpack_require__(26).name,
+	__webpack_require__(18).name, __webpack_require__(19).name, __webpack_require__(20).name, __webpack_require__(21).name, __webpack_require__(22).name, __webpack_require__(23).name, __webpack_require__(24).name, __webpack_require__(25).name,
 	/* WRAPPERS */
-	__webpack_require__(27).name, __webpack_require__(28).name, __webpack_require__(29).name,
+	__webpack_require__(26).name, __webpack_require__(27).name, __webpack_require__(28).name,
 	/* FEATURES */
-	__webpack_require__(30).name, __webpack_require__(31).name, __webpack_require__(32).name, __webpack_require__(33).name, __webpack_require__(34).name]);
+	__webpack_require__(29).name, __webpack_require__(30).name, __webpack_require__(31).name, __webpack_require__(32).name, __webpack_require__(33).name]);
 
 /***/ },
 /* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-	var ProgressSpinnerCtrl = function ProgressSpinnerCtrl(LxProgressService, $timeout, $scope) {
-	  _classCallCheck(this, ProgressSpinnerCtrl);
-
-	  LxProgressService.circular.show("#5fa2db", "#progress");
-
-	  $scope.$watch("items", function () {
-	    if ($scope.items) {
-	      $timeout(function () {
-	        LxProgressService.circular.hide();
-	      }, 200);
-	    }
-	  });
-	};
-
-	ProgressSpinnerCtrl.$inject = ["LxProgressService", "$timeout", "$scope"];
-
-	module.exports = function () {
-	  return {
-	    scope: {
-	      items: "="
-	    },
-	    template: "<div id=\"progress\"></div>",
-	    controller: ProgressSpinnerCtrl
-	  };
-	};
-
-/***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: __webpack_require__(65),
-	    scope: {
-	      formData: "="
-	    }
-	  };
-	};
-
-/***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  __webpack_require__(59);
-	  return {
-	    template: __webpack_require__(67),
-	    bindToController: true
-	  };
-	};
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  __webpack_require__(57);
-	  return {
-	    template: __webpack_require__(66),
-	    scope: {
-	      fields: "="
-	    }
-	  };
-	};
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: __webpack_require__(69),
-	    scope: {
-	      content: "="
-	    }
-	  };
-	};
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: __webpack_require__(68),
-	    scope: {
-	      title: "@",
-	      bgc: "@"
-	    },
-	    transclude: true
-	  };
-	};
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: "<span class=\"shmck-divider\"></span>"
-	  };
-	};
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return function (json) {
-	    json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-	      var cls = "number";
-	      if (/^"/.test(match)) {
-	        if (/:$/.test(match)) {
-	          cls = "key";
-	        } else {
-	          cls = "string";
-	        }
-	      } else if (/true|false/.test(match)) {
-	        cls = "boolean";
-	      } else if (/null/.test(match)) {
-	        cls = "null";
-	      }
-	      return "<span class=\"" + cls + "\">" + match + "</span>";
-	    });
-	  };
-	};
-
-/***/ },
-/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -321,23 +171,23 @@
 	module.exports = SidebarService;
 
 /***/ },
-/* 15 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	module.exports = function () {
-	  __webpack_require__(61);
+	  __webpack_require__(57);
 	  return {
 	    restrict: "E",
-	    controller: __webpack_require__(63),
+	    controller: __webpack_require__(59),
 	    controllerAs: "vm",
-	    template: __webpack_require__(70)
+	    template: __webpack_require__(66)
 	  };
 	};
 
 /***/ },
-/* 16 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -358,7 +208,7 @@
 	    scope: {
 	      items: "@"
 	    },
-	    template: __webpack_require__(71),
+	    template: __webpack_require__(67),
 	    controllerAs: "vm",
 	    bindToController: true,
 	    controller: SidebarCtrl
@@ -366,7 +216,1774 @@
 	};
 
 /***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+	var ProgressSpinnerCtrl = function ProgressSpinnerCtrl(LxProgressService, $timeout, $scope) {
+	  _classCallCheck(this, ProgressSpinnerCtrl);
+
+	  LxProgressService.circular.show("#5fa2db", "#progress");
+
+	  $scope.$watch("items", function () {
+	    if ($scope.items) {
+	      $timeout(function () {
+	        LxProgressService.circular.hide();
+	      }, 200);
+	    }
+	  });
+	};
+
+	ProgressSpinnerCtrl.$inject = ["LxProgressService", "$timeout", "$scope"];
+
+	module.exports = function () {
+	  return {
+	    scope: {
+	      items: "="
+	    },
+	    template: "<div id=\"progress\"></div>",
+	    controller: ProgressSpinnerCtrl
+	  };
+	};
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: __webpack_require__(68),
+	    scope: {
+	      formData: "="
+	    }
+	  };
+	};
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  __webpack_require__(60);
+	  return {
+	    template: __webpack_require__(69),
+	    bindToController: true
+	  };
+	};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  __webpack_require__(62);
+	  return {
+	    template: __webpack_require__(70),
+	    scope: {
+	      fields: "="
+	    }
+	  };
+	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: __webpack_require__(71),
+	    scope: {
+	      content: "="
+	    }
+	  };
+	};
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: __webpack_require__(72),
+	    scope: {
+	      title: "@",
+	      bgc: "@"
+	    },
+	    transclude: true
+	  };
+	};
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: "<span class=\"shmck-divider\"></span>"
+	  };
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return function (json) {
+	    json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+	      var cls = "number";
+	      if (/^"/.test(match)) {
+	        if (/:$/.test(match)) {
+	          cls = "key";
+	        } else {
+	          cls = "string";
+	        }
+	      } else if (/true|false/.test(match)) {
+	        cls = "boolean";
+	      } else if (/null/.test(match)) {
+	        cls = "null";
+	      }
+	      return "<span class=\"" + cls + "\">" + match + "</span>";
+	    });
+	  };
+	};
+
+/***/ },
 /* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+	var FormCtrl = (function () {
+	  function FormCtrl(formFields, contents, formData, LxDialogService) {
+	    _classCallCheck(this, FormCtrl);
+
+	    //constructor(LxDialogService) {
+	    this.contents = contents;
+	    this.formData = formData || {};
+	    this.formFields = formFields();
+	    this.jsonFields = formFields();
+	    this.currentItem = 0;
+	    this.LxDialogService = LxDialogService;
+	  }
+
+	  _createClass(FormCtrl, {
+	    submit: {
+	      value: function submit() {
+	        alert(JSON.stringify(this.formData));
+	      }
+	    },
+	    openDialog: {
+	      value: function openDialog() {
+	        this.LxDialogService.open("docsModal");
+	      }
+	    }
+	  });
+
+	  return FormCtrl;
+	})();
+
+	//FormCtrl.$inject = ['LxDialogService'];
+	FormCtrl.$inject = ["formFields", "contents", "formData", "LxDialogService"];
+
+	module.exports = FormCtrl;
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.switch", []).service("switchFormFields", switchFormFields).config(stateRoutes);
+
+	function switchFormFields() {
+	  this.contents = {
+	    title: "Switch",
+	    docFile: "docs/switch.md"
+	  };
+
+	  this.formData = {
+	    regularSwitch: "",
+	    hiddenSwitch: "",
+	    checkedSwitch: true,
+	    helperSwitch: "",
+	    disabledSwitch: "",
+	    disabledCheckedSwitch: true
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "regularSwitch",
+	      type: "lx-switch",
+	      templateOptions: {
+	        label: "Regular switch"
+	      }
+	    }, {
+	      key: "checkedSwitch",
+	      type: "lx-switch",
+	      templateOptions: {
+	        label: "Switched Switch",
+	        checked: true
+	      }
+	    }, {
+	      key: "helperSwitch",
+	      type: "lx-switch",
+	      templateOptions: {
+	        label: "Switch with Helper",
+	        description: "Explaining a little more"
+	      }
+	    }, {
+	      key: "disabledSwitch",
+	      type: "lx-switch",
+	      templateOptions: {
+	        label: "Disabled Switch",
+	        disabled: true
+	      }
+	    }, {
+	      key: "disabledCheckedSwitch",
+	      type: "lx-switch",
+	      templateOptions: {
+	        label: "Disabled & Checked Switch",
+	        disabled: true,
+	        checked: true
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("switch", {
+	    url: "/switch",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["switchFormFields", function formFields(switchFormFields) {
+	            return switchFormFields.fields;
+	          }],
+	          contents: ["switchFormFields", function contents(switchFormFields) {
+	            return switchFormFields.contents;
+	          }],
+	          formData: ["switchFormFields", function formData(switchFormFields) {
+	            return switchFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.radio", []).service("radioFormFields", radioFormFields).config(stateRoutes);
+
+	function radioFormFields() {
+	  this.contents = {
+	    title: "Radio",
+	    docFile: "docs/radio.md"
+	  };
+
+	  this.formData = {
+	    radio: "",
+	    radioWithDescription: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "radio",
+	      type: "lx-radio",
+	      templateOptions: {
+	        label: "What's your favorite number?",
+	        options: [{
+	          name: "One",
+	          value: 1
+	        }, {
+	          name: "Seven",
+	          value: 7
+	        }, {
+	          name: "Thirteen",
+	          value: 13,
+	          disabled: true
+	        }]
+	      }
+	    }, {
+	      key: "radioWithDescription",
+	      type: "lx-radio",
+	      templateOptions: {
+	        label: "What's your least favorite number?",
+	        options: [{
+	          name: "One",
+	          value: 1,
+	          description: "The First"
+	        }, {
+	          name: "Seven",
+	          value: 7,
+	          description: "The Lucky One"
+	        }, {
+	          name: "Thirteen",
+	          value: 13,
+	          description: "The Unlucky One",
+	          disabled: true
+	        }]
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("radio", {
+	    url: "/radio",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["radioFormFields", function formFields(radioFormFields) {
+	            return radioFormFields.fields;
+	          }],
+	          contents: ["radioFormFields", function contents(radioFormFields) {
+	            return radioFormFields.contents;
+	          }],
+	          formData: ["radioFormFields", function formData(radioFormFields) {
+	            return radioFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.select", []).service("selectFormFields", selectFormFields).config(stateRoutes);
+
+	function selectFormFields() {
+	  this.contents = {
+	    title: "Selectors",
+	    subhead: "select, multiple-select",
+	    docFile: "docs/select.md"
+	  };
+
+	  this.formData = {
+	    singleSelect: "",
+	    singleSelectTwo: "",
+	    multipleSelect: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "singleSelect",
+	      type: "lx-select",
+	      templateOptions: {
+	        label: "Basic Single Select",
+	        placeholder: "Choose a Person",
+	        selected: "name",
+	        choice: "name",
+	        options: [{
+	          name: "Adam"
+	        }, {
+	          name: "Amalie"
+	        }, {
+	          name: "Wladimir"
+	        }, {
+	          name: "Samantha"
+	        }, {
+	          name: "Estefania"
+	        }]
+	      }
+	    }, {
+	      key: "singleSelectTwo",
+	      type: "lx-select",
+	      templateOptions: {
+	        space: true,
+	        label: "Advanced Single Select",
+	        placeholder: "Choose an Email",
+	        allowClear: true,
+	        selected: "name",
+	        selected2: "age",
+	        choice: "email",
+	        choice2: "age",
+	        options: [{ name: "Adam", email: "adam@email.com", age: 10 }, { name: "Amalie", email: "amalie@email.com", age: 12 }, { name: "Wladimir", email: "wladimir@email.com", age: 30 }, { name: "Samantha", email: "samantha@email.com", age: 31 }, { name: "Estefanía", email: "estefanía@email.com", age: 16 }, { name: "Natasha", email: "natasha@email.com", age: 54 }, { name: "Nicole", email: "nicole@email.com", age: 43 }, { name: "Adrian", email: "adrian@email.com", age: 21 }]
+	      }
+	    }, {
+	      key: "multipleSelect",
+	      type: "lx-select",
+	      templateOptions: {
+	        space: true,
+	        multiple: true,
+	        label: "Multiple Select",
+	        placeholder: "Choose an Email",
+	        selected: "name",
+	        choice: "email",
+	        options: [{ name: "Adam", email: "adam@email.com", age: 10 }, { name: "Amalie", email: "amalie@email.com", age: 12 }, { name: "Wladimir", email: "wladimir@email.com", age: 30 }, { name: "Samantha", email: "samantha@email.com", age: 31 }, { name: "Estefanía", email: "estefanía@email.com", age: 16 }, { name: "Natasha", email: "natasha@email.com", age: 54 }, { name: "Nicole", email: "nicole@email.com", age: 43 }, { name: "Adrian", email: "adrian@email.com", age: 21 }]
+	      }
+	      //}, {
+	      //  key: 'subFileInput',
+	      //  type: 'lx-subhead',
+	      //  templateOptions: {
+	      //    subhead: 'File Input',
+	      //    style: {'text-decoration': 'underline'}
+	      //  }
+	      //}, {
+	      //key: 'fileInput0',
+	      //type: 'lx-file-input',
+	      //templateOptions: {
+	      //  fileLabel: 'Input a file...',
+	      //  label: 'Filename'
+	      //}
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("select", {
+	    url: "/select",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["selectFormFields", function formFields(selectFormFields) {
+	            return selectFormFields.fields;
+	          }],
+	          contents: ["selectFormFields", function contents(selectFormFields) {
+	            return selectFormFields.contents;
+	          }],
+	          formData: ["selectFormFields", function formData(selectFormFields) {
+	            return selectFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.datePicker", []).service("datePickerFormFields", datePickerFormFields).config(stateRoutes);
+
+	function datePickerFormFields() {
+	  this.contents = {
+	    title: "Date Picker",
+	    docFile: "docs/datePicker.md"
+	  };
+
+	  this.formData = {};
+
+	  this.fields = function () {
+	    return [{
+	      key: "datePicker",
+	      type: "lx-date-picker",
+	      templateOptions: {
+	        label: "Pick a Date"
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("datePicker", {
+	    url: "/datePicker",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["datePickerFormFields", function formFields(datePickerFormFields) {
+	            return datePickerFormFields.fields;
+	          }],
+	          contents: ["datePickerFormFields", function contents(datePickerFormFields) {
+	            return datePickerFormFields.contents;
+	          }],
+	          formData: ["datePickerFormFields", function formData(datePickerFormFields) {
+	            return datePickerFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.input", []).service("inputFormFields", inputFormFields).config(stateRoutes);
+
+	function inputFormFields() {
+	  this.contents = {
+	    title: "Input Fields",
+	    subhead: "input & textarea",
+	    docFile: "docs/input.md"
+	  };
+
+	  this.formData = {
+	    floatLabel: "",
+	    fixedLabel: "",
+	    fixedIcon: "",
+	    disabledText: "",
+	    textArea: "Once upon a midnight dreary, while I pondered, weak and weary,       Over many a quaint and curious volume of forgotten forms—",
+	    validatedText: ""
+	  };
+
+	  var underlined = { "text-decoration": "underline" };
+
+	  this.fields = function () {
+	    return [{
+	      key: "floatLabel",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "text",
+	        label: "Float Label"
+	      }
+	    }, {
+	      key: "fixedLabel",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "text",
+	        label: "Fixed Label",
+	        fixedLabel: true
+	      }
+	    }, {
+	      key: "fixedIcon",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "text",
+	        fixedLabel: true,
+	        icon: "account",
+	        label: "With Icon"
+	      }
+	    }, {
+	      key: "disabledText",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "text",
+	        label: "Disabled",
+	        fixedLabel: true,
+	        disabled: true
+	      }
+	    }, {
+	      key: "textArea",
+	      type: "lx-textarea",
+	      templateOptions: {
+	        label: "Textarea example"
+	      }
+	    }, {
+	      key: "validatedText",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        type: "password",
+	        label: "Validation Example",
+	        minlength: 4,
+	        maxlength: 8,
+	        required: true
+	      },
+	      ngModelAttrs: {
+	        minlength: {
+	          bound: "ng-minlength",
+	          attribute: "minlength"
+	        },
+	        maxlength: {
+	          bound: "ng-maxlength",
+	          attribute: "maxlength"
+	        }
+
+	      },
+	      modelOptions: {
+	        allowInvalid: false,
+	        updateOn: "keydown blur",
+	        debounce: {
+	          keydown: 100,
+	          "default": 100,
+	          blur: 0
+	        }
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("input", {
+	    url: "/input",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["inputFormFields", function formFields(inputFormFields) {
+	            return inputFormFields.fields;
+	          }],
+	          contents: ["inputFormFields", function contents(inputFormFields) {
+	            return inputFormFields.contents;
+	          }],
+	          formData: ["inputFormFields", function formData(inputFormFields) {
+	            return inputFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.dropdown", []).service("dropdownFormFields", dropdownFormFields).config(stateRoutes);
+
+	function dropdownFormFields() {
+	  this.contents = {
+	    title: "Dropdown"
+	    //markdownFile: 'app/docs/dropdown.md'
+	  };
+
+	  this.formData = {
+	    dropdown: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "dropdown",
+	      type: "lx-dropdown",
+	      templateOptions: {
+	        label: "Select",
+	        className: "btn--m btn--black btn--flat",
+	        options: [{
+	          text: "Item 1",
+	          action: function action() {
+	            alert("item1");
+	          }
+	        }, {
+	          text: "Item 2",
+	          action: function action() {
+	            alert("item2");
+	          }
+	        }, {
+	          text: "Item 3",
+	          action: function action() {
+	            alert("item3");
+	          }
+	        }]
+	      }
+	    }, {
+	      key: "dropdown",
+	      type: "lx-dropdown",
+	      templateOptions: {
+	        className: "btn--m btn--black btn--icon",
+	        icon: "dots-vertical",
+	        options: [{
+	          text: "Item 1",
+	          action: function action() {
+	            alert("item1");
+	          }
+	        }, {
+	          text: "Item 2",
+	          action: function action() {
+	            alert("item2");
+	          }
+	        }, {
+	          text: "Item 3",
+	          action: function action() {
+	            alert("item3");
+	          }
+	        }]
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("dropdown", {
+	    url: "/dropdown",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["dropdownFormFields", function formFields(dropdownFormFields) {
+	            return dropdownFormFields.fields;
+	          }],
+	          contents: ["dropdownFormFields", function contents(dropdownFormFields) {
+	            return dropdownFormFields.contents;
+	          }],
+	          formData: ["dropdownFormFields", function formData(dropdownFormFields) {
+	            return dropdownFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.flex", []).service("flexFormFields", flexFormFields).config(stateRoutes);
+
+	function flexFormFields() {
+	  this.contents = {
+	    title: "FlexBox Wrappers",
+	    subhead: "lx-flex",
+	    description: "app/notes/flexDescription.md",
+	    docFile: "docs/flex.md",
+	    notes: "docs/notes/flexNotes.md"
+	  };
+
+	  this.formData = {
+	    rowItem1: "",
+	    rowItem2: "",
+	    rowItem3: "",
+	    columnItem1: "",
+	    columnItem2: "",
+	    columnItem3: "",
+	    mixedItem1: "",
+	    addressStreetNumber: "",
+	    addressStreetName: "",
+	    addressStreetType: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      type: "lx-flex",
+	      templateOptions: {
+	        flex: {
+	          container: "row",
+	          item: 5
+	        },
+
+	        fields: [{
+	          type: "lx-input",
+	          key: "firstName",
+	          templateOptions: {
+	            label: "First Name"
+	          }
+	        }, {
+	          type: "lx-input",
+	          key: "lastName",
+	          templateOptions: {
+	            label: "Last Name"
+	          }
+	        }]
+	      }
+	    }, {
+	      type: "lx-flex",
+	      templateOptions: {
+	        flex: {
+	          container: "column",
+	          align: "space-between center",
+	          gutter: 24,
+	          item: 10
+	        },
+	        fields: [{
+	          key: "columnItem1",
+	          type: "lx-input",
+	          templateOptions: {
+	            type: "text",
+	            fixedLabel: true,
+	            label: "Column"
+	          }
+	        }, {
+	          key: "columnItem2",
+	          type: "lx-input",
+	          templateOptions: {
+	            type: "text",
+	            fixedLabel: true,
+	            label: "Column"
+	          }
+	        }, {
+	          key: "columnItem3",
+	          type: "lx-input",
+	          templateOptions: {
+	            type: "text",
+	            fixedLabel: true,
+	            label: "Column"
+	          }
+	        }]
+	      }
+	    }, {
+	      type: "lx-flex",
+	      templateOptions: {
+	        flex: {
+	          container: "row",
+	          align: "center center",
+	          gutter: 8,
+	          item: 3
+	        },
+	        fields: [{
+	          key: "addressStreetNumber",
+	          type: "lx-input",
+	          templateOptions: {
+	            type: "number",
+	            fixedLabel: true,
+	            label: "Street #"
+	          }
+	        }, {
+	          key: "addressStreetName",
+	          type: "lx-input",
+	          templateOptions: {
+	            type: "text",
+	            fixedLabel: true,
+	            label: "Street Name"
+	          }
+	        }, {
+	          key: "addressStreetType",
+	          type: "lx-select",
+	          templateOptions: {
+	            flex: {
+	              style: {
+	                bottom: "20px"
+	              }
+	            },
+	            placeholder: "Street Type",
+	            selected: "type",
+	            choice: "type",
+	            options: [{ type: "St." }, { type: "Ave." }, { type: "Blvd." }, { type: "Cres." }]
+	          }
+	        }]
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("flex", {
+	    url: "/flex",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["flexFormFields", function formFields(flexFormFields) {
+	            return flexFormFields.fields;
+	          }],
+	          contents: ["flexFormFields", function contents(flexFormFields) {
+	            return flexFormFields.contents;
+	          }],
+	          formData: ["flexFormFields", function formData(flexFormFields) {
+	            return flexFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.checkbox", []).service("checkboxFormFields", checkboxFormFields).config(stateRoutes);
+
+	function checkboxFormFields() {
+	  this.contents = {
+	    title: "Checkbox",
+	    docFile: "docs/checkbox.md"
+	  };
+
+	  this.formData = {
+	    hiddenBox: "",
+	    checkedCheckBox: true,
+	    helperBox: "",
+	    disabledBox: "",
+	    checkedDisabledBox: true
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "checkBoxExample",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Basic Checkbox"
+	      }
+	    }, {
+	      key: "checkedCheckBox",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Checked Checkbox",
+	        checked: true
+	      }
+	    }, {
+	      key: "helperBox",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Checkbox with Helper",
+	        description: "Explaining a little more"
+	      }
+	    }, {
+	      key: "disabledBox",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Disabled Box",
+	        disabled: true
+	      }
+	    }, {
+	      key: "checkedDisabledBox",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Checked & Disabled Box",
+	        disabled: true,
+	        checked: true
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("checkbox", {
+	    url: "/checkbox",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["checkboxFormFields", function formFields(checkboxFormFields) {
+	            return checkboxFormFields.fields;
+	          }],
+	          contents: ["checkboxFormFields", function contents(checkboxFormFields) {
+	            return checkboxFormFields.contents;
+	          }],
+	          formData: ["checkboxFormFields", function formData(checkboxFormFields) {
+	            return checkboxFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.themes", []).service("themeFormFields", themeFormFields).config(stateRoutes);
+
+	function themeFormFields() {
+	  this.contents = {
+	    title: "Themes",
+	    subhead: "backgrounds + dark/light font themes",
+	    docFile: "docs/themes.md",
+	    description: "docs/notes/themeDescription.md",
+	    formFieldsClass: "bgc-blue-grey-500 addPadding"
+	  };
+
+	  this.formData = {
+	    dark1: "",
+	    dark2: "",
+	    light1: "",
+	    light2: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      template: "<div class=\"tc-white fs-title\"><h3>Dark Theme</h3></div>"
+	    }, {
+	      key: "dark1",
+	      type: "lx-input",
+	      templateOptions: {
+	        fixedLabel: true,
+	        type: "text",
+	        icon: "account-outline",
+	        label: "Name",
+	        theme: "dark"
+	      }
+	    }, {
+	      key: "dark2",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "email",
+	        icon: "email-outline",
+	        label: "Email",
+	        fixedLabel: true,
+	        theme: "dark"
+	      }
+	    }, {
+	      template: "<div class=\"bgc-yellow-500 fs-title\"><h3>Light Theme</h3></div>"
+	    }, {
+	      key: "light1",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-div",
+	      templateOptions: {
+	        div: {
+	          className: "bgc-yellow-500"
+	        },
+	        fixedLabel: true,
+	        type: "text",
+	        label: "Name",
+	        icon: "account",
+	        theme: "light"
+	      }
+	    }, {
+	      key: "light2",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-div",
+	      templateOptions: {
+	        div: {
+	          className: "bgc-yellow-500"
+	        },
+	        type: "email",
+	        label: "Email",
+	        icon: "email",
+	        fixedLabel: true,
+	        theme: "light"
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("theme", {
+	    url: "/themes",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["themeFormFields", function formFields(themeFormFields) {
+	            return themeFormFields.fields;
+	          }],
+	          contents: ["themeFormFields", function contents(themeFormFields) {
+	            return themeFormFields.contents;
+	          }],
+	          formData: ["themeFormFields", function formData(themeFormFields) {
+	            return themeFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.inline", []).service("inlineFormFields", inlineFormFields).config(stateRoutes);
+
+	function inlineFormFields() {
+	  this.contents = {
+	    title: "Inline Wrapper",
+	    docFile: "docs/input.md"
+	  };
+
+	  this.formData = {};
+
+	  this.fields = function () {
+	    return [{
+	      key: "workPlace",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-inline",
+	      templateOptions: {
+	        inline: {
+	          before: "I work at "
+	        },
+	        fixedLabel: true,
+	        label: "Work Place"
+	      } }, {
+	      key: "experience",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-inline",
+	      templateOptions: {
+	        inline: {
+	          before: "I've been working there for ",
+	          after: " years."
+	        },
+	        type: "number",
+	        label: "# years",
+	        fixedLabel: true
+	      }
+	    }, {
+	      key: "salaryHope",
+	      type: "lx-select",
+	      wrapper: "lx-wrapper-inline",
+	      templateOptions: {
+	        inline: {
+	          before: "I hope to make ",
+	          after: " per year.",
+	          contentStyle: {
+	            bottom: "-11px"
+	          }
+	        },
+	        placeholder: "Salary Expectation",
+	        selected: "range",
+	        choice: "range",
+	        options: [{
+	          range: "under $30,000"
+	        }, {
+	          range: "between $30 & 50,000"
+	        }, {
+	          range: "between $50 & 75,000"
+	        }, {
+	          range: "over $75,000"
+	        }]
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("inline", {
+	    url: "/inline",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["inlineFormFields", function formFields(inlineFormFields) {
+	            return inlineFormFields.fields;
+	          }],
+	          contents: ["inlineFormFields", function contents(inlineFormFields) {
+	            return inlineFormFields.contents;
+	          }],
+	          formData: ["inlineFormFields", function formData(inlineFormFields) {
+	            return inlineFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.error", []).service("errorFormFields", errorFormFields).directive("iceCream", iceCream).config(stateRoutes);
+
+	/*@ngInject*/
+	function errorFormFields() {
+	  this.contents = {
+	    title: "Error Notification",
+	    subhead: "easy validation tools",
+	    docFile: "docs/error.md",
+	    description: "docs/notes/errorDescription.md"
+	  };
+
+	  this.formData = {
+	    email: "",
+	    url: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "email",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        type: "email",
+	        label: "Email",
+	        fixedLabel: true,
+	        required: true
+	      },
+	      validation: {
+	        messages: {
+	          email: function email() {
+	            return "That doesn't look like a real email address.";
+	          }
+	        }
+	      },
+	      modelOptions: {
+	        allowInvalid: false
+	      }
+	    }, {
+	      key: "url",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        type: "url",
+	        fixedLabel: true,
+	        label: "Link to a url"
+	      },
+	      validation: {
+	        messages: {
+	          url: function url() {
+	            return "For example: http://www.google.com";
+	          }
+	        }
+	      },
+	      modelOptions: {
+	        allowInvalid: false
+	      }
+	      //}, {
+	      //  key: 'textPattern',
+	      //  type: 'lx-input',
+	      //  wrapper: 'lx-wrapper-errors',
+	      //  templateOptions: {
+	      //    type: 'text',
+	      //    fixedLabel: true,
+	      //    label: 'Four letter word    |  pattern',
+	      //    pattern: /^[a-zA-Z]{4}$/,
+	      //    required: true
+	      //  },
+	      //  validation: {
+	      //    messages: [{
+	      //      name: 'pattern',
+	      //      message: 'Must be a four letter word.'
+	      //    }]
+	      //  },
+	      //  ngModelAttrs: {
+	      //    pattern: {
+	      //      attribute: 'pattern'
+	      //    }
+	      //  }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("error", {
+	    url: "/errors",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["errorFormFields", function formFields(errorFormFields) {
+	            return errorFormFields.fields;
+	          }],
+	          contents: ["errorFormFields", function contents(errorFormFields) {
+	            return errorFormFields.contents;
+	          }],
+	          formData: ["errorFormFields", function formData(errorFormFields) {
+	            return errorFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+	function iceCream() {
+	  return {
+	    restrict: "A",
+	    require: "?ngModel",
+	    link: function link(scope, element, attributes, ngModel) {
+	      ngModel.$validators.iceCream = function (modelValue) {
+	        var flavors = ["chocolate", "vanilla", "strawberry"];
+	        return flavors.indexOf(modelValue.toLowerCase()) !== -1;
+	      };
+	    }
+	  };
+	}
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.modelOptions", []).service("modelOptionsFormFields", modelOptionsFormFields).config(stateRoutes);
+
+	function modelOptionsFormFields() {
+	  this.contents = {
+	    title: "Model Options",
+	    description: "docs/notes/modelOptionsDescription.md",
+	    docsLink: "https://docs.angularjs.org/api/ng/directive/ngModelOptions"
+	  };
+
+	  this.formData = {
+	    defaultOnBlur: "",
+	    onKeyUp: "",
+	    onlyValid: "",
+	    mixed: ""
+	  };
+
+	  var numbersRegex = /^\d+$/;
+	  var numbersOnlyValidator = {
+	    numbersOnly: {
+	      expression: function expression(viewValue, modelValue) {
+	        var value = viewValue || modelValue || "";
+	        return numbersRegex.test(value);
+	      },
+	      message: "\"Numbers only please.\""
+	    }
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "defaultOnBlur",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        fixedLabel: true,
+	        required: true,
+	        label: "When user changes fields"
+	      },
+	      modelOptions: {
+	        updateOn: "default blur"
+	      },
+	      validators: numbersOnlyValidator
+	    }, {
+	      key: "onKeyUp",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        fixedLabel: true,
+	        required: true,
+	        label: "About when user stops typing"
+	      },
+	      modelOptions: {
+	        updateOn: "keyup",
+	        debounce: {
+	          keyup: 300
+	        }
+	      },
+	      validators: numbersOnlyValidator
+	    }, {
+	      key: "onlyValid",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        fixedLabel: true,
+	        required: true,
+	        label: "Only saves when data is valid"
+	      },
+	      modelOptions: {
+	        allowInvalid: false
+	      },
+	      validators: numbersOnlyValidator
+	    }, {
+	      key: "mixed",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      templateOptions: {
+	        fixedLabel: true,
+	        required: true,
+	        label: "On blur or end of typing, only valid"
+	      },
+	      modelOptions: {
+	        allowInvalid: false,
+	        updateOn: "keyup blur",
+	        debounce: {
+	          blur: 0,
+	          keyUp: 300
+	        }
+	      },
+	      validators: numbersOnlyValidator
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("modelOptions", {
+	    url: "/modelOptions",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["modelOptionsFormFields", function formFields(modelOptionsFormFields) {
+	            return modelOptionsFormFields.fields;
+	          }],
+	          contents: ["modelOptionsFormFields", function contents(modelOptionsFormFields) {
+	            return modelOptionsFormFields.contents;
+	          }],
+	          formData: ["modelOptionsFormFields", function formData(modelOptionsFormFields) {
+	            return modelOptionsFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.validators", []).service("validatorsFormFields", validatorsFormFields).config(stateRoutes);
+
+	/*@ngInject*/
+	function validatorsFormFields($timeout, $q) {
+	  this.contents = {
+	    title: "Validators",
+	    subhead: "sync & async, pending",
+	    docsLink: "http://formly-js.github.io/angular-formly/#/example/advanced/validators"
+	  };
+
+	  this.formData = {
+	    iceCreamFlavor: "",
+	    iceCreamFlavor2: ""
+	  };
+
+	  function flavorInStock(viewValue, modelValue) {
+	    return $timeout(function () {
+	      var value = modelValue || viewValue || "";
+	      var flavors = ["chocolate", "vanilla", "strawberry"];
+	      var fn = flavors.indexOf(value.toLowerCase()) !== -1 ? $q.when : $q.reject;
+	      return fn();
+	    }, 800);
+	  }
+
+	  var flavorInStockValidator = {
+	    flavorInStock: {
+	      expression: flavorInStock,
+	      //message: '"View Value: " + $viewValue'
+	      message: "\"Sorry, we don't have that flavor in stock. How about chocolate?\""
+	    }
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "iceCreamFlavor",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      validators: flavorInStockValidator,
+	      templateOptions: {
+	        label: "What's your favorite ice cream?"
+	      },
+	      modelOptions: {
+	        updateOn: "keyup blur"
+	      }
+	    }, {
+	      key: "iceCreamFlavor2",
+	      type: "lx-input",
+	      wrapper: "lx-wrapper-errors",
+	      validators: flavorInStockValidator,
+	      templateOptions: {
+	        label: "What's your favorite ice cream? (pending)",
+	        pending: "Checking for ice cream flavor..."
+	      },
+	      modelOptions: {
+	        updateOn: "keyup"
+	      }
+	    }];
+	  };
+	}
+	validatorsFormFields.$inject = ["$timeout", "$q"];
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("validators", {
+	    url: "/validators",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["validatorsFormFields", function formFields(validatorsFormFields) {
+	            return validatorsFormFields.fields;
+	          }],
+	          contents: ["validatorsFormFields", function contents(validatorsFormFields) {
+	            return validatorsFormFields.contents;
+	          }],
+	          formData: ["validatorsFormFields", function formData(validatorsFormFields) {
+	            return validatorsFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.expression", []).service("expressionFormFields", expressionFormFields).config(stateRoutes);
+
+	function expressionFormFields() {
+	  this.contents = {
+	    title: "Expression Properties",
+	    docsLink: "http://formly-js.github.io/angular-formly/#/example/intro/expression-properties"
+	  };
+
+	  this.formData = {
+	    showHidden: "",
+	    disableNextField: "",
+	    probablyNotNeeded: "",
+	    setMaxLength: 4,
+	    textWithSetMaxLength: "four",
+	    editLabel: ""
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "showHidden",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Show Hidden Field"
+	      }
+	    }, {
+	      template: "<h1>This was hidden!</h1>",
+	      expressionProperties: {
+	        hide: "!model.showHidden"
+	      }
+	    }, {
+	      key: "disableNextField",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Disable Next Field"
+	      }
+	    }, {
+	      key: "probablyNotNeeded",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Can Be Disabled" },
+	      expressionProperties: {
+	        "templateOptions.disabled": "model.disableNextField"
+	      }
+	    }, {
+	      key: "setMaxLength",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "number",
+	        label: "Set next field max length"
+	      }
+	    }, {
+	      key: "textWithSetMaxLength",
+	      type: "lx-input",
+	      templateOptions: {
+	        label: "Text with max length set"
+	      },
+	      ngModelAttrs: {
+	        maxLength: {
+	          bound: "ng-maxlength"
+	        }
+	      },
+	      expressionProperties: {
+	        "templateOptions.maxLength": "model.setMaxLength"
+	      }
+	    }, {
+	      key: "editLabel",
+	      type: "lx-input",
+	      templateOptions: {
+	        label: "Text"
+	      },
+	      expressionProperties: {
+	        "templateOptions.label": "$viewValue || \"Edit this label\""
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("expression", {
+	    url: "/expression",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["expressionFormFields", function formFields(expressionFormFields) {
+	            return expressionFormFields.fields;
+	          }],
+	          contents: ["expressionFormFields", function contents(expressionFormFields) {
+	            return expressionFormFields.contents;
+	          }],
+	          formData: ["expressionFormFields", function formData(expressionFormFields) {
+	            return expressionFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.ngModelAttrs", []).service("ngModelAttrsFormFields", ngModelAttrsFormFields).config(stateRoutes);
+
+	function ngModelAttrsFormFields() {
+	  this.contents = {
+	    title: "ngModelAttrs",
+	    docsLink: "http://formly-js.github.io/angular-formly/#/example/very-advanced/ngModelAttrs",
+	    description: "docs/notes/ngModelAttrsDescription.md"
+	  };
+
+	  this.formData = {};
+
+	  this.fields = function () {
+	    return [{
+	      key: "password",
+	      type: "lx-input",
+	      templateOptions: {
+	        type: "password",
+	        label: "Password (8 character maximum)",
+	        maxlength: 8,
+	        required: true
+	      },
+	      ngModelAttrs: {
+	        maxlength: {
+	          attribute: "maxlength"
+	        }
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("ngModelAttrs", {
+	    url: "/ngModelAttrs",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["ngModelAttrsFormFields", function formFields(ngModelAttrsFormFields) {
+	            return ngModelAttrsFormFields.fields;
+	          }],
+	          contents: ["ngModelAttrsFormFields", function contents(ngModelAttrsFormFields) {
+	            return ngModelAttrsFormFields.contents;
+	          }],
+	          formData: ["ngModelAttrsFormFields", function formData(ngModelAttrsFormFields) {
+	            return ngModelAttrsFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = angular.module("shmck.formFields.ctrlLink", []).service("ctrlLinkFormFields", ctrlLinkFormFields).config(stateRoutes);
+
+	function ctrlLinkFormFields() {
+	  this.contents = {
+	    title: "Controller / Link",
+	    docsLink: "http://formly-js.github.io/angular-formly/#/example/advanced/custom-controller-and-link"
+	  };
+
+	  this.formData = {
+	    logToConsole: false,
+	    confirmation: false
+	  };
+
+	  this.fields = function () {
+	    return [{
+	      key: "logToConsole",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Check the console"
+	      },
+	      controller: function controller() {
+	        console.log("Hi from controller!");
+	      },
+	      link: function link() {
+	        console.log("Hi from link function!");
+	      }
+	    }, {
+	      key: "confirmation",
+	      type: "lx-checkbox",
+	      templateOptions: {
+	        label: "Confirmation Message."
+	      },
+	      link: function link(scope, el) {
+	        el.bind("click", function () {
+	          var confirmation = confirm("Are you sure?");
+	          if (confirmation) {
+	            el.unbind("click");
+	          } else {
+	            event.preventDefault();
+	          }
+	        });
+	      }
+	    }];
+	  };
+	}
+
+	function stateRoutes($stateProvider) {
+	  $stateProvider.state("ctrlLink", {
+	    url: "/ctrlLink",
+	    views: {
+	      "form@": {
+	        template: __webpack_require__(65),
+	        controller: "MainCtrl as vm",
+	        resolve: {
+	          formFields: ["ctrlLinkFormFields", function formFields(ctrlLinkFormFields) {
+	            return ctrlLinkFormFields.fields;
+	          }],
+	          contents: ["ctrlLinkFormFields", function contents(ctrlLinkFormFields) {
+	            return ctrlLinkFormFields.contents;
+	          }],
+	          formData: ["ctrlLinkFormFields", function formData(ctrlLinkFormFields) {
+	            return ctrlLinkFormFields.formData;
+	          }]
+	        }
+	      }
+	    }
+	  });
+	}
+	stateRoutes.$inject = ["$stateProvider"];
+
+/***/ },
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
@@ -3556,7 +5173,7 @@
 		 }]);
 
 /***/ },
-/* 18 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
@@ -3599,1623 +5216,6 @@
 	    };
 	  }]);
 
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.switch", []).service("switchFormFields", switchFormFields).config(stateRoutes);
-
-	function switchFormFields() {
-	  this.contents = {
-	    title: "Switch",
-	    docFile: "docs/switch.md"
-	  };
-
-	  this.formData = {
-	    regularSwitch: "",
-	    hiddenSwitch: "",
-	    checkedSwitch: true,
-	    helperSwitch: "",
-	    disabledSwitch: "",
-	    disabledCheckedSwitch: true
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "regularSwitch",
-	      type: "lx-switch",
-	      templateOptions: {
-	        label: "Regular switch"
-	      }
-	    }, {
-	      key: "checkedSwitch",
-	      type: "lx-switch",
-	      templateOptions: {
-	        label: "Switched Switch",
-	        checked: true
-	      }
-	    }, {
-	      key: "helperSwitch",
-	      type: "lx-switch",
-	      templateOptions: {
-	        label: "Switch with Helper",
-	        description: "Explaining a little more"
-	      }
-	    }, {
-	      key: "disabledSwitch",
-	      type: "lx-switch",
-	      templateOptions: {
-	        label: "Disabled Switch",
-	        disabled: true
-	      }
-	    }, {
-	      key: "disabledCheckedSwitch",
-	      type: "lx-switch",
-	      templateOptions: {
-	        label: "Disabled & Checked Switch",
-	        disabled: true,
-	        checked: true
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("switch", {
-	    url: "/switch",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["switchFormFields", function formFields(switchFormFields) {
-	            return switchFormFields.fields;
-	          }],
-	          contents: ["switchFormFields", function contents(switchFormFields) {
-	            return switchFormFields.contents;
-	          }],
-	          formData: ["switchFormFields", function formData(switchFormFields) {
-	            return switchFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.radio", []).service("radioFormFields", radioFormFields).config(stateRoutes);
-
-	function radioFormFields() {
-	  this.contents = {
-	    title: "Radio",
-	    docFile: "docs/radio.md"
-	  };
-
-	  this.formData = {
-	    radio: "",
-	    radioWithDescription: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "radio",
-	      type: "lx-radio",
-	      templateOptions: {
-	        label: "What's your favorite number?",
-	        options: [{
-	          name: "One",
-	          value: 1
-	        }, {
-	          name: "Seven",
-	          value: 7
-	        }, {
-	          name: "Thirteen",
-	          value: 13,
-	          disabled: true
-	        }]
-	      }
-	    }, {
-	      key: "radioWithDescription",
-	      type: "lx-radio",
-	      templateOptions: {
-	        label: "What's your least favorite number?",
-	        options: [{
-	          name: "One",
-	          value: 1,
-	          description: "The First"
-	        }, {
-	          name: "Seven",
-	          value: 7,
-	          description: "The Lucky One"
-	        }, {
-	          name: "Thirteen",
-	          value: 13,
-	          description: "The Unlucky One",
-	          disabled: true
-	        }]
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("radio", {
-	    url: "/radio",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["radioFormFields", function formFields(radioFormFields) {
-	            return radioFormFields.fields;
-	          }],
-	          contents: ["radioFormFields", function contents(radioFormFields) {
-	            return radioFormFields.contents;
-	          }],
-	          formData: ["radioFormFields", function formData(radioFormFields) {
-	            return radioFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.select", []).service("selectFormFields", selectFormFields).config(stateRoutes);
-
-	function selectFormFields() {
-	  this.contents = {
-	    title: "Selectors",
-	    subhead: "select, multiple-select",
-	    docFile: "docs/select.md"
-	  };
-
-	  this.formData = {
-	    singleSelect: "",
-	    singleSelectTwo: "",
-	    multipleSelect: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "singleSelect",
-	      type: "lx-select",
-	      templateOptions: {
-	        label: "Basic Single Select",
-	        placeholder: "Choose a Person",
-	        selected: "name",
-	        choice: "name",
-	        options: [{
-	          name: "Adam"
-	        }, {
-	          name: "Amalie"
-	        }, {
-	          name: "Wladimir"
-	        }, {
-	          name: "Samantha"
-	        }, {
-	          name: "Estefania"
-	        }]
-	      }
-	    }, {
-	      key: "singleSelectTwo",
-	      type: "lx-select",
-	      templateOptions: {
-	        space: true,
-	        label: "Advanced Single Select",
-	        placeholder: "Choose an Email",
-	        allowClear: true,
-	        selected: "name",
-	        selected2: "age",
-	        choice: "email",
-	        choice2: "age",
-	        options: [{ name: "Adam", email: "adam@email.com", age: 10 }, { name: "Amalie", email: "amalie@email.com", age: 12 }, { name: "Wladimir", email: "wladimir@email.com", age: 30 }, { name: "Samantha", email: "samantha@email.com", age: 31 }, { name: "Estefanía", email: "estefanía@email.com", age: 16 }, { name: "Natasha", email: "natasha@email.com", age: 54 }, { name: "Nicole", email: "nicole@email.com", age: 43 }, { name: "Adrian", email: "adrian@email.com", age: 21 }]
-	      }
-	    }, {
-	      key: "multipleSelect",
-	      type: "lx-select",
-	      templateOptions: {
-	        space: true,
-	        multiple: true,
-	        label: "Multiple Select",
-	        placeholder: "Choose an Email",
-	        selected: "name",
-	        choice: "email",
-	        options: [{ name: "Adam", email: "adam@email.com", age: 10 }, { name: "Amalie", email: "amalie@email.com", age: 12 }, { name: "Wladimir", email: "wladimir@email.com", age: 30 }, { name: "Samantha", email: "samantha@email.com", age: 31 }, { name: "Estefanía", email: "estefanía@email.com", age: 16 }, { name: "Natasha", email: "natasha@email.com", age: 54 }, { name: "Nicole", email: "nicole@email.com", age: 43 }, { name: "Adrian", email: "adrian@email.com", age: 21 }]
-	      }
-	      //}, {
-	      //  key: 'subFileInput',
-	      //  type: 'lx-subhead',
-	      //  templateOptions: {
-	      //    subhead: 'File Input',
-	      //    style: {'text-decoration': 'underline'}
-	      //  }
-	      //}, {
-	      //key: 'fileInput0',
-	      //type: 'lx-file-input',
-	      //templateOptions: {
-	      //  fileLabel: 'Input a file...',
-	      //  label: 'Filename'
-	      //}
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("select", {
-	    url: "/select",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["selectFormFields", function formFields(selectFormFields) {
-	            return selectFormFields.fields;
-	          }],
-	          contents: ["selectFormFields", function contents(selectFormFields) {
-	            return selectFormFields.contents;
-	          }],
-	          formData: ["selectFormFields", function formData(selectFormFields) {
-	            return selectFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.datePicker", []).service("datePickerFormFields", datePickerFormFields).config(stateRoutes);
-
-	function datePickerFormFields() {
-	  this.contents = {
-	    title: "Date Picker",
-	    docFile: "docs/datePicker.md"
-	  };
-
-	  this.formData = {};
-
-	  this.fields = function () {
-	    return [{
-	      key: "datePicker",
-	      type: "lx-date-picker",
-	      templateOptions: {
-	        label: "Pick a Date"
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("datePicker", {
-	    url: "/datePicker",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["datePickerFormFields", function formFields(datePickerFormFields) {
-	            return datePickerFormFields.fields;
-	          }],
-	          contents: ["datePickerFormFields", function contents(datePickerFormFields) {
-	            return datePickerFormFields.contents;
-	          }],
-	          formData: ["datePickerFormFields", function formData(datePickerFormFields) {
-	            return datePickerFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.input", []).service("inputFormFields", inputFormFields).config(stateRoutes);
-
-	function inputFormFields() {
-	  this.contents = {
-	    title: "Input Fields",
-	    subhead: "input & textarea",
-	    docFile: "docs/input.md"
-	  };
-
-	  this.formData = {
-	    floatLabel: "",
-	    fixedLabel: "",
-	    fixedIcon: "",
-	    disabledText: "",
-	    textArea: "Once upon a midnight dreary, while I pondered, weak and weary,       Over many a quaint and curious volume of forgotten forms—",
-	    validatedText: ""
-	  };
-
-	  var underlined = { "text-decoration": "underline" };
-
-	  this.fields = function () {
-	    return [{
-	      key: "floatLabel",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "text",
-	        label: "Float Label"
-	      }
-	    }, {
-	      key: "fixedLabel",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "text",
-	        label: "Fixed Label",
-	        fixedLabel: true
-	      }
-	    }, {
-	      key: "fixedIcon",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "text",
-	        fixedLabel: true,
-	        icon: "account",
-	        label: "With Icon"
-	      }
-	    }, {
-	      key: "disabledText",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "text",
-	        label: "Disabled",
-	        fixedLabel: true,
-	        disabled: true
-	      }
-	    }, {
-	      key: "textArea",
-	      type: "lx-textarea",
-	      templateOptions: {
-	        label: "Textarea example"
-	      }
-	    }, {
-	      key: "validatedText",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        type: "password",
-	        label: "Validation Example",
-	        minlength: 4,
-	        maxlength: 8,
-	        required: true
-	      },
-	      ngModelAttrs: {
-	        minlength: {
-	          bound: "ng-minlength",
-	          attribute: "minlength"
-	        },
-	        maxlength: {
-	          bound: "ng-maxlength",
-	          attribute: "maxlength"
-	        }
-
-	      },
-	      modelOptions: {
-	        allowInvalid: false,
-	        updateOn: "keydown blur",
-	        debounce: {
-	          keydown: 100,
-	          "default": 100,
-	          blur: 0
-	        }
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("input", {
-	    url: "/input",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["inputFormFields", function formFields(inputFormFields) {
-	            return inputFormFields.fields;
-	          }],
-	          contents: ["inputFormFields", function contents(inputFormFields) {
-	            return inputFormFields.contents;
-	          }],
-	          formData: ["inputFormFields", function formData(inputFormFields) {
-	            return inputFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.dropdown", []).service("dropdownFormFields", dropdownFormFields).config(stateRoutes);
-
-	function dropdownFormFields() {
-	  this.contents = {
-	    title: "Dropdown"
-	    //markdownFile: 'app/docs/dropdown.md'
-	  };
-
-	  this.formData = {
-	    dropdown: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "dropdown",
-	      type: "lx-dropdown",
-	      templateOptions: {
-	        label: "Select",
-	        className: "btn--m btn--black btn--flat",
-	        options: [{
-	          text: "Item 1",
-	          action: function action() {
-	            alert("item1");
-	          }
-	        }, {
-	          text: "Item 2",
-	          action: function action() {
-	            alert("item2");
-	          }
-	        }, {
-	          text: "Item 3",
-	          action: function action() {
-	            alert("item3");
-	          }
-	        }]
-	      }
-	    }, {
-	      key: "dropdown",
-	      type: "lx-dropdown",
-	      templateOptions: {
-	        className: "btn--m btn--black btn--icon",
-	        icon: "dots-vertical",
-	        options: [{
-	          text: "Item 1",
-	          action: function action() {
-	            alert("item1");
-	          }
-	        }, {
-	          text: "Item 2",
-	          action: function action() {
-	            alert("item2");
-	          }
-	        }, {
-	          text: "Item 3",
-	          action: function action() {
-	            alert("item3");
-	          }
-	        }]
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("dropdown", {
-	    url: "/dropdown",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["dropdownFormFields", function formFields(dropdownFormFields) {
-	            return dropdownFormFields.fields;
-	          }],
-	          contents: ["dropdownFormFields", function contents(dropdownFormFields) {
-	            return dropdownFormFields.contents;
-	          }],
-	          formData: ["dropdownFormFields", function formData(dropdownFormFields) {
-	            return dropdownFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.flex", []).service("flexFormFields", flexFormFields).config(stateRoutes);
-
-	function flexFormFields() {
-	  this.contents = {
-	    title: "FlexBox Wrappers",
-	    subhead: "lx-flex",
-	    description: "app/notes/flexDescription.md",
-	    docFile: "docs/flex.md",
-	    notes: "docs/notes/flexNotes.md"
-	  };
-
-	  this.formData = {
-	    rowItem1: "",
-	    rowItem2: "",
-	    rowItem3: "",
-	    columnItem1: "",
-	    columnItem2: "",
-	    columnItem3: "",
-	    mixedItem1: "",
-	    addressStreetNumber: "",
-	    addressStreetName: "",
-	    addressStreetType: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      type: "lx-flex",
-	      templateOptions: {
-	        flex: {
-	          container: "row",
-	          item: 5
-	        },
-
-	        fields: [{
-	          type: "lx-input",
-	          key: "firstName",
-	          templateOptions: {
-	            label: "First Name"
-	          }
-	        }, {
-	          type: "lx-input",
-	          key: "lastName",
-	          templateOptions: {
-	            label: "Last Name"
-	          }
-	        }]
-	      }
-	    }, {
-	      type: "lx-flex",
-	      templateOptions: {
-	        flex: {
-	          container: "column",
-	          align: "space-between center",
-	          gutter: 24,
-	          item: 10
-	        },
-	        fields: [{
-	          key: "columnItem1",
-	          type: "lx-input",
-	          templateOptions: {
-	            type: "text",
-	            fixedLabel: true,
-	            label: "Column"
-	          }
-	        }, {
-	          key: "columnItem2",
-	          type: "lx-input",
-	          templateOptions: {
-	            type: "text",
-	            fixedLabel: true,
-	            label: "Column"
-	          }
-	        }, {
-	          key: "columnItem3",
-	          type: "lx-input",
-	          templateOptions: {
-	            type: "text",
-	            fixedLabel: true,
-	            label: "Column"
-	          }
-	        }]
-	      }
-	    }, {
-	      type: "lx-flex",
-	      templateOptions: {
-	        flex: {
-	          container: "row",
-	          align: "center center",
-	          gutter: 8,
-	          item: 3
-	        },
-	        fields: [{
-	          key: "addressStreetNumber",
-	          type: "lx-input",
-	          templateOptions: {
-	            type: "number",
-	            fixedLabel: true,
-	            label: "Street #"
-	          }
-	        }, {
-	          key: "addressStreetName",
-	          type: "lx-input",
-	          templateOptions: {
-	            type: "text",
-	            fixedLabel: true,
-	            label: "Street Name"
-	          }
-	        }, {
-	          key: "addressStreetType",
-	          type: "lx-select",
-	          templateOptions: {
-	            flex: {
-	              style: {
-	                bottom: "20px"
-	              }
-	            },
-	            placeholder: "Street Type",
-	            selected: "type",
-	            choice: "type",
-	            options: [{ type: "St." }, { type: "Ave." }, { type: "Blvd." }, { type: "Cres." }]
-	          }
-	        }]
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("flex", {
-	    url: "/flex",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["flexFormFields", function formFields(flexFormFields) {
-	            return flexFormFields.fields;
-	          }],
-	          contents: ["flexFormFields", function contents(flexFormFields) {
-	            return flexFormFields.contents;
-	          }],
-	          formData: ["flexFormFields", function formData(flexFormFields) {
-	            return flexFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.checkbox", []).service("checkboxFormFields", checkboxFormFields).config(stateRoutes);
-
-	function checkboxFormFields() {
-	  this.contents = {
-	    title: "Checkbox",
-	    docFile: "docs/checkbox.md"
-	  };
-
-	  this.formData = {
-	    hiddenBox: "",
-	    checkedCheckBox: true,
-	    helperBox: "",
-	    disabledBox: "",
-	    checkedDisabledBox: true
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "checkBoxExample",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Basic Checkbox"
-	      }
-	    }, {
-	      key: "checkedCheckBox",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Checked Checkbox",
-	        checked: true
-	      }
-	    }, {
-	      key: "helperBox",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Checkbox with Helper",
-	        description: "Explaining a little more"
-	      }
-	    }, {
-	      key: "disabledBox",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Disabled Box",
-	        disabled: true
-	      }
-	    }, {
-	      key: "checkedDisabledBox",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Checked & Disabled Box",
-	        disabled: true,
-	        checked: true
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("checkbox", {
-	    url: "/checkbox",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["checkboxFormFields", function formFields(checkboxFormFields) {
-	            return checkboxFormFields.fields;
-	          }],
-	          contents: ["checkboxFormFields", function contents(checkboxFormFields) {
-	            return checkboxFormFields.contents;
-	          }],
-	          formData: ["checkboxFormFields", function formData(checkboxFormFields) {
-	            return checkboxFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.themes", []).service("themeFormFields", themeFormFields).config(stateRoutes);
-
-	function themeFormFields() {
-	  this.contents = {
-	    title: "Themes",
-	    subhead: "backgrounds + dark/light font themes",
-	    docFile: "docs/themes.md",
-	    description: "docs/notes/themeDescription.md",
-	    formFieldsClass: "bgc-blue-grey-500 addPadding"
-	  };
-
-	  this.formData = {
-	    dark1: "",
-	    dark2: "",
-	    light1: "",
-	    light2: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      template: "<div class=\"tc-white fs-title\"><h3>Dark Theme</h3></div>"
-	    }, {
-	      key: "dark1",
-	      type: "lx-input",
-	      templateOptions: {
-	        fixedLabel: true,
-	        type: "text",
-	        icon: "account-outline",
-	        label: "Name",
-	        theme: "dark"
-	      }
-	    }, {
-	      key: "dark2",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "email",
-	        icon: "email-outline",
-	        label: "Email",
-	        fixedLabel: true,
-	        theme: "dark"
-	      }
-	    }, {
-	      template: "<div class=\"bgc-yellow-500 fs-title\"><h3>Light Theme</h3></div>"
-	    }, {
-	      key: "light1",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-div",
-	      templateOptions: {
-	        div: {
-	          className: "bgc-yellow-500"
-	        },
-	        fixedLabel: true,
-	        type: "text",
-	        label: "Name",
-	        icon: "account",
-	        theme: "light"
-	      }
-	    }, {
-	      key: "light2",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-div",
-	      templateOptions: {
-	        div: {
-	          className: "bgc-yellow-500"
-	        },
-	        type: "email",
-	        label: "Email",
-	        icon: "email",
-	        fixedLabel: true,
-	        theme: "light"
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("theme", {
-	    url: "/themes",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["themeFormFields", function formFields(themeFormFields) {
-	            return themeFormFields.fields;
-	          }],
-	          contents: ["themeFormFields", function contents(themeFormFields) {
-	            return themeFormFields.contents;
-	          }],
-	          formData: ["themeFormFields", function formData(themeFormFields) {
-	            return themeFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.inline", []).service("inlineFormFields", inlineFormFields).config(stateRoutes);
-
-	function inlineFormFields() {
-	  this.contents = {
-	    title: "Inline Wrapper",
-	    docFile: "docs/input.md"
-	  };
-
-	  this.formData = {};
-
-	  this.fields = function () {
-	    return [{
-	      key: "workPlace",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-inline",
-	      templateOptions: {
-	        inline: {
-	          before: "I work at "
-	        },
-	        fixedLabel: true,
-	        label: "Work Place"
-	      } }, {
-	      key: "experience",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-inline",
-	      templateOptions: {
-	        inline: {
-	          before: "I've been working there for ",
-	          after: " years."
-	        },
-	        type: "number",
-	        label: "# years",
-	        fixedLabel: true
-	      }
-	    }, {
-	      key: "salaryHope",
-	      type: "lx-select",
-	      wrapper: "lx-wrapper-inline",
-	      templateOptions: {
-	        inline: {
-	          before: "I hope to make ",
-	          after: " per year.",
-	          contentStyle: {
-	            bottom: "-11px"
-	          }
-	        },
-	        placeholder: "Salary Expectation",
-	        selected: "range",
-	        choice: "range",
-	        options: [{
-	          range: "under $30,000"
-	        }, {
-	          range: "between $30 & 50,000"
-	        }, {
-	          range: "between $50 & 75,000"
-	        }, {
-	          range: "over $75,000"
-	        }]
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("inline", {
-	    url: "/inline",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["inlineFormFields", function formFields(inlineFormFields) {
-	            return inlineFormFields.fields;
-	          }],
-	          contents: ["inlineFormFields", function contents(inlineFormFields) {
-	            return inlineFormFields.contents;
-	          }],
-	          formData: ["inlineFormFields", function formData(inlineFormFields) {
-	            return inlineFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.error", []).service("errorFormFields", errorFormFields).directive("iceCream", iceCream).config(stateRoutes);
-
-	/*@ngInject*/
-	function errorFormFields() {
-	  this.contents = {
-	    title: "Error Notification",
-	    subhead: "easy validation tools",
-	    docFile: "docs/error.md",
-	    description: "docs/notes/errorDescription.md"
-	  };
-
-	  this.formData = {
-	    email: "",
-	    url: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "email",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        type: "email",
-	        label: "Email",
-	        fixedLabel: true,
-	        required: true
-	      },
-	      validation: {
-	        messages: {
-	          email: function email() {
-	            return "That doesn't look like a real email address.";
-	          }
-	        }
-	      },
-	      modelOptions: {
-	        allowInvalid: false
-	      }
-	    }, {
-	      key: "url",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        type: "url",
-	        fixedLabel: true,
-	        label: "Link to a url"
-	      },
-	      validation: {
-	        messages: {
-	          url: function url() {
-	            return "For example: http://www.google.com";
-	          }
-	        }
-	      },
-	      modelOptions: {
-	        allowInvalid: false
-	      }
-	      //}, {
-	      //  key: 'textPattern',
-	      //  type: 'lx-input',
-	      //  wrapper: 'lx-wrapper-errors',
-	      //  templateOptions: {
-	      //    type: 'text',
-	      //    fixedLabel: true,
-	      //    label: 'Four letter word    |  pattern',
-	      //    pattern: /^[a-zA-Z]{4}$/,
-	      //    required: true
-	      //  },
-	      //  validation: {
-	      //    messages: [{
-	      //      name: 'pattern',
-	      //      message: 'Must be a four letter word.'
-	      //    }]
-	      //  },
-	      //  ngModelAttrs: {
-	      //    pattern: {
-	      //      attribute: 'pattern'
-	      //    }
-	      //  }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("error", {
-	    url: "/errors",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["errorFormFields", function formFields(errorFormFields) {
-	            return errorFormFields.fields;
-	          }],
-	          contents: ["errorFormFields", function contents(errorFormFields) {
-	            return errorFormFields.contents;
-	          }],
-	          formData: ["errorFormFields", function formData(errorFormFields) {
-	            return errorFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-	function iceCream() {
-	  return {
-	    restrict: "A",
-	    require: "?ngModel",
-	    link: function link(scope, element, attributes, ngModel) {
-	      ngModel.$validators.iceCream = function (modelValue) {
-	        var flavors = ["chocolate", "vanilla", "strawberry"];
-	        return flavors.indexOf(modelValue.toLowerCase()) !== -1;
-	      };
-	    }
-	  };
-	}
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.modelOptions", []).service("modelOptionsFormFields", modelOptionsFormFields).config(stateRoutes);
-
-	function modelOptionsFormFields() {
-	  this.contents = {
-	    title: "Model Options",
-	    description: "docs/notes/modelOptionsDescription.md",
-	    docsLink: "https://docs.angularjs.org/api/ng/directive/ngModelOptions"
-	  };
-
-	  this.formData = {
-	    defaultOnBlur: "",
-	    onKeyUp: "",
-	    onlyValid: "",
-	    mixed: ""
-	  };
-
-	  var numbersRegex = /^\d+$/;
-	  var numbersOnlyValidator = {
-	    numbersOnly: {
-	      expression: function expression(viewValue, modelValue) {
-	        var value = viewValue || modelValue || "";
-	        return numbersRegex.test(value);
-	      },
-	      message: "\"Numbers only please.\""
-	    }
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "defaultOnBlur",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        fixedLabel: true,
-	        required: true,
-	        label: "When user changes fields"
-	      },
-	      modelOptions: {
-	        updateOn: "default blur"
-	      },
-	      validators: numbersOnlyValidator
-	    }, {
-	      key: "onKeyUp",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        fixedLabel: true,
-	        required: true,
-	        label: "About when user stops typing"
-	      },
-	      modelOptions: {
-	        updateOn: "keyup",
-	        debounce: {
-	          keyup: 300
-	        }
-	      },
-	      validators: numbersOnlyValidator
-	    }, {
-	      key: "onlyValid",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        fixedLabel: true,
-	        required: true,
-	        label: "Only saves when data is valid"
-	      },
-	      modelOptions: {
-	        allowInvalid: false
-	      },
-	      validators: numbersOnlyValidator
-	    }, {
-	      key: "mixed",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      templateOptions: {
-	        fixedLabel: true,
-	        required: true,
-	        label: "On blur or end of typing, only valid"
-	      },
-	      modelOptions: {
-	        allowInvalid: false,
-	        updateOn: "keyup blur",
-	        debounce: {
-	          blur: 0,
-	          keyUp: 300
-	        }
-	      },
-	      validators: numbersOnlyValidator
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("modelOptions", {
-	    url: "/modelOptions",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["modelOptionsFormFields", function formFields(modelOptionsFormFields) {
-	            return modelOptionsFormFields.fields;
-	          }],
-	          contents: ["modelOptionsFormFields", function contents(modelOptionsFormFields) {
-	            return modelOptionsFormFields.contents;
-	          }],
-	          formData: ["modelOptionsFormFields", function formData(modelOptionsFormFields) {
-	            return modelOptionsFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.validators", []).service("validatorsFormFields", validatorsFormFields).config(stateRoutes);
-
-	/*@ngInject*/
-	function validatorsFormFields($timeout, $q) {
-	  this.contents = {
-	    title: "Validators",
-	    subhead: "sync & async, pending",
-	    docsLink: "http://formly-js.github.io/angular-formly/#/example/advanced/validators"
-	  };
-
-	  this.formData = {
-	    iceCreamFlavor: "",
-	    iceCreamFlavor2: ""
-	  };
-
-	  function flavorInStock(viewValue, modelValue) {
-	    return $timeout(function () {
-	      var value = modelValue || viewValue || "";
-	      var flavors = ["chocolate", "vanilla", "strawberry"];
-	      var fn = flavors.indexOf(value.toLowerCase()) !== -1 ? $q.when : $q.reject;
-	      return fn();
-	    }, 800);
-	  }
-
-	  var flavorInStockValidator = {
-	    flavorInStock: {
-	      expression: flavorInStock,
-	      //message: '"View Value: " + $viewValue'
-	      message: "\"Sorry, we don't have that flavor in stock. How about chocolate?\""
-	    }
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "iceCreamFlavor",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      validators: flavorInStockValidator,
-	      templateOptions: {
-	        label: "What's your favorite ice cream?"
-	      },
-	      modelOptions: {
-	        updateOn: "keyup blur"
-	      }
-	    }, {
-	      key: "iceCreamFlavor2",
-	      type: "lx-input",
-	      wrapper: "lx-wrapper-errors",
-	      validators: flavorInStockValidator,
-	      templateOptions: {
-	        label: "What's your favorite ice cream? (pending)",
-	        pending: "Checking for ice cream flavor..."
-	      },
-	      modelOptions: {
-	        updateOn: "keyup"
-	      }
-	    }];
-	  };
-	}
-	validatorsFormFields.$inject = ["$timeout", "$q"];
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("validators", {
-	    url: "/validators",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["validatorsFormFields", function formFields(validatorsFormFields) {
-	            return validatorsFormFields.fields;
-	          }],
-	          contents: ["validatorsFormFields", function contents(validatorsFormFields) {
-	            return validatorsFormFields.contents;
-	          }],
-	          formData: ["validatorsFormFields", function formData(validatorsFormFields) {
-	            return validatorsFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.expression", []).service("expressionFormFields", expressionFormFields).config(stateRoutes);
-
-	function expressionFormFields() {
-	  this.contents = {
-	    title: "Expression Properties",
-	    docsLink: "http://formly-js.github.io/angular-formly/#/example/intro/expression-properties"
-	  };
-
-	  this.formData = {
-	    showHidden: "",
-	    disableNextField: "",
-	    probablyNotNeeded: "",
-	    setMaxLength: 4,
-	    textWithSetMaxLength: "four",
-	    editLabel: ""
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "showHidden",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Show Hidden Field"
-	      }
-	    }, {
-	      template: "<h1>This was hidden!</h1>",
-	      expressionProperties: {
-	        hide: "!model.showHidden"
-	      }
-	    }, {
-	      key: "disableNextField",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Disable Next Field"
-	      }
-	    }, {
-	      key: "probablyNotNeeded",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Can Be Disabled" },
-	      expressionProperties: {
-	        "templateOptions.disabled": "model.disableNextField"
-	      }
-	    }, {
-	      key: "setMaxLength",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "number",
-	        label: "Set next field max length"
-	      }
-	    }, {
-	      key: "textWithSetMaxLength",
-	      type: "lx-input",
-	      templateOptions: {
-	        label: "Text with max length set"
-	      },
-	      ngModelAttrs: {
-	        maxLength: {
-	          bound: "ng-maxlength"
-	        }
-	      },
-	      expressionProperties: {
-	        "templateOptions.maxLength": "model.setMaxLength"
-	      }
-	    }, {
-	      key: "editLabel",
-	      type: "lx-input",
-	      templateOptions: {
-	        label: "Text"
-	      },
-	      expressionProperties: {
-	        "templateOptions.label": "$viewValue || \"Edit this label\""
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("expression", {
-	    url: "/expression",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["expressionFormFields", function formFields(expressionFormFields) {
-	            return expressionFormFields.fields;
-	          }],
-	          contents: ["expressionFormFields", function contents(expressionFormFields) {
-	            return expressionFormFields.contents;
-	          }],
-	          formData: ["expressionFormFields", function formData(expressionFormFields) {
-	            return expressionFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.ngModelAttrs", []).service("ngModelAttrsFormFields", ngModelAttrsFormFields).config(stateRoutes);
-
-	function ngModelAttrsFormFields() {
-	  this.contents = {
-	    title: "ngModelAttrs",
-	    docsLink: "http://formly-js.github.io/angular-formly/#/example/very-advanced/ngModelAttrs",
-	    description: "docs/notes/ngModelAttrsDescription.md"
-	  };
-
-	  this.formData = {};
-
-	  this.fields = function () {
-	    return [{
-	      key: "password",
-	      type: "lx-input",
-	      templateOptions: {
-	        type: "password",
-	        label: "Password (8 character maximum)",
-	        maxlength: 8,
-	        required: true
-	      },
-	      ngModelAttrs: {
-	        maxlength: {
-	          attribute: "maxlength"
-	        }
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("ngModelAttrs", {
-	    url: "/ngModelAttrs",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["ngModelAttrsFormFields", function formFields(ngModelAttrsFormFields) {
-	            return ngModelAttrsFormFields.fields;
-	          }],
-	          contents: ["ngModelAttrsFormFields", function contents(ngModelAttrsFormFields) {
-	            return ngModelAttrsFormFields.contents;
-	          }],
-	          formData: ["ngModelAttrsFormFields", function formData(ngModelAttrsFormFields) {
-	            return ngModelAttrsFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = angular.module("shmck.formFields.ctrlLink", []).service("ctrlLinkFormFields", ctrlLinkFormFields).config(stateRoutes);
-
-	function ctrlLinkFormFields() {
-	  this.contents = {
-	    title: "Controller / Link",
-	    docsLink: "http://formly-js.github.io/angular-formly/#/example/advanced/custom-controller-and-link"
-	  };
-
-	  this.formData = {
-	    logToConsole: false,
-	    confirmation: false
-	  };
-
-	  this.fields = function () {
-	    return [{
-	      key: "logToConsole",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Check the console"
-	      },
-	      controller: function controller() {
-	        console.log("Hi from controller!");
-	      },
-	      link: function link() {
-	        console.log("Hi from link function!");
-	      }
-	    }, {
-	      key: "confirmation",
-	      type: "lx-checkbox",
-	      templateOptions: {
-	        label: "Confirmation Message."
-	      },
-	      link: function link(scope, el) {
-	        el.bind("click", function () {
-	          var confirmation = confirm("Are you sure?");
-	          if (confirmation) {
-	            el.unbind("click");
-	          } else {
-	            event.preventDefault();
-	          }
-	        });
-	      }
-	    }];
-	  };
-	}
-
-	function stateRoutes($stateProvider) {
-	  $stateProvider.state("ctrlLink", {
-	    url: "/ctrlLink",
-	    views: {
-	      "form@": {
-	        template: __webpack_require__(72),
-	        controller: "MainCtrl as vm",
-	        resolve: {
-	          formFields: ["ctrlLinkFormFields", function formFields(ctrlLinkFormFields) {
-	            return ctrlLinkFormFields.fields;
-	          }],
-	          contents: ["ctrlLinkFormFields", function contents(ctrlLinkFormFields) {
-	            return ctrlLinkFormFields.contents;
-	          }],
-	          formData: ["ctrlLinkFormFields", function formData(ctrlLinkFormFields) {
-	            return ctrlLinkFormFields.formData;
-	          }]
-	        }
-	      }
-	    }
-	  });
-	}
-	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-	var FormCtrl = (function () {
-	  function FormCtrl(formFields, contents, formData, LxDialogService) {
-	    _classCallCheck(this, FormCtrl);
-
-	    //constructor(LxDialogService) {
-	    this.contents = contents;
-	    this.formData = formData || {};
-	    this.formFields = formFields();
-	    this.jsonFields = formFields();
-	    this.currentItem = 0;
-	    this.LxDialogService = LxDialogService;
-	  }
-
-	  _createClass(FormCtrl, {
-	    submit: {
-	      value: function submit() {
-	        alert(JSON.stringify(this.formData));
-	      }
-	    },
-	    openDialog: {
-	      value: function openDialog() {
-	        this.LxDialogService.open("docsModal");
-	      }
-	    }
-	  });
-
-	  return FormCtrl;
-	})();
-
-	//FormCtrl.$inject = ['LxDialogService'];
-	FormCtrl.$inject = ["formFields", "contents", "formData", "LxDialogService"];
-
-	module.exports = FormCtrl;
 
 /***/ },
 /* 36 */
@@ -45847,8 +45847,8 @@
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/jsonFields/jsonFields.scss", function() {
-			var newContent = require("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/jsonFields/jsonFields.scss");
+		module.hot.accept("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/core/nav/nav.scss", function() {
+			var newContent = require("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/core/nav/nav.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -45861,70 +45861,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(53)();
-	exports.push([module.id, ".aftl-json-field-item {\n  margin: 10px;\n  padding: 4px; }\n\n.aftl-formdata {\n  padding: 4px; }\n", ""]);
-
-/***/ },
-/* 59 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(60);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(47)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/docsModal/docsModal.scss", function() {
-			var newContent = require("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/docsModal/docsModal.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 60 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(53)();
-	exports.push([module.id, ".dialog__content {\n  padding: 24px;\n  font-size: 0.9em; }\n", ""]);
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(62);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(47)(content, {});
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		module.hot.accept("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/core/nav/nav.scss", function() {
-			var newContent = require("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/core/nav/nav.scss");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 62 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(53)();
 	exports.push([module.id, "header {\n  position: fixed; }\n\n.main-nav--title {\n  margin-left: 45px;\n  margin-top: 0; }\n\n.main-nav--icon {\n  position: absolute;\n  margin: 5px; }\n\n.main-logo__link {\n  text-decoration: none;\n  color: white; }\n\n.menu-icon {\n  fill: white; }\n\n.main-nav--version {\n  font-size: 0.5em;\n  color: #F4F4F4; }\n\n@media screen and (min-width: 1024px) {\n  .wrapper {\n    width: 960px;\n    margin: 0 auto; } }\n\n@media screen and (max-width: 1023px) {\n  .wrapper {\n    margin: 0 24px; } }\n\n.sidebar-filter {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 998;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0;\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -moz-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-duration: 0.6s;\n  -moz-transition-duration: 0.6s;\n  transition-duration: 0.6s;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }\n\n@media screen and (max-width: 1023px) {\n  .sidebar-filter--is-shown {\n    opacity: 1;\n    pointer-events: auto; } }\n\n.sidebar {\n  z-index: 998;\n  width: 260px;\n  border-right: solid 1px #ddd;\n  background-color: #fff;\n  -webkit-transition-property: box-shadow, -webkit-transform;\n  -moz-transition-property: box-shadow, -moz-transform;\n  transition-property: box-shadow, transform;\n  -webkit-transition-duration: 0.6s;\n  -moz-transition-duration: 0.6s;\n  transition-duration: 0.6s;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  overflow: auto; }\n\n@media screen and (min-width: 1024px) {\n  .sidebar {\n    position: fixed;\n    top: 60px;\n    bottom: 0; }\n  .main-section__content {\n    margin-left: 236px; } }\n\n@media screen and (max-width: 1023px) {\n  .sidebar {\n    position: fixed;\n    top: 60px;\n    bottom: 0;\n    left: -260px; }\n  .main-section__content {\n    justify-content: center; } }\n\n@media screen and (max-width: 1023px) {\n  .sidebar--is-shown {\n    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.4);\n    -webkit-transform: translateX(260px);\n    -moz-transform: translateX(260px);\n    -ms-transform: translateX(260px);\n    -o-transform: translateX(260px);\n    transform: translateX(260px); } }\n\n.sidebar-menu {\n  padding: 8px 0; }\n\n.sidebar-menu__link {\n  display: block;\n  padding: 0 16px;\n  cursor: pointer;\n  font-size: 14px;\n  font-size: 0.875rem;\n  font-weight: 700;\n  color: #333;\n  line-height: 48px;\n  text-decoration: none; }\n\n.sidebar-menu__link:hover {\n  background-color: #eee; }\n\n.header {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 999;\n  height: 60px;\n  padding: 12px;\n  background-color: #4fc1e9;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }\n\n.header::after {\n  clear: both;\n  content: \"\";\n  display: table; }\n\n@media screen and (min-width: 1201px) {\n  .menubar {\n    display: none; } }\n\n@media screen and (max-width: 1200px) {\n  .menubar {\n    float: left; } }\n\n.home .menubar {\n  display: none; }\n\n.main-logo {\n  float: left; }\n\n.main-logo__link {\n  display: block;\n  padding: 4px 6px;\n  border-radius: 2px;\n  font-size: 24px;\n  font-size: 1.5rem; }\n\n.main-logo__link img {\n  display: block;\n  height: 28px; }\n\n.main-nav {\n  float: right; }\n\n.main-nav ul li {\n  float: left; }\n\n@media screen and (max-width: 630px) {\n  .main-nav--title {\n    font-size: 0.85em; }\n  .main-nav--version {\n    display: none; }\n  .main-nav--lap-and-up {\n    display: none; }\n  body {\n    font-size: 0.85em; }\n  .sidebar-menu {\n    font-size: 0.85em; } }\n\n@media screen and (min-width: 631px) {\n  .main-nav--palm {\n    display: none; } }\n\n.main-nav__link {\n  display: block;\n  padding: 0 12px;\n  border-radius: 2px;\n  font-size: 18px;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: white;\n  line-height: 36px;\n  text-decoration: none; }\n\n@media screen and (min-width: 481px) and (max-width: 1023px) {\n  .main-nav__link {\n    font-size: 14px;\n    font-size: 0.875rem; } }\n\n.main {\n  padding: 60px 0 0; }\n\n@media screen and (min-width: 1024px) {\n  .main-section {\n    margin: 0 0 0 260px; } }\n\n.main-section__title {\n  display: block;\n  height: 64px;\n  margin: 0;\n  padding: 0 24px;\n  border-bottom: 1px solid #ddd;\n  font-size: 22px;\n  font-size: 1.375rem;\n  font-weight: 600;\n  line-height: 64px; }\n\n.main-section__intro {\n  margin: 0;\n  padding: 24px;\n  font-size: 22px;\n  font-size: 1.375rem;\n  font-weight: 300; }\n\n.main-section__intro a {\n  color: #2196F3;\n  text-decoration: none; }\n\n.main-section__content {\n  padding: 24px; }\n\n.main-section__content p > code {\n  padding: 2px 4px;\n  font-size: 90%;\n  color: #2196F3;\n  background-color: #e3f2fd;\n  border-radius: 4px; }\n\n.main-section__content p > a {\n  color: #2196F3;\n  text-decoration: none; }\n\n.main-section__content p:last-child, .main-section__content ul:last-child {\n  margin-bottom: 0; }\n\n.main-section__subtitle {\n  font-size: 30px;\n  font-size: 1.875rem;\n  font-weight: 300;\n  line-height: 1; }\n", ""]);
 
 /***/ },
-/* 63 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45942,6 +45882,66 @@
 	NavCtrl.$inject = ["SidebarService", "version"];
 
 	module.exports = NavCtrl;
+
+/***/ },
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(61);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(47)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/docsModal/docsModal.scss", function() {
+			var newContent = require("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/docsModal/docsModal.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(53)();
+	exports.push([module.id, ".dialog__content {\n  padding: 24px;\n  font-size: 0.9em; }\n", ""]);
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(63);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(47)(content, {});
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		module.hot.accept("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/jsonFields/jsonFields.scss", function() {
+			var newContent = require("!!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/css-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/node_modules/sass-loader/index.js!/Users/shmck/Desktop/_current/angular-formly-templates-lumx-master/demo/app/components/jsonFields/jsonFields.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(53)();
+	exports.push([module.id, ".aftl-json-field-item {\n  margin: 10px;\n  padding: 4px; }\n\n.aftl-formdata {\n  padding: 4px; }\n", ""]);
 
 /***/ },
 /* 64 */
@@ -46951,49 +46951,49 @@
 /* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<shmck-container title=\"Form Data\" bgc=\"bgc-blue-200\" id=\"form-data\">\n\n  <pre ng-bind-html=\"formData | json | prettify\" lx-scrollbar></pre>\n  <!--<pre pretty-json=\"formData\" class=\"aftl-formdata\" lx-scrollbar></pre>-->\n\n</shmck-container>\n"
+	module.exports = "<shmck-progress-spinner items=\"vm.formFields\"></shmck-progress-spinner>\n<div class=\"main-section__content\" flex-container=\"row\" ng-cloak>\n\n  <!-- Form Field Inputs -->\n  <section flex-item=\"40\" class=\"content content-fields\">\n    <div class=\"card tc-black-2 p-\">\n      <shmck-divider></shmck-divider>\n      <a ng-if=\"vm.contents.docsLink\" class=\"docs-icon\" ng-href=\"{{vm.contents.docsLink}}\" target=\"_blank\">Docs <i\n        class=\"mdi mdi-file\"></i></a>\n      <a ng-if=\"vm.contents.docFile\" class=\"docs-icon\" ng-click=\"vm.openDialog()\">Docs <i class=\"mdi mdi-file\"></i></a>\n\n\n      <h1 class=\"fs-display2\">{{::vm.contents.title}}</h1>\n      <span class=\"fs-subhead\">{{::vm.contents.subhead}}</span>\n      <br/>\n\n      <shmck-contents content=\"::vm.contents.description\"></shmck-contents>\n\n      <shmck-container title=\"Examples\" bgc=\"bgc-white\">\n        <div ng-class=\"::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''\">\n          <formly-form model=\"vm.formData\" fields=\"vm.formFields\" id=\"formly-fields\">\n            <br/>\n            <button class=\"btn btn--l btn--blue btn--raised\" lx-ripple\n                    ng-click=\"vm.submit()\" type=\"submit\">Submit\n            </button>\n          </formly-form>\n        </div>\n      </shmck-container>\n\n      <shmck-form-data form-data=\"::vm.formData\"></shmck-form-data>\n\n      <shmck-contents content=\"::vm.contents.notes\"></shmck-contents>\n    </div>\n\n  </section>\n\n  <!-- Form Field JSON -->\n  <section flex-item=\"40\" class=\"content content-json\">\n    <shmck-json-fields fields=\"::vm.jsonFields\"></shmck-json-fields>\n  </section>\n\n\n</div>\n\n<shmck-docs-modal></shmck-docs-modal>\n"
 
 /***/ },
 /* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<shmck-container title=\"Form Fields\" id=\"json-form-fields\">\n  <pre>[</pre>\n    <!--<pretty-json json=\"fields[$index]\" ng-repeat=\"item in fields track by $index\"-->\n         <!--class=\"bgc-yellow-100 aftl-json-field-item\">-->\n         <!--</pretty-json>-->\n  <pre ng-repeat=\"item in fields track by $index\" class=\"bgc-yellow-100\"\n       ng-bind-html=\"item | json | prettify\" lx-scrollbar></pre>\n\n  <pre>]</pre>\n\n</shmck-container>\n"
+	module.exports = "<header class=\"header bgc-light-blue-600\" ng-cloak>\n  <div class=\"menubar\">\n    <button class=\"btn btn--l btn--icon btn--white\" lx-ripple=\"white\" ng-click=\"vm.sidebar.toggleSidebar()\">\n      <i class=\"mdi mdi-menu\"></i>\n    </button>\n  </div>\n\n  <h1 class=\"main-logo\">\n    <a ui-sref=\"text\" class=\"main-logo__link\" lx-ripple=\"white\">\n      <img class=\"main-nav--icon\" src=\"images/angular-formly.png\"/>\n      <span class=\"main-nav--title\">Formly LumX </span>\n      <span class=\"main-nav--version\">v{{::vm.version}}</span>\n    </a>\n  </h1>\n\n  <nav class=\"main-nav main-nav--lap-and-up\">\n    <ul>\n      <li ng-repeat=\"n in vm.links\">\n        <a href=\"{{n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n          {{n.text}}</a>\n      </li>\n    </ul>\n  </nav>\n  <nav class=\"main-nav main-nav--palm\">\n    <lx-dropdown position=\"right\" from-top=\"true\" width=\"150px\">\n      <button class=\"btn btn--l btn--white btn--icon\" lx-ripple=\"white\" lx-dropdown-toggle>\n        <i class=\"mdi mdi-dots-vertical\"></i>\n      </button>\n\n      <lx-dropdown-menu>\n        <ul>\n          <li ng-repeat=\"n in vm.links\">\n            <a ng-href=\"{{::n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n              <span style=\"color: rgba(0, 0, 0, 0.541176)\">{{n.text}}</span>\n            </a>\n          </li>\n        </ul>\n      </lx-dropdown-menu>\n    </lx-dropdown>\n  </nav>\n</header>\n"
 
 /***/ },
 /* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<lx-dialog class=\"dialog dialog--l\" id=\"docsModal\">\n\n  <div class=\"dialog__header\">\n    <div class=\"toolbar bgc-light-blue-500\">\n            <span class=\"toolbar__label tc-white fs-title\">\n              {{::vm.contents.title}} Docs\n            </span>\n    </div>\n  </div>\n\n  <div class=\"dialog__content\" lx-scrollbar>\n    <div btf-markdown ng-include=\"::vm.contents.docFile\" lx-scrollbar></div>\n  </div>\n</lx-dialog>\n\n"
+	module.exports = "<div class=\"sidebar\" ng-class=\"{ 'sidebar--is-shown': vm.sidebar.isSidebarShown() }\">\n  <div class=\"sidebar-menu\">\n    <ul ng-repeat=\"(key, value) in vm.sidebarLinks track by $index\" lx-scrollbar>\n      <li class=\"dropdown-divider\">\n      <li class=\"sidebar-menu__link bgc-blue-grey-50\"\n          ng-click=\"vm.sidebar.toggleSidebarItem($index)\"\n          lx-ripple=\"white\">{{::key}}\n        <i ng-if=\"vm.sidebar.items[$index]\" class=\"mdi mdi-menu-up\"></i>\n        <i ng-if=\"!vm.sidebar.items[$index]\" class=\"mdi mdi-menu-down\"></i>\n      </li>\n      <div ng-show=\"vm.sidebar.items[$index]\">\n        <li ng-repeat=\"item in value\"\n            ui-sref=\"{{::item.state}}\"\n            class=\"sidebar-menu__link\"\n            ng-click=\"vm.sidebar.toggleSidebar()\"\n            lx-ripple=\"white\">{{::item.text}}\n        </li>\n      </div>\n    </ul>\n  </div>\n</div>\n\n"
 
 /***/ },
 /* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"card tc-black-2 p-\">\n  <shmck-divider></shmck-divider>\n  <h1 class=\"fs-display1\">{{::title}}</h1>\n\n  <div class=\"card__content\" ng-class=\"bgc\" style=\"max-width: 450px\" ng-transclude>\n  </div>\n</div>\n"
+	module.exports = "<shmck-container title=\"Form Data\" bgc=\"bgc-blue-200\" id=\"form-data\">\n\n  <pre ng-bind-html=\"formData | json | prettify\" lx-scrollbar></pre>\n  <!--<pre pretty-json=\"formData\" class=\"aftl-formdata\" lx-scrollbar></pre>-->\n\n</shmck-container>\n"
 
 /***/ },
 /* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div ng-if=\"::content\">\n  <br/>\n  <div btf-markdown ng-include=\"::content\" class=\"markdown-description\"></div>\n  <br/>\n</div>\n"
+	module.exports = "<lx-dialog class=\"dialog dialog--l\" id=\"docsModal\">\n\n  <div class=\"dialog__header\">\n    <div class=\"toolbar bgc-light-blue-500\">\n            <span class=\"toolbar__label tc-white fs-title\">\n              {{::vm.contents.title}} Docs\n            </span>\n    </div>\n  </div>\n\n  <div class=\"dialog__content\" lx-scrollbar>\n    <div btf-markdown ng-include=\"::vm.contents.docFile\" lx-scrollbar></div>\n  </div>\n</lx-dialog>\n\n"
 
 /***/ },
 /* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<header class=\"header bgc-light-blue-600\" ng-cloak>\n  <div class=\"menubar\">\n    <button class=\"btn btn--l btn--icon btn--white\" lx-ripple=\"white\" ng-click=\"vm.sidebar.toggleSidebar()\">\n      <i class=\"mdi mdi-menu\"></i>\n    </button>\n  </div>\n\n  <h1 class=\"main-logo\">\n    <a ui-sref=\"text\" class=\"main-logo__link\" lx-ripple=\"white\">\n      <img class=\"main-nav--icon\" src=\"images/angular-formly.png\"/>\n      <span class=\"main-nav--title\">Formly LumX </span>\n      <span class=\"main-nav--version\">v{{::vm.version}}</span>\n    </a>\n  </h1>\n\n  <nav class=\"main-nav main-nav--lap-and-up\">\n    <ul>\n      <li ng-repeat=\"n in vm.links\">\n        <a href=\"{{n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n          {{n.text}}</a>\n      </li>\n    </ul>\n  </nav>\n  <nav class=\"main-nav main-nav--palm\">\n    <lx-dropdown position=\"right\" from-top=\"true\" width=\"150px\">\n      <button class=\"btn btn--l btn--white btn--icon\" lx-ripple=\"white\" lx-dropdown-toggle>\n        <i class=\"mdi mdi-dots-vertical\"></i>\n      </button>\n\n      <lx-dropdown-menu>\n        <ul>\n          <li ng-repeat=\"n in vm.links\">\n            <a ng-href=\"{{::n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n              <span style=\"color: rgba(0, 0, 0, 0.541176)\">{{n.text}}</span>\n            </a>\n          </li>\n        </ul>\n      </lx-dropdown-menu>\n    </lx-dropdown>\n  </nav>\n</header>\n"
+	module.exports = "<shmck-container title=\"Form Fields\" id=\"json-form-fields\">\n  <pre>[</pre>\n    <!--<pretty-json json=\"fields[$index]\" ng-repeat=\"item in fields track by $index\"-->\n         <!--class=\"bgc-yellow-100 aftl-json-field-item\">-->\n         <!--</pretty-json>-->\n  <pre ng-repeat=\"item in fields track by $index\" class=\"bgc-yellow-100\"\n       ng-bind-html=\"item | json | prettify\" lx-scrollbar></pre>\n\n  <pre>]</pre>\n\n</shmck-container>\n"
 
 /***/ },
 /* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"sidebar\" ng-class=\"{ 'sidebar--is-shown': vm.sidebar.isSidebarShown() }\">\n  <div class=\"sidebar-menu\">\n    <ul ng-repeat=\"(key, value) in vm.sidebarLinks track by $index\" lx-scrollbar>\n      <li class=\"dropdown-divider\">\n      <li class=\"sidebar-menu__link bgc-blue-grey-50\"\n          ng-click=\"vm.sidebar.toggleSidebarItem($index)\"\n          lx-ripple=\"white\">{{::key}}\n        <i ng-if=\"vm.sidebar.items[$index]\" class=\"mdi mdi-menu-up\"></i>\n        <i ng-if=\"!vm.sidebar.items[$index]\" class=\"mdi mdi-menu-down\"></i>\n      </li>\n      <div ng-show=\"vm.sidebar.items[$index]\">\n        <li ng-repeat=\"item in value\"\n            ui-sref=\"{{::item.state}}\"\n            class=\"sidebar-menu__link\"\n            ng-click=\"vm.sidebar.toggleSidebar()\"\n            lx-ripple=\"white\">{{::item.text}}\n        </li>\n      </div>\n    </ul>\n  </div>\n</div>\n\n"
+	module.exports = "<div ng-if=\"::content\">\n  <br/>\n  <div btf-markdown ng-include=\"::content\" class=\"markdown-description\"></div>\n  <br/>\n</div>\n"
 
 /***/ },
 /* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<shmck-progress-spinner items=\"vm.formFields\"></shmck-progress-spinner>\n<div class=\"main-section__content\" flex-container=\"row\" ng-cloak>\n\n  <!-- Form Field Inputs -->\n  <section flex-item=\"40\" class=\"content content-fields\">\n    <div class=\"card tc-black-2 p-\">\n      <shmck-divider></shmck-divider>\n      <a ng-if=\"vm.contents.docsLink\" class=\"docs-icon\" ng-href=\"{{vm.contents.docsLink}}\" target=\"_blank\">Docs <i\n        class=\"mdi mdi-file\"></i></a>\n      <a ng-if=\"vm.contents.docFile\" class=\"docs-icon\" ng-click=\"vm.openDialog()\">Docs <i class=\"mdi mdi-file\"></i></a>\n\n\n      <h1 class=\"fs-display2\">{{::vm.contents.title}}</h1>\n      <span class=\"fs-subhead\">{{::vm.contents.subhead}}</span>\n      <br/>\n\n      <shmck-contents content=\"::vm.contents.description\"></shmck-contents>\n\n      <shmck-container title=\"Examples\" bgc=\"bgc-white\">\n        <div ng-class=\"::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''\">\n          <formly-form model=\"vm.formData\" fields=\"vm.formFields\" id=\"formly-fields\">\n            <br/>\n            <button class=\"btn btn--l btn--blue btn--raised\" lx-ripple\n                    ng-click=\"vm.submit()\" type=\"submit\">Submit\n            </button>\n          </formly-form>\n        </div>\n      </shmck-container>\n\n      <shmck-form-data form-data=\"::vm.formData\"></shmck-form-data>\n\n      <shmck-contents content=\"::vm.contents.notes\"></shmck-contents>\n    </div>\n\n  </section>\n\n  <!-- Form Field JSON -->\n  <section flex-item=\"40\" class=\"content content-json\">\n    <shmck-json-fields fields=\"::vm.jsonFields\"></shmck-json-fields>\n  </section>\n\n\n</div>\n\n<shmck-docs-modal></shmck-docs-modal>\n"
+	module.exports = "<div class=\"card tc-black-2 p-\">\n  <shmck-divider></shmck-divider>\n  <h1 class=\"fs-display1\">{{::title}}</h1>\n\n  <div class=\"card__content\" ng-class=\"bgc\" style=\"max-width: 450px\" ng-transclude>\n  </div>\n</div>\n"
 
 /***/ },
 /* 73 */
