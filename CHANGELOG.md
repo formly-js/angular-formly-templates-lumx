@@ -1,4 +1,4 @@
-#1.5.0
+#1.5.1
 - formlyLumx.js re-written in webpack
 - you can now more easily edit and customize your own templates. Compile them by running "webpack" in the console.
 
