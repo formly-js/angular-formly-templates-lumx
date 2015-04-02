@@ -5,7 +5,7 @@ export default angular.module('shmck.formFields.inline', [])
 function inlineFormFields() {
   this.contents = {
     title: 'Inline Wrapper',
-    docFile: 'docs/input.md'
+    docFile: 'docs/inline.md'
   };
 
   this.formData = {};
@@ -17,10 +17,11 @@ function inlineFormFields() {
       wrapper: 'lx-wrapper-inline',
       templateOptions: {
         inline: {
-          before: 'I work at '
+          before: 'I work at ',
+          after: '.'
         },
         fixedLabel: true,
-        label: 'Work Place'
+        label: ' workplace'
       },
     }, {
       key: 'experience',
@@ -32,7 +33,7 @@ function inlineFormFields() {
           after: ' years.'
         },
         type: 'number',
-        label: '# years',
+        label: ' # years',
         fixedLabel: true
       }
     }, {

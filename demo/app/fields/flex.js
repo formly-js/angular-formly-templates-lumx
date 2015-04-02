@@ -6,7 +6,7 @@ function flexFormFields() {
   this.contents = {
     title: 'FlexBox Wrappers',
     subhead: 'lx-flex',
-    description: 'app/notes/flexDescription.md',
+    description: 'docs/notes/flexDescription.md',
     docFile: 'docs/flex.md',
     notes: 'docs/notes/flexNotes.md'
   };
@@ -26,10 +26,13 @@ function flexFormFields() {
 
   this.fields = function() {
     return [{
+      template: '<br/><h4>Space-between</h4>'
+    }, {
       type: 'lx-flex',
       templateOptions: {
         flex: {
           container: 'row',
+          align: 'space-between',
           item: 5
         },
 
@@ -51,11 +54,13 @@ function flexFormFields() {
         ]
       }
     }, {
+      template: '<br/><h4>Center</h4>'
+    }, {
       type: 'lx-flex',
       templateOptions: {
         flex: {
           container: 'column',
-          align: 'space-between center',
+          align: 'space-around center',
           gutter: 24,
           item: 10
         },
@@ -86,6 +91,8 @@ function flexFormFields() {
         }]
       }
     }, {
+      template: '<br/><h4>Center Center</h4>'
+    }, {
       type: 'lx-flex',
       templateOptions: {
         flex: {
@@ -113,10 +120,12 @@ function flexFormFields() {
         }, {
           key: 'addressStreetType',
           type: 'lx-select',
+          wrapper: 'lx-wrapper-div',
           templateOptions: {
-            flex: {
+            div: {
               style: {
-                bottom: '20px'
+                position: 'relative',
+                top: '-23px'
               }
             },
             placeholder: 'Street Type',

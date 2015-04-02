@@ -37,6 +37,8 @@ function selectFormFields() {
         }]
       }
     }, {
+      template: '<br/>'
+    }, {
       key: 'singleSelectTwo',
       type: 'lx-select',
       templateOptions: {
@@ -59,6 +61,8 @@ function selectFormFields() {
           {name: 'Adrian', email: 'adrian@email.com', age: 21}
         ]
       }
+    }, {
+      template: '<br/>'
     }, {
       key: 'multipleSelect',
       type: 'lx-select',
