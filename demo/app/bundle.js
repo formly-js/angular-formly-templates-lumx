@@ -53,7 +53,7 @@
 	/* angular & 3rd party */
 	"ngSanitize", "ngAnimate", "ngTouch", "ui.router", "btford.markdown",
 	/* modules */
-	__webpack_require__(2).name, __webpack_require__(3).name, __webpack_require__(4).name, __webpack_require__(5).name]).constant("version", "1.5.1").config(["$urlRouterProvider", function routerSetup($urlRouterProvider) {
+	__webpack_require__(2).name, __webpack_require__(3).name, __webpack_require__(4).name, __webpack_require__(5).name]).constant("version", "1.5.2").config(["$urlRouterProvider", function routerSetup($urlRouterProvider) {
 	  $urlRouterProvider.otherwise("/input");
 	}]);
 
@@ -76,19 +76,20 @@
 	   */
 	  //require('jquery');
 	  //require('imports!../bower_components/jquery/dist/jquery.js');
-	  __webpack_require__(36);
-	  __webpack_require__(38);
-	  __webpack_require__(37);
-	  __webpack_require__(39);
-	  __webpack_require__(40);
+	  __webpack_require__(18);
+	  __webpack_require__(19);
+	  __webpack_require__(20);
+	  __webpack_require__(21);
+	  __webpack_require__(22);
+	  __webpack_require__(44);
 	  __webpack_require__(45);
 	  __webpack_require__(46);
-	  __webpack_require__(44);
 	  //require('moment');
-	  __webpack_require__(18);
+	  __webpack_require__(23);
 	  __webpack_require__(41);
-	  //require('imports!./bower_components/showdown/compressed/Showdown.js');
-	  __webpack_require__(19);
+	  //require('imports!./bower_components/showdown/compressed/showdown.js');
+	  //require('imports?angular!./bower_components/showdown/compressed/ng-showdown.js');
+	  __webpack_require__(40);
 	};
 
 /***/ },
@@ -105,7 +106,7 @@
 
 	"use strict";
 
-	module.exports = angular.module("app.components", []).directive("shmckProgressSpinner", __webpack_require__(10)).directive("shmckFormData", __webpack_require__(11)).directive("shmckDocsModal", __webpack_require__(12)).directive("shmckJsonFields", __webpack_require__(13)).directive("shmckContents", __webpack_require__(14)).directive("shmckContainer", __webpack_require__(15)).directive("shmckDivider", __webpack_require__(16)).filter("prettify", __webpack_require__(17));
+	module.exports = angular.module("app.components", []).directive("shmckProgressSpinner", __webpack_require__(9)).directive("shmckFormData", __webpack_require__(10)).directive("shmckDocsModal", __webpack_require__(11)).directive("shmckJsonFields", __webpack_require__(12)).directive("shmckContents", __webpack_require__(13)).directive("shmckContainer", __webpack_require__(14)).directive("shmckDivider", __webpack_require__(15)).filter("prettify", __webpack_require__(16));
 
 /***/ },
 /* 4 */
@@ -113,7 +114,7 @@
 
 	"use strict";
 
-	module.exports = angular.module("app.main", []).controller("MainCtrl", __webpack_require__(9));
+	module.exports = angular.module("app.main", []).controller("MainCtrl", __webpack_require__(17));
 
 /***/ },
 /* 5 */
@@ -123,11 +124,11 @@
 
 	module.exports = angular.module("shmck.formFields", [
 	/* TYPES */
-	__webpack_require__(20).name, __webpack_require__(21).name, __webpack_require__(22).name, __webpack_require__(23).name, __webpack_require__(24).name, __webpack_require__(25).name, __webpack_require__(26).name, __webpack_require__(27).name,
+	__webpack_require__(24).name, __webpack_require__(25).name, __webpack_require__(26).name, __webpack_require__(27).name, __webpack_require__(28).name, __webpack_require__(29).name, __webpack_require__(30).name, __webpack_require__(31).name,
 	/* WRAPPERS */
-	__webpack_require__(28).name, __webpack_require__(29).name, __webpack_require__(30).name,
+	__webpack_require__(32).name, __webpack_require__(33).name, __webpack_require__(34).name,
 	/* FEATURES */
-	__webpack_require__(31).name, __webpack_require__(32).name, __webpack_require__(33).name, __webpack_require__(34).name, __webpack_require__(35).name]);
+	__webpack_require__(35).name, __webpack_require__(36).name, __webpack_require__(37).name, __webpack_require__(38).name, __webpack_require__(39).name]);
 
 /***/ },
 /* 6 */
@@ -197,7 +198,7 @@
 	var SidebarCtrl = function SidebarCtrl(SidebarService) {
 	  _classCallCheck(this, SidebarCtrl);
 
-	  this.sidebarLinks = __webpack_require__(73);
+	  this.sidebarLinks = __webpack_require__(65);
 	  this.sidebar = SidebarService;
 	};
 
@@ -217,6 +218,156 @@
 
 /***/ },
 /* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+	var ProgressSpinnerCtrl = function ProgressSpinnerCtrl(LxProgressService, $timeout, $scope) {
+	  _classCallCheck(this, ProgressSpinnerCtrl);
+
+	  LxProgressService.circular.show("#5fa2db", "#progress");
+
+	  $scope.$watch("items", function () {
+	    if ($scope.items) {
+	      $timeout(function () {
+	        LxProgressService.circular.hide();
+	      }, 200);
+	    }
+	  });
+	};
+
+	ProgressSpinnerCtrl.$inject = ["LxProgressService", "$timeout", "$scope"];
+
+	module.exports = function () {
+	  return {
+	    scope: {
+	      items: "="
+	    },
+	    template: "<div id=\"progress\"></div>",
+	    controller: ProgressSpinnerCtrl
+	  };
+	};
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: __webpack_require__(68),
+	    scope: {
+	      formData: "="
+	    }
+	  };
+	};
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  __webpack_require__(62);
+	  return {
+	    template: __webpack_require__(70),
+	    bindToController: true
+	  };
+	};
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  __webpack_require__(60);
+	  return {
+	    template: __webpack_require__(69),
+	    scope: {
+	      fields: "="
+	    }
+	  };
+	};
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: __webpack_require__(71),
+	    scope: {
+	      content: "="
+	    }
+	  };
+	};
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: __webpack_require__(73),
+	    scope: {
+	      title: "@",
+	      bgc: "@"
+	    },
+	    transclude: true
+	  };
+	};
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return {
+	    template: "<span class=\"shmck-divider\"></span>"
+	  };
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function () {
+	  return function (json) {
+	    json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+	      var cls = "number";
+	      if (/^"/.test(match)) {
+	        if (/:$/.test(match)) {
+	          cls = "key";
+	        } else {
+	          cls = "string";
+	        }
+	      } else if (/true|false/.test(match)) {
+	        cls = "boolean";
+	      } else if (/null/.test(match)) {
+	        cls = "null";
+	      }
+	      return "<span class=\"" + cls + "\">" + match + "</span>";
+	    });
+	  };
+	};
+
+/***/ },
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -260,161 +411,51 @@
 	module.exports = FormCtrl;
 
 /***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
-
-	var ProgressSpinnerCtrl = function ProgressSpinnerCtrl(LxProgressService, $timeout, $scope) {
-	  _classCallCheck(this, ProgressSpinnerCtrl);
-
-	  LxProgressService.circular.show("#5fa2db", "#progress");
-
-	  $scope.$watch("items", function () {
-	    if ($scope.items) {
-	      $timeout(function () {
-	        LxProgressService.circular.hide();
-	      }, 200);
-	    }
-	  });
-	};
-
-	ProgressSpinnerCtrl.$inject = ["LxProgressService", "$timeout", "$scope"];
-
-	module.exports = function () {
-	  return {
-	    scope: {
-	      items: "="
-	    },
-	    template: "<div id=\"progress\"></div>",
-	    controller: ProgressSpinnerCtrl
-	  };
-	};
-
-/***/ },
-/* 11 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: __webpack_require__(68),
-	    scope: {
-	      formData: "="
-	    }
-	  };
-	};
-
-/***/ },
-/* 12 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  __webpack_require__(62);
-	  return {
-	    template: __webpack_require__(71),
-	    bindToController: true
-	  };
-	};
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  __webpack_require__(60);
-	  return {
-	    template: __webpack_require__(69),
-	    scope: {
-	      fields: "="
-	    }
-	  };
-	};
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: __webpack_require__(72),
-	    scope: {
-	      content: "="
-	    }
-	  };
-	};
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: __webpack_require__(70),
-	    scope: {
-	      title: "@",
-	      bgc: "@"
-	    },
-	    transclude: true
-	  };
-	};
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return {
-	    template: "<span class=\"shmck-divider\"></span>"
-	  };
-	};
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function () {
-	  return function (json) {
-	    json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-	      var cls = "number";
-	      if (/^"/.test(match)) {
-	        if (/:$/.test(match)) {
-	          cls = "key";
-	        } else {
-	          cls = "string";
-	        }
-	      } else if (/true|false/.test(match)) {
-	        cls = "boolean";
-	      } else if (/null/.test(match)) {
-	        cls = "null";
-	      }
-	      return "<span class=\"" + cls + "\">" + match + "</span>";
-	    });
-	  };
-	};
-
-/***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(48);
+	module.exports = angular;
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(49);
+	module.exports = 'ngMessages';
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(50);
+	module.exports = 'ngAnimate';
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(51);
+	module.exports = 'ngTouch';
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(52);
+	module.exports = 'ngSanitize';
+
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
 	/*** IMPORTS FROM imports-loader ***/
-	var angular = __webpack_require__(36);
+	var angular = __webpack_require__(18);
 
 	/*
 	 LumX v0.3.25
@@ -3600,59 +3641,14 @@
 		 }]);
 
 /***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*** IMPORTS FROM imports-loader ***/
-	var angular = __webpack_require__(36);
-
-	/*
-	 * angular-markdown-directive v0.3.1
-	 * (c) 2013-2014 Brian Ford http://briantford.com
-	 * License: MIT
-	 */
-
-	'use strict';
-
-	angular.module('btford.markdown', ['ngSanitize']).
-	  provider('markdownConverter', function () {
-	    var opts = {};
-	    return {
-	      config: function (newOpts) {
-	        opts = newOpts;
-	      },
-	      $get: function () {
-	        return new Showdown.converter(opts);
-	      }
-	    };
-	  }).
-	  directive('btfMarkdown', ['$sanitize', 'markdownConverter', function ($sanitize, markdownConverter) {
-	    return {
-	      restrict: 'AE',
-	      link: function (scope, element, attrs) {
-	        if (attrs.btfMarkdown) {
-	          scope.$watch(attrs.btfMarkdown, function (newVal) {
-	            var html = newVal ? $sanitize(markdownConverter.makeHtml(newVal)) : '';
-	            element.html(html);
-	          });
-	        } else {
-	          var html = $sanitize(markdownConverter.makeHtml(element.text()));
-	          element.html(html);
-	        }
-	      }
-	    };
-	  }]);
-
-
-/***/ },
-/* 20 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.switch", []).service("switchFormFields", switchFormFields).config(stateRoutes);
+	var name = "switch";
 
-	function switchFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Switch",
 	    docFile: "docs/switch.md"
@@ -3708,21 +3704,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("switch", {
-	    url: "/switch",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["switchFormFields", function formFields(switchFormFields) {
-	            return switchFormFields.fields;
+	          formFields: ["switchFF", function formFields(switchFF) {
+	            return switchFF.fields;
 	          }],
-	          contents: ["switchFormFields", function contents(switchFormFields) {
-	            return switchFormFields.contents;
+	          contents: ["switchFF", function contents(switchFF) {
+	            return switchFF.contents;
 	          }],
-	          formData: ["switchFormFields", function formData(switchFormFields) {
-	            return switchFormFields.formData;
+	          formData: ["switchFF", function formData(switchFF) {
+	            return switchFF.formData;
 	          }]
 	        }
 	      }
@@ -3730,16 +3726,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 21 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.radio", []).service("radioFormFields", radioFormFields).config(stateRoutes);
+	var name = "radio";
 
-	function radioFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Radio",
 	    docFile: "docs/radio.md"
@@ -3812,21 +3809,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("radio", {
-	    url: "/radio",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["radioFormFields", function formFields(radioFormFields) {
-	            return radioFormFields.fields;
+	          formFields: ["radioFF", function formFields(radioFF) {
+	            return radioFF.fields;
 	          }],
-	          contents: ["radioFormFields", function contents(radioFormFields) {
-	            return radioFormFields.contents;
+	          contents: ["radioFF", function contents(radioFF) {
+	            return radioFF.contents;
 	          }],
-	          formData: ["radioFormFields", function formData(radioFormFields) {
-	            return radioFormFields.formData;
+	          formData: ["radioFF", function formData(radioFF) {
+	            return radioFF.formData;
 	          }]
 	        }
 	      }
@@ -3834,16 +3831,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 22 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.select", []).service("selectFormFields", selectFormFields).config(stateRoutes);
+	var name = "select";
 
-	function selectFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Selectors",
 	    subhead: "select, multiple-select",
@@ -3878,6 +3876,8 @@
 	        }]
 	      }
 	    }, {
+	      template: "<br/>"
+	    }, {
 	      key: "singleSelectTwo",
 	      type: "lx-select",
 	      templateOptions: {
@@ -3891,6 +3891,8 @@
 	        choice2: "age",
 	        options: [{ name: "Adam", email: "adam@email.com", age: 10 }, { name: "Amalie", email: "amalie@email.com", age: 12 }, { name: "Wladimir", email: "wladimir@email.com", age: 30 }, { name: "Samantha", email: "samantha@email.com", age: 31 }, { name: "Estefanía", email: "estefanía@email.com", age: 16 }, { name: "Natasha", email: "natasha@email.com", age: 54 }, { name: "Nicole", email: "nicole@email.com", age: 43 }, { name: "Adrian", email: "adrian@email.com", age: 21 }]
 	      }
+	    }, {
+	      template: "<br/>"
 	    }, {
 	      key: "multipleSelect",
 	      type: "lx-select",
@@ -3922,21 +3924,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("select", {
-	    url: "/select",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["selectFormFields", function formFields(selectFormFields) {
-	            return selectFormFields.fields;
+	          formFields: ["selectFF", function formFields(selectFF) {
+	            return selectFF.fields;
 	          }],
-	          contents: ["selectFormFields", function contents(selectFormFields) {
-	            return selectFormFields.contents;
+	          contents: ["selectFF", function contents(selectFF) {
+	            return selectFF.contents;
 	          }],
-	          formData: ["selectFormFields", function formData(selectFormFields) {
-	            return selectFormFields.formData;
+	          formData: ["selectFF", function formData(selectFF) {
+	            return selectFF.formData;
 	          }]
 	        }
 	      }
@@ -3944,16 +3946,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 23 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.datePicker", []).service("datePickerFormFields", datePickerFormFields).config(stateRoutes);
+	var name = "datePicker";
 
-	function datePickerFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Date Picker",
 	    docFile: "docs/datePicker.md"
@@ -3971,23 +3974,22 @@
 	    }];
 	  };
 	}
-
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("datePicker", {
-	    url: "/datePicker",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["datePickerFormFields", function formFields(datePickerFormFields) {
-	            return datePickerFormFields.fields;
+	          formFields: ["datePickerFF", function formFields(datePickerFF) {
+	            return datePickerFF.fields;
 	          }],
-	          contents: ["datePickerFormFields", function contents(datePickerFormFields) {
-	            return datePickerFormFields.contents;
+	          contents: ["datePickerFF", function contents(datePickerFF) {
+	            return datePickerFF.contents;
 	          }],
-	          formData: ["datePickerFormFields", function formData(datePickerFormFields) {
-	            return datePickerFormFields.formData;
+	          formData: ["datePickerFF", function formData(datePickerFF) {
+	            return datePickerFF.formData;
 	          }]
 	        }
 	      }
@@ -3995,16 +3997,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 24 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.input", []).service("inputFormFields", inputFormFields).config(stateRoutes);
+	var name = "input";
 
-	function inputFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Input Fields",
 	    subhead: "input & textarea",
@@ -4098,21 +4101,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("input", {
-	    url: "/input",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["inputFormFields", function formFields(inputFormFields) {
-	            return inputFormFields.fields;
+	          formFields: ["inputFF", function formFields(inputFF) {
+	            return inputFF.fields;
 	          }],
-	          contents: ["inputFormFields", function contents(inputFormFields) {
-	            return inputFormFields.contents;
+	          contents: ["inputFF", function contents(inputFF) {
+	            return inputFF.contents;
 	          }],
-	          formData: ["inputFormFields", function formData(inputFormFields) {
-	            return inputFormFields.formData;
+	          formData: ["inputFF", function formData(inputFF) {
+	            return inputFF.formData;
 	          }]
 	        }
 	      }
@@ -4120,16 +4123,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 25 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.dropdown", []).service("dropdownFormFields", dropdownFormFields).config(stateRoutes);
+	var name = "dropdown";
 
-	function dropdownFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Dropdown"
 	    //markdownFile: 'app/docs/dropdown.md'
@@ -4189,23 +4193,22 @@
 	    }];
 	  };
 	}
-
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("dropdown", {
-	    url: "/dropdown",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["dropdownFormFields", function formFields(dropdownFormFields) {
-	            return dropdownFormFields.fields;
+	          formFields: ["dropdownFF", function formFields(dropdownFF) {
+	            return dropdownFF.fields;
 	          }],
-	          contents: ["dropdownFormFields", function contents(dropdownFormFields) {
-	            return dropdownFormFields.contents;
+	          contents: ["dropdownFF", function contents(dropdownFF) {
+	            return dropdownFF.contents;
 	          }],
-	          formData: ["dropdownFormFields", function formData(dropdownFormFields) {
-	            return dropdownFormFields.formData;
+	          formData: ["dropdownFF", function formData(dropdownFF) {
+	            return dropdownFF.formData;
 	          }]
 	        }
 	      }
@@ -4213,20 +4216,21 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 26 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.flex", []).service("flexFormFields", flexFormFields).config(stateRoutes);
+	var name = "flex";
 
-	function flexFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "FlexBox Wrappers",
 	    subhead: "lx-flex",
-	    description: "app/notes/flexDescription.md",
+	    description: "docs/notes/flexDescription.md",
 	    docFile: "docs/flex.md",
 	    notes: "docs/notes/flexNotes.md"
 	  };
@@ -4246,10 +4250,13 @@
 
 	  this.fields = function () {
 	    return [{
+	      template: "<br/><h4>Space-between</h4>"
+	    }, {
 	      type: "lx-flex",
 	      templateOptions: {
 	        flex: {
 	          container: "row",
+	          align: "space-between",
 	          item: 5
 	        },
 
@@ -4268,11 +4275,13 @@
 	        }]
 	      }
 	    }, {
+	      template: "<br/><h4>Center</h4>"
+	    }, {
 	      type: "lx-flex",
 	      templateOptions: {
 	        flex: {
 	          container: "column",
-	          align: "space-between center",
+	          align: "space-around center",
 	          gutter: 24,
 	          item: 10
 	        },
@@ -4303,6 +4312,8 @@
 	        }]
 	      }
 	    }, {
+	      template: "<br/><h4>Center Center</h4>"
+	    }, {
 	      type: "lx-flex",
 	      templateOptions: {
 	        flex: {
@@ -4330,10 +4341,12 @@
 	        }, {
 	          key: "addressStreetType",
 	          type: "lx-select",
+	          wrapper: "lx-wrapper-div",
 	          templateOptions: {
-	            flex: {
+	            div: {
 	              style: {
-	                bottom: "20px"
+	                position: "relative",
+	                top: "-23px"
 	              }
 	            },
 	            placeholder: "Street Type",
@@ -4348,21 +4361,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("flex", {
-	    url: "/flex",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["flexFormFields", function formFields(flexFormFields) {
-	            return flexFormFields.fields;
+	          formFields: ["flexFF", function formFields(flexFF) {
+	            return flexFF.fields;
 	          }],
-	          contents: ["flexFormFields", function contents(flexFormFields) {
-	            return flexFormFields.contents;
+	          contents: ["flexFF", function contents(flexFF) {
+	            return flexFF.contents;
 	          }],
-	          formData: ["flexFormFields", function formData(flexFormFields) {
-	            return flexFormFields.formData;
+	          formData: ["flexFF", function formData(flexFF) {
+	            return flexFF.formData;
 	          }]
 	        }
 	      }
@@ -4370,16 +4383,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 27 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.checkbox", []).service("checkboxFormFields", checkboxFormFields).config(stateRoutes);
+	var name = "checkbox";
 
-	function checkboxFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Checkbox",
 	    docFile: "docs/checkbox.md"
@@ -4434,21 +4448,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("checkbox", {
-	    url: "/checkbox",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["checkboxFormFields", function formFields(checkboxFormFields) {
-	            return checkboxFormFields.fields;
+	          formFields: ["checkboxFF", function formFields(checkboxFF) {
+	            return checkboxFF.fields;
 	          }],
-	          contents: ["checkboxFormFields", function contents(checkboxFormFields) {
-	            return checkboxFormFields.contents;
+	          contents: ["checkboxFF", function contents(checkboxFF) {
+	            return checkboxFF.contents;
 	          }],
-	          formData: ["checkboxFormFields", function formData(checkboxFormFields) {
-	            return checkboxFormFields.formData;
+	          formData: ["checkboxFF", function formData(checkboxFF) {
+	            return checkboxFF.formData;
 	          }]
 	        }
 	      }
@@ -4456,16 +4470,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 28 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.themes", []).service("themeFormFields", themeFormFields).config(stateRoutes);
+	var name = "themes";
 
-	function themeFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Themes",
 	    subhead: "backgrounds + dark/light font themes",
@@ -4539,21 +4554,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("theme", {
-	    url: "/themes",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["themeFormFields", function formFields(themeFormFields) {
-	            return themeFormFields.fields;
+	          formFields: ["themesFF", function formFields(themesFF) {
+	            return themesFF.fields;
 	          }],
-	          contents: ["themeFormFields", function contents(themeFormFields) {
-	            return themeFormFields.contents;
+	          contents: ["themesFF", function contents(themesFF) {
+	            return themesFF.contents;
 	          }],
-	          formData: ["themeFormFields", function formData(themeFormFields) {
-	            return themeFormFields.formData;
+	          formData: ["themesFF", function formData(themesFF) {
+	            return themesFF.formData;
 	          }]
 	        }
 	      }
@@ -4561,19 +4576,20 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 29 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.inline", []).service("inlineFormFields", inlineFormFields).config(stateRoutes);
+	var name = "inline";
 
-	function inlineFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Inline Wrapper",
-	    docFile: "docs/input.md"
+	    docFile: "docs/inline.md"
 	  };
 
 	  this.formData = {};
@@ -4585,10 +4601,11 @@
 	      wrapper: "lx-wrapper-inline",
 	      templateOptions: {
 	        inline: {
-	          before: "I work at "
+	          before: "I work at ",
+	          after: "."
 	        },
 	        fixedLabel: true,
-	        label: "Work Place"
+	        label: " workplace"
 	      } }, {
 	      key: "experience",
 	      type: "lx-input",
@@ -4599,7 +4616,7 @@
 	          after: " years."
 	        },
 	        type: "number",
-	        label: "# years",
+	        label: " # years",
 	        fixedLabel: true
 	      }
 	    }, {
@@ -4632,21 +4649,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("inline", {
-	    url: "/inline",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["inlineFormFields", function formFields(inlineFormFields) {
-	            return inlineFormFields.fields;
+	          formFields: ["inlineFF", function formFields(inlineFF) {
+	            return inlineFF.fields;
 	          }],
-	          contents: ["inlineFormFields", function contents(inlineFormFields) {
-	            return inlineFormFields.contents;
+	          contents: ["inlineFF", function contents(inlineFF) {
+	            return inlineFF.contents;
 	          }],
-	          formData: ["inlineFormFields", function formData(inlineFormFields) {
-	            return inlineFormFields.formData;
+	          formData: ["inlineFF", function formData(inlineFF) {
+	            return inlineFF.formData;
 	          }]
 	        }
 	      }
@@ -4654,17 +4671,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 30 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.error", []).service("errorFormFields", errorFormFields).directive("iceCream", iceCream).config(stateRoutes);
+	var name = "error";
 
-	/*@ngInject*/
-	function errorFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Error Notification",
 	    subhead: "easy validation tools",
@@ -4742,23 +4759,22 @@
 	    }];
 	  };
 	}
-
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("error", {
-	    url: "/errors",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["errorFormFields", function formFields(errorFormFields) {
-	            return errorFormFields.fields;
+	          formFields: ["errorFF", function formFields(errorFF) {
+	            return errorFF.fields;
 	          }],
-	          contents: ["errorFormFields", function contents(errorFormFields) {
-	            return errorFormFields.contents;
+	          contents: ["errorFF", function contents(errorFF) {
+	            return errorFF.contents;
 	          }],
-	          formData: ["errorFormFields", function formData(errorFormFields) {
-	            return errorFormFields.formData;
+	          formData: ["errorFF", function formData(errorFF) {
+	            return errorFF.formData;
 	          }]
 	        }
 	      }
@@ -4780,15 +4796,17 @@
 	  };
 	}
 
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes).directive("iceCream", iceCream);
+
 /***/ },
-/* 31 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.modelOptions", []).service("modelOptionsFormFields", modelOptionsFormFields).config(stateRoutes);
+	var name = "modelOptions";
 
-	function modelOptionsFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Model Options",
 	    description: "docs/notes/modelOptionsDescription.md",
@@ -4879,21 +4897,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("modelOptions", {
-	    url: "/modelOptions",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["modelOptionsFormFields", function formFields(modelOptionsFormFields) {
-	            return modelOptionsFormFields.fields;
+	          formFields: ["modelOptionsFF", function formFields(modelOptionsFF) {
+	            return modelOptionsFF.fields;
 	          }],
-	          contents: ["modelOptionsFormFields", function contents(modelOptionsFormFields) {
-	            return modelOptionsFormFields.contents;
+	          contents: ["modelOptionsFF", function contents(modelOptionsFF) {
+	            return modelOptionsFF.contents;
 	          }],
-	          formData: ["modelOptionsFormFields", function formData(modelOptionsFormFields) {
-	            return modelOptionsFormFields.formData;
+	          formData: ["modelOptionsFF", function formData(modelOptionsFF) {
+	            return modelOptionsFF.formData;
 	          }]
 	        }
 	      }
@@ -4902,16 +4920,18 @@
 	}
 	stateRoutes.$inject = ["$stateProvider"];
 
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
+
 /***/ },
-/* 32 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.validators", []).service("validatorsFormFields", validatorsFormFields).config(stateRoutes);
+	var name = "validators";
 
 	/*@ngInject*/
-	function validatorsFormFields($timeout, $q) {
+	function fields($timeout, $q) {
 	  this.contents = {
 	    title: "Validators",
 	    subhead: "sync & async, pending",
@@ -4967,24 +4987,24 @@
 	    }];
 	  };
 	}
-	validatorsFormFields.$inject = ["$timeout", "$q"];
+	fields.$inject = ["$timeout", "$q"];
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("validators", {
-	    url: "/validators",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["validatorsFormFields", function formFields(validatorsFormFields) {
-	            return validatorsFormFields.fields;
+	          formFields: ["validatorsFF", function formFields(validatorsFF) {
+	            return validatorsFF.fields;
 	          }],
-	          contents: ["validatorsFormFields", function contents(validatorsFormFields) {
-	            return validatorsFormFields.contents;
+	          contents: ["validatorsFF", function contents(validatorsFF) {
+	            return validatorsFF.contents;
 	          }],
-	          formData: ["validatorsFormFields", function formData(validatorsFormFields) {
-	            return validatorsFormFields.formData;
+	          formData: ["validatorsFF", function formData(validatorsFF) {
+	            return validatorsFF.formData;
 	          }]
 	        }
 	      }
@@ -4992,16 +5012,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 33 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.expression", []).service("expressionFormFields", expressionFormFields).config(stateRoutes);
+	var name = "expression";
 
-	function expressionFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Expression Properties",
 	    docsLink: "http://formly-js.github.io/angular-formly/#/example/intro/expression-properties"
@@ -5077,21 +5098,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("expression", {
-	    url: "/expression",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["expressionFormFields", function formFields(expressionFormFields) {
-	            return expressionFormFields.fields;
+	          formFields: ["expressionFF", function formFields(expressionFF) {
+	            return expressionFF.fields;
 	          }],
-	          contents: ["expressionFormFields", function contents(expressionFormFields) {
-	            return expressionFormFields.contents;
+	          contents: ["expressionFF", function contents(expressionFF) {
+	            return expressionFF.contents;
 	          }],
-	          formData: ["expressionFormFields", function formData(expressionFormFields) {
-	            return expressionFormFields.formData;
+	          formData: ["expressionFF", function formData(expressionFF) {
+	            return expressionFF.formData;
 	          }]
 	        }
 	      }
@@ -5099,16 +5120,17 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
-/* 34 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.ngModelAttrs", []).service("ngModelAttrsFormFields", ngModelAttrsFormFields).config(stateRoutes);
+	var name = "ngModelAttrs";
 
-	function ngModelAttrsFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "ngModelAttrs",
 	    docsLink: "http://formly-js.github.io/angular-formly/#/example/very-advanced/ngModelAttrs",
@@ -5137,21 +5159,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("ngModelAttrs", {
-	    url: "/ngModelAttrs",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["ngModelAttrsFormFields", function formFields(ngModelAttrsFormFields) {
-	            return ngModelAttrsFormFields.fields;
+	          formFields: ["ngModelAttrsFF", function formFields(ngModelAttrsFF) {
+	            return ngModelAttrsFF.fields;
 	          }],
-	          contents: ["ngModelAttrsFormFields", function contents(ngModelAttrsFormFields) {
-	            return ngModelAttrsFormFields.contents;
+	          contents: ["ngModelAttrsFF", function contents(ngModelAttrsFF) {
+	            return ngModelAttrsFF.contents;
 	          }],
-	          formData: ["ngModelAttrsFormFields", function formData(ngModelAttrsFormFields) {
-	            return ngModelAttrsFormFields.formData;
+	          formData: ["ngModelAttrsFF", function formData(ngModelAttrsFF) {
+	            return ngModelAttrsFF.formData;
 	          }]
 	        }
 	      }
@@ -5160,15 +5182,17 @@
 	}
 	stateRoutes.$inject = ["$stateProvider"];
 
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
+
 /***/ },
-/* 35 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	module.exports = angular.module("shmck.formFields.ctrlLink", []).service("ctrlLinkFormFields", ctrlLinkFormFields).config(stateRoutes);
+	var name = "ctrlLink";
 
-	function ctrlLinkFormFields() {
+	function fields() {
 	  this.contents = {
 	    title: "Controller / Link",
 	    docsLink: "http://formly-js.github.io/angular-formly/#/example/advanced/custom-controller-and-link"
@@ -5213,21 +5237,21 @@
 	}
 
 	function stateRoutes($stateProvider) {
-	  $stateProvider.state("ctrlLink", {
-	    url: "/ctrlLink",
+	  $stateProvider.state("" + name, {
+	    url: "/" + name,
 	    views: {
 	      "form@": {
-	        template: __webpack_require__(65),
+	        template: __webpack_require__(72),
 	        controller: "MainCtrl as vm",
 	        resolve: {
-	          formFields: ["ctrlLinkFormFields", function formFields(ctrlLinkFormFields) {
-	            return ctrlLinkFormFields.fields;
+	          formFields: ["ctrlLinkFF", function formFields(ctrlLinkFF) {
+	            return ctrlLinkFF.fields;
 	          }],
-	          contents: ["ctrlLinkFormFields", function contents(ctrlLinkFormFields) {
-	            return ctrlLinkFormFields.contents;
+	          contents: ["ctrlLinkFF", function contents(ctrlLinkFF) {
+	            return ctrlLinkFF.contents;
 	          }],
-	          formData: ["ctrlLinkFormFields", function formData(ctrlLinkFormFields) {
-	            return ctrlLinkFormFields.formData;
+	          formData: ["ctrlLinkFF", function formData(ctrlLinkFF) {
+	            return ctrlLinkFF.formData;
 	          }]
 	        }
 	      }
@@ -5235,45 +5259,51 @@
 	  });
 	}
 	stateRoutes.$inject = ["$stateProvider"];
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(48);
-	module.exports = angular;
-
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(49);
-	module.exports = 'ngAnimate';
-
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(52);
-	module.exports = 'ngMessages';
-
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(51);
-	module.exports = 'ngTouch';
-
+	module.exports = angular.module("shmck.formFields." + name, []).service("" + name + "FF", fields).config(stateRoutes);
 
 /***/ },
 /* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(50);
-	module.exports = 'ngSanitize';
+	/*** IMPORTS FROM imports-loader ***/
+	var angular = __webpack_require__(18);
+
+	/*
+	 * angular-markdown-directive v0.3.1
+	 * (c) 2013-2014 Brian Ford http://briantford.com
+	 * License: MIT
+	 */
+
+	'use strict';
+
+	angular.module('btford.markdown', ['ngSanitize']).
+	  provider('markdownConverter', function () {
+	    var opts = {};
+	    return {
+	      config: function (newOpts) {
+	        opts = newOpts;
+	      },
+	      $get: function () {
+	        return new Showdown.converter(opts);
+	      }
+	    };
+	  }).
+	  directive('btfMarkdown', ['$sanitize', 'markdownConverter', function ($sanitize, markdownConverter) {
+	    return {
+	      restrict: 'AE',
+	      link: function (scope, element, attrs) {
+	        if (attrs.btfMarkdown) {
+	          scope.$watch(attrs.btfMarkdown, function (newVal) {
+	            var html = newVal ? $sanitize(markdownConverter.makeHtml(newVal)) : '';
+	            element.html(html);
+	          });
+	        } else {
+	          var html = $sanitize(markdownConverter.makeHtml(element.text()));
+	          element.html(html);
+	        }
+	      }
+	    };
+	  }]);
 
 
 /***/ },
@@ -5281,7 +5311,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
-	var angular = __webpack_require__(36);
+	var angular = __webpack_require__(18);
 
 	/******/ (function(modules) { // webpackBootstrap
 	/******/ 	// The module cache
@@ -5580,7 +5610,7 @@
 	/* 6 */
 	/***/ function(module, exports, __webpack_require__) {
 
-		module.exports = "<div class=\"radio-group\">\n\t<h3 ng-if=\"::to.label\"><label>{{::to.label}}</label></h3>\n\n\t<div class=\"radio-button\"\n\t     ng-class=\"{'radio-button__inline': to.inline}\"\n\t     ng-repeat=\"o in to.options\">\n\t\t<input ng-model=\"$parent.model[$parent.options.key]\"\n\t\t       ng-class=\"{'radio-button__inline-item': to.inline}\"\n\t\t       id=\"{{::id + '_' + $index}}\"\n\t\t       type=\"radio\"\n\t\t       ng-disabled=\"::o.disabled\"\n\t\t       class=\"radio-button__input\"\n\t\t       ng-value=\"::o.value\"\n\t\t       aria-labelledby=\"{{::id + '_' + $index + '_radioButton'}}\">\n\t\t<label for=\"{{::id + '_' + $index}}\"\n\t\t       class=\"radio-button__label\">{{::o.name}}</label>\n      <span ng-if=\"::o.description\" class=\"radio-button__help\">{{::o.description}}\n      </span>\n\t</div>\n</div>\n"
+		module.exports = "<div class=\"radio-group\">\n\t<h3 ng-if=\"::to.label\"><label>{{::to.label}}</label></h3>\n\n\t<div class=\"radio-button\"\n\t     ng-class=\"{'radio-button__inline': to.inline}\"\n\t     ng-repeat=\"o in to.options\">\n\t\t<input ng-model=\"$parent.model[$parent.options.key]\"\n\t\t       id=\"{{::id + '_' + $index}}\"\n\t\t       type=\"radio\"\n\t\t       ng-disabled=\"::o.disabled\"\n\t\t       class=\"radio-button__input\"\n\t\t       ng-value=\"::o.value\"\n\t\t       aria-labelledby=\"{{::id + '_' + $index + '_radioButton'}}\">\n\t\t<label for=\"{{::id + '_' + $index}}\"\n\t\t       class=\"radio-button__label\">{{::o.name}}</label>\n      <span ng-if=\"::o.description\" class=\"radio-button__help\">{{::o.description}}\n      </span>\n\t</div>\n</div>\n"
 
 	/***/ },
 	/* 7 */
@@ -5657,3883 +5687,10 @@
 	exports = module.exports = __webpack_require__(53)();
 	__webpack_require__(54)(exports, __webpack_require__(55), "");
 	__webpack_require__(54)(exports, __webpack_require__(56), "");
-	exports.push([module.id, "\n\n.main-section__content {\n  margin-top: 36px;\n  flex-wrap: wrap;\n  flex-direction: row; }\n\n.content {\n  padding-left: 10px;\n  max-width: 700px; }\n\n.content-fields {\n  min-width: 100px;\n  flex-grow: 4; }\n\n.content-json {\n  min-width: 200px;\n  flex-grow: 6; }\n\ndiv.card {\n  padding: 14px !important; }\n\n.docs-icon {\n  float: right;\n  opacity: 0.5;\n  margin-right: 10px; }\n\nheader {\n  position: fixed; }\n\n.main-nav--title {\n  margin-left: 45px;\n  margin-top: 0; }\n\n.main-nav--icon {\n  position: absolute;\n  margin: 5px; }\n\n.main-logo__link {\n  text-decoration: none;\n  color: white; }\n\n.menu-icon {\n  fill: white; }\n\n.main-nav--version {\n  font-size: 0.5em;\n  color: #F4F4F4; }\n\n@media screen and (min-width: 1024px) {\n  .wrapper {\n    width: 960px;\n    margin: 0 auto; } }\n\n@media screen and (max-width: 1023px) {\n  .wrapper {\n    margin: 0 24px; } }\n\n.sidebar-filter {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 998;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0;\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -moz-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-duration: 0.6s;\n  -moz-transition-duration: 0.6s;\n  transition-duration: 0.6s;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }\n\n@media screen and (max-width: 1023px) {\n  .sidebar-filter--is-shown {\n    opacity: 1;\n    pointer-events: auto; } }\n\n.sidebar {\n  z-index: 998;\n  width: 260px;\n  border-right: solid 1px #ddd;\n  background-color: #fff;\n  -webkit-transition-property: box-shadow, -webkit-transform;\n  -moz-transition-property: box-shadow, -moz-transform;\n  transition-property: box-shadow, transform;\n  -webkit-transition-duration: 0.6s;\n  -moz-transition-duration: 0.6s;\n  transition-duration: 0.6s;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  overflow: auto; }\n\n@media screen and (min-width: 1024px) {\n  .sidebar {\n    position: fixed;\n    top: 60px;\n    bottom: 0; }\n  .main-section__content {\n    margin-left: 236px; } }\n\n@media screen and (max-width: 1023px) {\n  .sidebar {\n    position: fixed;\n    top: 60px;\n    bottom: 0;\n    left: -260px; }\n  .main-section__content {\n    justify-content: center; } }\n\n@media screen and (max-width: 1023px) {\n  .sidebar--is-shown {\n    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.4);\n    -webkit-transform: translateX(260px);\n    -moz-transform: translateX(260px);\n    -ms-transform: translateX(260px);\n    -o-transform: translateX(260px);\n    transform: translateX(260px); } }\n\n.sidebar-menu {\n  padding: 8px 0; }\n\n.sidebar-menu__link {\n  display: block;\n  padding: 0 16px;\n  cursor: pointer;\n  font-size: 14px;\n  font-size: 0.875rem;\n  font-weight: 700;\n  color: #333;\n  line-height: 48px;\n  text-decoration: none; }\n\n.sidebar-menu__link:hover {\n  background-color: #eee; }\n\n.header {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 999;\n  height: 60px;\n  padding: 12px;\n  background-color: #4fc1e9;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }\n\n.header::after {\n  clear: both;\n  content: \"\";\n  display: table; }\n\n@media screen and (min-width: 1201px) {\n  .menubar {\n    display: none; } }\n\n@media screen and (max-width: 1200px) {\n  .menubar {\n    float: left; } }\n\n.home .menubar {\n  display: none; }\n\n.main-logo {\n  float: left; }\n\n.main-logo__link {\n  display: block;\n  padding: 4px 6px;\n  border-radius: 2px;\n  font-size: 24px;\n  font-size: 1.5rem; }\n\n.main-logo__link img {\n  display: block;\n  height: 28px; }\n\n.main-nav {\n  float: right; }\n\n.main-nav ul li {\n  float: left; }\n\n@media screen and (max-width: 630px) {\n  .main-nav--title {\n    font-size: 0.85em; }\n  .main-nav--version {\n    display: none; }\n  .main-nav--lap-and-up {\n    display: none; }\n  body {\n    font-size: 0.85em; }\n  .sidebar-menu {\n    font-size: 0.85em; } }\n\n@media screen and (min-width: 631px) {\n  .main-nav--palm {\n    display: none; } }\n\n.main-nav__link {\n  display: block;\n  padding: 0 12px;\n  border-radius: 2px;\n  font-size: 18px;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: white;\n  line-height: 36px;\n  text-decoration: none; }\n\n@media screen and (min-width: 481px) and (max-width: 1023px) {\n  .main-nav__link {\n    font-size: 14px;\n    font-size: 0.875rem; } }\n\n.main {\n  padding: 60px 0 0; }\n\n@media screen and (min-width: 1024px) {\n  .main-section {\n    margin: 0 0 0 260px; } }\n\n.main-section__title {\n  display: block;\n  height: 64px;\n  margin: 0;\n  padding: 0 24px;\n  border-bottom: 1px solid #ddd;\n  font-size: 22px;\n  font-size: 1.375rem;\n  font-weight: 600;\n  line-height: 64px; }\n\n.main-section__intro {\n  margin: 0;\n  padding: 24px;\n  font-size: 22px;\n  font-size: 1.375rem;\n  font-weight: 300; }\n\n.main-section__intro a {\n  color: #2196F3;\n  text-decoration: none; }\n\n.main-section__content {\n  padding: 24px; }\n\n.main-section__content p > code {\n  padding: 2px 4px;\n  font-size: 90%;\n  color: #2196F3;\n  background-color: #e3f2fd;\n  border-radius: 4px; }\n\n.main-section__content p > a {\n  color: #2196F3;\n  text-decoration: none; }\n\n.main-section__content p:last-child, .main-section__content ul:last-child {\n  margin-bottom: 0; }\n\n.main-section__subtitle {\n  font-size: 30px;\n  font-size: 1.875rem;\n  font-weight: 300;\n  line-height: 1; }\n\n/* page transitions */\n.form-view.ng-enter {\n  -webkit-animation: fadeIn 0.7s both ease;\n  -moz-animation: fadeIn 0.7s both ease;\n  animation: fadeIn 0.7s both ease; }\n\n.form-view.ng-leave {\n  -webkit-animation: fadeOut 0.3s both ease;\n  -moz-animation: fadeOut 0.3s both ease;\n  animation: fadeOut 0.3s both ease; }\n\n/* ANIMATIONS\n============================================================================= */\n/* slide out to the left */\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeOut {\n  0% {\n    opacity: 1; }\n\n  100% {\n    opacity: 0; } }\n\n@keyframes dropDown {\n  0% {\n    opacity: 1;\n    top: 0;\n    height: 30px; }\n\n  100% {\n    opacity: 0;\n    top: -50px;\n    height: 0; } }\n\n@keyframes dropUp {\n  0% {\n    opacity: 0;\n    top: -50px;\n    height: 0; }\n\n  100% {\n    opacity: 1;\n    top: 0;\n    height: 30px; } }\n\n.browsehappy {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0; }\n\nbody {\n  padding: 0 !important;\n  background-color: #EEEEEE; }\n\na {\n  text-decoration: none; }\n\n.radio-button__inline {\n  color: red;\n  display: inline-block !important; }\n\n.radio-button__inline-item {\n  margin-right: 12px; }\n", ""]);
+	exports.push([module.id, "\n\n.main-section__content {\n  margin-top: 36px;\n  flex-wrap: wrap;\n  flex-direction: row; }\n\n.content {\n  padding-left: 10px;\n  max-width: 700px; }\n\n.content-fields {\n  min-width: 100px;\n  flex-grow: 4; }\n\n.content-json {\n  min-width: 200px;\n  flex-grow: 6; }\n\ndiv.card {\n  padding: 14px !important; }\n\n.docs-icon {\n  float: right;\n  opacity: 0.5;\n  margin-right: 10px; }\n\nheader {\n  position: fixed; }\n\n.main-nav--title {\n  margin-left: 45px;\n  margin-top: 0; }\n\n.main-nav--icon {\n  position: absolute;\n  margin: 5px; }\n\n.main-logo__link {\n  text-decoration: none;\n  color: white; }\n\n.menu-icon {\n  fill: white; }\n\n.main-nav--version {\n  font-size: 0.5em;\n  color: #F4F4F4; }\n\n@media screen and (min-width: 1024px) {\n  .wrapper {\n    width: 960px;\n    margin: 0 auto; } }\n\n@media screen and (max-width: 1023px) {\n  .wrapper {\n    margin: 0 24px; } }\n\n.sidebar-filter {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 998;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0;\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -moz-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-duration: 0.6s;\n  -moz-transition-duration: 0.6s;\n  transition-duration: 0.6s;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1); }\n\n@media screen and (max-width: 1023px) {\n  .sidebar-filter--is-shown {\n    opacity: 1;\n    pointer-events: auto; } }\n\n.sidebar {\n  z-index: 998;\n  width: 260px;\n  border-right: solid 1px #ddd;\n  background-color: #fff;\n  -webkit-transition-property: box-shadow, -webkit-transform;\n  -moz-transition-property: box-shadow, -moz-transform;\n  transition-property: box-shadow, transform;\n  -webkit-transition-duration: 0.6s;\n  -moz-transition-duration: 0.6s;\n  transition-duration: 0.6s;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  overflow: auto; }\n\n@media screen and (min-width: 1024px) {\n  .sidebar {\n    position: fixed;\n    top: 60px;\n    bottom: 0; }\n  .main-section__content {\n    margin-left: 236px; } }\n\n@media screen and (max-width: 1023px) {\n  .sidebar {\n    position: fixed;\n    top: 60px;\n    bottom: 0;\n    left: -260px; }\n  .main-section__content {\n    justify-content: center; } }\n\n@media screen and (max-width: 1023px) {\n  .sidebar--is-shown {\n    box-shadow: 3px 0 6px rgba(0, 0, 0, 0.4);\n    -webkit-transform: translateX(260px);\n    -moz-transform: translateX(260px);\n    -ms-transform: translateX(260px);\n    -o-transform: translateX(260px);\n    transform: translateX(260px); } }\n\n.sidebar-menu {\n  padding: 8px 0; }\n\n.sidebar-menu__link {\n  display: block;\n  padding: 0 16px;\n  cursor: pointer;\n  font-size: 14px;\n  font-size: 0.875rem;\n  font-weight: 700;\n  color: #333;\n  line-height: 48px;\n  text-decoration: none; }\n\n.sidebar-menu__link:hover {\n  background-color: #eee; }\n\n.header {\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  z-index: 999;\n  height: 60px;\n  padding: 12px;\n  background-color: #4fc1e9;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }\n\n.header::after {\n  clear: both;\n  content: \"\";\n  display: table; }\n\n@media screen and (min-width: 1201px) {\n  .menubar {\n    display: none; } }\n\n@media screen and (max-width: 1200px) {\n  .menubar {\n    float: left; } }\n\n.home .menubar {\n  display: none; }\n\n.main-logo {\n  float: left; }\n\n.main-logo__link {\n  display: block;\n  padding: 4px 6px;\n  border-radius: 2px;\n  font-size: 24px;\n  font-size: 1.5rem; }\n\n.main-logo__link img {\n  display: block;\n  height: 28px; }\n\n.main-nav {\n  float: right; }\n\n.main-nav ul li {\n  float: left; }\n\n@media screen and (max-width: 630px) {\n  .main-nav--title {\n    font-size: 0.85em; }\n  .main-nav--version {\n    display: none; }\n  .main-nav--lap-and-up {\n    display: none; }\n  body {\n    font-size: 0.85em; }\n  .sidebar-menu {\n    font-size: 0.85em; } }\n\n@media screen and (min-width: 631px) {\n  .main-nav--palm {\n    display: none; } }\n\n.main-nav__link {\n  display: block;\n  padding: 0 12px;\n  border-radius: 2px;\n  font-size: 18px;\n  font-size: 1.125rem;\n  font-weight: 600;\n  color: white;\n  line-height: 36px;\n  text-decoration: none; }\n\n@media screen and (min-width: 481px) and (max-width: 1023px) {\n  .main-nav__link {\n    font-size: 14px;\n    font-size: 0.875rem; } }\n\n.main {\n  padding: 60px 0 0; }\n\n@media screen and (min-width: 1024px) {\n  .main-section {\n    margin: 0 0 0 260px; } }\n\n.main-section__title {\n  display: block;\n  height: 64px;\n  margin: 0;\n  padding: 0 24px;\n  border-bottom: 1px solid #ddd;\n  font-size: 22px;\n  font-size: 1.375rem;\n  font-weight: 600;\n  line-height: 64px; }\n\n.main-section__intro {\n  margin: 0;\n  padding: 24px;\n  font-size: 22px;\n  font-size: 1.375rem;\n  font-weight: 300; }\n\n.main-section__intro a {\n  color: #2196F3;\n  text-decoration: none; }\n\n.main-section__content {\n  padding: 24px; }\n\n.main-section__content p > code {\n  padding: 2px 4px;\n  font-size: 90%;\n  color: #2196F3;\n  background-color: #e3f2fd;\n  border-radius: 4px; }\n\n.main-section__content p > a {\n  color: #2196F3;\n  text-decoration: none; }\n\n.main-section__content p:last-child, .main-section__content ul:last-child {\n  margin-bottom: 0; }\n\n.main-section__subtitle {\n  font-size: 30px;\n  font-size: 1.875rem;\n  font-weight: 300;\n  line-height: 1; }\n\n/* page transitions */\n.form-view.ng-enter {\n  -webkit-animation: fadeIn 0.7s both ease;\n  -moz-animation: fadeIn 0.7s both ease;\n  animation: fadeIn 0.7s both ease; }\n\n.form-view.ng-leave {\n  -webkit-animation: fadeOut 0.3s both ease;\n  -moz-animation: fadeOut 0.3s both ease;\n  animation: fadeOut 0.3s both ease; }\n\n/* ANIMATIONS\n============================================================================= */\n/* slide out to the left */\n@keyframes fadeIn {\n  0% {\n    opacity: 0; }\n\n  100% {\n    opacity: 1; } }\n\n@keyframes fadeOut {\n  0% {\n    opacity: 1; }\n\n  100% {\n    opacity: 0; } }\n\n@keyframes dropDown {\n  0% {\n    opacity: 1;\n    top: 0;\n    height: 30px; }\n\n  100% {\n    opacity: 0;\n    top: -50px;\n    height: 0; } }\n\n@keyframes dropUp {\n  0% {\n    opacity: 0;\n    top: -50px;\n    height: 0; }\n\n  100% {\n    opacity: 1;\n    top: 0;\n    height: 30px; } }\n\n.browsehappy {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0; }\n\nbody {\n  padding: 0 !important;\n  background-color: #EEEEEE; }\n\na {\n  text-decoration: none; }\n", ""]);
 
 /***/ },
 /* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS.org (1.2.2). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
-
-	/*************************
-	   Velocity jQuery Shim
-	*************************/
-
-	/*! VelocityJS.org jQuery Shim (1.0.1). (C) 2014 The jQuery Foundation. MIT @license: en.wikipedia.org/wiki/MIT_License. */
-
-	/* This file contains the jQuery functions that Velocity relies on, thereby removing Velocity's dependency on a full copy of jQuery, and allowing it to work in any environment. */
-	/* These shimmed functions are only used if jQuery isn't present. If both this shim and jQuery are loaded, Velocity defaults to jQuery proper. */
-	/* Browser support: Using this shim instead of jQuery proper removes support for IE8. */
-
-	;(function (window) {
-	    /***************
-	         Setup
-	    ***************/
-
-	    /* If jQuery is already loaded, there's no point in loading this shim. */
-	    if (window.jQuery) {
-	        return;
-	    }
-
-	    /* jQuery base. */
-	    var $ = function (selector, context) {
-	        return new $.fn.init(selector, context);
-	    };
-
-	    /********************
-	       Private Methods
-	    ********************/
-
-	    /* jQuery */
-	    $.isWindow = function (obj) {
-	        /* jshint eqeqeq: false */
-	        return obj != null && obj == obj.window;
-	    };
-
-	    /* jQuery */
-	    $.type = function (obj) {
-	        if (obj == null) {
-	            return obj + "";
-	        }
-
-	        return typeof obj === "object" || typeof obj === "function" ?
-	            class2type[toString.call(obj)] || "object" :
-	            typeof obj;
-	    };
-
-	    /* jQuery */
-	    $.isArray = Array.isArray || function (obj) {
-	        return $.type(obj) === "array";
-	    };
-
-	    /* jQuery */
-	    function isArraylike (obj) {
-	        var length = obj.length,
-	            type = $.type(obj);
-
-	        if (type === "function" || $.isWindow(obj)) {
-	            return false;
-	        }
-
-	        if (obj.nodeType === 1 && length) {
-	            return true;
-	        }
-
-	        return type === "array" || length === 0 || typeof length === "number" && length > 0 && (length - 1) in obj;
-	    }
-
-	    /***************
-	       $ Methods
-	    ***************/
-
-	    /* jQuery: Support removed for IE<9. */
-	    $.isPlainObject = function (obj) {
-	        var key;
-
-	        if (!obj || $.type(obj) !== "object" || obj.nodeType || $.isWindow(obj)) {
-	            return false;
-	        }
-
-	        try {
-	            if (obj.constructor &&
-	                !hasOwn.call(obj, "constructor") &&
-	                !hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
-	                return false;
-	            }
-	        } catch (e) {
-	            return false;
-	        }
-
-	        for (key in obj) {}
-
-	        return key === undefined || hasOwn.call(obj, key);
-	    };
-
-	    /* jQuery */
-	    $.each = function(obj, callback, args) {
-	        var value,
-	            i = 0,
-	            length = obj.length,
-	            isArray = isArraylike(obj);
-
-	        if (args) {
-	            if (isArray) {
-	                for (; i < length; i++) {
-	                    value = callback.apply(obj[i], args);
-
-	                    if (value === false) {
-	                        break;
-	                    }
-	                }
-	            } else {
-	                for (i in obj) {
-	                    value = callback.apply(obj[i], args);
-
-	                    if (value === false) {
-	                        break;
-	                    }
-	                }
-	            }
-
-	        } else {
-	            if (isArray) {
-	                for (; i < length; i++) {
-	                    value = callback.call(obj[i], i, obj[i]);
-
-	                    if (value === false) {
-	                        break;
-	                    }
-	                }
-	            } else {
-	                for (i in obj) {
-	                    value = callback.call(obj[i], i, obj[i]);
-
-	                    if (value === false) {
-	                        break;
-	                    }
-	                }
-	            }
-	        }
-
-	        return obj;
-	    };
-
-	    /* Custom */
-	    $.data = function (node, key, value) {
-	        /* $.getData() */
-	        if (value === undefined) {
-	            var id = node[$.expando],
-	                store = id && cache[id];
-
-	            if (key === undefined) {
-	                return store;
-	            } else if (store) {
-	                if (key in store) {
-	                    return store[key];
-	                }
-	            }
-	        /* $.setData() */
-	        } else if (key !== undefined) {
-	            var id = node[$.expando] || (node[$.expando] = ++$.uuid);
-
-	            cache[id] = cache[id] || {};
-	            cache[id][key] = value;
-
-	            return value;
-	        }
-	    };
-
-	    /* Custom */
-	    $.removeData = function (node, keys) {
-	        var id = node[$.expando],
-	            store = id && cache[id];
-
-	        if (store) {
-	            $.each(keys, function(_, key) {
-	                delete store[key];
-	            });
-	        }
-	    };
-
-	    /* jQuery */
-	    $.extend = function () {
-	        var src, copyIsArray, copy, name, options, clone,
-	            target = arguments[0] || {},
-	            i = 1,
-	            length = arguments.length,
-	            deep = false;
-
-	        if (typeof target === "boolean") {
-	            deep = target;
-
-	            target = arguments[i] || {};
-	            i++;
-	        }
-
-	        if (typeof target !== "object" && $.type(target) !== "function") {
-	            target = {};
-	        }
-
-	        if (i === length) {
-	            target = this;
-	            i--;
-	        }
-
-	        for (; i < length; i++) {
-	            if ((options = arguments[i]) != null) {
-	                for (name in options) {
-	                    src = target[name];
-	                    copy = options[name];
-
-	                    if (target === copy) {
-	                        continue;
-	                    }
-
-	                    if (deep && copy && ($.isPlainObject(copy) || (copyIsArray = $.isArray(copy)))) {
-	                        if (copyIsArray) {
-	                            copyIsArray = false;
-	                            clone = src && $.isArray(src) ? src : [];
-
-	                        } else {
-	                            clone = src && $.isPlainObject(src) ? src : {};
-	                        }
-
-	                        target[name] = $.extend(deep, clone, copy);
-
-	                    } else if (copy !== undefined) {
-	                        target[name] = copy;
-	                    }
-	                }
-	            }
-	        }
-
-	        return target;
-	    };
-
-	    /* jQuery 1.4.3 */
-	    $.queue = function (elem, type, data) {
-	        function $makeArray (arr, results) {
-	            var ret = results || [];
-
-	            if (arr != null) {
-	                if (isArraylike(Object(arr))) {
-	                    /* $.merge */
-	                    (function(first, second) {
-	                        var len = +second.length,
-	                            j = 0,
-	                            i = first.length;
-
-	                        while (j < len) {
-	                            first[i++] = second[j++];
-	                        }
-
-	                        if (len !== len) {
-	                            while (second[j] !== undefined) {
-	                                first[i++] = second[j++];
-	                            }
-	                        }
-
-	                        first.length = i;
-
-	                        return first;
-	                    })(ret, typeof arr === "string" ? [arr] : arr);
-	                } else {
-	                    [].push.call(ret, arr);
-	                }
-	            }
-
-	            return ret;
-	        }
-
-	        if (!elem) {
-	            return;
-	        }
-
-	        type = (type || "fx") + "queue";
-
-	        var q = $.data(elem, type);
-
-	        if (!data) {
-	            return q || [];
-	        }
-
-	        if (!q || $.isArray(data)) {
-	            q = $.data(elem, type, $makeArray(data));
-	        } else {
-	            q.push(data);
-	        }
-
-	        return q;
-	    };
-
-	    /* jQuery 1.4.3 */
-	    $.dequeue = function (elems, type) {
-	        /* Custom: Embed element iteration. */
-	        $.each(elems.nodeType ? [ elems ] : elems, function(i, elem) {
-	            type = type || "fx";
-
-	            var queue = $.queue(elem, type),
-	                fn = queue.shift();
-
-	            if (fn === "inprogress") {
-	                fn = queue.shift();
-	            }
-
-	            if (fn) {
-	                if (type === "fx") {
-	                    queue.unshift("inprogress");
-	                }
-
-	                fn.call(elem, function() {
-	                    $.dequeue(elem, type);
-	                });
-	            }
-	        });
-	    };
-
-	    /******************
-	       $.fn Methods
-	    ******************/
-
-	    /* jQuery */
-	    $.fn = $.prototype = {
-	        init: function (selector) {
-	            /* Just return the element wrapped inside an array; don't proceed with the actual jQuery node wrapping process. */
-	            if (selector.nodeType) {
-	                this[0] = selector;
-
-	                return this;
-	            } else {
-	                throw new Error("Not a DOM node.");
-	            }
-	        },
-
-	        offset: function () {
-	            /* jQuery altered code: Dropped disconnected DOM node checking. */
-	            var box = this[0].getBoundingClientRect ? this[0].getBoundingClientRect() : { top: 0, left: 0 };
-
-	            return {
-	                top: box.top + (window.pageYOffset || document.scrollTop  || 0)  - (document.clientTop  || 0),
-	                left: box.left + (window.pageXOffset || document.scrollLeft  || 0) - (document.clientLeft || 0)
-	            };
-	        },
-
-	        position: function () {
-	            /* jQuery */
-	            function offsetParent() {
-	                var offsetParent = this.offsetParent || document;
-
-	                while (offsetParent && (!offsetParent.nodeType.toLowerCase === "html" && offsetParent.style.position === "static")) {
-	                    offsetParent = offsetParent.offsetParent;
-	                }
-
-	                return offsetParent || document;
-	            }
-
-	            /* Zepto */
-	            var elem = this[0],
-	                offsetParent = offsetParent.apply(elem),
-	                offset = this.offset(),
-	                parentOffset = /^(?:body|html)$/i.test(offsetParent.nodeName) ? { top: 0, left: 0 } : $(offsetParent).offset()
-
-	            offset.top -= parseFloat(elem.style.marginTop) || 0;
-	            offset.left -= parseFloat(elem.style.marginLeft) || 0;
-
-	            if (offsetParent.style) {
-	                parentOffset.top += parseFloat(offsetParent.style.borderTopWidth) || 0
-	                parentOffset.left += parseFloat(offsetParent.style.borderLeftWidth) || 0
-	            }
-
-	            return {
-	                top: offset.top - parentOffset.top,
-	                left: offset.left - parentOffset.left
-	            };
-	        }
-	    };
-
-	    /**********************
-	       Private Variables
-	    **********************/
-
-	    /* For $.data() */
-	    var cache = {};
-	    $.expando = "velocity" + (new Date().getTime());
-	    $.uuid = 0;
-
-	    /* For $.queue() */
-	    var class2type = {},
-	        hasOwn = class2type.hasOwnProperty,
-	        toString = class2type.toString;
-
-	    var types = "Boolean Number String Function Array Date RegExp Object Error".split(" ");
-	    for (var i = 0; i < types.length; i++) {
-	        class2type["[object " + types[i] + "]"] = types[i].toLowerCase();
-	    }
-
-	    /* Makes $(node) possible, without having to call init. */
-	    $.fn.init.prototype = $.fn;
-
-	    /* Globalize Velocity onto the window, and assign its Utilities property. */
-	    window.Velocity = { Utilities: $ };
-	})(window);
-
-	/******************
-	    Velocity.js
-	******************/
-
-	;(function (factory) {
-	    /* CommonJS module. */
-	    if (typeof module === "object" && typeof module.exports === "object") {
-	        module.exports = factory();
-	    /* AMD module. */
-	    } else if (true) {
-	        !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	    /* Browser globals. */
-	    } else {
-	        factory();
-	    }
-	}(function() {
-	return function (global, window, document, undefined) {
-
-	    /***************
-	        Summary
-	    ***************/
-
-	    /*
-	    - CSS: CSS stack that works independently from the rest of Velocity.
-	    - animate(): Core animation method that iterates over the targeted elements and queues the incoming call onto each element individually.
-	      - Pre-Queueing: Prepare the element for animation by instantiating its data cache and processing the call's options.
-	      - Queueing: The logic that runs once the call has reached its point of execution in the element's $.queue() stack.
-	                  Most logic is placed here to avoid risking it becoming stale (if the element's properties have changed).
-	      - Pushing: Consolidation of the tween data followed by its push onto the global in-progress calls container.
-	    - tick(): The single requestAnimationFrame loop responsible for tweening all in-progress calls.
-	    - completeCall(): Handles the cleanup process for each Velocity call.
-	    */
-
-	    /*********************
-	       Helper Functions
-	    *********************/
-
-	    /* IE detection. Gist: https://gist.github.com/julianshapiro/9098609 */
-	    var IE = (function() {
-	        if (document.documentMode) {
-	            return document.documentMode;
-	        } else {
-	            for (var i = 7; i > 4; i--) {
-	                var div = document.createElement("div");
-
-	                div.innerHTML = "<!--[if IE " + i + "]><span></span><![endif]-->";
-
-	                if (div.getElementsByTagName("span").length) {
-	                    div = null;
-
-	                    return i;
-	                }
-	            }
-	        }
-
-	        return undefined;
-	    })();
-
-	    /* rAF shim. Gist: https://gist.github.com/julianshapiro/9497513 */
-	    var rAFShim = (function() {
-	        var timeLast = 0;
-
-	        return window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
-	            var timeCurrent = (new Date()).getTime(),
-	                timeDelta;
-
-	            /* Dynamically set delay on a per-tick basis to match 60fps. */
-	            /* Technique by Erik Moller. MIT license: https://gist.github.com/paulirish/1579671 */
-	            timeDelta = Math.max(0, 16 - (timeCurrent - timeLast));
-	            timeLast = timeCurrent + timeDelta;
-
-	            return setTimeout(function() { callback(timeCurrent + timeDelta); }, timeDelta);
-	        };
-	    })();
-
-	    /* Array compacting. Copyright Lo-Dash. MIT License: https://github.com/lodash/lodash/blob/master/LICENSE.txt */
-	    function compactSparseArray (array) {
-	        var index = -1,
-	            length = array ? array.length : 0,
-	            result = [];
-
-	        while (++index < length) {
-	            var value = array[index];
-
-	            if (value) {
-	                result.push(value);
-	            }
-	        }
-
-	        return result;
-	    }
-
-	    function sanitizeElements (elements) {
-	        /* Unwrap jQuery/Zepto objects. */
-	        if (Type.isWrapped(elements)) {
-	            elements = [].slice.call(elements);
-	        /* Wrap a single element in an array so that $.each() can iterate with the element instead of its node's children. */
-	        } else if (Type.isNode(elements)) {
-	            elements = [ elements ];
-	        }
-
-	        return elements;
-	    }
-
-	    var Type = {
-	        isString: function (variable) {
-	            return (typeof variable === "string");
-	        },
-	        isArray: Array.isArray || function (variable) {
-	            return Object.prototype.toString.call(variable) === "[object Array]";
-	        },
-	        isFunction: function (variable) {
-	            return Object.prototype.toString.call(variable) === "[object Function]";
-	        },
-	        isNode: function (variable) {
-	            return variable && variable.nodeType;
-	        },
-	        /* Copyright Martin Bohm. MIT License: https://gist.github.com/Tomalak/818a78a226a0738eaade */
-	        isNodeList: function (variable) {
-	            return typeof variable === "object" &&
-	                /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(variable)) &&
-	                variable.length !== undefined &&
-	                (variable.length === 0 || (typeof variable[0] === "object" && variable[0].nodeType > 0));
-	        },
-	        /* Determine if variable is a wrapped jQuery or Zepto element. */
-	        isWrapped: function (variable) {
-	            return variable && (variable.jquery || (window.Zepto && window.Zepto.zepto.isZ(variable)));
-	        },
-	        isSVG: function (variable) {
-	            return window.SVGElement && (variable instanceof window.SVGElement);
-	        },
-	        isEmptyObject: function (variable) {
-	            for (var name in variable) {
-	                return false;
-	            }
-
-	            return true;
-	        }
-	    };
-
-	    /*****************
-	       Dependencies
-	    *****************/
-
-	    var $,
-	        isJQuery = false;
-
-	    if (global.fn && global.fn.jquery) {
-	        $ = global;
-	        isJQuery = true;
-	    } else {
-	        $ = window.Velocity.Utilities;
-	    }
-
-	    if (IE <= 8 && !isJQuery) {
-	        throw new Error("Velocity: IE8 and below require jQuery to be loaded before Velocity.");
-	    } else if (IE <= 7) {
-	        /* Revert to jQuery's $.animate(), and lose Velocity's extra features. */
-	        jQuery.fn.velocity = jQuery.fn.animate;
-
-	        /* Now that $.fn.velocity is aliased, abort this Velocity declaration. */
-	        return;
-	    }
-
-	    /*****************
-	        Constants
-	    *****************/
-
-	    var DURATION_DEFAULT = 400,
-	        EASING_DEFAULT = "swing";
-
-	    /*************
-	        State
-	    *************/
-
-	    var Velocity = {
-	        /* Container for page-wide Velocity state data. */
-	        State: {
-	            /* Detect mobile devices to determine if mobileHA should be turned on. */
-	            isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-	            /* The mobileHA option's behavior changes on older Android devices (Gingerbread, versions 2.3.3-2.3.7). */
-	            isAndroid: /Android/i.test(navigator.userAgent),
-	            isGingerbread: /Android 2\.3\.[3-7]/i.test(navigator.userAgent),
-	            isChrome: window.chrome,
-	            isFirefox: /Firefox/i.test(navigator.userAgent),
-	            /* Create a cached element for re-use when checking for CSS property prefixes. */
-	            prefixElement: document.createElement("div"),
-	            /* Cache every prefix match to avoid repeating lookups. */
-	            prefixMatches: {},
-	            /* Cache the anchor used for animating window scrolling. */
-	            scrollAnchor: null,
-	            /* Cache the browser-specific property names associated with the scroll anchor. */
-	            scrollPropertyLeft: null,
-	            scrollPropertyTop: null,
-	            /* Keep track of whether our RAF tick is running. */
-	            isTicking: false,
-	            /* Container for every in-progress call to Velocity. */
-	            calls: []
-	        },
-	        /* Velocity's custom CSS stack. Made global for unit testing. */
-	        CSS: { /* Defined below. */ },
-	        /* A shim of the jQuery utility functions used by Velocity -- provided by Velocity's optional jQuery shim. */
-	        Utilities: $,
-	        /* Container for the user's custom animation redirects that are referenced by name in place of the properties map argument. */
-	        Redirects: { /* Manually registered by the user. */ },
-	        Easings: { /* Defined below. */ },
-	        /* Attempt to use ES6 Promises by default. Users can override this with a third-party promises library. */
-	        Promise: window.Promise,
-	        /* Velocity option defaults, which can be overriden by the user. */
-	        defaults: {
-	            queue: "",
-	            duration: DURATION_DEFAULT,
-	            easing: EASING_DEFAULT,
-	            begin: undefined,
-	            complete: undefined,
-	            progress: undefined,
-	            display: undefined,
-	            visibility: undefined,
-	            loop: false,
-	            delay: false,
-	            mobileHA: true,
-	            /* Advanced: Set to false to prevent property values from being cached between consecutive Velocity-initiated chain calls. */
-	            _cacheValues: true
-	        },
-	        /* A design goal of Velocity is to cache data wherever possible in order to avoid DOM requerying. Accordingly, each element has a data cache. */
-	        init: function (element) {
-	            $.data(element, "velocity", {
-	                /* Store whether this is an SVG element, since its properties are retrieved and updated differently than standard HTML elements. */
-	                isSVG: Type.isSVG(element),
-	                /* Keep track of whether the element is currently being animated by Velocity.
-	                   This is used to ensure that property values are not transferred between non-consecutive (stale) calls. */
-	                isAnimating: false,
-	                /* A reference to the element's live computedStyle object. Learn more here: https://developer.mozilla.org/en/docs/Web/API/window.getComputedStyle */
-	                computedStyle: null,
-	                /* Tween data is cached for each animation on the element so that data can be passed across calls --
-	                   in particular, end values are used as subsequent start values in consecutive Velocity calls. */
-	                tweensContainer: null,
-	                /* The full root property values of each CSS hook being animated on this element are cached so that:
-	                   1) Concurrently-animating hooks sharing the same root can have their root values' merged into one while tweening.
-	                   2) Post-hook-injection root values can be transferred over to consecutively chained Velocity calls as starting root values. */
-	                rootPropertyValueCache: {},
-	                /* A cache for transform updates, which must be manually flushed via CSS.flushTransformCache(). */
-	                transformCache: {}
-	            });
-	        },
-	        /* A parallel to jQuery's $.css(), used for getting/setting Velocity's hooked CSS properties. */
-	        hook: null, /* Defined below. */
-	        /* Velocity-wide animation time remapping for testing purposes. */
-	        mock: false,
-	        version: { major: 1, minor: 2, patch: 2 },
-	        /* Set to 1 or 2 (most verbose) to output debug info to console. */
-	        debug: false
-	    };
-
-	    /* Retrieve the appropriate scroll anchor and property name for the browser: https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY */
-	    if (window.pageYOffset !== undefined) {
-	        Velocity.State.scrollAnchor = window;
-	        Velocity.State.scrollPropertyLeft = "pageXOffset";
-	        Velocity.State.scrollPropertyTop = "pageYOffset";
-	    } else {
-	        Velocity.State.scrollAnchor = document.documentElement || document.body.parentNode || document.body;
-	        Velocity.State.scrollPropertyLeft = "scrollLeft";
-	        Velocity.State.scrollPropertyTop = "scrollTop";
-	    }
-
-	    /* Shorthand alias for jQuery's $.data() utility. */
-	    function Data (element) {
-	        /* Hardcode a reference to the plugin name. */
-	        var response = $.data(element, "velocity");
-
-	        /* jQuery <=1.4.2 returns null instead of undefined when no match is found. We normalize this behavior. */
-	        return response === null ? undefined : response;
-	    };
-
-	    /**************
-	        Easing
-	    **************/
-
-	    /* Step easing generator. */
-	    function generateStep (steps) {
-	        return function (p) {
-	            return Math.round(p * steps) * (1 / steps);
-	        };
-	    }
-
-	    /* Bezier curve function generator. Copyright Gaetan Renaudeau. MIT License: http://en.wikipedia.org/wiki/MIT_License */
-	    function generateBezier (mX1, mY1, mX2, mY2) {
-	        var NEWTON_ITERATIONS = 4,
-	            NEWTON_MIN_SLOPE = 0.001,
-	            SUBDIVISION_PRECISION = 0.0000001,
-	            SUBDIVISION_MAX_ITERATIONS = 10,
-	            kSplineTableSize = 11,
-	            kSampleStepSize = 1.0 / (kSplineTableSize - 1.0),
-	            float32ArraySupported = "Float32Array" in window;
-
-	        /* Must contain four arguments. */
-	        if (arguments.length !== 4) {
-	            return false;
-	        }
-
-	        /* Arguments must be numbers. */
-	        for (var i = 0; i < 4; ++i) {
-	            if (typeof arguments[i] !== "number" || isNaN(arguments[i]) || !isFinite(arguments[i])) {
-	                return false;
-	            }
-	        }
-
-	        /* X values must be in the [0, 1] range. */
-	        mX1 = Math.min(mX1, 1);
-	        mX2 = Math.min(mX2, 1);
-	        mX1 = Math.max(mX1, 0);
-	        mX2 = Math.max(mX2, 0);
-
-	        var mSampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
-
-	        function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
-	        function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
-	        function C (aA1)      { return 3.0 * aA1; }
-
-	        function calcBezier (aT, aA1, aA2) {
-	            return ((A(aA1, aA2)*aT + B(aA1, aA2))*aT + C(aA1))*aT;
-	        }
-
-	        function getSlope (aT, aA1, aA2) {
-	            return 3.0 * A(aA1, aA2)*aT*aT + 2.0 * B(aA1, aA2) * aT + C(aA1);
-	        }
-
-	        function newtonRaphsonIterate (aX, aGuessT) {
-	            for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
-	                var currentSlope = getSlope(aGuessT, mX1, mX2);
-
-	                if (currentSlope === 0.0) return aGuessT;
-
-	                var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
-	                aGuessT -= currentX / currentSlope;
-	            }
-
-	            return aGuessT;
-	        }
-
-	        function calcSampleValues () {
-	            for (var i = 0; i < kSplineTableSize; ++i) {
-	                mSampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
-	            }
-	        }
-
-	        function binarySubdivide (aX, aA, aB) {
-	            var currentX, currentT, i = 0;
-
-	            do {
-	                currentT = aA + (aB - aA) / 2.0;
-	                currentX = calcBezier(currentT, mX1, mX2) - aX;
-	                if (currentX > 0.0) {
-	                  aB = currentT;
-	                } else {
-	                  aA = currentT;
-	                }
-	            } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
-
-	            return currentT;
-	        }
-
-	        function getTForX (aX) {
-	            var intervalStart = 0.0,
-	                currentSample = 1,
-	                lastSample = kSplineTableSize - 1;
-
-	            for (; currentSample != lastSample && mSampleValues[currentSample] <= aX; ++currentSample) {
-	                intervalStart += kSampleStepSize;
-	            }
-
-	            --currentSample;
-
-	            var dist = (aX - mSampleValues[currentSample]) / (mSampleValues[currentSample+1] - mSampleValues[currentSample]),
-	                guessForT = intervalStart + dist * kSampleStepSize,
-	                initialSlope = getSlope(guessForT, mX1, mX2);
-
-	            if (initialSlope >= NEWTON_MIN_SLOPE) {
-	                return newtonRaphsonIterate(aX, guessForT);
-	            } else if (initialSlope == 0.0) {
-	                return guessForT;
-	            } else {
-	                return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize);
-	            }
-	        }
-
-	        var _precomputed = false;
-
-	        function precompute() {
-	            _precomputed = true;
-	            if (mX1 != mY1 || mX2 != mY2) calcSampleValues();
-	        }
-
-	        var f = function (aX) {
-	            if (!_precomputed) precompute();
-	            if (mX1 === mY1 && mX2 === mY2) return aX;
-	            if (aX === 0) return 0;
-	            if (aX === 1) return 1;
-
-	            return calcBezier(getTForX(aX), mY1, mY2);
-	        };
-
-	        f.getControlPoints = function() { return [{ x: mX1, y: mY1 }, { x: mX2, y: mY2 }]; };
-
-	        var str = "generateBezier(" + [mX1, mY1, mX2, mY2] + ")";
-	        f.toString = function () { return str; };
-
-	        return f;
-	    }
-
-	    /* Runge-Kutta spring physics function generator. Adapted from Framer.js, copyright Koen Bok. MIT License: http://en.wikipedia.org/wiki/MIT_License */
-	    /* Given a tension, friction, and duration, a simulation at 60FPS will first run without a defined duration in order to calculate the full path. A second pass
-	       then adjusts the time delta -- using the relation between actual time and duration -- to calculate the path for the duration-constrained animation. */
-	    var generateSpringRK4 = (function () {
-	        function springAccelerationForState (state) {
-	            return (-state.tension * state.x) - (state.friction * state.v);
-	        }
-
-	        function springEvaluateStateWithDerivative (initialState, dt, derivative) {
-	            var state = {
-	                x: initialState.x + derivative.dx * dt,
-	                v: initialState.v + derivative.dv * dt,
-	                tension: initialState.tension,
-	                friction: initialState.friction
-	            };
-
-	            return { dx: state.v, dv: springAccelerationForState(state) };
-	        }
-
-	        function springIntegrateState (state, dt) {
-	            var a = {
-	                    dx: state.v,
-	                    dv: springAccelerationForState(state)
-	                },
-	                b = springEvaluateStateWithDerivative(state, dt * 0.5, a),
-	                c = springEvaluateStateWithDerivative(state, dt * 0.5, b),
-	                d = springEvaluateStateWithDerivative(state, dt, c),
-	                dxdt = 1.0 / 6.0 * (a.dx + 2.0 * (b.dx + c.dx) + d.dx),
-	                dvdt = 1.0 / 6.0 * (a.dv + 2.0 * (b.dv + c.dv) + d.dv);
-
-	            state.x = state.x + dxdt * dt;
-	            state.v = state.v + dvdt * dt;
-
-	            return state;
-	        }
-
-	        return function springRK4Factory (tension, friction, duration) {
-
-	            var initState = {
-	                    x: -1,
-	                    v: 0,
-	                    tension: null,
-	                    friction: null
-	                },
-	                path = [0],
-	                time_lapsed = 0,
-	                tolerance = 1 / 10000,
-	                DT = 16 / 1000,
-	                have_duration, dt, last_state;
-
-	            tension = parseFloat(tension) || 500;
-	            friction = parseFloat(friction) || 20;
-	            duration = duration || null;
-
-	            initState.tension = tension;
-	            initState.friction = friction;
-
-	            have_duration = duration !== null;
-
-	            /* Calculate the actual time it takes for this animation to complete with the provided conditions. */
-	            if (have_duration) {
-	                /* Run the simulation without a duration. */
-	                time_lapsed = springRK4Factory(tension, friction);
-	                /* Compute the adjusted time delta. */
-	                dt = time_lapsed / duration * DT;
-	            } else {
-	                dt = DT;
-	            }
-
-	            while (true) {
-	                /* Next/step function .*/
-	                last_state = springIntegrateState(last_state || initState, dt);
-	                /* Store the position. */
-	                path.push(1 + last_state.x);
-	                time_lapsed += 16;
-	                /* If the change threshold is reached, break. */
-	                if (!(Math.abs(last_state.x) > tolerance && Math.abs(last_state.v) > tolerance)) {
-	                    break;
-	                }
-	            }
-
-	            /* If duration is not defined, return the actual time required for completing this animation. Otherwise, return a closure that holds the
-	               computed path and returns a snapshot of the position according to a given percentComplete. */
-	            return !have_duration ? time_lapsed : function(percentComplete) { return path[ (percentComplete * (path.length - 1)) | 0 ]; };
-	        };
-	    }());
-
-	    /* jQuery easings. */
-	    Velocity.Easings = {
-	        linear: function(p) { return p; },
-	        swing: function(p) { return 0.5 - Math.cos( p * Math.PI ) / 2 },
-	        /* Bonus "spring" easing, which is a less exaggerated version of easeInOutElastic. */
-	        spring: function(p) { return 1 - (Math.cos(p * 4.5 * Math.PI) * Math.exp(-p * 6)); }
-	    };
-
-	    /* CSS3 and Robert Penner easings. */
-	    $.each(
-	        [
-	            [ "ease", [ 0.25, 0.1, 0.25, 1.0 ] ],
-	            [ "ease-in", [ 0.42, 0.0, 1.00, 1.0 ] ],
-	            [ "ease-out", [ 0.00, 0.0, 0.58, 1.0 ] ],
-	            [ "ease-in-out", [ 0.42, 0.0, 0.58, 1.0 ] ],
-	            [ "easeInSine", [ 0.47, 0, 0.745, 0.715 ] ],
-	            [ "easeOutSine", [ 0.39, 0.575, 0.565, 1 ] ],
-	            [ "easeInOutSine", [ 0.445, 0.05, 0.55, 0.95 ] ],
-	            [ "easeInQuad", [ 0.55, 0.085, 0.68, 0.53 ] ],
-	            [ "easeOutQuad", [ 0.25, 0.46, 0.45, 0.94 ] ],
-	            [ "easeInOutQuad", [ 0.455, 0.03, 0.515, 0.955 ] ],
-	            [ "easeInCubic", [ 0.55, 0.055, 0.675, 0.19 ] ],
-	            [ "easeOutCubic", [ 0.215, 0.61, 0.355, 1 ] ],
-	            [ "easeInOutCubic", [ 0.645, 0.045, 0.355, 1 ] ],
-	            [ "easeInQuart", [ 0.895, 0.03, 0.685, 0.22 ] ],
-	            [ "easeOutQuart", [ 0.165, 0.84, 0.44, 1 ] ],
-	            [ "easeInOutQuart", [ 0.77, 0, 0.175, 1 ] ],
-	            [ "easeInQuint", [ 0.755, 0.05, 0.855, 0.06 ] ],
-	            [ "easeOutQuint", [ 0.23, 1, 0.32, 1 ] ],
-	            [ "easeInOutQuint", [ 0.86, 0, 0.07, 1 ] ],
-	            [ "easeInExpo", [ 0.95, 0.05, 0.795, 0.035 ] ],
-	            [ "easeOutExpo", [ 0.19, 1, 0.22, 1 ] ],
-	            [ "easeInOutExpo", [ 1, 0, 0, 1 ] ],
-	            [ "easeInCirc", [ 0.6, 0.04, 0.98, 0.335 ] ],
-	            [ "easeOutCirc", [ 0.075, 0.82, 0.165, 1 ] ],
-	            [ "easeInOutCirc", [ 0.785, 0.135, 0.15, 0.86 ] ]
-	        ], function(i, easingArray) {
-	            Velocity.Easings[easingArray[0]] = generateBezier.apply(null, easingArray[1]);
-	        });
-
-	    /* Determine the appropriate easing type given an easing input. */
-	    function getEasing(value, duration) {
-	        var easing = value;
-
-	        /* The easing option can either be a string that references a pre-registered easing,
-	           or it can be a two-/four-item array of integers to be converted into a bezier/spring function. */
-	        if (Type.isString(value)) {
-	            /* Ensure that the easing has been assigned to jQuery's Velocity.Easings object. */
-	            if (!Velocity.Easings[value]) {
-	                easing = false;
-	            }
-	        } else if (Type.isArray(value) && value.length === 1) {
-	            easing = generateStep.apply(null, value);
-	        } else if (Type.isArray(value) && value.length === 2) {
-	            /* springRK4 must be passed the animation's duration. */
-	            /* Note: If the springRK4 array contains non-numbers, generateSpringRK4() returns an easing
-	               function generated with default tension and friction values. */
-	            easing = generateSpringRK4.apply(null, value.concat([ duration ]));
-	        } else if (Type.isArray(value) && value.length === 4) {
-	            /* Note: If the bezier array contains non-numbers, generateBezier() returns false. */
-	            easing = generateBezier.apply(null, value);
-	        } else {
-	            easing = false;
-	        }
-
-	        /* Revert to the Velocity-wide default easing type, or fall back to "swing" (which is also jQuery's default)
-	           if the Velocity-wide default has been incorrectly modified. */
-	        if (easing === false) {
-	            if (Velocity.Easings[Velocity.defaults.easing]) {
-	                easing = Velocity.defaults.easing;
-	            } else {
-	                easing = EASING_DEFAULT;
-	            }
-	        }
-
-	        return easing;
-	    }
-
-	    /*****************
-	        CSS Stack
-	    *****************/
-
-	    /* The CSS object is a highly condensed and performant CSS stack that fully replaces jQuery's.
-	       It handles the validation, getting, and setting of both standard CSS properties and CSS property hooks. */
-	    /* Note: A "CSS" shorthand is aliased so that our code is easier to read. */
-	    var CSS = Velocity.CSS = {
-
-	        /*************
-	            RegEx
-	        *************/
-
-	        RegEx: {
-	            isHex: /^#([A-f\d]{3}){1,2}$/i,
-	            /* Unwrap a property value's surrounding text, e.g. "rgba(4, 3, 2, 1)" ==> "4, 3, 2, 1" and "rect(4px 3px 2px 1px)" ==> "4px 3px 2px 1px". */
-	            valueUnwrap: /^[A-z]+\((.*)\)$/i,
-	            wrappedValueAlreadyExtracted: /[0-9.]+ [0-9.]+ [0-9.]+( [0-9.]+)?/,
-	            /* Split a multi-value property into an array of subvalues, e.g. "rgba(4, 3, 2, 1) 4px 3px 2px 1px" ==> [ "rgba(4, 3, 2, 1)", "4px", "3px", "2px", "1px" ]. */
-	            valueSplit: /([A-z]+\(.+\))|(([A-z0-9#-.]+?)(?=\s|$))/ig
-	        },
-
-	        /************
-	            Lists
-	        ************/
-
-	        Lists: {
-	            colors: [ "fill", "stroke", "stopColor", "color", "backgroundColor", "borderColor", "borderTopColor", "borderRightColor", "borderBottomColor", "borderLeftColor", "outlineColor" ],
-	            transformsBase: [ "translateX", "translateY", "scale", "scaleX", "scaleY", "skewX", "skewY", "rotateZ" ],
-	            transforms3D: [ "transformPerspective", "translateZ", "scaleZ", "rotateX", "rotateY" ]
-	        },
-
-	        /************
-	            Hooks
-	        ************/
-
-	        /* Hooks allow a subproperty (e.g. "boxShadowBlur") of a compound-value CSS property
-	           (e.g. "boxShadow: X Y Blur Spread Color") to be animated as if it were a discrete property. */
-	        /* Note: Beyond enabling fine-grained property animation, hooking is necessary since Velocity only
-	           tweens properties with single numeric values; unlike CSS transitions, Velocity does not interpolate compound-values. */
-	        Hooks: {
-	            /********************
-	                Registration
-	            ********************/
-
-	            /* Templates are a concise way of indicating which subproperties must be individually registered for each compound-value CSS property. */
-	            /* Each template consists of the compound-value's base name, its constituent subproperty names, and those subproperties' default values. */
-	            templates: {
-	                "textShadow": [ "Color X Y Blur", "black 0px 0px 0px" ],
-	                "boxShadow": [ "Color X Y Blur Spread", "black 0px 0px 0px 0px" ],
-	                "clip": [ "Top Right Bottom Left", "0px 0px 0px 0px" ],
-	                "backgroundPosition": [ "X Y", "0% 0%" ],
-	                "transformOrigin": [ "X Y Z", "50% 50% 0px" ],
-	                "perspectiveOrigin": [ "X Y", "50% 50%" ]
-	            },
-
-	            /* A "registered" hook is one that has been converted from its template form into a live,
-	               tweenable property. It contains data to associate it with its root property. */
-	            registered: {
-	                /* Note: A registered hook looks like this ==> textShadowBlur: [ "textShadow", 3 ],
-	                   which consists of the subproperty's name, the associated root property's name,
-	                   and the subproperty's position in the root's value. */
-	            },
-	            /* Convert the templates into individual hooks then append them to the registered object above. */
-	            register: function () {
-	                /* Color hooks registration: Colors are defaulted to white -- as opposed to black -- since colors that are
-	                   currently set to "transparent" default to their respective template below when color-animated,
-	                   and white is typically a closer match to transparent than black is. An exception is made for text ("color"),
-	                   which is almost always set closer to black than white. */
-	                for (var i = 0; i < CSS.Lists.colors.length; i++) {
-	                    var rgbComponents = (CSS.Lists.colors[i] === "color") ? "0 0 0 1" : "255 255 255 1";
-	                    CSS.Hooks.templates[CSS.Lists.colors[i]] = [ "Red Green Blue Alpha", rgbComponents ];
-	                }
-
-	                var rootProperty,
-	                    hookTemplate,
-	                    hookNames;
-
-	                /* In IE, color values inside compound-value properties are positioned at the end the value instead of at the beginning.
-	                   Thus, we re-arrange the templates accordingly. */
-	                if (IE) {
-	                    for (rootProperty in CSS.Hooks.templates) {
-	                        hookTemplate = CSS.Hooks.templates[rootProperty];
-	                        hookNames = hookTemplate[0].split(" ");
-
-	                        var defaultValues = hookTemplate[1].match(CSS.RegEx.valueSplit);
-
-	                        if (hookNames[0] === "Color") {
-	                            /* Reposition both the hook's name and its default value to the end of their respective strings. */
-	                            hookNames.push(hookNames.shift());
-	                            defaultValues.push(defaultValues.shift());
-
-	                            /* Replace the existing template for the hook's root property. */
-	                            CSS.Hooks.templates[rootProperty] = [ hookNames.join(" "), defaultValues.join(" ") ];
-	                        }
-	                    }
-	                }
-
-	                /* Hook registration. */
-	                for (rootProperty in CSS.Hooks.templates) {
-	                    hookTemplate = CSS.Hooks.templates[rootProperty];
-	                    hookNames = hookTemplate[0].split(" ");
-
-	                    for (var i in hookNames) {
-	                        var fullHookName = rootProperty + hookNames[i],
-	                            hookPosition = i;
-
-	                        /* For each hook, register its full name (e.g. textShadowBlur) with its root property (e.g. textShadow)
-	                           and the hook's position in its template's default value string. */
-	                        CSS.Hooks.registered[fullHookName] = [ rootProperty, hookPosition ];
-	                    }
-	                }
-	            },
-
-	            /*****************************
-	               Injection and Extraction
-	            *****************************/
-
-	            /* Look up the root property associated with the hook (e.g. return "textShadow" for "textShadowBlur"). */
-	            /* Since a hook cannot be set directly (the browser won't recognize it), style updating for hooks is routed through the hook's root property. */
-	            getRoot: function (property) {
-	                var hookData = CSS.Hooks.registered[property];
-
-	                if (hookData) {
-	                    return hookData[0];
-	                } else {
-	                    /* If there was no hook match, return the property name untouched. */
-	                    return property;
-	                }
-	            },
-	            /* Convert any rootPropertyValue, null or otherwise, into a space-delimited list of hook values so that
-	               the targeted hook can be injected or extracted at its standard position. */
-	            cleanRootPropertyValue: function(rootProperty, rootPropertyValue) {
-	                /* If the rootPropertyValue is wrapped with "rgb()", "clip()", etc., remove the wrapping to normalize the value before manipulation. */
-	                if (CSS.RegEx.valueUnwrap.test(rootPropertyValue)) {
-	                    rootPropertyValue = rootPropertyValue.match(CSS.RegEx.valueUnwrap)[1];
-	                }
-
-	                /* If rootPropertyValue is a CSS null-value (from which there's inherently no hook value to extract),
-	                   default to the root's default value as defined in CSS.Hooks.templates. */
-	                /* Note: CSS null-values include "none", "auto", and "transparent". They must be converted into their
-	                   zero-values (e.g. textShadow: "none" ==> textShadow: "0px 0px 0px black") for hook manipulation to proceed. */
-	                if (CSS.Values.isCSSNullValue(rootPropertyValue)) {
-	                    rootPropertyValue = CSS.Hooks.templates[rootProperty][1];
-	                }
-
-	                return rootPropertyValue;
-	            },
-	            /* Extracted the hook's value from its root property's value. This is used to get the starting value of an animating hook. */
-	            extractValue: function (fullHookName, rootPropertyValue) {
-	                var hookData = CSS.Hooks.registered[fullHookName];
-
-	                if (hookData) {
-	                    var hookRoot = hookData[0],
-	                        hookPosition = hookData[1];
-
-	                    rootPropertyValue = CSS.Hooks.cleanRootPropertyValue(hookRoot, rootPropertyValue);
-
-	                    /* Split rootPropertyValue into its constituent hook values then grab the desired hook at its standard position. */
-	                    return rootPropertyValue.toString().match(CSS.RegEx.valueSplit)[hookPosition];
-	                } else {
-	                    /* If the provided fullHookName isn't a registered hook, return the rootPropertyValue that was passed in. */
-	                    return rootPropertyValue;
-	                }
-	            },
-	            /* Inject the hook's value into its root property's value. This is used to piece back together the root property
-	               once Velocity has updated one of its individually hooked values through tweening. */
-	            injectValue: function (fullHookName, hookValue, rootPropertyValue) {
-	                var hookData = CSS.Hooks.registered[fullHookName];
-
-	                if (hookData) {
-	                    var hookRoot = hookData[0],
-	                        hookPosition = hookData[1],
-	                        rootPropertyValueParts,
-	                        rootPropertyValueUpdated;
-
-	                    rootPropertyValue = CSS.Hooks.cleanRootPropertyValue(hookRoot, rootPropertyValue);
-
-	                    /* Split rootPropertyValue into its individual hook values, replace the targeted value with hookValue,
-	                       then reconstruct the rootPropertyValue string. */
-	                    rootPropertyValueParts = rootPropertyValue.toString().match(CSS.RegEx.valueSplit);
-	                    rootPropertyValueParts[hookPosition] = hookValue;
-	                    rootPropertyValueUpdated = rootPropertyValueParts.join(" ");
-
-	                    return rootPropertyValueUpdated;
-	                } else {
-	                    /* If the provided fullHookName isn't a registered hook, return the rootPropertyValue that was passed in. */
-	                    return rootPropertyValue;
-	                }
-	            }
-	        },
-
-	        /*******************
-	           Normalizations
-	        *******************/
-
-	        /* Normalizations standardize CSS property manipulation by pollyfilling browser-specific implementations (e.g. opacity)
-	           and reformatting special properties (e.g. clip, rgba) to look like standard ones. */
-	        Normalizations: {
-	            /* Normalizations are passed a normalization target (either the property's name, its extracted value, or its injected value),
-	               the targeted element (which may need to be queried), and the targeted property value. */
-	            registered: {
-	                clip: function (type, element, propertyValue) {
-	                    switch (type) {
-	                        case "name":
-	                            return "clip";
-	                        /* Clip needs to be unwrapped and stripped of its commas during extraction. */
-	                        case "extract":
-	                            var extracted;
-
-	                            /* If Velocity also extracted this value, skip extraction. */
-	                            if (CSS.RegEx.wrappedValueAlreadyExtracted.test(propertyValue)) {
-	                                extracted = propertyValue;
-	                            } else {
-	                                /* Remove the "rect()" wrapper. */
-	                                extracted = propertyValue.toString().match(CSS.RegEx.valueUnwrap);
-
-	                                /* Strip off commas. */
-	                                extracted = extracted ? extracted[1].replace(/,(\s+)?/g, " ") : propertyValue;
-	                            }
-
-	                            return extracted;
-	                        /* Clip needs to be re-wrapped during injection. */
-	                        case "inject":
-	                            return "rect(" + propertyValue + ")";
-	                    }
-	                },
-
-	                blur: function(type, element, propertyValue) {
-	                    switch (type) {
-	                        case "name":
-	                            return Velocity.State.isFirefox ? "filter" : "-webkit-filter";
-	                        case "extract":
-	                            var extracted = parseFloat(propertyValue);
-
-	                            /* If extracted is NaN, meaning the value isn't already extracted. */
-	                            if (!(extracted || extracted === 0)) {
-	                                var blurComponent = propertyValue.toString().match(/blur\(([0-9]+[A-z]+)\)/i);
-
-	                                /* If the filter string had a blur component, return just the blur value and unit type. */
-	                                if (blurComponent) {
-	                                    extracted = blurComponent[1];
-	                                /* If the component doesn't exist, default blur to 0. */
-	                                } else {
-	                                    extracted = 0;
-	                                }
-	                            }
-
-	                            return extracted;
-	                        /* Blur needs to be re-wrapped during injection. */
-	                        case "inject":
-	                            /* For the blur effect to be fully de-applied, it needs to be set to "none" instead of 0. */
-	                            if (!parseFloat(propertyValue)) {
-	                                return "none";
-	                            } else {
-	                                return "blur(" + propertyValue + ")";
-	                            }
-	                    }
-	                },
-
-	                /* <=IE8 do not support the standard opacity property. They use filter:alpha(opacity=INT) instead. */
-	                opacity: function (type, element, propertyValue) {
-	                    if (IE <= 8) {
-	                        switch (type) {
-	                            case "name":
-	                                return "filter";
-	                            case "extract":
-	                                /* <=IE8 return a "filter" value of "alpha(opacity=\d{1,3})".
-	                                   Extract the value and convert it to a decimal value to match the standard CSS opacity property's formatting. */
-	                                var extracted = propertyValue.toString().match(/alpha\(opacity=(.*)\)/i);
-
-	                                if (extracted) {
-	                                    /* Convert to decimal value. */
-	                                    propertyValue = extracted[1] / 100;
-	                                } else {
-	                                    /* When extracting opacity, default to 1 since a null value means opacity hasn't been set. */
-	                                    propertyValue = 1;
-	                                }
-
-	                                return propertyValue;
-	                            case "inject":
-	                                /* Opacified elements are required to have their zoom property set to a non-zero value. */
-	                                element.style.zoom = 1;
-
-	                                /* Setting the filter property on elements with certain font property combinations can result in a
-	                                   highly unappealing ultra-bolding effect. There's no way to remedy this throughout a tween, but dropping the
-	                                   value altogether (when opacity hits 1) at leasts ensures that the glitch is gone post-tweening. */
-	                                if (parseFloat(propertyValue) >= 1) {
-	                                    return "";
-	                                } else {
-	                                  /* As per the filter property's spec, convert the decimal value to a whole number and wrap the value. */
-	                                  return "alpha(opacity=" + parseInt(parseFloat(propertyValue) * 100, 10) + ")";
-	                                }
-	                        }
-	                    /* With all other browsers, normalization is not required; return the same values that were passed in. */
-	                    } else {
-	                        switch (type) {
-	                            case "name":
-	                                return "opacity";
-	                            case "extract":
-	                                return propertyValue;
-	                            case "inject":
-	                                return propertyValue;
-	                        }
-	                    }
-	                }
-	            },
-
-	            /*****************************
-	                Batched Registrations
-	            *****************************/
-
-	            /* Note: Batched normalizations extend the CSS.Normalizations.registered object. */
-	            register: function () {
-
-	                /*****************
-	                    Transforms
-	                *****************/
-
-	                /* Transforms are the subproperties contained by the CSS "transform" property. Transforms must undergo normalization
-	                   so that they can be referenced in a properties map by their individual names. */
-	                /* Note: When transforms are "set", they are actually assigned to a per-element transformCache. When all transform
-	                   setting is complete complete, CSS.flushTransformCache() must be manually called to flush the values to the DOM.
-	                   Transform setting is batched in this way to improve performance: the transform style only needs to be updated
-	                   once when multiple transform subproperties are being animated simultaneously. */
-	                /* Note: IE9 and Android Gingerbread have support for 2D -- but not 3D -- transforms. Since animating unsupported
-	                   transform properties results in the browser ignoring the *entire* transform string, we prevent these 3D values
-	                   from being normalized for these browsers so that tweening skips these properties altogether
-	                   (since it will ignore them as being unsupported by the browser.) */
-	                if (!(IE <= 9) && !Velocity.State.isGingerbread) {
-	                    /* Note: Since the standalone CSS "perspective" property and the CSS transform "perspective" subproperty
-	                    share the same name, the latter is given a unique token within Velocity: "transformPerspective". */
-	                    CSS.Lists.transformsBase = CSS.Lists.transformsBase.concat(CSS.Lists.transforms3D);
-	                }
-
-	                for (var i = 0; i < CSS.Lists.transformsBase.length; i++) {
-	                    /* Wrap the dynamically generated normalization function in a new scope so that transformName's value is
-	                    paired with its respective function. (Otherwise, all functions would take the final for loop's transformName.) */
-	                    (function() {
-	                        var transformName = CSS.Lists.transformsBase[i];
-
-	                        CSS.Normalizations.registered[transformName] = function (type, element, propertyValue) {
-	                            switch (type) {
-	                                /* The normalized property name is the parent "transform" property -- the property that is actually set in CSS. */
-	                                case "name":
-	                                    return "transform";
-	                                /* Transform values are cached onto a per-element transformCache object. */
-	                                case "extract":
-	                                    /* If this transform has yet to be assigned a value, return its null value. */
-	                                    if (Data(element) === undefined || Data(element).transformCache[transformName] === undefined) {
-	                                        /* Scale CSS.Lists.transformsBase default to 1 whereas all other transform properties default to 0. */
-	                                        return /^scale/i.test(transformName) ? 1 : 0;
-	                                    /* When transform values are set, they are wrapped in parentheses as per the CSS spec.
-	                                       Thus, when extracting their values (for tween calculations), we strip off the parentheses. */
-	                                    } else {
-	                                        return Data(element).transformCache[transformName].replace(/[()]/g, "");
-	                                    }
-	                                case "inject":
-	                                    var invalid = false;
-
-	                                    /* If an individual transform property contains an unsupported unit type, the browser ignores the *entire* transform property.
-	                                       Thus, protect users from themselves by skipping setting for transform values supplied with invalid unit types. */
-	                                    /* Switch on the base transform type; ignore the axis by removing the last letter from the transform's name. */
-	                                    switch (transformName.substr(0, transformName.length - 1)) {
-	                                        /* Whitelist unit types for each transform. */
-	                                        case "translate":
-	                                            invalid = !/(%|px|em|rem|vw|vh|\d)$/i.test(propertyValue);
-	                                            break;
-	                                        /* Since an axis-free "scale" property is supported as well, a little hack is used here to detect it by chopping off its last letter. */
-	                                        case "scal":
-	                                        case "scale":
-	                                            /* Chrome on Android has a bug in which scaled elements blur if their initial scale
-	                                               value is below 1 (which can happen with forcefeeding). Thus, we detect a yet-unset scale property
-	                                               and ensure that its first value is always 1. More info: http://stackoverflow.com/questions/10417890/css3-animations-with-transform-causes-blurred-elements-on-webkit/10417962#10417962 */
-	                                            if (Velocity.State.isAndroid && Data(element).transformCache[transformName] === undefined && propertyValue < 1) {
-	                                                propertyValue = 1;
-	                                            }
-
-	                                            invalid = !/(\d)$/i.test(propertyValue);
-	                                            break;
-	                                        case "skew":
-	                                            invalid = !/(deg|\d)$/i.test(propertyValue);
-	                                            break;
-	                                        case "rotate":
-	                                            invalid = !/(deg|\d)$/i.test(propertyValue);
-	                                            break;
-	                                    }
-
-	                                    if (!invalid) {
-	                                        /* As per the CSS spec, wrap the value in parentheses. */
-	                                        Data(element).transformCache[transformName] = "(" + propertyValue + ")";
-	                                    }
-
-	                                    /* Although the value is set on the transformCache object, return the newly-updated value for the calling code to process as normal. */
-	                                    return Data(element).transformCache[transformName];
-	                            }
-	                        };
-	                    })();
-	                }
-
-	                /*************
-	                    Colors
-	                *************/
-
-	                /* Since Velocity only animates a single numeric value per property, color animation is achieved by hooking the individual RGBA components of CSS color properties.
-	                   Accordingly, color values must be normalized (e.g. "#ff0000", "red", and "rgb(255, 0, 0)" ==> "255 0 0 1") so that their components can be injected/extracted by CSS.Hooks logic. */
-	                for (var i = 0; i < CSS.Lists.colors.length; i++) {
-	                    /* Wrap the dynamically generated normalization function in a new scope so that colorName's value is paired with its respective function.
-	                       (Otherwise, all functions would take the final for loop's colorName.) */
-	                    (function () {
-	                        var colorName = CSS.Lists.colors[i];
-
-	                        /* Note: In IE<=8, which support rgb but not rgba, color properties are reverted to rgb by stripping off the alpha component. */
-	                        CSS.Normalizations.registered[colorName] = function(type, element, propertyValue) {
-	                            switch (type) {
-	                                case "name":
-	                                    return colorName;
-	                                /* Convert all color values into the rgb format. (Old IE can return hex values and color names instead of rgb/rgba.) */
-	                                case "extract":
-	                                    var extracted;
-
-	                                    /* If the color is already in its hookable form (e.g. "255 255 255 1") due to having been previously extracted, skip extraction. */
-	                                    if (CSS.RegEx.wrappedValueAlreadyExtracted.test(propertyValue)) {
-	                                        extracted = propertyValue;
-	                                    } else {
-	                                        var converted,
-	                                            colorNames = {
-	                                                black: "rgb(0, 0, 0)",
-	                                                blue: "rgb(0, 0, 255)",
-	                                                gray: "rgb(128, 128, 128)",
-	                                                green: "rgb(0, 128, 0)",
-	                                                red: "rgb(255, 0, 0)",
-	                                                white: "rgb(255, 255, 255)"
-	                                            };
-
-	                                        /* Convert color names to rgb. */
-	                                        if (/^[A-z]+$/i.test(propertyValue)) {
-	                                            if (colorNames[propertyValue] !== undefined) {
-	                                                converted = colorNames[propertyValue]
-	                                            } else {
-	                                                /* If an unmatched color name is provided, default to black. */
-	                                                converted = colorNames.black;
-	                                            }
-	                                        /* Convert hex values to rgb. */
-	                                        } else if (CSS.RegEx.isHex.test(propertyValue)) {
-	                                            converted = "rgb(" + CSS.Values.hexToRgb(propertyValue).join(" ") + ")";
-	                                        /* If the provided color doesn't match any of the accepted color formats, default to black. */
-	                                        } else if (!(/^rgba?\(/i.test(propertyValue))) {
-	                                            converted = colorNames.black;
-	                                        }
-
-	                                        /* Remove the surrounding "rgb/rgba()" string then replace commas with spaces and strip
-	                                           repeated spaces (in case the value included spaces to begin with). */
-	                                        extracted = (converted || propertyValue).toString().match(CSS.RegEx.valueUnwrap)[1].replace(/,(\s+)?/g, " ");
-	                                    }
-
-	                                    /* So long as this isn't <=IE8, add a fourth (alpha) component if it's missing and default it to 1 (visible). */
-	                                    if (!(IE <= 8) && extracted.split(" ").length === 3) {
-	                                        extracted += " 1";
-	                                    }
-
-	                                    return extracted;
-	                                case "inject":
-	                                    /* If this is IE<=8 and an alpha component exists, strip it off. */
-	                                    if (IE <= 8) {
-	                                        if (propertyValue.split(" ").length === 4) {
-	                                            propertyValue = propertyValue.split(/\s+/).slice(0, 3).join(" ");
-	                                        }
-	                                    /* Otherwise, add a fourth (alpha) component if it's missing and default it to 1 (visible). */
-	                                    } else if (propertyValue.split(" ").length === 3) {
-	                                        propertyValue += " 1";
-	                                    }
-
-	                                    /* Re-insert the browser-appropriate wrapper("rgb/rgba()"), insert commas, and strip off decimal units
-	                                       on all values but the fourth (R, G, and B only accept whole numbers). */
-	                                    return (IE <= 8 ? "rgb" : "rgba") + "(" + propertyValue.replace(/\s+/g, ",").replace(/\.(\d)+(?=,)/g, "") + ")";
-	                            }
-	                        };
-	                    })();
-	                }
-	            }
-	        },
-
-	        /************************
-	           CSS Property Names
-	        ************************/
-
-	        Names: {
-	            /* Camelcase a property name into its JavaScript notation (e.g. "background-color" ==> "backgroundColor").
-	               Camelcasing is used to normalize property names between and across calls. */
-	            camelCase: function (property) {
-	                return property.replace(/-(\w)/g, function (match, subMatch) {
-	                    return subMatch.toUpperCase();
-	                });
-	            },
-
-	            /* For SVG elements, some properties (namely, dimensional ones) are GET/SET via the element's HTML attributes (instead of via CSS styles). */
-	            SVGAttribute: function (property) {
-	                var SVGAttributes = "width|height|x|y|cx|cy|r|rx|ry|x1|x2|y1|y2";
-
-	                /* Certain browsers require an SVG transform to be applied as an attribute. (Otherwise, application via CSS is preferable due to 3D support.) */
-	                if (IE || (Velocity.State.isAndroid && !Velocity.State.isChrome)) {
-	                    SVGAttributes += "|transform";
-	                }
-
-	                return new RegExp("^(" + SVGAttributes + ")$", "i").test(property);
-	            },
-
-	            /* Determine whether a property should be set with a vendor prefix. */
-	            /* If a prefixed version of the property exists, return it. Otherwise, return the original property name.
-	               If the property is not at all supported by the browser, return a false flag. */
-	            prefixCheck: function (property) {
-	                /* If this property has already been checked, return the cached value. */
-	                if (Velocity.State.prefixMatches[property]) {
-	                    return [ Velocity.State.prefixMatches[property], true ];
-	                } else {
-	                    var vendors = [ "", "Webkit", "Moz", "ms", "O" ];
-
-	                    for (var i = 0, vendorsLength = vendors.length; i < vendorsLength; i++) {
-	                        var propertyPrefixed;
-
-	                        if (i === 0) {
-	                            propertyPrefixed = property;
-	                        } else {
-	                            /* Capitalize the first letter of the property to conform to JavaScript vendor prefix notation (e.g. webkitFilter). */
-	                            propertyPrefixed = vendors[i] + property.replace(/^\w/, function(match) { return match.toUpperCase(); });
-	                        }
-
-	                        /* Check if the browser supports this property as prefixed. */
-	                        if (Type.isString(Velocity.State.prefixElement.style[propertyPrefixed])) {
-	                            /* Cache the match. */
-	                            Velocity.State.prefixMatches[property] = propertyPrefixed;
-
-	                            return [ propertyPrefixed, true ];
-	                        }
-	                    }
-
-	                    /* If the browser doesn't support this property in any form, include a false flag so that the caller can decide how to proceed. */
-	                    return [ property, false ];
-	                }
-	            }
-	        },
-
-	        /************************
-	           CSS Property Values
-	        ************************/
-
-	        Values: {
-	            /* Hex to RGB conversion. Copyright Tim Down: http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
-	            hexToRgb: function (hex) {
-	                var shortformRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-	                    longformRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i,
-	                    rgbParts;
-
-	                hex = hex.replace(shortformRegex, function (m, r, g, b) {
-	                    return r + r + g + g + b + b;
-	                });
-
-	                rgbParts = longformRegex.exec(hex);
-
-	                return rgbParts ? [ parseInt(rgbParts[1], 16), parseInt(rgbParts[2], 16), parseInt(rgbParts[3], 16) ] : [ 0, 0, 0 ];
-	            },
-
-	            isCSSNullValue: function (value) {
-	                /* The browser defaults CSS values that have not been set to either 0 or one of several possible null-value strings.
-	                   Thus, we check for both falsiness and these special strings. */
-	                /* Null-value checking is performed to default the special strings to 0 (for the sake of tweening) or their hook
-	                   templates as defined as CSS.Hooks (for the sake of hook injection/extraction). */
-	                /* Note: Chrome returns "rgba(0, 0, 0, 0)" for an undefined color whereas IE returns "transparent". */
-	                return (value == 0 || /^(none|auto|transparent|(rgba\(0, ?0, ?0, ?0\)))$/i.test(value));
-	            },
-
-	            /* Retrieve a property's default unit type. Used for assigning a unit type when one is not supplied by the user. */
-	            getUnitType: function (property) {
-	                if (/^(rotate|skew)/i.test(property)) {
-	                    return "deg";
-	                } else if (/(^(scale|scaleX|scaleY|scaleZ|alpha|flexGrow|flexHeight|zIndex|fontWeight)$)|((opacity|red|green|blue|alpha)$)/i.test(property)) {
-	                    /* The above properties are unitless. */
-	                    return "";
-	                } else {
-	                    /* Default to px for all other properties. */
-	                    return "px";
-	                }
-	            },
-
-	            /* HTML elements default to an associated display type when they're not set to display:none. */
-	            /* Note: This function is used for correctly setting the non-"none" display value in certain Velocity redirects, such as fadeIn/Out. */
-	            getDisplayType: function (element) {
-	                var tagName = element && element.tagName.toString().toLowerCase();
-
-	                if (/^(b|big|i|small|tt|abbr|acronym|cite|code|dfn|em|kbd|strong|samp|var|a|bdo|br|img|map|object|q|script|span|sub|sup|button|input|label|select|textarea)$/i.test(tagName)) {
-	                    return "inline";
-	                } else if (/^(li)$/i.test(tagName)) {
-	                    return "list-item";
-	                } else if (/^(tr)$/i.test(tagName)) {
-	                    return "table-row";
-	                } else if (/^(table)$/i.test(tagName)) {
-	                    return "table";
-	                } else if (/^(tbody)$/i.test(tagName)) {
-	                    return "table-row-group";
-	                /* Default to "block" when no match is found. */
-	                } else {
-	                    return "block";
-	                }
-	            },
-
-	            /* The class add/remove functions are used to temporarily apply a "velocity-animating" class to elements while they're animating. */
-	            addClass: function (element, className) {
-	                if (element.classList) {
-	                    element.classList.add(className);
-	                } else {
-	                    element.className += (element.className.length ? " " : "") + className;
-	                }
-	            },
-
-	            removeClass: function (element, className) {
-	                if (element.classList) {
-	                    element.classList.remove(className);
-	                } else {
-	                    element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
-	                }
-	            }
-	        },
-
-	        /****************************
-	           Style Getting & Setting
-	        ****************************/
-
-	        /* The singular getPropertyValue, which routes the logic for all normalizations, hooks, and standard CSS properties. */
-	        getPropertyValue: function (element, property, rootPropertyValue, forceStyleLookup) {
-	            /* Get an element's computed property value. */
-	            /* Note: Retrieving the value of a CSS property cannot simply be performed by checking an element's
-	               style attribute (which only reflects user-defined values). Instead, the browser must be queried for a property's
-	               *computed* value. You can read more about getComputedStyle here: https://developer.mozilla.org/en/docs/Web/API/window.getComputedStyle */
-	            function computePropertyValue (element, property) {
-	                /* When box-sizing isn't set to border-box, height and width style values are incorrectly computed when an
-	                   element's scrollbars are visible (which expands the element's dimensions). Thus, we defer to the more accurate
-	                   offsetHeight/Width property, which includes the total dimensions for interior, border, padding, and scrollbar.
-	                   We subtract border and padding to get the sum of interior + scrollbar. */
-	                var computedValue = 0;
-
-	                /* IE<=8 doesn't support window.getComputedStyle, thus we defer to jQuery, which has an extensive array
-	                   of hacks to accurately retrieve IE8 property values. Re-implementing that logic here is not worth bloating the
-	                   codebase for a dying browser. The performance repercussions of using jQuery here are minimal since
-	                   Velocity is optimized to rarely (and sometimes never) query the DOM. Further, the $.css() codepath isn't that slow. */
-	                if (IE <= 8) {
-	                    computedValue = $.css(element, property); /* GET */
-	                /* All other browsers support getComputedStyle. The returned live object reference is cached onto its
-	                   associated element so that it does not need to be refetched upon every GET. */
-	                } else {
-	                    /* Browsers do not return height and width values for elements that are set to display:"none". Thus, we temporarily
-	                       toggle display to the element type's default value. */
-	                    var toggleDisplay = false;
-
-	                    if (/^(width|height)$/.test(property) && CSS.getPropertyValue(element, "display") === 0) {
-	                        toggleDisplay = true;
-	                        CSS.setPropertyValue(element, "display", CSS.Values.getDisplayType(element));
-	                    }
-
-	                    function revertDisplay () {
-	                        if (toggleDisplay) {
-	                            CSS.setPropertyValue(element, "display", "none");
-	                        }
-	                    }
-
-	                    if (!forceStyleLookup) {
-	                        if (property === "height" && CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() !== "border-box") {
-	                            var contentBoxHeight = element.offsetHeight - (parseFloat(CSS.getPropertyValue(element, "borderTopWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "borderBottomWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingTop")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingBottom")) || 0);
-	                            revertDisplay();
-
-	                            return contentBoxHeight;
-	                        } else if (property === "width" && CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() !== "border-box") {
-	                            var contentBoxWidth = element.offsetWidth - (parseFloat(CSS.getPropertyValue(element, "borderLeftWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "borderRightWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingLeft")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingRight")) || 0);
-	                            revertDisplay();
-
-	                            return contentBoxWidth;
-	                        }
-	                    }
-
-	                    var computedStyle;
-
-	                    /* For elements that Velocity hasn't been called on directly (e.g. when Velocity queries the DOM on behalf
-	                       of a parent of an element its animating), perform a direct getComputedStyle lookup since the object isn't cached. */
-	                    if (Data(element) === undefined) {
-	                        computedStyle = window.getComputedStyle(element, null); /* GET */
-	                    /* If the computedStyle object has yet to be cached, do so now. */
-	                    } else if (!Data(element).computedStyle) {
-	                        computedStyle = Data(element).computedStyle = window.getComputedStyle(element, null); /* GET */
-	                    /* If computedStyle is cached, use it. */
-	                    } else {
-	                        computedStyle = Data(element).computedStyle;
-	                    }
-
-	                    /* IE and Firefox do not return a value for the generic borderColor -- they only return individual values for each border side's color.
-	                       Also, in all browsers, when border colors aren't all the same, a compound value is returned that Velocity isn't setup to parse.
-	                       So, as a polyfill for querying individual border side colors, we just return the top border's color and animate all borders from that value. */
-	                    if (property === "borderColor") {
-	                        property = "borderTopColor";
-	                    }
-
-	                    /* IE9 has a bug in which the "filter" property must be accessed from computedStyle using the getPropertyValue method
-	                       instead of a direct property lookup. The getPropertyValue method is slower than a direct lookup, which is why we avoid it by default. */
-	                    if (IE === 9 && property === "filter") {
-	                        computedValue = computedStyle.getPropertyValue(property); /* GET */
-	                    } else {
-	                        computedValue = computedStyle[property];
-	                    }
-
-	                    /* Fall back to the property's style value (if defined) when computedValue returns nothing,
-	                       which can happen when the element hasn't been painted. */
-	                    if (computedValue === "" || computedValue === null) {
-	                        computedValue = element.style[property];
-	                    }
-
-	                    revertDisplay();
-	                }
-
-	                /* For top, right, bottom, and left (TRBL) values that are set to "auto" on elements of "fixed" or "absolute" position,
-	                   defer to jQuery for converting "auto" to a numeric value. (For elements with a "static" or "relative" position, "auto" has the same
-	                   effect as being set to 0, so no conversion is necessary.) */
-	                /* An example of why numeric conversion is necessary: When an element with "position:absolute" has an untouched "left"
-	                   property, which reverts to "auto", left's value is 0 relative to its parent element, but is often non-zero relative
-	                   to its *containing* (not parent) element, which is the nearest "position:relative" ancestor or the viewport (and always the viewport in the case of "position:fixed"). */
-	                if (computedValue === "auto" && /^(top|right|bottom|left)$/i.test(property)) {
-	                    var position = computePropertyValue(element, "position"); /* GET */
-
-	                    /* For absolute positioning, jQuery's $.position() only returns values for top and left;
-	                       right and bottom will have their "auto" value reverted to 0. */
-	                    /* Note: A jQuery object must be created here since jQuery doesn't have a low-level alias for $.position().
-	                       Not a big deal since we're currently in a GET batch anyway. */
-	                    if (position === "fixed" || (position === "absolute" && /top|left/i.test(property))) {
-	                        /* Note: jQuery strips the pixel unit from its returned values; we re-add it here to conform with computePropertyValue's behavior. */
-	                        computedValue = $(element).position()[property] + "px"; /* GET */
-	                    }
-	                }
-
-	                return computedValue;
-	            }
-
-	            var propertyValue;
-
-	            /* If this is a hooked property (e.g. "clipLeft" instead of the root property of "clip"),
-	               extract the hook's value from a normalized rootPropertyValue using CSS.Hooks.extractValue(). */
-	            if (CSS.Hooks.registered[property]) {
-	                var hook = property,
-	                    hookRoot = CSS.Hooks.getRoot(hook);
-
-	                /* If a cached rootPropertyValue wasn't passed in (which Velocity always attempts to do in order to avoid requerying the DOM),
-	                   query the DOM for the root property's value. */
-	                if (rootPropertyValue === undefined) {
-	                    /* Since the browser is now being directly queried, use the official post-prefixing property name for this lookup. */
-	                    rootPropertyValue = CSS.getPropertyValue(element, CSS.Names.prefixCheck(hookRoot)[0]); /* GET */
-	                }
-
-	                /* If this root has a normalization registered, peform the associated normalization extraction. */
-	                if (CSS.Normalizations.registered[hookRoot]) {
-	                    rootPropertyValue = CSS.Normalizations.registered[hookRoot]("extract", element, rootPropertyValue);
-	                }
-
-	                /* Extract the hook's value. */
-	                propertyValue = CSS.Hooks.extractValue(hook, rootPropertyValue);
-
-	            /* If this is a normalized property (e.g. "opacity" becomes "filter" in <=IE8) or "translateX" becomes "transform"),
-	               normalize the property's name and value, and handle the special case of transforms. */
-	            /* Note: Normalizing a property is mutually exclusive from hooking a property since hook-extracted values are strictly
-	               numerical and therefore do not require normalization extraction. */
-	            } else if (CSS.Normalizations.registered[property]) {
-	                var normalizedPropertyName,
-	                    normalizedPropertyValue;
-
-	                normalizedPropertyName = CSS.Normalizations.registered[property]("name", element);
-
-	                /* Transform values are calculated via normalization extraction (see below), which checks against the element's transformCache.
-	                   At no point do transform GETs ever actually query the DOM; initial stylesheet values are never processed.
-	                   This is because parsing 3D transform matrices is not always accurate and would bloat our codebase;
-	                   thus, normalization extraction defaults initial transform values to their zero-values (e.g. 1 for scaleX and 0 for translateX). */
-	                if (normalizedPropertyName !== "transform") {
-	                    normalizedPropertyValue = computePropertyValue(element, CSS.Names.prefixCheck(normalizedPropertyName)[0]); /* GET */
-
-	                    /* If the value is a CSS null-value and this property has a hook template, use that zero-value template so that hooks can be extracted from it. */
-	                    if (CSS.Values.isCSSNullValue(normalizedPropertyValue) && CSS.Hooks.templates[property]) {
-	                        normalizedPropertyValue = CSS.Hooks.templates[property][1];
-	                    }
-	                }
-
-	                propertyValue = CSS.Normalizations.registered[property]("extract", element, normalizedPropertyValue);
-	            }
-
-	            /* If a (numeric) value wasn't produced via hook extraction or normalization, query the DOM. */
-	            if (!/^[\d-]/.test(propertyValue)) {
-	                /* For SVG elements, dimensional properties (which SVGAttribute() detects) are tweened via
-	                   their HTML attribute values instead of their CSS style values. */
-	                if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
-	                    /* Since the height/width attribute values must be set manually, they don't reflect computed values.
-	                       Thus, we use use getBBox() to ensure we always get values for elements with undefined height/width attributes. */
-	                    if (/^(height|width)$/i.test(property)) {
-	                        /* Firefox throws an error if .getBBox() is called on an SVG that isn't attached to the DOM. */
-	                        try {
-	                            propertyValue = element.getBBox()[property];
-	                        } catch (error) {
-	                            propertyValue = 0;
-	                        }
-	                    /* Otherwise, access the attribute value directly. */
-	                    } else {
-	                        propertyValue = element.getAttribute(property);
-	                    }
-	                } else {
-	                    propertyValue = computePropertyValue(element, CSS.Names.prefixCheck(property)[0]); /* GET */
-	                }
-	            }
-
-	            /* Since property lookups are for animation purposes (which entails computing the numeric delta between start and end values),
-	               convert CSS null-values to an integer of value 0. */
-	            if (CSS.Values.isCSSNullValue(propertyValue)) {
-	                propertyValue = 0;
-	            }
-
-	            if (Velocity.debug >= 2) console.log("Get " + property + ": " + propertyValue);
-
-	            return propertyValue;
-	        },
-
-	        /* The singular setPropertyValue, which routes the logic for all normalizations, hooks, and standard CSS properties. */
-	        setPropertyValue: function(element, property, propertyValue, rootPropertyValue, scrollData) {
-	            var propertyName = property;
-
-	            /* In order to be subjected to call options and element queueing, scroll animation is routed through Velocity as if it were a standard CSS property. */
-	            if (property === "scroll") {
-	                /* If a container option is present, scroll the container instead of the browser window. */
-	                if (scrollData.container) {
-	                    scrollData.container["scroll" + scrollData.direction] = propertyValue;
-	                /* Otherwise, Velocity defaults to scrolling the browser window. */
-	                } else {
-	                    if (scrollData.direction === "Left") {
-	                        window.scrollTo(propertyValue, scrollData.alternateValue);
-	                    } else {
-	                        window.scrollTo(scrollData.alternateValue, propertyValue);
-	                    }
-	                }
-	            } else {
-	                /* Transforms (translateX, rotateZ, etc.) are applied to a per-element transformCache object, which is manually flushed via flushTransformCache().
-	                   Thus, for now, we merely cache transforms being SET. */
-	                if (CSS.Normalizations.registered[property] && CSS.Normalizations.registered[property]("name", element) === "transform") {
-	                    /* Perform a normalization injection. */
-	                    /* Note: The normalization logic handles the transformCache updating. */
-	                    CSS.Normalizations.registered[property]("inject", element, propertyValue);
-
-	                    propertyName = "transform";
-	                    propertyValue = Data(element).transformCache[property];
-	                } else {
-	                    /* Inject hooks. */
-	                    if (CSS.Hooks.registered[property]) {
-	                        var hookName = property,
-	                            hookRoot = CSS.Hooks.getRoot(property);
-
-	                        /* If a cached rootPropertyValue was not provided, query the DOM for the hookRoot's current value. */
-	                        rootPropertyValue = rootPropertyValue || CSS.getPropertyValue(element, hookRoot); /* GET */
-
-	                        propertyValue = CSS.Hooks.injectValue(hookName, propertyValue, rootPropertyValue);
-	                        property = hookRoot;
-	                    }
-
-	                    /* Normalize names and values. */
-	                    if (CSS.Normalizations.registered[property]) {
-	                        propertyValue = CSS.Normalizations.registered[property]("inject", element, propertyValue);
-	                        property = CSS.Normalizations.registered[property]("name", element);
-	                    }
-
-	                    /* Assign the appropriate vendor prefix before performing an official style update. */
-	                    propertyName = CSS.Names.prefixCheck(property)[0];
-
-	                    /* A try/catch is used for IE<=8, which throws an error when "invalid" CSS values are set, e.g. a negative width.
-	                       Try/catch is avoided for other browsers since it incurs a performance overhead. */
-	                    if (IE <= 8) {
-	                        try {
-	                            element.style[propertyName] = propertyValue;
-	                        } catch (error) { if (Velocity.debug) console.log("Browser does not support [" + propertyValue + "] for [" + propertyName + "]"); }
-	                    /* SVG elements have their dimensional properties (width, height, x, y, cx, etc.) applied directly as attributes instead of as styles. */
-	                    /* Note: IE8 does not support SVG elements, so it's okay that we skip it for SVG animation. */
-	                    } else if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
-	                        /* Note: For SVG attributes, vendor-prefixed property names are never used. */
-	                        /* Note: Not all CSS properties can be animated via attributes, but the browser won't throw an error for unsupported properties. */
-	                        element.setAttribute(property, propertyValue);
-	                    } else {
-	                        element.style[propertyName] = propertyValue;
-	                    }
-
-	                    if (Velocity.debug >= 2) console.log("Set " + property + " (" + propertyName + "): " + propertyValue);
-	                }
-	            }
-
-	            /* Return the normalized property name and value in case the caller wants to know how these values were modified before being applied to the DOM. */
-	            return [ propertyName, propertyValue ];
-	        },
-
-	        /* To increase performance by batching transform updates into a single SET, transforms are not directly applied to an element until flushTransformCache() is called. */
-	        /* Note: Velocity applies transform properties in the same order that they are chronogically introduced to the element's CSS styles. */
-	        flushTransformCache: function(element) {
-	            var transformString = "";
-
-	            /* Certain browsers require that SVG transforms be applied as an attribute. However, the SVG transform attribute takes a modified version of CSS's transform string
-	               (units are dropped and, except for skewX/Y, subproperties are merged into their master property -- e.g. scaleX and scaleY are merged into scale(X Y). */
-	            if ((IE || (Velocity.State.isAndroid && !Velocity.State.isChrome)) && Data(element).isSVG) {
-	                /* Since transform values are stored in their parentheses-wrapped form, we use a helper function to strip out their numeric values.
-	                   Further, SVG transform properties only take unitless (representing pixels) values, so it's okay that parseFloat() strips the unit suffixed to the float value. */
-	                function getTransformFloat (transformProperty) {
-	                    return parseFloat(CSS.getPropertyValue(element, transformProperty));
-	                }
-
-	                /* Create an object to organize all the transforms that we'll apply to the SVG element. To keep the logic simple,
-	                   we process *all* transform properties -- even those that may not be explicitly applied (since they default to their zero-values anyway). */
-	                var SVGTransforms = {
-	                    translate: [ getTransformFloat("translateX"), getTransformFloat("translateY") ],
-	                    skewX: [ getTransformFloat("skewX") ], skewY: [ getTransformFloat("skewY") ],
-	                    /* If the scale property is set (non-1), use that value for the scaleX and scaleY values
-	                       (this behavior mimics the result of animating all these properties at once on HTML elements). */
-	                    scale: getTransformFloat("scale") !== 1 ? [ getTransformFloat("scale"), getTransformFloat("scale") ] : [ getTransformFloat("scaleX"), getTransformFloat("scaleY") ],
-	                    /* Note: SVG's rotate transform takes three values: rotation degrees followed by the X and Y values
-	                       defining the rotation's origin point. We ignore the origin values (default them to 0). */
-	                    rotate: [ getTransformFloat("rotateZ"), 0, 0 ]
-	                };
-
-	                /* Iterate through the transform properties in the user-defined property map order.
-	                   (This mimics the behavior of non-SVG transform animation.) */
-	                $.each(Data(element).transformCache, function(transformName) {
-	                    /* Except for with skewX/Y, revert the axis-specific transform subproperties to their axis-free master
-	                       properties so that they match up with SVG's accepted transform properties. */
-	                    if (/^translate/i.test(transformName)) {
-	                        transformName = "translate";
-	                    } else if (/^scale/i.test(transformName)) {
-	                        transformName = "scale";
-	                    } else if (/^rotate/i.test(transformName)) {
-	                        transformName = "rotate";
-	                    }
-
-	                    /* Check that we haven't yet deleted the property from the SVGTransforms container. */
-	                    if (SVGTransforms[transformName]) {
-	                        /* Append the transform property in the SVG-supported transform format. As per the spec, surround the space-delimited values in parentheses. */
-	                        transformString += transformName + "(" + SVGTransforms[transformName].join(" ") + ")" + " ";
-
-	                        /* After processing an SVG transform property, delete it from the SVGTransforms container so we don't
-	                           re-insert the same master property if we encounter another one of its axis-specific properties. */
-	                        delete SVGTransforms[transformName];
-	                    }
-	                });
-	            } else {
-	                var transformValue,
-	                    perspective;
-
-	                /* Transform properties are stored as members of the transformCache object. Concatenate all the members into a string. */
-	                $.each(Data(element).transformCache, function(transformName) {
-	                    transformValue = Data(element).transformCache[transformName];
-
-	                    /* Transform's perspective subproperty must be set first in order to take effect. Store it temporarily. */
-	                    if (transformName === "transformPerspective") {
-	                        perspective = transformValue;
-	                        return true;
-	                    }
-
-	                    /* IE9 only supports one rotation type, rotateZ, which it refers to as "rotate". */
-	                    if (IE === 9 && transformName === "rotateZ") {
-	                        transformName = "rotate";
-	                    }
-
-	                    transformString += transformName + transformValue + " ";
-	                });
-
-	                /* If present, set the perspective subproperty first. */
-	                if (perspective) {
-	                    transformString = "perspective" + perspective + " " + transformString;
-	                }
-	            }
-
-	            CSS.setPropertyValue(element, "transform", transformString);
-	        }
-	    };
-
-	    /* Register hooks and normalizations. */
-	    CSS.Hooks.register();
-	    CSS.Normalizations.register();
-
-	    /* Allow hook setting in the same fashion as jQuery's $.css(). */
-	    Velocity.hook = function (elements, arg2, arg3) {
-	        var value = undefined;
-
-	        elements = sanitizeElements(elements);
-
-	        $.each(elements, function(i, element) {
-	            /* Initialize Velocity's per-element data cache if this element hasn't previously been animated. */
-	            if (Data(element) === undefined) {
-	                Velocity.init(element);
-	            }
-
-	            /* Get property value. If an element set was passed in, only return the value for the first element. */
-	            if (arg3 === undefined) {
-	                if (value === undefined) {
-	                    value = Velocity.CSS.getPropertyValue(element, arg2);
-	                }
-	            /* Set property value. */
-	            } else {
-	                /* sPV returns an array of the normalized propertyName/propertyValue pair used to update the DOM. */
-	                var adjustedSet = Velocity.CSS.setPropertyValue(element, arg2, arg3);
-
-	                /* Transform properties don't automatically set. They have to be flushed to the DOM. */
-	                if (adjustedSet[0] === "transform") {
-	                    Velocity.CSS.flushTransformCache(element);
-	                }
-
-	                value = adjustedSet;
-	            }
-	        });
-
-	        return value;
-	    };
-
-	    /*****************
-	        Animation
-	    *****************/
-
-	    var animate = function() {
-
-	        /******************
-	            Call Chain
-	        ******************/
-
-	        /* Logic for determining what to return to the call stack when exiting out of Velocity. */
-	        function getChain () {
-	            /* If we are using the utility function, attempt to return this call's promise. If no promise library was detected,
-	               default to null instead of returning the targeted elements so that utility function's return value is standardized. */
-	            if (isUtility) {
-	                return promiseData.promise || null;
-	            /* Otherwise, if we're using $.fn, return the jQuery-/Zepto-wrapped element set. */
-	            } else {
-	                return elementsWrapped;
-	            }
-	        }
-
-	        /*************************
-	           Arguments Assignment
-	        *************************/
-
-	        /* To allow for expressive CoffeeScript code, Velocity supports an alternative syntax in which "elements" (or "e"), "properties" (or "p"), and "options" (or "o")
-	           objects are defined on a container object that's passed in as Velocity's sole argument. */
-	        /* Note: Some browsers automatically populate arguments with a "properties" object. We detect it by checking for its default "names" property. */
-	        var syntacticSugar = (arguments[0] && (arguments[0].p || (($.isPlainObject(arguments[0].properties) && !arguments[0].properties.names) || Type.isString(arguments[0].properties)))),
-	            /* Whether Velocity was called via the utility function (as opposed to on a jQuery/Zepto object). */
-	            isUtility,
-	            /* When Velocity is called via the utility function ($.Velocity()/Velocity()), elements are explicitly
-	               passed in as the first parameter. Thus, argument positioning varies. We normalize them here. */
-	            elementsWrapped,
-	            argumentIndex;
-
-	        var elements,
-	            propertiesMap,
-	            options;
-
-	        /* Detect jQuery/Zepto elements being animated via the $.fn method. */
-	        if (Type.isWrapped(this)) {
-	            isUtility = false;
-
-	            argumentIndex = 0;
-	            elements = this;
-	            elementsWrapped = this;
-	        /* Otherwise, raw elements are being animated via the utility function. */
-	        } else {
-	            isUtility = true;
-
-	            argumentIndex = 1;
-	            elements = syntacticSugar ? (arguments[0].elements || arguments[0].e) : arguments[0];
-	        }
-
-	        elements = sanitizeElements(elements);
-
-	        if (!elements) {
-	            return;
-	        }
-
-	        if (syntacticSugar) {
-	            propertiesMap = arguments[0].properties || arguments[0].p;
-	            options = arguments[0].options || arguments[0].o;
-	        } else {
-	            propertiesMap = arguments[argumentIndex];
-	            options = arguments[argumentIndex + 1];
-	        }
-
-	        /* The length of the element set (in the form of a nodeList or an array of elements) is defaulted to 1 in case a
-	           single raw DOM element is passed in (which doesn't contain a length property). */
-	        var elementsLength = elements.length,
-	            elementsIndex = 0;
-
-	        /***************************
-	            Argument Overloading
-	        ***************************/
-
-	        /* Support is included for jQuery's argument overloading: $.animate(propertyMap [, duration] [, easing] [, complete]).
-	           Overloading is detected by checking for the absence of an object being passed into options. */
-	        /* Note: The stop and finish actions do not accept animation options, and are therefore excluded from this check. */
-	        if (!/^(stop|finish)$/i.test(propertiesMap) && !$.isPlainObject(options)) {
-	            /* The utility function shifts all arguments one position to the right, so we adjust for that offset. */
-	            var startingArgumentPosition = argumentIndex + 1;
-
-	            options = {};
-
-	            /* Iterate through all options arguments */
-	            for (var i = startingArgumentPosition; i < arguments.length; i++) {
-	                /* Treat a number as a duration. Parse it out. */
-	                /* Note: The following RegEx will return true if passed an array with a number as its first item.
-	                   Thus, arrays are skipped from this check. */
-	                if (!Type.isArray(arguments[i]) && (/^(fast|normal|slow)$/i.test(arguments[i]) || /^\d/.test(arguments[i]))) {
-	                    options.duration = arguments[i];
-	                /* Treat strings and arrays as easings. */
-	                } else if (Type.isString(arguments[i]) || Type.isArray(arguments[i])) {
-	                    options.easing = arguments[i];
-	                /* Treat a function as a complete callback. */
-	                } else if (Type.isFunction(arguments[i])) {
-	                    options.complete = arguments[i];
-	                }
-	            }
-	        }
-
-	        /***************
-	            Promises
-	        ***************/
-
-	        var promiseData = {
-	                promise: null,
-	                resolver: null,
-	                rejecter: null
-	            };
-
-	        /* If this call was made via the utility function (which is the default method of invocation when jQuery/Zepto are not being used), and if
-	           promise support was detected, create a promise object for this call and store references to its resolver and rejecter methods. The resolve
-	           method is used when a call completes naturally or is prematurely stopped by the user. In both cases, completeCall() handles the associated
-	           call cleanup and promise resolving logic. The reject method is used when an invalid set of arguments is passed into a Velocity call. */
-	        /* Note: Velocity employs a call-based queueing architecture, which means that stopping an animating element actually stops the full call that
-	           triggered it -- not that one element exclusively. Similarly, there is one promise per call, and all elements targeted by a Velocity call are
-	           grouped together for the purposes of resolving and rejecting a promise. */
-	        if (isUtility && Velocity.Promise) {
-	            promiseData.promise = new Velocity.Promise(function (resolve, reject) {
-	                promiseData.resolver = resolve;
-	                promiseData.rejecter = reject;
-	            });
-	        }
-
-	        /*********************
-	           Action Detection
-	        *********************/
-
-	        /* Velocity's behavior is categorized into "actions": Elements can either be specially scrolled into view,
-	           or they can be started, stopped, or reversed. If a literal or referenced properties map is passed in as Velocity's
-	           first argument, the associated action is "start". Alternatively, "scroll", "reverse", or "stop" can be passed in instead of a properties map. */
-	        var action;
-
-	        switch (propertiesMap) {
-	            case "scroll":
-	                action = "scroll";
-	                break;
-
-	            case "reverse":
-	                action = "reverse";
-	                break;
-
-	            case "finish":
-	            case "stop":
-	                /*******************
-	                    Action: Stop
-	                *******************/
-
-	                /* Clear the currently-active delay on each targeted element. */
-	                $.each(elements, function(i, element) {
-	                    if (Data(element) && Data(element).delayTimer) {
-	                        /* Stop the timer from triggering its cached next() function. */
-	                        clearTimeout(Data(element).delayTimer.setTimeout);
-
-	                        /* Manually call the next() function so that the subsequent queue items can progress. */
-	                        if (Data(element).delayTimer.next) {
-	                            Data(element).delayTimer.next();
-	                        }
-
-	                        delete Data(element).delayTimer;
-	                    }
-	                });
-
-	                var callsToStop = [];
-
-	                /* When the stop action is triggered, the elements' currently active call is immediately stopped. The active call might have
-	                   been applied to multiple elements, in which case all of the call's elements will be stopped. When an element
-	                   is stopped, the next item in its animation queue is immediately triggered. */
-	                /* An additional argument may be passed in to clear an element's remaining queued calls. Either true (which defaults to the "fx" queue)
-	                   or a custom queue string can be passed in. */
-	                /* Note: The stop command runs prior to Velocity's Queueing phase since its behavior is intended to take effect *immediately*,
-	                   regardless of the element's current queue state. */
-
-	                /* Iterate through every active call. */
-	                $.each(Velocity.State.calls, function(i, activeCall) {
-	                    /* Inactive calls are set to false by the logic inside completeCall(). Skip them. */
-	                    if (activeCall) {
-	                        /* Iterate through the active call's targeted elements. */
-	                        $.each(activeCall[1], function(k, activeElement) {
-	                            /* If true was passed in as a secondary argument, clear absolutely all calls on this element. Otherwise, only
-	                               clear calls associated with the relevant queue. */
-	                            /* Call stopping logic works as follows:
-	                               - options === true --> stop current default queue calls (and queue:false calls), including remaining queued ones.
-	                               - options === undefined --> stop current queue:"" call and all queue:false calls.
-	                               - options === false --> stop only queue:false calls.
-	                               - options === "custom" --> stop current queue:"custom" call, including remaining queued ones (there is no functionality to only clear the currently-running queue:"custom" call). */
-	                            var queueName = (options === undefined) ? "" : options;
-
-	                            if (queueName !== true && (activeCall[2].queue !== queueName) && !(options === undefined && activeCall[2].queue === false)) {
-	                                return true;
-	                            }
-
-	                            /* Iterate through the calls targeted by the stop command. */
-	                            $.each(elements, function(l, element) {                                
-	                                /* Check that this call was applied to the target element. */
-	                                if (element === activeElement) {
-	                                    /* Optionally clear the remaining queued calls. */
-	                                    if (options === true || Type.isString(options)) {
-	                                        /* Iterate through the items in the element's queue. */
-	                                        $.each($.queue(element, Type.isString(options) ? options : ""), function(_, item) {
-	                                            /* The queue array can contain an "inprogress" string, which we skip. */
-	                                            if (Type.isFunction(item)) {
-	                                                /* Pass the item's callback a flag indicating that we want to abort from the queue call.
-	                                                   (Specifically, the queue will resolve the call's associated promise then abort.)  */
-	                                                item(null, true);
-	                                            }
-	                                        });
-
-	                                        /* Clearing the $.queue() array is achieved by resetting it to []. */
-	                                        $.queue(element, Type.isString(options) ? options : "", []);
-	                                    }
-
-	                                    if (propertiesMap === "stop") {
-	                                        /* Since "reverse" uses cached start values (the previous call's endValues), these values must be
-	                                           changed to reflect the final value that the elements were actually tweened to. */
-	                                        /* Note: If only queue:false animations are currently running on an element, it won't have a tweensContainer
-	                                           object. Also, queue:false animations can't be reversed. */
-	                                        if (Data(element) && Data(element).tweensContainer && queueName !== false) {
-	                                            $.each(Data(element).tweensContainer, function(m, activeTween) {
-	                                                activeTween.endValue = activeTween.currentValue;
-	                                            });
-	                                        }
-
-	                                        callsToStop.push(i);
-	                                    } else if (propertiesMap === "finish") {
-	                                        /* To get active tweens to finish immediately, we forcefully shorten their durations to 1ms so that
-	                                        they finish upon the next rAf tick then proceed with normal call completion logic. */
-	                                        activeCall[2].duration = 1;
-	                                    }
-	                                }
-	                            });
-	                        });
-	                    }
-	                });
-
-	                /* Prematurely call completeCall() on each matched active call. Pass an additional flag for "stop" to indicate
-	                   that the complete callback and display:none setting should be skipped since we're completing prematurely. */
-	                if (propertiesMap === "stop") {
-	                    $.each(callsToStop, function(i, j) {
-	                        completeCall(j, true);
-	                    });
-
-	                    if (promiseData.promise) {
-	                        /* Immediately resolve the promise associated with this stop call since stop runs synchronously. */
-	                        promiseData.resolver(elements);
-	                    }
-	                }
-
-	                /* Since we're stopping, and not proceeding with queueing, exit out of Velocity. */
-	                return getChain();
-
-	            default:
-	                /* Treat a non-empty plain object as a literal properties map. */
-	                if ($.isPlainObject(propertiesMap) && !Type.isEmptyObject(propertiesMap)) {
-	                    action = "start";
-
-	                /****************
-	                    Redirects
-	                ****************/
-
-	                /* Check if a string matches a registered redirect (see Redirects above). */
-	                } else if (Type.isString(propertiesMap) && Velocity.Redirects[propertiesMap]) {
-	                    var opts = $.extend({}, options),
-	                        durationOriginal = opts.duration,
-	                        delayOriginal = opts.delay || 0;
-
-	                    /* If the backwards option was passed in, reverse the element set so that elements animate from the last to the first. */
-	                    if (opts.backwards === true) {
-	                        elements = $.extend(true, [], elements).reverse();
-	                    }
-
-	                    /* Individually trigger the redirect for each element in the set to prevent users from having to handle iteration logic in their redirect. */
-	                    $.each(elements, function(elementIndex, element) {
-	                        /* If the stagger option was passed in, successively delay each element by the stagger value (in ms). Retain the original delay value. */
-	                        if (parseFloat(opts.stagger)) {
-	                            opts.delay = delayOriginal + (parseFloat(opts.stagger) * elementIndex);
-	                        } else if (Type.isFunction(opts.stagger)) {
-	                            opts.delay = delayOriginal + opts.stagger.call(element, elementIndex, elementsLength);
-	                        }
-
-	                        /* If the drag option was passed in, successively increase/decrease (depending on the presense of opts.backwards)
-	                           the duration of each element's animation, using floors to prevent producing very short durations. */
-	                        if (opts.drag) {
-	                            /* Default the duration of UI pack effects (callouts and transitions) to 1000ms instead of the usual default duration of 400ms. */
-	                            opts.duration = parseFloat(durationOriginal) || (/^(callout|transition)/.test(propertiesMap) ? 1000 : DURATION_DEFAULT);
-
-	                            /* For each element, take the greater duration of: A) animation completion percentage relative to the original duration,
-	                               B) 75% of the original duration, or C) a 200ms fallback (in case duration is already set to a low value).
-	                               The end result is a baseline of 75% of the redirect's duration that increases/decreases as the end of the element set is approached. */
-	                            opts.duration = Math.max(opts.duration * (opts.backwards ? 1 - elementIndex/elementsLength : (elementIndex + 1) / elementsLength), opts.duration * 0.75, 200);
-	                        }
-
-	                        /* Pass in the call's opts object so that the redirect can optionally extend it. It defaults to an empty object instead of null to
-	                           reduce the opts checking logic required inside the redirect. */
-	                        Velocity.Redirects[propertiesMap].call(element, element, opts || {}, elementIndex, elementsLength, elements, promiseData.promise ? promiseData : undefined);
-	                    });
-
-	                    /* Since the animation logic resides within the redirect's own code, abort the remainder of this call.
-	                       (The performance overhead up to this point is virtually non-existant.) */
-	                    /* Note: The jQuery call chain is kept intact by returning the complete element set. */
-	                    return getChain();
-	                } else {
-	                    var abortError = "Velocity: First argument (" + propertiesMap + ") was not a property map, a known action, or a registered redirect. Aborting.";
-
-	                    if (promiseData.promise) {
-	                        promiseData.rejecter(new Error(abortError));
-	                    } else {
-	                        console.log(abortError);
-	                    }
-
-	                    return getChain();
-	                }
-	        }
-
-	        /**************************
-	            Call-Wide Variables
-	        **************************/
-
-	        /* A container for CSS unit conversion ratios (e.g. %, rem, and em ==> px) that is used to cache ratios across all elements
-	           being animated in a single Velocity call. Calculating unit ratios necessitates DOM querying and updating, and is therefore
-	           avoided (via caching) wherever possible. This container is call-wide instead of page-wide to avoid the risk of using stale
-	           conversion metrics across Velocity animations that are not immediately consecutively chained. */
-	        var callUnitConversionData = {
-	                lastParent: null,
-	                lastPosition: null,
-	                lastFontSize: null,
-	                lastPercentToPxWidth: null,
-	                lastPercentToPxHeight: null,
-	                lastEmToPx: null,
-	                remToPx: null,
-	                vwToPx: null,
-	                vhToPx: null
-	            };
-
-	        /* A container for all the ensuing tween data and metadata associated with this call. This container gets pushed to the page-wide
-	           Velocity.State.calls array that is processed during animation ticking. */
-	        var call = [];
-
-	        /************************
-	           Element Processing
-	        ************************/
-
-	        /* Element processing consists of three parts -- data processing that cannot go stale and data processing that *can* go stale (i.e. third-party style modifications):
-	           1) Pre-Queueing: Element-wide variables, including the element's data storage, are instantiated. Call options are prepared. If triggered, the Stop action is executed.
-	           2) Queueing: The logic that runs once this call has reached its point of execution in the element's $.queue() stack. Most logic is placed here to avoid risking it becoming stale.
-	           3) Pushing: Consolidation of the tween data followed by its push onto the global in-progress calls container.
-	        */
-
-	        function processElement () {
-
-	            /*************************
-	               Part I: Pre-Queueing
-	            *************************/
-
-	            /***************************
-	               Element-Wide Variables
-	            ***************************/
-
-	            var element = this,
-	                /* The runtime opts object is the extension of the current call's options and Velocity's page-wide option defaults. */
-	                opts = $.extend({}, Velocity.defaults, options),
-	                /* A container for the processed data associated with each property in the propertyMap.
-	                   (Each property in the map produces its own "tween".) */
-	                tweensContainer = {},
-	                elementUnitConversionData;
-
-	            /******************
-	               Element Init
-	            ******************/
-
-	            if (Data(element) === undefined) {
-	                Velocity.init(element);
-	            }
-
-	            /******************
-	               Option: Delay
-	            ******************/
-
-	            /* Since queue:false doesn't respect the item's existing queue, we avoid injecting its delay here (it's set later on). */
-	            /* Note: Velocity rolls its own delay function since jQuery doesn't have a utility alias for $.fn.delay()
-	               (and thus requires jQuery element creation, which we avoid since its overhead includes DOM querying). */
-	            if (parseFloat(opts.delay) && opts.queue !== false) {
-	                $.queue(element, opts.queue, function(next) {
-	                    /* This is a flag used to indicate to the upcoming completeCall() function that this queue entry was initiated by Velocity. See completeCall() for further details. */
-	                    Velocity.velocityQueueEntryFlag = true;
-
-	                    /* The ensuing queue item (which is assigned to the "next" argument that $.queue() automatically passes in) will be triggered after a setTimeout delay.
-	                       The setTimeout is stored so that it can be subjected to clearTimeout() if this animation is prematurely stopped via Velocity's "stop" command. */
-	                    Data(element).delayTimer = {
-	                        setTimeout: setTimeout(next, parseFloat(opts.delay)),
-	                        next: next
-	                    };
-	                });
-	            }
-
-	            /*********************
-	               Option: Duration
-	            *********************/
-
-	            /* Support for jQuery's named durations. */
-	            switch (opts.duration.toString().toLowerCase()) {
-	                case "fast":
-	                    opts.duration = 200;
-	                    break;
-
-	                case "normal":
-	                    opts.duration = DURATION_DEFAULT;
-	                    break;
-
-	                case "slow":
-	                    opts.duration = 600;
-	                    break;
-
-	                default:
-	                    /* Remove the potential "ms" suffix and default to 1 if the user is attempting to set a duration of 0 (in order to produce an immediate style change). */
-	                    opts.duration = parseFloat(opts.duration) || 1;
-	            }
-
-	            /************************
-	               Global Option: Mock
-	            ************************/
-
-	            if (Velocity.mock !== false) {
-	                /* In mock mode, all animations are forced to 1ms so that they occur immediately upon the next rAF tick.
-	                   Alternatively, a multiplier can be passed in to time remap all delays and durations. */
-	                if (Velocity.mock === true) {
-	                    opts.duration = opts.delay = 1;
-	                } else {
-	                    opts.duration *= parseFloat(Velocity.mock) || 1;
-	                    opts.delay *= parseFloat(Velocity.mock) || 1;
-	                }
-	            }
-
-	            /*******************
-	               Option: Easing
-	            *******************/
-
-	            opts.easing = getEasing(opts.easing, opts.duration);
-
-	            /**********************
-	               Option: Callbacks
-	            **********************/
-
-	            /* Callbacks must functions. Otherwise, default to null. */
-	            if (opts.begin && !Type.isFunction(opts.begin)) {
-	                opts.begin = null;
-	            }
-
-	            if (opts.progress && !Type.isFunction(opts.progress)) {
-	                opts.progress = null;
-	            }
-
-	            if (opts.complete && !Type.isFunction(opts.complete)) {
-	                opts.complete = null;
-	            }
-
-	            /*********************************
-	               Option: Display & Visibility
-	            *********************************/
-
-	            /* Refer to Velocity's documentation (VelocityJS.org/#displayAndVisibility) for a description of the display and visibility options' behavior. */
-	            /* Note: We strictly check for undefined instead of falsiness because display accepts an empty string value. */
-	            if (opts.display !== undefined && opts.display !== null) {
-	                opts.display = opts.display.toString().toLowerCase();
-
-	                /* Users can pass in a special "auto" value to instruct Velocity to set the element to its default display value. */
-	                if (opts.display === "auto") {
-	                    opts.display = Velocity.CSS.Values.getDisplayType(element);
-	                }
-	            }
-
-	            if (opts.visibility !== undefined && opts.visibility !== null) {
-	                opts.visibility = opts.visibility.toString().toLowerCase();
-	            }
-
-	            /**********************
-	               Option: mobileHA
-	            **********************/
-
-	            /* When set to true, and if this is a mobile device, mobileHA automatically enables hardware acceleration (via a null transform hack)
-	               on animating elements. HA is removed from the element at the completion of its animation. */
-	            /* Note: Android Gingerbread doesn't support HA. If a null transform hack (mobileHA) is in fact set, it will prevent other tranform subproperties from taking effect. */
-	            /* Note: You can read more about the use of mobileHA in Velocity's documentation: VelocityJS.org/#mobileHA. */
-	            opts.mobileHA = (opts.mobileHA && Velocity.State.isMobile && !Velocity.State.isGingerbread);
-
-	            /***********************
-	               Part II: Queueing
-	            ***********************/
-
-	            /* When a set of elements is targeted by a Velocity call, the set is broken up and each element has the current Velocity call individually queued onto it.
-	               In this way, each element's existing queue is respected; some elements may already be animating and accordingly should not have this current Velocity call triggered immediately. */
-	            /* In each queue, tween data is processed for each animating property then pushed onto the call-wide calls array. When the last element in the set has had its tweens processed,
-	               the call array is pushed to Velocity.State.calls for live processing by the requestAnimationFrame tick. */
-	            function buildQueue (next) {
-
-	                /*******************
-	                   Option: Begin
-	                *******************/
-
-	                /* The begin callback is fired once per call -- not once per elemenet -- and is passed the full raw DOM element set as both its context and its first argument. */
-	                if (opts.begin && elementsIndex === 0) {
-	                    /* We throw callbacks in a setTimeout so that thrown errors don't halt the execution of Velocity itself. */
-	                    try {
-	                        opts.begin.call(elements, elements);
-	                    } catch (error) {
-	                        setTimeout(function() { throw error; }, 1);
-	                    }
-	                }
-
-	                /*****************************************
-	                   Tween Data Construction (for Scroll)
-	                *****************************************/
-
-	                /* Note: In order to be subjected to chaining and animation options, scroll's tweening is routed through Velocity as if it were a standard CSS property animation. */
-	                if (action === "scroll") {
-	                    /* The scroll action uniquely takes an optional "offset" option -- specified in pixels -- that offsets the targeted scroll position. */
-	                    var scrollDirection = (/^x$/i.test(opts.axis) ? "Left" : "Top"),
-	                        scrollOffset = parseFloat(opts.offset) || 0,
-	                        scrollPositionCurrent,
-	                        scrollPositionCurrentAlternate,
-	                        scrollPositionEnd;
-
-	                    /* Scroll also uniquely takes an optional "container" option, which indicates the parent element that should be scrolled --
-	                       as opposed to the browser window itself. This is useful for scrolling toward an element that's inside an overflowing parent element. */
-	                    if (opts.container) {
-	                        /* Ensure that either a jQuery object or a raw DOM element was passed in. */
-	                        if (Type.isWrapped(opts.container) || Type.isNode(opts.container)) {
-	                            /* Extract the raw DOM element from the jQuery wrapper. */
-	                            opts.container = opts.container[0] || opts.container;
-	                            /* Note: Unlike other properties in Velocity, the browser's scroll position is never cached since it so frequently changes
-	                               (due to the user's natural interaction with the page). */
-	                            scrollPositionCurrent = opts.container["scroll" + scrollDirection]; /* GET */
-
-	                            /* $.position() values are relative to the container's currently viewable area (without taking into account the container's true dimensions
-	                               -- say, for example, if the container was not overflowing). Thus, the scroll end value is the sum of the child element's position *and*
-	                               the scroll container's current scroll position. */
-	                            scrollPositionEnd = (scrollPositionCurrent + $(element).position()[scrollDirection.toLowerCase()]) + scrollOffset; /* GET */
-	                        /* If a value other than a jQuery object or a raw DOM element was passed in, default to null so that this option is ignored. */
-	                        } else {
-	                            opts.container = null;
-	                        }
-	                    } else {
-	                        /* If the window itself is being scrolled -- not a containing element -- perform a live scroll position lookup using
-	                           the appropriate cached property names (which differ based on browser type). */
-	                        scrollPositionCurrent = Velocity.State.scrollAnchor[Velocity.State["scrollProperty" + scrollDirection]]; /* GET */
-	                        /* When scrolling the browser window, cache the alternate axis's current value since window.scrollTo() doesn't let us change only one value at a time. */
-	                        scrollPositionCurrentAlternate = Velocity.State.scrollAnchor[Velocity.State["scrollProperty" + (scrollDirection === "Left" ? "Top" : "Left")]]; /* GET */
-
-	                        /* Unlike $.position(), $.offset() values are relative to the browser window's true dimensions -- not merely its currently viewable area --
-	                           and therefore end values do not need to be compounded onto current values. */
-	                        scrollPositionEnd = $(element).offset()[scrollDirection.toLowerCase()] + scrollOffset; /* GET */
-	                    }
-
-	                    /* Since there's only one format that scroll's associated tweensContainer can take, we create it manually. */
-	                    tweensContainer = {
-	                        scroll: {
-	                            rootPropertyValue: false,
-	                            startValue: scrollPositionCurrent,
-	                            currentValue: scrollPositionCurrent,
-	                            endValue: scrollPositionEnd,
-	                            unitType: "",
-	                            easing: opts.easing,
-	                            scrollData: {
-	                                container: opts.container,
-	                                direction: scrollDirection,
-	                                alternateValue: scrollPositionCurrentAlternate
-	                            }
-	                        },
-	                        element: element
-	                    };
-
-	                    if (Velocity.debug) console.log("tweensContainer (scroll): ", tweensContainer.scroll, element);
-
-	                /******************************************
-	                   Tween Data Construction (for Reverse)
-	                ******************************************/
-
-	                /* Reverse acts like a "start" action in that a property map is animated toward. The only difference is
-	                   that the property map used for reverse is the inverse of the map used in the previous call. Thus, we manipulate
-	                   the previous call to construct our new map: use the previous map's end values as our new map's start values. Copy over all other data. */
-	                /* Note: Reverse can be directly called via the "reverse" parameter, or it can be indirectly triggered via the loop option. (Loops are composed of multiple reverses.) */
-	                /* Note: Reverse calls do not need to be consecutively chained onto a currently-animating element in order to operate on cached values;
-	                   there is no harm to reverse being called on a potentially stale data cache since reverse's behavior is simply defined
-	                   as reverting to the element's values as they were prior to the previous *Velocity* call. */
-	                } else if (action === "reverse") {
-	                    /* Abort if there is no prior animation data to reverse to. */
-	                    if (!Data(element).tweensContainer) {
-	                        /* Dequeue the element so that this queue entry releases itself immediately, allowing subsequent queue entries to run. */
-	                        $.dequeue(element, opts.queue);
-
-	                        return;
-	                    } else {
-	                        /*********************
-	                           Options Parsing
-	                        *********************/
-
-	                        /* If the element was hidden via the display option in the previous call,
-	                           revert display to "auto" prior to reversal so that the element is visible again. */
-	                        if (Data(element).opts.display === "none") {
-	                            Data(element).opts.display = "auto";
-	                        }
-
-	                        if (Data(element).opts.visibility === "hidden") {
-	                            Data(element).opts.visibility = "visible";
-	                        }
-
-	                        /* If the loop option was set in the previous call, disable it so that "reverse" calls aren't recursively generated.
-	                           Further, remove the previous call's callback options; typically, users do not want these to be refired. */
-	                        Data(element).opts.loop = false;
-	                        Data(element).opts.begin = null;
-	                        Data(element).opts.complete = null;
-
-	                        /* Since we're extending an opts object that has already been extended with the defaults options object,
-	                           we remove non-explicitly-defined properties that are auto-assigned values. */
-	                        if (!options.easing) {
-	                            delete opts.easing;
-	                        }
-
-	                        if (!options.duration) {
-	                            delete opts.duration;
-	                        }
-
-	                        /* The opts object used for reversal is an extension of the options object optionally passed into this
-	                           reverse call plus the options used in the previous Velocity call. */
-	                        opts = $.extend({}, Data(element).opts, opts);
-
-	                        /*************************************
-	                           Tweens Container Reconstruction
-	                        *************************************/
-
-	                        /* Create a deepy copy (indicated via the true flag) of the previous call's tweensContainer. */
-	                        var lastTweensContainer = $.extend(true, {}, Data(element).tweensContainer);
-
-	                        /* Manipulate the previous tweensContainer by replacing its end values and currentValues with its start values. */
-	                        for (var lastTween in lastTweensContainer) {
-	                            /* In addition to tween data, tweensContainers contain an element property that we ignore here. */
-	                            if (lastTween !== "element") {
-	                                var lastStartValue = lastTweensContainer[lastTween].startValue;
-
-	                                lastTweensContainer[lastTween].startValue = lastTweensContainer[lastTween].currentValue = lastTweensContainer[lastTween].endValue;
-	                                lastTweensContainer[lastTween].endValue = lastStartValue;
-
-	                                /* Easing is the only option that embeds into the individual tween data (since it can be defined on a per-property basis).
-	                                   Accordingly, every property's easing value must be updated when an options object is passed in with a reverse call.
-	                                   The side effect of this extensibility is that all per-property easing values are forcefully reset to the new value. */
-	                                if (!Type.isEmptyObject(options)) {
-	                                    lastTweensContainer[lastTween].easing = opts.easing;
-	                                }
-
-	                                if (Velocity.debug) console.log("reverse tweensContainer (" + lastTween + "): " + JSON.stringify(lastTweensContainer[lastTween]), element);
-	                            }
-	                        }
-
-	                        tweensContainer = lastTweensContainer;
-	                    }
-
-	                /*****************************************
-	                   Tween Data Construction (for Start)
-	                *****************************************/
-
-	                } else if (action === "start") {
-
-	                    /*************************
-	                        Value Transferring
-	                    *************************/
-
-	                    /* If this queue entry follows a previous Velocity-initiated queue entry *and* if this entry was created
-	                       while the element was in the process of being animated by Velocity, then this current call is safe to use
-	                       the end values from the prior call as its start values. Velocity attempts to perform this value transfer
-	                       process whenever possible in order to avoid requerying the DOM. */
-	                    /* If values aren't transferred from a prior call and start values were not forcefed by the user (more on this below),
-	                       then the DOM is queried for the element's current values as a last resort. */
-	                    /* Note: Conversely, animation reversal (and looping) *always* perform inter-call value transfers; they never requery the DOM. */
-	                    var lastTweensContainer;
-
-	                    /* The per-element isAnimating flag is used to indicate whether it's safe (i.e. the data isn't stale)
-	                       to transfer over end values to use as start values. If it's set to true and there is a previous
-	                       Velocity call to pull values from, do so. */
-	                    if (Data(element).tweensContainer && Data(element).isAnimating === true) {
-	                        lastTweensContainer = Data(element).tweensContainer;
-	                    }
-
-	                    /***************************
-	                       Tween Data Calculation
-	                    ***************************/
-
-	                    /* This function parses property data and defaults endValue, easing, and startValue as appropriate. */
-	                    /* Property map values can either take the form of 1) a single value representing the end value,
-	                       or 2) an array in the form of [ endValue, [, easing] [, startValue] ].
-	                       The optional third parameter is a forcefed startValue to be used instead of querying the DOM for
-	                       the element's current value. Read Velocity's docmentation to learn more about forcefeeding: VelocityJS.org/#forcefeeding */
-	                    function parsePropertyValue (valueData, skipResolvingEasing) {
-	                        var endValue = undefined,
-	                            easing = undefined,
-	                            startValue = undefined;
-
-	                        /* Handle the array format, which can be structured as one of three potential overloads:
-	                           A) [ endValue, easing, startValue ], B) [ endValue, easing ], or C) [ endValue, startValue ] */
-	                        if (Type.isArray(valueData)) {
-	                            /* endValue is always the first item in the array. Don't bother validating endValue's value now
-	                               since the ensuing property cycling logic does that. */
-	                            endValue = valueData[0];
-
-	                            /* Two-item array format: If the second item is a number, function, or hex string, treat it as a
-	                               start value since easings can only be non-hex strings or arrays. */
-	                            if ((!Type.isArray(valueData[1]) && /^[\d-]/.test(valueData[1])) || Type.isFunction(valueData[1]) || CSS.RegEx.isHex.test(valueData[1])) {
-	                                startValue = valueData[1];
-	                            /* Two or three-item array: If the second item is a non-hex string or an array, treat it as an easing. */
-	                            } else if ((Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1])) || Type.isArray(valueData[1])) {
-	                                easing = skipResolvingEasing ? valueData[1] : getEasing(valueData[1], opts.duration);
-
-	                                /* Don't bother validating startValue's value now since the ensuing property cycling logic inherently does that. */
-	                                if (valueData[2] !== undefined) {
-	                                    startValue = valueData[2];
-	                                }
-	                            }
-	                        /* Handle the single-value format. */
-	                        } else {
-	                            endValue = valueData;
-	                        }
-
-	                        /* Default to the call's easing if a per-property easing type was not defined. */
-	                        if (!skipResolvingEasing) {
-	                            easing = easing || opts.easing;
-	                        }
-
-	                        /* If functions were passed in as values, pass the function the current element as its context,
-	                           plus the element's index and the element set's size as arguments. Then, assign the returned value. */
-	                        if (Type.isFunction(endValue)) {
-	                            endValue = endValue.call(element, elementsIndex, elementsLength);
-	                        }
-
-	                        if (Type.isFunction(startValue)) {
-	                            startValue = startValue.call(element, elementsIndex, elementsLength);
-	                        }
-
-	                        /* Allow startValue to be left as undefined to indicate to the ensuing code that its value was not forcefed. */
-	                        return [ endValue || 0, easing, startValue ];
-	                    }
-
-	                    /* Cycle through each property in the map, looking for shorthand color properties (e.g. "color" as opposed to "colorRed"). Inject the corresponding
-	                       colorRed, colorGreen, and colorBlue RGB component tweens into the propertiesMap (which Velocity understands) and remove the shorthand property. */
-	                    $.each(propertiesMap, function(property, value) {
-	                        /* Find shorthand color properties that have been passed a hex string. */
-	                        if (RegExp("^" + CSS.Lists.colors.join("$|^") + "$").test(property)) {
-	                            /* Parse the value data for each shorthand. */
-	                            var valueData = parsePropertyValue(value, true),
-	                                endValue = valueData[0],
-	                                easing = valueData[1],
-	                                startValue = valueData[2];
-
-	                            if (CSS.RegEx.isHex.test(endValue)) {
-	                                /* Convert the hex strings into their RGB component arrays. */
-	                                var colorComponents = [ "Red", "Green", "Blue" ],
-	                                    endValueRGB = CSS.Values.hexToRgb(endValue),
-	                                    startValueRGB = startValue ? CSS.Values.hexToRgb(startValue) : undefined;
-
-	                                /* Inject the RGB component tweens into propertiesMap. */
-	                                for (var i = 0; i < colorComponents.length; i++) {
-	                                    var dataArray = [ endValueRGB[i] ];
-
-	                                    if (easing) {
-	                                        dataArray.push(easing);
-	                                    }
-
-	                                    if (startValueRGB !== undefined) {
-	                                        dataArray.push(startValueRGB[i]);
-	                                    }
-
-	                                    propertiesMap[property + colorComponents[i]] = dataArray;
-	                                }
-
-	                                /* Remove the intermediary shorthand property entry now that we've processed it. */
-	                                delete propertiesMap[property];
-	                            }
-	                        }
-	                    });
-
-	                    /* Create a tween out of each property, and append its associated data to tweensContainer. */
-	                    for (var property in propertiesMap) {
-
-	                        /**************************
-	                           Start Value Sourcing
-	                        **************************/
-
-	                        /* Parse out endValue, easing, and startValue from the property's data. */
-	                        var valueData = parsePropertyValue(propertiesMap[property]),
-	                            endValue = valueData[0],
-	                            easing = valueData[1],
-	                            startValue = valueData[2];
-
-	                        /* Now that the original property name's format has been used for the parsePropertyValue() lookup above,
-	                           we force the property to its camelCase styling to normalize it for manipulation. */
-	                        property = CSS.Names.camelCase(property);
-
-	                        /* In case this property is a hook, there are circumstances where we will intend to work on the hook's root property and not the hooked subproperty. */
-	                        var rootProperty = CSS.Hooks.getRoot(property),
-	                            rootPropertyValue = false;
-
-	                        /* Other than for the dummy tween property, properties that are not supported by the browser (and do not have an associated normalization) will
-	                           inherently produce no style changes when set, so they are skipped in order to decrease animation tick overhead.
-	                           Property support is determined via prefixCheck(), which returns a false flag when no supported is detected. */
-	                        /* Note: Since SVG elements have some of their properties directly applied as HTML attributes,
-	                           there is no way to check for their explicit browser support, and so we skip skip this check for them. */
-	                        if (!Data(element).isSVG && rootProperty !== "tween" && CSS.Names.prefixCheck(rootProperty)[1] === false && CSS.Normalizations.registered[rootProperty] === undefined) {
-	                            if (Velocity.debug) console.log("Skipping [" + rootProperty + "] due to a lack of browser support.");
-
-	                            continue;
-	                        }
-
-	                        /* If the display option is being set to a non-"none" (e.g. "block") and opacity (filter on IE<=8) is being
-	                           animated to an endValue of non-zero, the user's intention is to fade in from invisible, thus we forcefeed opacity
-	                           a startValue of 0 if its startValue hasn't already been sourced by value transferring or prior forcefeeding. */
-	                        if (((opts.display !== undefined && opts.display !== null && opts.display !== "none") || (opts.visibility !== undefined && opts.visibility !== "hidden")) && /opacity|filter/.test(property) && !startValue && endValue !== 0) {
-	                            startValue = 0;
-	                        }
-
-	                        /* If values have been transferred from the previous Velocity call, extract the endValue and rootPropertyValue
-	                           for all of the current call's properties that were *also* animated in the previous call. */
-	                        /* Note: Value transferring can optionally be disabled by the user via the _cacheValues option. */
-	                        if (opts._cacheValues && lastTweensContainer && lastTweensContainer[property]) {
-	                            if (startValue === undefined) {
-	                                startValue = lastTweensContainer[property].endValue + lastTweensContainer[property].unitType;
-	                            }
-
-	                            /* The previous call's rootPropertyValue is extracted from the element's data cache since that's the
-	                               instance of rootPropertyValue that gets freshly updated by the tweening process, whereas the rootPropertyValue
-	                               attached to the incoming lastTweensContainer is equal to the root property's value prior to any tweening. */
-	                            rootPropertyValue = Data(element).rootPropertyValueCache[rootProperty];
-	                        /* If values were not transferred from a previous Velocity call, query the DOM as needed. */
-	                        } else {
-	                            /* Handle hooked properties. */
-	                            if (CSS.Hooks.registered[property]) {
-	                               if (startValue === undefined) {
-	                                    rootPropertyValue = CSS.getPropertyValue(element, rootProperty); /* GET */
-	                                    /* Note: The following getPropertyValue() call does not actually trigger a DOM query;
-	                                       getPropertyValue() will extract the hook from rootPropertyValue. */
-	                                    startValue = CSS.getPropertyValue(element, property, rootPropertyValue);
-	                                /* If startValue is already defined via forcefeeding, do not query the DOM for the root property's value;
-	                                   just grab rootProperty's zero-value template from CSS.Hooks. This overwrites the element's actual
-	                                   root property value (if one is set), but this is acceptable since the primary reason users forcefeed is
-	                                   to avoid DOM queries, and thus we likewise avoid querying the DOM for the root property's value. */
-	                                } else {
-	                                    /* Grab this hook's zero-value template, e.g. "0px 0px 0px black". */
-	                                    rootPropertyValue = CSS.Hooks.templates[rootProperty][1];
-	                                }
-	                            /* Handle non-hooked properties that haven't already been defined via forcefeeding. */
-	                            } else if (startValue === undefined) {
-	                                startValue = CSS.getPropertyValue(element, property); /* GET */
-	                            }
-	                        }
-
-	                        /**************************
-	                           Value Data Extraction
-	                        **************************/
-
-	                        var separatedValue,
-	                            endValueUnitType,
-	                            startValueUnitType,
-	                            operator = false;
-
-	                        /* Separates a property value into its numeric value and its unit type. */
-	                        function separateValue (property, value) {
-	                            var unitType,
-	                                numericValue;
-
-	                            numericValue = (value || "0")
-	                                .toString()
-	                                .toLowerCase()
-	                                /* Match the unit type at the end of the value. */
-	                                .replace(/[%A-z]+$/, function(match) {
-	                                    /* Grab the unit type. */
-	                                    unitType = match;
-
-	                                    /* Strip the unit type off of value. */
-	                                    return "";
-	                                });
-
-	                            /* If no unit type was supplied, assign one that is appropriate for this property (e.g. "deg" for rotateZ or "px" for width). */
-	                            if (!unitType) {
-	                                unitType = CSS.Values.getUnitType(property);
-	                            }
-
-	                            return [ numericValue, unitType ];
-	                        }
-
-	                        /* Separate startValue. */
-	                        separatedValue = separateValue(property, startValue);
-	                        startValue = separatedValue[0];
-	                        startValueUnitType = separatedValue[1];
-
-	                        /* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
-	                        separatedValue = separateValue(property, endValue);
-	                        endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
-	                            operator = subMatch;
-
-	                            /* Strip the operator off of the value. */
-	                            return "";
-	                        });
-	                        endValueUnitType = separatedValue[1];
-
-	                        /* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
-	                        startValue = parseFloat(startValue) || 0;
-	                        endValue = parseFloat(endValue) || 0;
-
-	                        /***************************************
-	                           Property-Specific Value Conversion
-	                        ***************************************/
-
-	                        /* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
-	                        if (endValueUnitType === "%") {
-	                            /* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
-	                               which is identical to the em unit's behavior, so we piggyback off of that. */
-	                            if (/^(fontSize|lineHeight)$/.test(property)) {
-	                                /* Convert % into an em decimal value. */
-	                                endValue = endValue / 100;
-	                                endValueUnitType = "em";
-	                            /* For scaleX and scaleY, convert the value into its decimal format and strip off the unit type. */
-	                            } else if (/^scale/.test(property)) {
-	                                endValue = endValue / 100;
-	                                endValueUnitType = "";
-	                            /* For RGB components, take the defined percentage of 255 and strip off the unit type. */
-	                            } else if (/(Red|Green|Blue)$/i.test(property)) {
-	                                endValue = (endValue / 100) * 255;
-	                                endValueUnitType = "";
-	                            }
-	                        }
-
-	                        /***************************
-	                           Unit Ratio Calculation
-	                        ***************************/
-
-	                        /* When queried, the browser returns (most) CSS property values in pixels. Therefore, if an endValue with a unit type of
-	                           %, em, or rem is animated toward, startValue must be converted from pixels into the same unit type as endValue in order
-	                           for value manipulation logic (increment/decrement) to proceed. Further, if the startValue was forcefed or transferred
-	                           from a previous call, startValue may also not be in pixels. Unit conversion logic therefore consists of two steps:
-	                           1) Calculating the ratio of %/em/rem/vh/vw relative to pixels
-	                           2) Converting startValue into the same unit of measurement as endValue based on these ratios. */
-	                        /* Unit conversion ratios are calculated by inserting a sibling node next to the target node, copying over its position property,
-	                           setting values with the target unit type then comparing the returned pixel value. */
-	                        /* Note: Even if only one of these unit types is being animated, all unit ratios are calculated at once since the overhead
-	                           of batching the SETs and GETs together upfront outweights the potential overhead
-	                           of layout thrashing caused by re-querying for uncalculated ratios for subsequently-processed properties. */
-	                        /* Todo: Shift this logic into the calls' first tick instance so that it's synced with RAF. */
-	                        function calculateUnitRatios () {
-
-	                            /************************
-	                                Same Ratio Checks
-	                            ************************/
-
-	                            /* The properties below are used to determine whether the element differs sufficiently from this call's
-	                               previously iterated element to also differ in its unit conversion ratios. If the properties match up with those
-	                               of the prior element, the prior element's conversion ratios are used. Like most optimizations in Velocity,
-	                               this is done to minimize DOM querying. */
-	                            var sameRatioIndicators = {
-	                                    myParent: element.parentNode || document.body, /* GET */
-	                                    position: CSS.getPropertyValue(element, "position"), /* GET */
-	                                    fontSize: CSS.getPropertyValue(element, "fontSize") /* GET */
-	                                },
-	                                /* Determine if the same % ratio can be used. % is based on the element's position value and its parent's width and height dimensions. */
-	                                samePercentRatio = ((sameRatioIndicators.position === callUnitConversionData.lastPosition) && (sameRatioIndicators.myParent === callUnitConversionData.lastParent)),
-	                                /* Determine if the same em ratio can be used. em is relative to the element's fontSize. */
-	                                sameEmRatio = (sameRatioIndicators.fontSize === callUnitConversionData.lastFontSize);
-
-	                            /* Store these ratio indicators call-wide for the next element to compare against. */
-	                            callUnitConversionData.lastParent = sameRatioIndicators.myParent;
-	                            callUnitConversionData.lastPosition = sameRatioIndicators.position;
-	                            callUnitConversionData.lastFontSize = sameRatioIndicators.fontSize;
-
-	                            /***************************
-	                               Element-Specific Units
-	                            ***************************/
-
-	                            /* Note: IE8 rounds to the nearest pixel when returning CSS values, thus we perform conversions using a measurement
-	                               of 100 (instead of 1) to give our ratios a precision of at least 2 decimal values. */
-	                            var measurement = 100,
-	                                unitRatios = {};
-
-	                            if (!sameEmRatio || !samePercentRatio) {
-	                                var dummy = Data(element).isSVG ? document.createElementNS("http://www.w3.org/2000/svg", "rect") : document.createElement("div");
-
-	                                Velocity.init(dummy);
-	                                sameRatioIndicators.myParent.appendChild(dummy);
-
-	                                /* To accurately and consistently calculate conversion ratios, the element's cascaded overflow and box-sizing are stripped.
-	                                   Similarly, since width/height can be artificially constrained by their min-/max- equivalents, these are controlled for as well. */
-	                                /* Note: Overflow must be also be controlled for per-axis since the overflow property overwrites its per-axis values. */
-	                                $.each([ "overflow", "overflowX", "overflowY" ], function(i, property) {
-	                                    Velocity.CSS.setPropertyValue(dummy, property, "hidden");
-	                                });
-	                                Velocity.CSS.setPropertyValue(dummy, "position", sameRatioIndicators.position);
-	                                Velocity.CSS.setPropertyValue(dummy, "fontSize", sameRatioIndicators.fontSize);
-	                                Velocity.CSS.setPropertyValue(dummy, "boxSizing", "content-box");
-
-	                                /* width and height act as our proxy properties for measuring the horizontal and vertical % ratios. */
-	                                $.each([ "minWidth", "maxWidth", "width", "minHeight", "maxHeight", "height" ], function(i, property) {
-	                                    Velocity.CSS.setPropertyValue(dummy, property, measurement + "%");
-	                                });
-	                                /* paddingLeft arbitrarily acts as our proxy property for the em ratio. */
-	                                Velocity.CSS.setPropertyValue(dummy, "paddingLeft", measurement + "em");
-
-	                                /* Divide the returned value by the measurement to get the ratio between 1% and 1px. Default to 1 since working with 0 can produce Infinite. */
-	                                unitRatios.percentToPxWidth = callUnitConversionData.lastPercentToPxWidth = (parseFloat(CSS.getPropertyValue(dummy, "width", null, true)) || 1) / measurement; /* GET */
-	                                unitRatios.percentToPxHeight = callUnitConversionData.lastPercentToPxHeight = (parseFloat(CSS.getPropertyValue(dummy, "height", null, true)) || 1) / measurement; /* GET */
-	                                unitRatios.emToPx = callUnitConversionData.lastEmToPx = (parseFloat(CSS.getPropertyValue(dummy, "paddingLeft")) || 1) / measurement; /* GET */
-
-	                                sameRatioIndicators.myParent.removeChild(dummy);
-	                            } else {
-	                                unitRatios.emToPx = callUnitConversionData.lastEmToPx;
-	                                unitRatios.percentToPxWidth = callUnitConversionData.lastPercentToPxWidth;
-	                                unitRatios.percentToPxHeight = callUnitConversionData.lastPercentToPxHeight;
-	                            }
-
-	                            /***************************
-	                               Element-Agnostic Units
-	                            ***************************/
-
-	                            /* Whereas % and em ratios are determined on a per-element basis, the rem unit only needs to be checked
-	                               once per call since it's exclusively dependant upon document.body's fontSize. If this is the first time
-	                               that calculateUnitRatios() is being run during this call, remToPx will still be set to its default value of null,
-	                               so we calculate it now. */
-	                            if (callUnitConversionData.remToPx === null) {
-	                                /* Default to browsers' default fontSize of 16px in the case of 0. */
-	                                callUnitConversionData.remToPx = parseFloat(CSS.getPropertyValue(document.body, "fontSize")) || 16; /* GET */
-	                            }
-
-	                            /* Similarly, viewport units are %-relative to the window's inner dimensions. */
-	                            if (callUnitConversionData.vwToPx === null) {
-	                                callUnitConversionData.vwToPx = parseFloat(window.innerWidth) / 100; /* GET */
-	                                callUnitConversionData.vhToPx = parseFloat(window.innerHeight) / 100; /* GET */
-	                            }
-
-	                            unitRatios.remToPx = callUnitConversionData.remToPx;
-	                            unitRatios.vwToPx = callUnitConversionData.vwToPx;
-	                            unitRatios.vhToPx = callUnitConversionData.vhToPx;
-
-	                            if (Velocity.debug >= 1) console.log("Unit ratios: " + JSON.stringify(unitRatios), element);
-
-	                            return unitRatios;
-	                        }
-
-	                        /********************
-	                           Unit Conversion
-	                        ********************/
-
-	                        /* The * and / operators, which are not passed in with an associated unit, inherently use startValue's unit. Skip value and unit conversion. */
-	                        if (/[\/*]/.test(operator)) {
-	                            endValueUnitType = startValueUnitType;
-	                        /* If startValue and endValue differ in unit type, convert startValue into the same unit type as endValue so that if endValueUnitType
-	                           is a relative unit (%, em, rem), the values set during tweening will continue to be accurately relative even if the metrics they depend
-	                           on are dynamically changing during the course of the animation. Conversely, if we always normalized into px and used px for setting values, the px ratio
-	                           would become stale if the original unit being animated toward was relative and the underlying metrics change during the animation. */
-	                        /* Since 0 is 0 in any unit type, no conversion is necessary when startValue is 0 -- we just start at 0 with endValueUnitType. */
-	                        } else if ((startValueUnitType !== endValueUnitType) && startValue !== 0) {
-	                            /* Unit conversion is also skipped when endValue is 0, but *startValueUnitType* must be used for tween values to remain accurate. */
-	                            /* Note: Skipping unit conversion here means that if endValueUnitType was originally a relative unit, the animation won't relatively
-	                               match the underlying metrics if they change, but this is acceptable since we're animating toward invisibility instead of toward visibility,
-	                               which remains past the point of the animation's completion. */
-	                            if (endValue === 0) {
-	                                endValueUnitType = startValueUnitType;
-	                            } else {
-	                                /* By this point, we cannot avoid unit conversion (it's undesirable since it causes layout thrashing).
-	                                   If we haven't already, we trigger calculateUnitRatios(), which runs once per element per call. */
-	                                elementUnitConversionData = elementUnitConversionData || calculateUnitRatios();
-
-	                                /* The following RegEx matches CSS properties that have their % values measured relative to the x-axis. */
-	                                /* Note: W3C spec mandates that all of margin and padding's properties (even top and bottom) are %-relative to the *width* of the parent element. */
-	                                var axis = (/margin|padding|left|right|width|text|word|letter/i.test(property) || /X$/.test(property) || property === "x") ? "x" : "y";
-
-	                                /* In order to avoid generating n^2 bespoke conversion functions, unit conversion is a two-step process:
-	                                   1) Convert startValue into pixels. 2) Convert this new pixel value into endValue's unit type. */
-	                                switch (startValueUnitType) {
-	                                    case "%":
-	                                        /* Note: translateX and translateY are the only properties that are %-relative to an element's own dimensions -- not its parent's dimensions.
-	                                           Velocity does not include a special conversion process to account for this behavior. Therefore, animating translateX/Y from a % value
-	                                           to a non-% value will produce an incorrect start value. Fortunately, this sort of cross-unit conversion is rarely done by users in practice. */
-	                                        startValue *= (axis === "x" ? elementUnitConversionData.percentToPxWidth : elementUnitConversionData.percentToPxHeight);
-	                                        break;
-
-	                                    case "px":
-	                                        /* px acts as our midpoint in the unit conversion process; do nothing. */
-	                                        break;
-
-	                                    default:
-	                                        startValue *= elementUnitConversionData[startValueUnitType + "ToPx"];
-	                                }
-
-	                                /* Invert the px ratios to convert into to the target unit. */
-	                                switch (endValueUnitType) {
-	                                    case "%":
-	                                        startValue *= 1 / (axis === "x" ? elementUnitConversionData.percentToPxWidth : elementUnitConversionData.percentToPxHeight);
-	                                        break;
-
-	                                    case "px":
-	                                        /* startValue is already in px, do nothing; we're done. */
-	                                        break;
-
-	                                    default:
-	                                        startValue *= 1 / elementUnitConversionData[endValueUnitType + "ToPx"];
-	                                }
-	                            }
-	                        }
-
-	                        /*********************
-	                           Relative Values
-	                        *********************/
-
-	                        /* Operator logic must be performed last since it requires unit-normalized start and end values. */
-	                        /* Note: Relative *percent values* do not behave how most people think; while one would expect "+=50%"
-	                           to increase the property 1.5x its current value, it in fact increases the percent units in absolute terms:
-	                           50 points is added on top of the current % value. */
-	                        switch (operator) {
-	                            case "+":
-	                                endValue = startValue + endValue;
-	                                break;
-
-	                            case "-":
-	                                endValue = startValue - endValue;
-	                                break;
-
-	                            case "*":
-	                                endValue = startValue * endValue;
-	                                break;
-
-	                            case "/":
-	                                endValue = startValue / endValue;
-	                                break;
-	                        }
-
-	                        /**************************
-	                           tweensContainer Push
-	                        **************************/
-
-	                        /* Construct the per-property tween object, and push it to the element's tweensContainer. */
-	                        tweensContainer[property] = {
-	                            rootPropertyValue: rootPropertyValue,
-	                            startValue: startValue,
-	                            currentValue: startValue,
-	                            endValue: endValue,
-	                            unitType: endValueUnitType,
-	                            easing: easing
-	                        };
-
-	                        if (Velocity.debug) console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
-	                    }
-
-	                    /* Along with its property data, store a reference to the element itself onto tweensContainer. */
-	                    tweensContainer.element = element;
-	                }
-
-	                /*****************
-	                    Call Push
-	                *****************/
-
-	                /* Note: tweensContainer can be empty if all of the properties in this call's property map were skipped due to not
-	                   being supported by the browser. The element property is used for checking that the tweensContainer has been appended to. */
-	                if (tweensContainer.element) {
-	                    /* Apply the "velocity-animating" indicator class. */
-	                    CSS.Values.addClass(element, "velocity-animating");
-
-	                    /* The call array houses the tweensContainers for each element being animated in the current call. */
-	                    call.push(tweensContainer);
-
-	                    /* Store the tweensContainer and options if we're working on the default effects queue, so that they can be used by the reverse command. */
-	                    if (opts.queue === "") {
-	                        Data(element).tweensContainer = tweensContainer;
-	                        Data(element).opts = opts;
-	                    }
-
-	                    /* Switch on the element's animating flag. */
-	                    Data(element).isAnimating = true;
-
-	                    /* Once the final element in this call's element set has been processed, push the call array onto
-	                       Velocity.State.calls for the animation tick to immediately begin processing. */
-	                    if (elementsIndex === elementsLength - 1) {
-	                        /* Add the current call plus its associated metadata (the element set and the call's options) onto the global call container.
-	                           Anything on this call container is subjected to tick() processing. */
-	                        Velocity.State.calls.push([ call, elements, opts, null, promiseData.resolver ]);
-
-	                        /* If the animation tick isn't running, start it. (Velocity shuts it off when there are no active calls to process.) */
-	                        if (Velocity.State.isTicking === false) {
-	                            Velocity.State.isTicking = true;
-
-	                            /* Start the tick loop. */
-	                            tick();
-	                        }
-	                    } else {
-	                        elementsIndex++;
-	                    }
-	                }
-	            }
-
-	            /* When the queue option is set to false, the call skips the element's queue and fires immediately. */
-	            if (opts.queue === false) {
-	                /* Since this buildQueue call doesn't respect the element's existing queue (which is where a delay option would have been appended),
-	                   we manually inject the delay property here with an explicit setTimeout. */
-	                if (opts.delay) {
-	                    setTimeout(buildQueue, opts.delay);
-	                } else {
-	                    buildQueue();
-	                }
-	            /* Otherwise, the call undergoes element queueing as normal. */
-	            /* Note: To interoperate with jQuery, Velocity uses jQuery's own $.queue() stack for queuing logic. */
-	            } else {
-	                $.queue(element, opts.queue, function(next, clearQueue) {
-	                    /* If the clearQueue flag was passed in by the stop command, resolve this call's promise. (Promises can only be resolved once,
-	                       so it's fine if this is repeatedly triggered for each element in the associated call.) */
-	                    if (clearQueue === true) {
-	                        if (promiseData.promise) {
-	                            promiseData.resolver(elements);
-	                        }
-
-	                        /* Do not continue with animation queueing. */
-	                        return true;
-	                    }
-
-	                    /* This flag indicates to the upcoming completeCall() function that this queue entry was initiated by Velocity.
-	                       See completeCall() for further details. */
-	                    Velocity.velocityQueueEntryFlag = true;
-
-	                    buildQueue(next);
-	                });
-	            }
-
-	            /*********************
-	                Auto-Dequeuing
-	            *********************/
-
-	            /* As per jQuery's $.queue() behavior, to fire the first non-custom-queue entry on an element, the element
-	               must be dequeued if its queue stack consists *solely* of the current call. (This can be determined by checking
-	               for the "inprogress" item that jQuery prepends to active queue stack arrays.) Regardless, whenever the element's
-	               queue is further appended with additional items -- including $.delay()'s or even $.animate() calls, the queue's
-	               first entry is automatically fired. This behavior contrasts that of custom queues, which never auto-fire. */
-	            /* Note: When an element set is being subjected to a non-parallel Velocity call, the animation will not begin until
-	               each one of the elements in the set has reached the end of its individually pre-existing queue chain. */
-	            /* Note: Unfortunately, most people don't fully grasp jQuery's powerful, yet quirky, $.queue() function.
-	               Lean more here: http://stackoverflow.com/questions/1058158/can-somebody-explain-jquery-queue-to-me */
-	            if ((opts.queue === "" || opts.queue === "fx") && $.queue(element)[0] !== "inprogress") {
-	                $.dequeue(element);
-	            }
-	        }
-
-	        /**************************
-	           Element Set Iteration
-	        **************************/
-
-	        /* If the "nodeType" property exists on the elements variable, we're animating a single element.
-	           Place it in an array so that $.each() can iterate over it. */
-	        $.each(elements, function(i, element) {
-	            /* Ensure each element in a set has a nodeType (is a real element) to avoid throwing errors. */
-	            if (Type.isNode(element)) {
-	                processElement.call(element);
-	            }
-	        });
-
-	        /******************
-	           Option: Loop
-	        ******************/
-
-	        /* The loop option accepts an integer indicating how many times the element should loop between the values in the
-	           current call's properties map and the element's property values prior to this call. */
-	        /* Note: The loop option's logic is performed here -- after element processing -- because the current call needs
-	           to undergo its queue insertion prior to the loop option generating its series of constituent "reverse" calls,
-	           which chain after the current call. Two reverse calls (two "alternations") constitute one loop. */
-	        var opts = $.extend({}, Velocity.defaults, options),
-	            reverseCallsCount;
-
-	        opts.loop = parseInt(opts.loop);
-	        reverseCallsCount = (opts.loop * 2) - 1;
-
-	        if (opts.loop) {
-	            /* Double the loop count to convert it into its appropriate number of "reverse" calls.
-	               Subtract 1 from the resulting value since the current call is included in the total alternation count. */
-	            for (var x = 0; x < reverseCallsCount; x++) {
-	                /* Since the logic for the reverse action occurs inside Queueing and therefore this call's options object
-	                   isn't parsed until then as well, the current call's delay option must be explicitly passed into the reverse
-	                   call so that the delay logic that occurs inside *Pre-Queueing* can process it. */
-	                var reverseOptions = {
-	                    delay: opts.delay,
-	                    progress: opts.progress
-	                };
-
-	                /* If a complete callback was passed into this call, transfer it to the loop redirect's final "reverse" call
-	                   so that it's triggered when the entire redirect is complete (and not when the very first animation is complete). */
-	                if (x === reverseCallsCount - 1) {
-	                    reverseOptions.display = opts.display;
-	                    reverseOptions.visibility = opts.visibility;
-	                    reverseOptions.complete = opts.complete;
-	                }
-
-	                animate(elements, "reverse", reverseOptions);
-	            }
-	        }
-
-	        /***************
-	            Chaining
-	        ***************/
-
-	        /* Return the elements back to the call chain, with wrapped elements taking precedence in case Velocity was called via the $.fn. extension. */
-	        return getChain();
-	    };
-
-	    /* Turn Velocity into the animation function, extended with the pre-existing Velocity object. */
-	    Velocity = $.extend(animate, Velocity);
-	    /* For legacy support, also expose the literal animate method. */
-	    Velocity.animate = animate;
-
-	    /**************
-	        Timing
-	    **************/
-
-	    /* Ticker function. */
-	    var ticker = window.requestAnimationFrame || rAFShim;
-
-	    /* Inactive browser tabs pause rAF, which results in all active animations immediately sprinting to their completion states when the tab refocuses.
-	       To get around this, we dynamically switch rAF to setTimeout (which the browser *doesn't* pause) when the tab loses focus. We skip this for mobile
-	       devices to avoid wasting battery power on inactive tabs. */
-	    /* Note: Tab focus detection doesn't work on older versions of IE, but that's okay since they don't support rAF to begin with. */
-	    if (!Velocity.State.isMobile && document.hidden !== undefined) {
-	        document.addEventListener("visibilitychange", function() {
-	            /* Reassign the rAF function (which the global tick() function uses) based on the tab's focus state. */
-	            if (document.hidden) {
-	                ticker = function(callback) {
-	                    /* The tick function needs a truthy first argument in order to pass its internal timestamp check. */
-	                    return setTimeout(function() { callback(true) }, 16);
-	                };
-
-	                /* The rAF loop has been paused by the browser, so we manually restart the tick. */
-	                tick();
-	            } else {
-	                ticker = window.requestAnimationFrame || rAFShim;
-	            }
-	        });
-	    }
-
-	    /************
-	        Tick
-	    ************/
-
-	    /* Note: All calls to Velocity are pushed to the Velocity.State.calls array, which is fully iterated through upon each tick. */
-	    function tick (timestamp) {
-	        /* An empty timestamp argument indicates that this is the first tick occurence since ticking was turned on.
-	           We leverage this metadata to fully ignore the first tick pass since RAF's initial pass is fired whenever
-	           the browser's next tick sync time occurs, which results in the first elements subjected to Velocity
-	           calls being animated out of sync with any elements animated immediately thereafter. In short, we ignore
-	           the first RAF tick pass so that elements being immediately consecutively animated -- instead of simultaneously animated
-	           by the same Velocity call -- are properly batched into the same initial RAF tick and consequently remain in sync thereafter. */
-	        if (timestamp) {
-	            /* We ignore RAF's high resolution timestamp since it can be significantly offset when the browser is
-	               under high stress; we opt for choppiness over allowing the browser to drop huge chunks of frames. */
-	            var timeCurrent = (new Date).getTime();
-
-	            /********************
-	               Call Iteration
-	            ********************/
-
-	            var callsLength = Velocity.State.calls.length;
-
-	            /* To speed up iterating over this array, it is compacted (falsey items -- calls that have completed -- are removed)
-	               when its length has ballooned to a point that can impact tick performance. This only becomes necessary when animation
-	               has been continuous with many elements over a long period of time; whenever all active calls are completed, completeCall() clears Velocity.State.calls. */
-	            if (callsLength > 10000) {
-	                Velocity.State.calls = compactSparseArray(Velocity.State.calls);
-	            }
-
-	            /* Iterate through each active call. */
-	            for (var i = 0; i < callsLength; i++) {
-	                /* When a Velocity call is completed, its Velocity.State.calls entry is set to false. Continue on to the next call. */
-	                if (!Velocity.State.calls[i]) {
-	                    continue;
-	                }
-
-	                /************************
-	                   Call-Wide Variables
-	                ************************/
-
-	                var callContainer = Velocity.State.calls[i],
-	                    call = callContainer[0],
-	                    opts = callContainer[2],
-	                    timeStart = callContainer[3],
-	                    firstTick = !!timeStart,
-	                    tweenDummyValue = null;
-
-	                /* If timeStart is undefined, then this is the first time that this call has been processed by tick().
-	                   We assign timeStart now so that its value is as close to the real animation start time as possible.
-	                   (Conversely, had timeStart been defined when this call was added to Velocity.State.calls, the delay
-	                   between that time and now would cause the first few frames of the tween to be skipped since
-	                   percentComplete is calculated relative to timeStart.) */
-	                /* Further, subtract 16ms (the approximate resolution of RAF) from the current time value so that the
-	                   first tick iteration isn't wasted by animating at 0% tween completion, which would produce the
-	                   same style value as the element's current value. */
-	                if (!timeStart) {
-	                    timeStart = Velocity.State.calls[i][3] = timeCurrent - 16;
-	                }
-
-	                /* The tween's completion percentage is relative to the tween's start time, not the tween's start value
-	                   (which would result in unpredictable tween durations since JavaScript's timers are not particularly accurate).
-	                   Accordingly, we ensure that percentComplete does not exceed 1. */
-	                var percentComplete = Math.min((timeCurrent - timeStart) / opts.duration, 1);
-
-	                /**********************
-	                   Element Iteration
-	                **********************/
-
-	                /* For every call, iterate through each of the elements in its set. */
-	                for (var j = 0, callLength = call.length; j < callLength; j++) {
-	                    var tweensContainer = call[j],
-	                        element = tweensContainer.element;
-
-	                    /* Check to see if this element has been deleted midway through the animation by checking for the
-	                       continued existence of its data cache. If it's gone, skip animating this element. */
-	                    if (!Data(element)) {
-	                        continue;
-	                    }
-
-	                    var transformPropertyExists = false;
-
-	                    /**********************************
-	                       Display & Visibility Toggling
-	                    **********************************/
-
-	                    /* If the display option is set to non-"none", set it upfront so that the element can become visible before tweening begins.
-	                       (Otherwise, display's "none" value is set in completeCall() once the animation has completed.) */
-	                    if (opts.display !== undefined && opts.display !== null && opts.display !== "none") {
-	                        if (opts.display === "flex") {
-	                            var flexValues = [ "-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex" ];
-
-	                            $.each(flexValues, function(i, flexValue) {
-	                                CSS.setPropertyValue(element, "display", flexValue);
-	                            });
-	                        }
-
-	                        CSS.setPropertyValue(element, "display", opts.display);
-	                    }
-
-	                    /* Same goes with the visibility option, but its "none" equivalent is "hidden". */
-	                    if (opts.visibility !== undefined && opts.visibility !== "hidden") {
-	                        CSS.setPropertyValue(element, "visibility", opts.visibility);
-	                    }
-
-	                    /************************
-	                       Property Iteration
-	                    ************************/
-
-	                    /* For every element, iterate through each property. */
-	                    for (var property in tweensContainer) {
-	                        /* Note: In addition to property tween data, tweensContainer contains a reference to its associated element. */
-	                        if (property !== "element") {
-	                            var tween = tweensContainer[property],
-	                                currentValue,
-	                                /* Easing can either be a pre-genereated function or a string that references a pre-registered easing
-	                                   on the Velocity.Easings object. In either case, return the appropriate easing *function*. */
-	                                easing = Type.isString(tween.easing) ? Velocity.Easings[tween.easing] : tween.easing;
-
-	                            /******************************
-	                               Current Value Calculation
-	                            ******************************/
-
-	                            /* If this is the last tick pass (if we've reached 100% completion for this tween),
-	                               ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
-	                            if (percentComplete === 1) {
-	                                currentValue = tween.endValue;
-	                            /* Otherwise, calculate currentValue based on the current delta from startValue. */
-	                            } else {
-	                                var tweenDelta = tween.endValue - tween.startValue;
-	                                currentValue = tween.startValue + (tweenDelta * easing(percentComplete, opts, tweenDelta));
-
-	                                /* If no value change is occurring, don't proceed with DOM updating. */
-	                                if (!firstTick && (currentValue === tween.currentValue)) {
-	                                    continue;
-	                                }
-	                            }
-
-	                            tween.currentValue = currentValue;
-
-	                            /* If we're tweening a fake 'tween' property in order to log transition values, update the one-per-call variable so that
-	                               it can be passed into the progress callback. */ 
-	                            if (property === "tween") {
-	                                tweenDummyValue = currentValue;
-	                            } else {
-	                                /******************
-	                                   Hooks: Part I
-	                                ******************/
-
-	                                /* For hooked properties, the newly-updated rootPropertyValueCache is cached onto the element so that it can be used
-	                                   for subsequent hooks in this call that are associated with the same root property. If we didn't cache the updated
-	                                   rootPropertyValue, each subsequent update to the root property in this tick pass would reset the previous hook's
-	                                   updates to rootPropertyValue prior to injection. A nice performance byproduct of rootPropertyValue caching is that
-	                                   subsequently chained animations using the same hookRoot but a different hook can use this cached rootPropertyValue. */
-	                                if (CSS.Hooks.registered[property]) {
-	                                    var hookRoot = CSS.Hooks.getRoot(property),
-	                                        rootPropertyValueCache = Data(element).rootPropertyValueCache[hookRoot];
-
-	                                    if (rootPropertyValueCache) {
-	                                        tween.rootPropertyValue = rootPropertyValueCache;
-	                                    }
-	                                }
-
-	                                /*****************
-	                                    DOM Update
-	                                *****************/
-
-	                                /* setPropertyValue() returns an array of the property name and property value post any normalization that may have been performed. */
-	                                /* Note: To solve an IE<=8 positioning bug, the unit type is dropped when setting a property value of 0. */
-	                                var adjustedSetData = CSS.setPropertyValue(element, /* SET */
-	                                                                           property,
-	                                                                           tween.currentValue + (parseFloat(currentValue) === 0 ? "" : tween.unitType),
-	                                                                           tween.rootPropertyValue,
-	                                                                           tween.scrollData);
-
-	                                /*******************
-	                                   Hooks: Part II
-	                                *******************/
-
-	                                /* Now that we have the hook's updated rootPropertyValue (the post-processed value provided by adjustedSetData), cache it onto the element. */
-	                                if (CSS.Hooks.registered[property]) {
-	                                    /* Since adjustedSetData contains normalized data ready for DOM updating, the rootPropertyValue needs to be re-extracted from its normalized form. ?? */
-	                                    if (CSS.Normalizations.registered[hookRoot]) {
-	                                        Data(element).rootPropertyValueCache[hookRoot] = CSS.Normalizations.registered[hookRoot]("extract", null, adjustedSetData[1]);
-	                                    } else {
-	                                        Data(element).rootPropertyValueCache[hookRoot] = adjustedSetData[1];
-	                                    }
-	                                }
-
-	                                /***************
-	                                   Transforms
-	                                ***************/
-
-	                                /* Flag whether a transform property is being animated so that flushTransformCache() can be triggered once this tick pass is complete. */
-	                                if (adjustedSetData[0] === "transform") {
-	                                    transformPropertyExists = true;
-	                                }
-
-	                            }
-	                        }
-	                    }
-
-	                    /****************
-	                        mobileHA
-	                    ****************/
-
-	                    /* If mobileHA is enabled, set the translate3d transform to null to force hardware acceleration.
-	                       It's safe to override this property since Velocity doesn't actually support its animation (hooks are used in its place). */
-	                    if (opts.mobileHA) {
-	                        /* Don't set the null transform hack if we've already done so. */
-	                        if (Data(element).transformCache.translate3d === undefined) {
-	                            /* All entries on the transformCache object are later concatenated into a single transform string via flushTransformCache(). */
-	                            Data(element).transformCache.translate3d = "(0px, 0px, 0px)";
-
-	                            transformPropertyExists = true;
-	                        }
-	                    }
-
-	                    if (transformPropertyExists) {
-	                        CSS.flushTransformCache(element);
-	                    }
-	                }
-
-	                /* The non-"none" display value is only applied to an element once -- when its associated call is first ticked through.
-	                   Accordingly, it's set to false so that it isn't re-processed by this call in the next tick. */
-	                if (opts.display !== undefined && opts.display !== "none") {
-	                    Velocity.State.calls[i][2].display = false;
-	                }
-	                if (opts.visibility !== undefined && opts.visibility !== "hidden") {
-	                    Velocity.State.calls[i][2].visibility = false;
-	                }
-
-	                /* Pass the elements and the timing data (percentComplete, msRemaining, timeStart, tweenDummyValue) into the progress callback. */
-	                if (opts.progress) {
-	                    opts.progress.call(callContainer[1],
-	                                       callContainer[1],
-	                                       percentComplete,
-	                                       Math.max(0, (timeStart + opts.duration) - timeCurrent),
-	                                       timeStart,
-	                                       tweenDummyValue);
-	                }
-
-	                /* If this call has finished tweening, pass its index to completeCall() to handle call cleanup. */
-	                if (percentComplete === 1) {
-	                    completeCall(i);
-	                }
-	            }
-	        }
-
-	        /* Note: completeCall() sets the isTicking flag to false when the last call on Velocity.State.calls has completed. */
-	        if (Velocity.State.isTicking) {
-	            ticker(tick);
-	        }
-	    }
-
-	    /**********************
-	        Call Completion
-	    **********************/
-
-	    /* Note: Unlike tick(), which processes all active calls at once, call completion is handled on a per-call basis. */
-	    function completeCall (callIndex, isStopped) {
-	        /* Ensure the call exists. */
-	        if (!Velocity.State.calls[callIndex]) {
-	            return false;
-	        }
-
-	        /* Pull the metadata from the call. */
-	        var call = Velocity.State.calls[callIndex][0],
-	            elements = Velocity.State.calls[callIndex][1],
-	            opts = Velocity.State.calls[callIndex][2],
-	            resolver = Velocity.State.calls[callIndex][4];
-
-	        var remainingCallsExist = false;
-
-	        /*************************
-	           Element Finalization
-	        *************************/
-
-	        for (var i = 0, callLength = call.length; i < callLength; i++) {
-	            var element = call[i].element;
-
-	            /* If the user set display to "none" (intending to hide the element), set it now that the animation has completed. */
-	            /* Note: display:none isn't set when calls are manually stopped (via Velocity("stop"). */
-	            /* Note: Display gets ignored with "reverse" calls and infinite loops, since this behavior would be undesirable. */
-	            if (!isStopped && !opts.loop) {
-	                if (opts.display === "none") {
-	                    CSS.setPropertyValue(element, "display", opts.display);
-	                }
-
-	                if (opts.visibility === "hidden") {
-	                    CSS.setPropertyValue(element, "visibility", opts.visibility);
-	                }
-	            }
-
-	            /* If the element's queue is empty (if only the "inprogress" item is left at position 0) or if its queue is about to run
-	               a non-Velocity-initiated entry, turn off the isAnimating flag. A non-Velocity-initiatied queue entry's logic might alter
-	               an element's CSS values and thereby cause Velocity's cached value data to go stale. To detect if a queue entry was initiated by Velocity,
-	               we check for the existence of our special Velocity.queueEntryFlag declaration, which minifiers won't rename since the flag
-	               is assigned to jQuery's global $ object and thus exists out of Velocity's own scope. */
-	            if (opts.loop !== true && ($.queue(element)[1] === undefined || !/\.velocityQueueEntryFlag/i.test($.queue(element)[1]))) {
-	                /* The element may have been deleted. Ensure that its data cache still exists before acting on it. */
-	                if (Data(element)) {
-	                    Data(element).isAnimating = false;
-	                    /* Clear the element's rootPropertyValueCache, which will become stale. */
-	                    Data(element).rootPropertyValueCache = {};
-
-	                    var transformHAPropertyExists = false;
-	                    /* If any 3D transform subproperty is at its default value (regardless of unit type), remove it. */
-	                    $.each(CSS.Lists.transforms3D, function(i, transformName) {
-	                        var defaultValue = /^scale/.test(transformName) ? 1 : 0,
-	                            currentValue = Data(element).transformCache[transformName];
-
-	                        if (Data(element).transformCache[transformName] !== undefined && new RegExp("^\\(" + defaultValue + "[^.]").test(currentValue)) {
-	                            transformHAPropertyExists = true;
-
-	                            delete Data(element).transformCache[transformName];
-	                        }
-	                    });
-
-	                    /* Mobile devices have hardware acceleration removed at the end of the animation in order to avoid hogging the GPU's memory. */
-	                    if (opts.mobileHA) {
-	                        transformHAPropertyExists = true;
-	                        delete Data(element).transformCache.translate3d;
-	                    }
-
-	                    /* Flush the subproperty removals to the DOM. */
-	                    if (transformHAPropertyExists) {
-	                        CSS.flushTransformCache(element);
-	                    }
-
-	                    /* Remove the "velocity-animating" indicator class. */
-	                    CSS.Values.removeClass(element, "velocity-animating");
-	                }
-	            }
-
-	            /*********************
-	               Option: Complete
-	            *********************/
-
-	            /* Complete is fired once per call (not once per element) and is passed the full raw DOM element set as both its context and its first argument. */
-	            /* Note: Callbacks aren't fired when calls are manually stopped (via Velocity("stop"). */
-	            if (!isStopped && opts.complete && !opts.loop && (i === callLength - 1)) {
-	                /* We throw callbacks in a setTimeout so that thrown errors don't halt the execution of Velocity itself. */
-	                try {
-	                    opts.complete.call(elements, elements);
-	                } catch (error) {
-	                    setTimeout(function() { throw error; }, 1);
-	                }
-	            }
-
-	            /**********************
-	               Promise Resolving
-	            **********************/
-
-	            /* Note: Infinite loops don't return promises. */
-	            if (resolver && opts.loop !== true) {
-	                resolver(elements);
-	            }
-
-	            /****************************
-	               Option: Loop (Infinite)
-	            ****************************/
-
-	            if (Data(element) && opts.loop === true && !isStopped) {
-	                /* If a rotateX/Y/Z property is being animated to 360 deg with loop:true, swap tween start/end values to enable
-	                   continuous iterative rotation looping. (Otherise, the element would just rotate back and forth.) */
-	                $.each(Data(element).tweensContainer, function(propertyName, tweenContainer) {
-	                    if (/^rotate/.test(propertyName) && parseFloat(tweenContainer.endValue) === 360) {
-	                        tweenContainer.endValue = 0;
-	                        tweenContainer.startValue = 360;
-	                    }
-
-	                    if (/^backgroundPosition/.test(propertyName) && parseFloat(tweenContainer.endValue) === 100 && tweenContainer.unitType === "%") {
-	                        tweenContainer.endValue = 0;
-	                        tweenContainer.startValue = 100;
-	                    }
-	                });
-
-	                Velocity(element, "reverse", { loop: true, delay: opts.delay });
-	            }
-
-	            /***************
-	               Dequeueing
-	            ***************/
-
-	            /* Fire the next call in the queue so long as this call's queue wasn't set to false (to trigger a parallel animation),
-	               which would have already caused the next call to fire. Note: Even if the end of the animation queue has been reached,
-	               $.dequeue() must still be called in order to completely clear jQuery's animation queue. */
-	            if (opts.queue !== false) {
-	                $.dequeue(element, opts.queue);
-	            }
-	        }
-
-	        /************************
-	           Calls Array Cleanup
-	        ************************/
-
-	        /* Since this call is complete, set it to false so that the rAF tick skips it. This array is later compacted via compactSparseArray().
-	          (For performance reasons, the call is set to false instead of being deleted from the array: http://www.html5rocks.com/en/tutorials/speed/v8/) */
-	        Velocity.State.calls[callIndex] = false;
-
-	        /* Iterate through the calls array to determine if this was the final in-progress animation.
-	           If so, set a flag to end ticking and clear the calls array. */
-	        for (var j = 0, callsLength = Velocity.State.calls.length; j < callsLength; j++) {
-	            if (Velocity.State.calls[j] !== false) {
-	                remainingCallsExist = true;
-
-	                break;
-	            }
-	        }
-
-	        if (remainingCallsExist === false) {
-	            /* tick() will detect this flag upon its next iteration and subsequently turn itself off. */
-	            Velocity.State.isTicking = false;
-
-	            /* Clear the calls array so that its length is reset. */
-	            delete Velocity.State.calls;
-	            Velocity.State.calls = [];
-	        }
-	    }
-
-	    /******************
-	        Frameworks
-	    ******************/
-
-	    /* Both jQuery and Zepto allow their $.fn object to be extended to allow wrapped elements to be subjected to plugin calls.
-	       If either framework is loaded, register a "velocity" extension pointing to Velocity's core animate() method.  Velocity
-	       also registers itself onto a global container (window.jQuery || window.Zepto || window) so that certain features are
-	       accessible beyond just a per-element scope. This master object contains an .animate() method, which is later assigned to $.fn
-	       (if jQuery or Zepto are present). Accordingly, Velocity can both act on wrapped DOM elements and stand alone for targeting raw DOM elements. */
-	    global.Velocity = Velocity;
-
-	    if (global !== window) {
-	        /* Assign the element function to Velocity's core animate() method. */
-	        global.fn.velocity = animate;
-	        /* Assign the object function's defaults to Velocity's global defaults object. */
-	        global.fn.velocity.defaults = Velocity.defaults;
-	    }
-
-	    /***********************
-	       Packaged Redirects
-	    ***********************/
-
-	    /* slideUp, slideDown */
-	    $.each([ "Down", "Up" ], function(i, direction) {
-	        Velocity.Redirects["slide" + direction] = function (element, options, elementsIndex, elementsSize, elements, promiseData) {
-	            var opts = $.extend({}, options),
-	                begin = opts.begin,
-	                complete = opts.complete,
-	                computedValues = { height: "", marginTop: "", marginBottom: "", paddingTop: "", paddingBottom: "" },
-	                inlineValues = {};
-
-	            if (opts.display === undefined) {
-	                /* Show the element before slideDown begins and hide the element after slideUp completes. */
-	                /* Note: Inline elements cannot have dimensions animated, so they're reverted to inline-block. */
-	                opts.display = (direction === "Down" ? (Velocity.CSS.Values.getDisplayType(element) === "inline" ? "inline-block" : "block") : "none");
-	            }
-
-	            opts.begin = function() {
-	                /* If the user passed in a begin callback, fire it now. */
-	                begin && begin.call(elements, elements);
-
-	                /* Cache the elements' original vertical dimensional property values so that we can animate back to them. */
-	                for (var property in computedValues) {
-	                    inlineValues[property] = element.style[property];
-
-	                    /* For slideDown, use forcefeeding to animate all vertical properties from 0. For slideUp,
-	                       use forcefeeding to start from computed values and animate down to 0. */
-	                    var propertyValue = Velocity.CSS.getPropertyValue(element, property);
-	                    computedValues[property] = (direction === "Down") ? [ propertyValue, 0 ] : [ 0, propertyValue ];
-	                }
-
-	                /* Force vertical overflow content to clip so that sliding works as expected. */
-	                inlineValues.overflow = element.style.overflow;
-	                element.style.overflow = "hidden";
-	            }
-
-	            opts.complete = function() {
-	                /* Reset element to its pre-slide inline values once its slide animation is complete. */
-	                for (var property in inlineValues) {
-	                    element.style[property] = inlineValues[property];
-	                }
-
-	                /* If the user passed in a complete callback, fire it now. */
-	                complete && complete.call(elements, elements);
-	                promiseData && promiseData.resolver(elements);
-	            };
-
-	            Velocity(element, computedValues, opts);
-	        };
-	    });
-
-	    /* fadeIn, fadeOut */
-	    $.each([ "In", "Out" ], function(i, direction) {
-	        Velocity.Redirects["fade" + direction] = function (element, options, elementsIndex, elementsSize, elements, promiseData) {
-	            var opts = $.extend({}, options),
-	                propertiesMap = { opacity: (direction === "In") ? 1 : 0 },
-	                originalComplete = opts.complete;
-
-	            /* Since redirects are triggered individually for each element in the animated set, avoid repeatedly triggering
-	               callbacks by firing them only when the final element has been reached. */
-	            if (elementsIndex !== elementsSize - 1) {
-	                opts.complete = opts.begin = null;
-	            } else {
-	                opts.complete = function() {
-	                    if (originalComplete) {
-	                        originalComplete.call(elements, elements);
-	                    }
-
-	                    promiseData && promiseData.resolver(elements);
-	                }
-	            }
-
-	            /* If a display was passed in, use it. Otherwise, default to "none" for fadeOut or the element-specific default for fadeIn. */
-	            /* Note: We allow users to pass in "null" to skip display setting altogether. */
-	            if (opts.display === undefined) {
-	                opts.display = (direction === "In" ? "auto" : "none");
-	            }
-
-	            Velocity(this, propertiesMap, opts);
-	        };
-	    });
-
-	    return Velocity;
-	}((window.jQuery || window.Zepto || window), window, document);
-	}));
-
-	/******************
-	   Known Issues
-	******************/
-
-	/* The CSS spec mandates that the translateX/Y/Z transforms are %-relative to the element itself -- not its parent.
-	Velocity, however, doesn't make this distinction. Thus, converting to or from the % unit with these subproperties
-	will produce an inaccurate conversion value. The same issue exists with the cx/cy attributes of SVG circles and ellipses. */
-
-/***/ },
-/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13770,14 +9927,14 @@
 	})(window, window.angular);
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// angular-formly version 4.2.4 built with ♥ by Astrism <astrisms@gmail.com>, Kent C. Dodds <kent@doddsfamily.us> (ó ì_í)=óò=(ì_í ò)
 
 	(function webpackUniversalModuleDefinition(root, factory) {
 		if(true)
-			module.exports = factory(__webpack_require__(64), __webpack_require__(36));
+			module.exports = factory(__webpack_require__(64), __webpack_require__(18));
 		else if(typeof define === 'function' && define.amd)
 			define(["api-check", "angular"], factory);
 		else if(typeof exports === 'object')
@@ -15427,6 +11584,3879 @@
 	});
 
 	//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vd2VicGFjay91bml2ZXJzYWxNb2R1bGVEZWZpbml0aW9uIiwid2VicGFjazovLy93ZWJwYWNrL2Jvb3RzdHJhcCBjMmEyYmI2NjJjNTA0ZGM4NmNkYSIsIndlYnBhY2s6Ly8vLi9pbmRleC5qcyIsIndlYnBhY2s6Ly8vLi9pbmRleC5jb21tb24uanMiLCJ3ZWJwYWNrOi8vL2V4dGVybmFsIHtcInJvb3RcIjpcImFwaUNoZWNrXCIsXCJhbWRcIjpcImFwaS1jaGVja1wiLFwiY29tbW9uanMyXCI6XCJhcGktY2hlY2tcIixcImNvbW1vbmpzXCI6XCJhcGktY2hlY2tcIn0iLCJ3ZWJwYWNrOi8vLy4vb3RoZXIvZG9jc0Jhc2VVcmwuanMiLCJ3ZWJwYWNrOi8vLy4vYW5ndWxhci1maXgvaW5kZXguanMiLCJ3ZWJwYWNrOi8vLy4vcHJvdmlkZXJzL2luZGV4LmpzIiwid2VicGFjazovLy8uL3NlcnZpY2VzL2luZGV4LmpzIiwid2VicGFjazovLy8uL2RpcmVjdGl2ZXMvaW5kZXguanMiLCJ3ZWJwYWNrOi8vLy4vcnVuL2luZGV4LmpzIiwid2VicGFjazovLy9leHRlcm5hbCBcImFuZ3VsYXJcIiIsIndlYnBhY2s6Ly8vLi9wcm92aWRlcnMvZm9ybWx5QXBpQ2hlY2suanMiLCJ3ZWJwYWNrOi8vLy4vcHJvdmlkZXJzL2Zvcm1seVVzYWJpbGl0eS5qcyIsIndlYnBhY2s6Ly8vLi9wcm92aWRlcnMvZm9ybWx5Q29uZmlnLmpzIiwid2VicGFjazovLy8uL3Byb3ZpZGVycy9mb3JtbHlWZXJzaW9uLmpzIiwid2VicGFjazovLy8uL3Byb3ZpZGVycy9mb3JtbHlFcnJvckFuZFdhcm5pbmdzVXJsUHJlZml4LmpzIiwid2VicGFjazovLy8uL3Byb3ZpZGVycy9mb3JtbHlWYWxpZGF0aW9uTWVzc2FnZXMuanMiLCJ3ZWJwYWNrOi8vLy4vc2VydmljZXMvZm9ybWx5VXRpbC5qcyIsIndlYnBhY2s6Ly8vLi9zZXJ2aWNlcy9mb3JtbHlXYXJuLmpzIiwid2VicGFjazovLy8uL2RpcmVjdGl2ZXMvZm9ybWx5LWN1c3RvbS12YWxpZGF0aW9uLmpzIiwid2VicGFjazovLy8uL2RpcmVjdGl2ZXMvZm9ybWx5LWZpZWxkLmpzIiwid2VicGFjazovLy8uL2RpcmVjdGl2ZXMvZm9ybWx5LWZvcm0uanMiLCJ3ZWJwYWNrOi8vLy4vZGlyZWN0aXZlcy9mb3JtbHktZm9jdXMuanMiLCJ3ZWJwYWNrOi8vLy4vcnVuL2Zvcm1seU5nTW9kZWxBdHRyc01hbmlwdWxhdG9yLmpzIiwid2VicGFjazovLy8uL3J1bi9mb3JtbHlDdXN0b21UYWdzLmpzIiwid2VicGFjazovLy8uL290aGVyL3V0aWxzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsQ0FBQztBQUNELE87QUNWQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQSx1QkFBZTtBQUNmO0FBQ0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOzs7QUFHQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBLHdDOzs7Ozs7Ozs7QUN0Q0EsT0FBTSxDQUFDLE9BQU8sR0FBRyxtQkFBTyxDQUFDLENBQWdCLENBQUMsQzs7Ozs7Ozs7QUNBMUMsS0FBTSxRQUFRLEdBQUcsbUJBQU8sQ0FBQyxDQUFXLENBQUMsQ0FBQztBQUN0QyxLQUFJLENBQUMsUUFBUSxFQUFFO0FBQ2IsU0FBTSxJQUFJLEtBQUssQ0FDYixzRUFBc0UsR0FDcEUsbUJBQU8sQ0FBQyxDQUFxQixDQUFDLEdBQUcsZ0NBQWdDLENBQ3BFLENBQUM7RUFDSDtBQUNELEtBQU0sWUFBWSxHQUFHLFFBQVEsQ0FBQztBQUM5QixLQUFNLE9BQU8sR0FBRyxtQkFBTyxDQUFDLENBQWUsQ0FBQyxDQUFDO0FBQ3pDLEtBQU0sUUFBUSxHQUFHLE9BQU8sQ0FBQyxNQUFNLENBQUMsWUFBWSxFQUFFLEVB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QUFJLENBQUMsRUFBRSxHQUFHLENBQUMsQ0FBQztRQUNuQztNQUNGLENBQUMsQ0FBQztJQUNKLENBQUMsQ0FBQztFQUNKOztBQUVELFVBQVMsY0FBYyxDQUFDLElBQUksRUFBRSxJQUFJLEVBQUU7QUFDbEMsVUFBTyxPQUFPLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxJQUFJLE9BQU8sQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLElBQ3JELE1BQU0sQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLEtBQUssTUFBTSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsQ0FBQztFQUMvRDs7O0FBR0QsVUFBUyxjQUFjLENBQUMsRUFBRSxFQUFFLFFBQVEsRUFBRTtBQUNwQyxPQUFJLENBQUMsRUFBRSxDQUFDLElBQUksRUFBRTs7QUFDWixPQUFFLEdBQUcsT0FBTyxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsQ0FBQztJQUMxQjs7QUFFRCxPQUFJLEVBQUUsQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLEtBQUssUUFBUSxDQUFDLFdBQVcsRUFBRSxFQUFFO0FBQ2xELFlBQU8sRUFBRSxDQUFDO0lBQ1g7O0FBRUQsT0FBSSxDQUFDLEdBQUcsRUFBRSxDQUFDLFFBQVEsRUFBRSxDQUFDO0FBQ3RCLFFBQUksSUFBSSxDQUFDLEdBQUcsQ0FBQyxFQUFFLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxDQUFDLE1BQU0sRUFBRSxDQUFDLEVBQUUsRUFBRTtBQUNyQyxTQUFJLElBQUksR0FBRyxjQUFjLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxFQUFFLFFBQVEsQ0FBQyxDQUFDO0FBQzFDLFNBQUksSUFBSSxFQUFFO0FBQ1IsY0FBTyxJQUFJLENBQUM7TUFDYjtJQUNGIiwic291cmNlc0NvbnRlbnQiOlsiKGZ1bmN0aW9uIHdlYnBhY2tVbml2ZXJzYWxNb2R1bGVEZWZpbml0aW9uKHJvb3QsIGZhY3RvcnkpIHtcblx0aWYodHlwZW9mIGV4cG9ydHMgPT09ICdvYmplY3QnICYmIHR5cGVvZiBtb2R1bGUgPT09ICdvYmplY3QnKVxuXHRcdG1vZHVsZS5leHBvcnRzID0gZmFjdG9yeShyZXF1aXJlKFwiYXBpLWNoZWNrXCIpLCByZXF1aXJlKFwiYW5ndWxhclwiKSk7XG5cdGVsc2UgaWYodHlwZW9mIGRlZmluZSA9PT0gJ2Z1bmN0aW9uJyAmJiBkZWZpbmUuYW1kKVxuXHRcdGRlZmluZShbXCJhcGktY2hlY2tcIiwgXCJhbmd1bGFyXCJdLCBmYWN0b3J5KTtcblx0ZWxzZSBpZih0eXBlb2YgZXhwb3J0cyA9PT0gJ29iamVjdCcpXG5cdFx0ZXhwb3J0c1tcIm5nRm9ybWx5XCJdID0gZmFjdG9yeShyZXF1aXJlKFwiYXBpLWNoZWNrXCIpLCByZXF1aXJlKFwiYW5ndWxhclwiKSk7XG5cdGVsc2Vcblx0XHRyb290W1wibmdGb3JtbHlcIl0gPSBmYWN0b3J5KHJvb3RbXCJhcGlDaGVja1wiXSwgcm9vdFtcImFuZ3VsYXJcIl0pO1xufSkodGhpcywgZnVuY3Rpb24oX19XRUJQQUNLX0VYVEVSTkFMX01PRFVMRV8yX18sIF9fV0VCUEFDS19FWFRFUk5BTF9NT0RVTEVfOV9fKSB7XG5yZXR1cm4gXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogd2VicGFjay91bml2ZXJzYWxNb2R1bGVEZWZpbml0aW9uXG4gKiovIiwiIFx0Ly8gVGhlIG1vZHVsZSBjYWNoZVxuIFx0dmFyIGluc3RhbGxlZE1vZHVsZXMgPSB7fTtcblxuIFx0Ly8gVGhlIHJlcXVpcmUgZnVuY3Rpb25cbiBcdGZ1bmN0aW9uIF9fd2VicGFja19yZXF1aXJlX18obW9kdWxlSWQpIHtcblxuIFx0XHQvLyBDaGVjayBpZiBtb2R1bGUgaXMgaW4gY2FjaGVcbiBcdFx0aWYoaW5zdGFsbGVkTW9kdWxlc1ttb2R1bGVJZF0pXG4gXHRcdFx0cmV0dXJuIGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdLmV4cG9ydHM7XG5cbiBcdFx0Ly8gQ3JlYXRlIGEgbmV3IG1vZHVsZSAoYW5kIHB1dCBpdCBpbnRvIHRoZSBjYWNoZSlcbiBcdFx0dmFyIG1vZHVsZSA9IGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdID0ge1xuIFx0XHRcdGV4cG9ydHM6IHt9LFxuIFx0XHRcdGlkOiBtb2R1bGVJZCxcbiBcdFx0XHRsb2FkZWQ6IGZhbHNlXG4gXHRcdH07XG5cbiBcdFx0Ly8gRXhlY3V0ZSB0aGUgbW9kdWxlIGZ1bmN0aW9uXG4gXHRcdG1vZHVsZXNbbW9kdWxlSWRdLmNhbGwobW9kdWxlLmV4cG9ydHMsIG1vZHVsZSwgbW9kdWxlLmV4cG9ydHMsIF9fd2VicGFja19yZXF1aXJlX18pO1xuXG4gXHRcdC8vIEZsYWcgdGhlIG1vZHVsZSBhcyBsb2FkZWRcbiBcdFx0bW9kdWxlLmxvYWRlZCA9IHRydWU7XG5cbiBcdFx0Ly8gUmV0dXJuIHRoZSBleHBvcnRzIG9mIHRoZSBtb2R1bGVcbiBcdFx0cmV0dXJuIG1vZHVsZS5leHBvcnRzO1xuIFx0fVxuXG5cbiBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlcyBvYmplY3QgKF9fd2VicGFja19tb2R1bGVzX18pXG4gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLm0gPSBtb2R1bGVzO1xuXG4gXHQvLyBleHBvc2UgdGhlIG1vZHVsZSBjYWNoZVxuIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5jID0gaW5zdGFsbGVkTW9kdWxlcztcblxuIFx0Ly8gX193ZWJwYWNrX3B1YmxpY19wYXRoX19cbiBcdF9fd2VicGFja19yZXF1aXJlX18ucCA9IFwiXCI7XG5cbiBcdC8vIExvYWQgZW50cnkgbW9kdWxlIGFuZCByZXR1cm4gZXhwb3J0c1xuIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oMCk7XG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogd2VicGFjay9ib290c3RyYXAgYzJhMmJiNjYyYzUwNGRjODZjZGFcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoJy4vaW5kZXguY29tbW9uJyk7XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9pbmRleC5qc1xuICoqLyIsImNvbnN0IGFwaUNoZWNrID0gcmVxdWlyZSgnYXBpLWNoZWNrJyk7XG5pZiAoIWFwaUNoZWNrKSB7XG4gIHRocm93IG5ldyBFcnJvcihcbiAgICAnYW5ndWxhci1mb3JtbHkgcmVxdWlyZXMgdGhlIGxpYnJhcnkgYXBpQ2hlY2suanMhIFBsZWFzZSBpbmNsdWRlIGl0ISAnICtcbiAgICAgIHJlcXVpcmUoJy4vb3RoZXIvZG9jc0Jhc2VVcmwnKSArICdhcGljaGVja2pzLWRlcGVuZGVuY3ktcmVxdWlyZWQnXG4gICk7XG59XG5jb25zdCBuZ01vZHVsZU5hbWUgPSAnZm9ybWx5JztcbmNvbnN0IGFuZ3VsYXIgPSByZXF1aXJlKCcuL2FuZ3VsYXItZml4Jyk7XG5jb25zdCBuZ01vZHVsZSA9IGFuZ3VsYXIubW9kdWxlKG5nTW9kdWxlTmFtZSwgW10pO1xuXG5yZXF1aXJlKCcuL3Byb3ZpZGVycycpKG5nTW9kdWxlKTtcbnJlcXVpcmUoJy4vc2VydmljZXMnKShuZ01vZHVsZSk7XG5yZXF1aXJlKCcuL2RpcmVjdGl2ZXMnKShuZ01vZHVsZSk7XG5yZXF1aXJlKCcuL3J1bicpKG5nTW9kdWxlKTtcblxubW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZU5hbWU7XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9pbmRleC5jb21tb24uanNcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IF9fV0VCUEFDS19FWFRFUk5BTF9NT0RVTEVfMl9fO1xuXG5cbi8qKioqKioqKioqKioqKioqKlxuICoqIFdFQlBBQ0sgRk9PVEVSXG4gKiogZXh0ZXJuYWwge1wicm9vdFwiOlwiYXBpQ2hlY2tcIixcImFtZFwiOlwiYXBpLWNoZWNrXCIsXCJjb21tb25qczJcIjpcImFwaS1jaGVja1wiLFwiY29tbW9uanNcIjpcImFwaS1jaGVja1wifVxuICoqIG1vZHVsZSBpZCA9IDJcbiAqKiBtb2R1bGUgY2h1bmtzID0gMFxuICoqLyIsImV4cG9ydCBkZWZhdWx0IGBodHRwczovL2dpdGh1Yi5jb20vZm9ybWx5LWpzL2FuZ3VsYXItZm9ybWx5L2Jsb2IvJHtWRVJTSU9OfS9vdGhlci9FUlJPUlNfQU5EX1dBUk5JTkdTLm1kI2A7XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9vdGhlci9kb2NzQmFzZVVybC5qc1xuICoqLyIsIi8vIHNvbWUgdmVyc2lvbnMgb2YgYW5ndWxhciBkb24ndCBleHBvcnQgdGhlIGFuZ3VsYXIgbW9kdWxlIHByb3Blcmx5LFxuLy8gc28gd2UgZ2V0IGl0IGZyb20gd2luZG93IGluIHRoaXMgY2FzZS5cbnZhciBhbmd1bGFyID0gcmVxdWlyZSgnYW5ndWxhcicpO1xuaWYgKCFhbmd1bGFyLnZlcnNpb24pIHtcbiAgYW5ndWxhciA9IHdpbmRvdy5hbmd1bGFyO1xufVxubW9kdWxlLmV4cG9ydHMgPSBhbmd1bGFyO1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vYW5ndWxhci1maXgvaW5kZXguanNcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IG5nTW9kdWxlID0+IHtcbiAgcmVxdWlyZSgnLi9mb3JtbHlBcGlDaGVjaycpKG5nTW9kdWxlKTtcbiAgcmVxdWlyZSgnLi9mb3JtbHlVc2FiaWxpdHknKShuZ01vZHVsZSk7XG4gIHJlcXVpcmUoJy4vZm9ybWx5Q29uZmlnJykobmdNb2R1bGUpO1xuICByZXF1aXJlKCcuL2Zvcm1seVZlcnNpb24nKShuZ01vZHVsZSk7XG4gIHJlcXVpcmUoJy4vZm9ybWx5RXJyb3JBbmRXYXJuaW5nc1VybFByZWZpeCcpKG5nTW9kdWxlKTtcbiAgcmVxdWlyZSgnLi9mb3JtbHlWYWxpZGF0aW9uTWVzc2FnZXMnKShuZ01vZHVsZSk7XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vcHJvdmlkZXJzL2luZGV4LmpzXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIHJlcXVpcmUoJy4vZm9ybWx5VXRpbCcpKG5nTW9kdWxlKTtcbiAgcmVxdWlyZSgnLi9mb3JtbHlXYXJuJykobmdNb2R1bGUpO1xufTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL3NlcnZpY2VzL2luZGV4LmpzXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIHJlcXVpcmUoJy4vZm9ybWx5LWN1c3RvbS12YWxpZGF0aW9uJykobmdNb2R1bGUpO1xuICByZXF1aXJlKCcuL2Zvcm1seS1maWVsZCcpKG5nTW9kdWxlKTtcbiAgcmVxdWlyZSgnLi9mb3JtbHktZm9ybScpKG5nTW9kdWxlKTtcbiAgcmVxdWlyZSgnLi9mb3JtbHktZm9jdXMnKShuZ01vZHVsZSk7XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vZGlyZWN0aXZlcy9pbmRleC5qc1xuICoqLyIsIm1vZHVsZS5leHBvcnRzID0gbmdNb2R1bGUgPT4ge1xuICByZXF1aXJlKCcuL2Zvcm1seU5nTW9kZWxBdHRyc01hbmlwdWxhdG9yJykobmdNb2R1bGUpO1xuICByZXF1aXJlKCcuL2Zvcm1seUN1c3RvbVRhZ3MnKShuZ01vZHVsZSk7XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vcnVuL2luZGV4LmpzXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSBfX1dFQlBBQ0tfRVhURVJOQUxfTU9EVUxFXzlfXztcblxuXG4vKioqKioqKioqKioqKioqKipcbiAqKiBXRUJQQUNLIEZPT1RFUlxuICoqIGV4dGVybmFsIFwiYW5ndWxhclwiXG4gKiogbW9kdWxlIGlkID0gOVxuICoqIG1vZHVsZSBjaHVua3MgPSAwXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG5cbiAgbGV0IGFwaUNoZWNrID0gcmVxdWlyZSgnYXBpLWNoZWNrJykoe1xuICAgIG91dHB1dDoge1xuICAgICAgcHJlZml4OiAnYW5ndWxhci1mb3JtbHk6JyxcbiAgICAgIGRvY3NCYXNlVXJsOiByZXF1aXJlKCcuLi9vdGhlci9kb2NzQmFzZVVybCcpXG4gICAgfVxuICB9KTtcblxuICBmdW5jdGlvbiBzaGFwZVJlcXVpcmVkSWZOb3Qob3RoZXJQcm9wcywgcHJvcENoZWNrZXIpIHtcbiAgICBpZiAoIWFuZ3VsYXIuaXNBcnJheShvdGhlclByb3BzKSkge1xuICAgICAgb3RoZXJQcm9wcyA9IFtvdGhlclByb3BzXTtcbiAgICB9XG4gICAgY29uc3QgdHlwZSA9IGBzcGVjaWZpZWQgaWYgdGhlc2UgYXJlIG5vdCBzcGVjaWZpZWQ6IFxcYCR7b3RoZXJQcm9wcy5qb2luKCcsICcpfVxcYCAob3RoZXJ3aXNlIGl0J3Mgb3B0aW9uYWwpYDtcbiAgICBmdW5jdGlvbiBzaGFwZVJlcXVpcmVkSWZOb3REZWZpbml0aW9uKHByb3AsIHByb3BOYW1lLCBsb2NhdGlvbiwgb2JqKSB7XG4gICAgICB2YXIgcHJvcEV4aXN0cyA9IG9iaiAmJiBvYmouaGFzT3duUHJvcGVydHkocHJvcE5hbWUpO1xuICAgICAgdmFyIG90aGVyUHJvcHNFeGlzdCA9IG90aGVyUHJvcHMuc29tZShmdW5jdGlvbiAob3RoZXJQcm9wKSB7XG4gICAgICAgIHJldHVybiBvYmogJiYgb2JqLmhhc093blByb3BlcnR5KG90aGVyUHJvcCk7XG4gICAgICB9KTtcbiAgICAgIC8vY29uc29sZS5sb2cocHJvcE5hbWUsIHByb3BFeGlzdHMsIHByb3AsIG90aGVyUHJvcHNFeGlzdCwgb3RoZXJQcm9wcy5qb2luKCcsICcpKTtcbiAgICAgIGlmICghb3RoZXJQcm9wc0V4aXN0ICYmICFwcm9wRXhpc3RzKSB7XG4gICAgICAgIHJldHVybiBhcGlDaGVjay51dGlscy5nZXRFcnJvcihwcm9wTmFtZSwgbG9jYXRpb24sIHR5cGUpO1xuICAgICAgfSBlbHNlIGlmIChwcm9wRXhpc3RzKSB7XG4gICAgICAgIHJldHVybiBwcm9wQ2hlY2tlcihwcm9wLCBwcm9wTmFtZSwgbG9jYXRpb24sIG9iaik7XG4gICAgICB9XG4gICAgfVxuICAgIHNoYXBlUmVxdWlyZWRJZk5vdERlZmluaXRpb24udHlwZSA9IHR5cGU7XG4gICAgYXBpQ2hlY2sudXRpbHMuY2hlY2tlckhlbHBlcnMuc2V0dXBDaGVja2VyKHNoYXBlUmVxdWlyZWRJZk5vdERlZmluaXRpb24pO1xuICAgIHJldHVybiBzaGFwZVJlcXVpcmVkSWZOb3REZWZpbml0aW9uO1xuICB9XG5cbiAgbmdNb2R1bGUuY29uc3RhbnQoJ2Zvcm1seUFwaUNoZWNrJywgYXBpQ2hlY2spO1xuICBpZiAoT05fVEVTVCkge1xuICAgIHJlcXVpcmUoJy4vZm9ybWx5QXBpQ2hlY2sudGVzdCcpKG5nTW9kdWxlKTtcbiAgfVxuXG4gIGxldCBmb3JtbHlFeHByZXNzaW9uID0gYXBpQ2hlY2sub25lT2ZUeXBlKFthcGlDaGVjay5zdHJpbmcsIGFwaUNoZWNrLmZ1bmNdKTtcbiAgbGV0IHNwZWNpZnlXcmFwcGVyVHlwZSA9IGFwaUNoZWNrLm9uZU9mVHlwZShbXG4gICAgYXBpQ2hlY2sub25lT2YoW251bGxdKSwgYXBpQ2hlY2sudHlwZU9yQXJyYXlPZihhcGlDaGVjay5zdHJpbmcpXG4gIF0pO1xuXG4gIGNvbnN0IGFwaUNoZWNrUHJvcGVydHkgPSBhcGlDaGVjay5vYmplY3RPZihhcGlDaGVjay5mdW5jKTtcblxuICBjb25zdCBhcGlDaGVja0luc3RhbmNlUHJvcGVydHkgPSBhcGlDaGVjay5zaGFwZS5vbmx5SWYoJ2FwaUNoZWNrJywgYXBpQ2hlY2suZnVuYy53aXRoUHJvcGVydGllcyh7XG4gICAgd2FybjogYXBpQ2hlY2suZnVuYyxcbiAgICB0aHJvdzogYXBpQ2hlY2suZnVuYyxcbiAgICBzaGFwZTogYXBpQ2hlY2suZnVuY1xuICB9KSk7XG5cbiAgY29uc3QgYXBpQ2hlY2tGdW5jdGlvblByb3BlcnR5ID0gYXBpQ2hlY2suc2hhcGUub25seUlmKCdhcGlDaGVjaycsIGFwaUNoZWNrLm9uZU9mKFsndGhyb3cnLCAnd2FybiddKSk7XG5cbiAgY29uc3QgZm9ybWx5V3JhcHBlclR5cGUgPSBhcGlDaGVjay5zaGFwZSh7XG4gICAgbmFtZTogc2hhcGVSZXF1aXJlZElmTm90KCd0eXBlcycsIGFwaUNoZWNrLnN0cmluZykub3B0aW9uYWwsXG4gICAgdGVtcGxhdGU6IGFwaUNoZWNrLnNoYXBlLmlmTm90KCd0ZW1wbGF0ZVVybCcsIGFwaUNoZWNrLnN0cmluZykub3B0aW9uYWwsXG4gICAgdGVtcGxhdGVVcmw6IGFwaUNoZWNrLnNoYXBlLmlmTm90KCd0ZW1wbGF0ZScsIGFwaUNoZWNrLnN0cmluZykub3B0aW9uYWwsXG4gICAgdHlwZXM6IGFwaUNoZWNrLnR5cGVPckFycmF5T2YoYXBpQ2hlY2suc3RyaW5nKS5vcHRpb25hbCxcbiAgICBvdmVyd3JpdGVPazogYXBpQ2hlY2suYm9vbC5vcHRpb25hbCxcbiAgICB2YWxpZGF0ZU9wdGlvbnM6IGFwaUNoZWNrLmZ1bmMub3B0aW9uYWwsXG4gICAgYXBpQ2hlY2s6IGFwaUNoZWNrUHJvcGVydHkub3B0aW9uYWwsXG4gICAgYXBpQ2hlY2tJbnN0YW5jZTogYXBpQ2hlY2tJbnN0YW5jZVByb3BlcnR5Lm9wdGlvbmFsLFxuICAgIGFwaUNoZWNrRnVuY3Rpb246IGFwaUNoZWNrRnVuY3Rpb25Qcm9wZXJ0eS5vcHRpb25hbCxcbiAgICBhcGlDaGVja09wdGlvbnM6IGFwaUNoZWNrLm9iamVjdC5vcHRpb25hbFxuICB9KS5zdHJpY3Q7XG5cbiAgbGV0IGZpZWxkT3B0aW9uc0FwaVNoYXBlID0ge1xuICAgIHR5cGU6IGFwaUNoZWNrLnNoYXBlLmlmTm90KFsndGVtcGxhdGUnLCAndGVtcGxhdGVVcmwnXSwgYXBpQ2hlY2suc3RyaW5nKS5vcHRpb25hbCxcbiAgICB0ZW1wbGF0ZTogYXBpQ2hlY2suc2hhcGUuaWZOb3QoWyd0eXBlJywgJ3RlbXBsYXRlVXJsJ10sIGFwaUNoZWNrLnN0cmluZykub3B0aW9uYWwsXG4gICAgdGVtcGxhdGVVcmw6IGFwaUNoZWNrLnNoYXBlLmlmTm90KFsndHlwZScsICd0ZW1wbGF0ZSddLCBhcGlDaGVjay5zdHJpbmcpLm9wdGlvbmFsLFxuICAgIGtleTogYXBpQ2hlY2sub25lT2ZUeXBlKFthcGlDaGVjay5zdHJpbmcsIGFwaUNoZWNrLm51bWJlcl0pLFxuICAgIG1vZGVsOiBhcGlDaGVjay5vYmplY3Qub3B0aW9uYWwsXG4gICAgZXhwcmVzc2lvblByb3BlcnRpZXM6IGFwaUNoZWNrLm9iamVjdE9mKGFwaUNoZWNrLm9uZU9mVHlwZShbXG4gICAgICBmb3JtbHlFeHByZXNzaW9uLFxuICAgICAgYXBpQ2hlY2suc2hhcGUoe1xuICAgICAgICBleHByZXNzaW9uOiBmb3JtbHlFeHByZXNzaW9uLFxuICAgICAgICBtZXNzYWdlOiBmb3JtbHlFeHByZXNzaW9uLm9wdGlvbmFsXG4gICAgICB9KS5zdHJpY3RcbiAgICBdKSkub3B0aW9uYWwsXG4gICAgZGF0YTogYXBpQ2hlY2sub2JqZWN0Lm9wdGlvbmFsLFxuICAgIHRlbXBsYXRlT3B0aW9uczogYXBpQ2hlY2sub2JqZWN0Lm9wdGlvbmFsLFxuICAgIHdyYXBwZXI6IHNwZWNpZnlXcmFwcGVyVHlwZS5vcHRpb25hbCxcbiAgICBtb2RlbE9wdGlvbnM6IGFwaUNoZWNrLnNoYXBlKHtcbiAgICAgIHVwZGF0ZU9uOiBhcGlDaGVjay5zdHJpbmcub3B0aW9uYWwsXG4gICAgICBkZWJvdW5jZTogYXBpQ2hlY2sub25lT2ZUeXBlKFtcbiAgICAgICAgYXBpQ2hlY2sub2JqZWN0LCBhcGlDaGVjay5zdHJpbmdcbiAgICAgIF0pLm9wdGlvbmFsLFxuICAgICAgYWxsb3dJbnZhbGlkOiBhcGlDaGVjay5ib29sLm9wdGlvbmFsLFxuICAgICAgZ2V0dGVyU2V0dGVyOiBhcGlDaGVjay5ib29sLm9wdGlvbmFsLFxuICAgICAgdGltZXpvbmU6IGFwaUNoZWNrLnN0cmluZy5vcHRpb25hbFxuICAgIH0pLm9wdGlvbmFsLFxuICAgIHdhdGNoZXI6IGFwaUNoZWNrLnR5cGVPckFycmF5T2YoXG4gICAgICBhcGlDaGVjay5zaGFwZSh7XG4gICAgICAgIGV4cHJlc3Npb246IGZvcm1seUV4cHJlc3Npb24ub3B0aW9uYWwsXG4gICAgICAgIGxpc3RlbmVyOiBmb3JtbHlFeHByZXNzaW9uXG4gICAgICB9KVxuICAgICkub3B0aW9uYWwsXG4gICAgdmFsaWRhdG9yczogYXBpQ2hlY2sub2JqZWN0T2YoYXBpQ2hlY2sub25lT2ZUeXBlKFtcbiAgICAgIGZvcm1seUV4cHJlc3Npb24sIGFwaUNoZWNrLnNoYXBlKHtcbiAgICAgICAgZXhwcmVzc2lvbjogZm9ybWx5RXhwcmVzc2lvbixcbiAgICAgICAgbWVzc2FnZTogZm9ybWx5RXhwcmVzc2lvbi5vcHRpb25hbFxuICAgICAgfSkuc3RyaWN0XG4gICAgXSkpLm9wdGlvbmFsLFxuICAgIG5vRm9ybUNvbnRyb2w6IGFwaUNoZWNrLmJvb2wub3B0aW9uYWwsXG4gICAgaGlkZTogYXBpQ2hlY2suYm9vbC5vcHRpb25hbCxcbiAgICBuZ01vZGVsQXR0cnM6IGFwaUNoZWNrLm9iamVjdE9mKGFwaUNoZWNrLnNoYXBlKHtcbiAgICAgIGV4cHJlc3Npb246IGFwaUNoZWNrLnNoYXBlLmlmTm90KFsndmFsdWUnLCAnYXR0cmlidXRlJywgJ2JvdW5kJ10sIGFwaUNoZWNrLmFueSkub3B0aW9uYWwsXG4gICAgICB2YWx1ZTogYXBpQ2hlY2suc2hhcGUuaWZOb3QoJ2V4cHJlc3Npb24nLCBhcGlDaGVjay5hbnkpLm9wdGlvbmFsLFxuICAgICAgYXR0cmlidXRlOiBhcGlDaGVjay5zaGFwZS5pZk5vdCgnZXhwcmVzc2lvbicsIGFwaUNoZWNrLmFueSkub3B0aW9uYWwsXG4gICAgICBib3VuZDogYXBpQ2hlY2suc2hhcGUuaWZOb3QoJ2V4cHJlc3Npb24nLCBhcGlDaGVjay5hbnkpLm9wdGlvbmFsXG4gICAgfSkuc3RyaWN0KS5vcHRpb25hbCxcbiAgICBvcHRpb25zVHlwZXM6IGFwaUNoZWNrLnR5cGVPckFycmF5T2YoYXBpQ2hlY2suc3RyaW5nKS5vcHRpb25hbCxcbiAgICBsaW5rOiBhcGlDaGVjay5mdW5jLm9wdGlvbmFsLFxuICAgIGNvbnRyb2xsZXI6IGFwaUNoZWNrLm9uZU9mVHlwZShbXG4gICAgICBhcGlDaGVjay5zdHJpbmcsIGFwaUNoZWNrLmZ1bmMsIGFwaUNoZWNrLmFycmF5XG4gICAgXSkub3B0aW9uYWwsXG4gICAgdmFsaWRhdGlvbjogYXBpQ2hlY2suc2hhcGUoe1xuICAgICAgc2hvdzogYXBpQ2hlY2sub25lT2ZUeXBlKFtcbiAgICAgICAgYXBpQ2hlY2suYm9vbCwgYXBpQ2hlY2sub25lT2YoW251bGxdKVxuICAgICAgXSkub3B0aW9uYWwsXG4gICAgICBtZXNzYWdlczogYXBpQ2hlY2sub2JqZWN0T2YoYXBpQ2hlY2suZnVuYykub3B0aW9uYWwsXG4gICAgICBlcnJvckV4aXN0c0FuZFNob3VsZEJlVmlzaWJsZTogYXBpQ2hlY2suYm9vbC5vcHRpb25hbFxuICAgIH0pLm9wdGlvbmFsLFxuICAgIGZvcm1Db250cm9sOiBhcGlDaGVjay5vYmplY3Qub3B0aW9uYWwsXG4gICAgdmFsdWU6IGFwaUNoZWNrLmZ1bmMub3B0aW9uYWwsXG4gICAgcnVuRXhwcmVzc2lvbnM6IGFwaUNoZWNrLmZ1bmMub3B0aW9uYWxcbiAgfTtcblxuICBsZXQgZm9ybWx5RmllbGRPcHRpb25zID0gYXBpQ2hlY2suc2hhcGUoZmllbGRPcHRpb25zQXBpU2hhcGUpLnN0cmljdDtcblxuICBsZXQgdHlwZU9wdGlvbnNEZWZhdWx0T3B0aW9ucyA9IGFuZ3VsYXIuY29weShmaWVsZE9wdGlvbnNBcGlTaGFwZSk7XG4gIHR5cGVPcHRpb25zRGVmYXVsdE9wdGlvbnMua2V5ID0gYXBpQ2hlY2suc3RyaW5nLm9wdGlvbmFsO1xuXG4gIGxldCBmb3JtbHlUeXBlT3B0aW9ucyA9IGFwaUNoZWNrLnNoYXBlKHtcbiAgICBuYW1lOiBhcGlDaGVjay5zdHJpbmcsXG4gICAgdGVtcGxhdGU6IGFwaUNoZWNrLnNoYXBlLmlmTm90KCd0ZW1wbGF0ZVVybCcsIGFwaUNoZWNrLnN0cmluZykub3B0aW9uYWwsXG4gICAgdGVtcGxhdGVVcmw6IGFwaUNoZWNrLnNoYXBlLmlmTm90KCd0ZW1wbGF0ZScsIGFwaUNoZWNrLnN0cmluZykub3B0aW9uYWwsXG4gICAgY29udHJvbGxlcjogYXBpQ2hlY2sub25lT2ZUeXBlKFtcbiAgICAgIGFwaUNoZWNrLmZ1bmMsIGFwaUNoZWNrLnN0cmluZywgYXBpQ2hlY2suYXJyYXlcbiAgICBdKS5vcHRpb25hbCxcbiAgICBsaW5rOiBhcGlDaGVjay5mdW5jLm9wdGlvbmFsLFxuICAgIGRlZmF1bHRPcHRpb25zOiBhcGlDaGVjay5vbmVPZlR5cGUoW1xuICAgICAgYXBpQ2hlY2suZnVuYywgYXBpQ2hlY2suc2hhcGUodHlwZU9wdGlvbnNEZWZhdWx0T3B0aW9ucylcbiAgICBdKS5vcHRpb25hbCxcbiAgICBleHRlbmRzOiBhcGlDaGVjay5zdHJpbmcub3B0aW9uYWwsXG4gICAgd3JhcHBlcjogc3BlY2lmeVdyYXBwZXJUeXBlLm9wdGlvbmFsLFxuICAgIGRhdGE6IGFwaUNoZWNrLm9iamVjdC5vcHRpb25hbCxcbiAgICB2YWxpZGF0ZU9wdGlvbnM6IGFwaUNoZWNrLmZ1bmMub3B0aW9uYWwsXG4gICAgYXBpQ2hlY2s6IGFwaUNoZWNrUHJvcGVydHkub3B0aW9uYWwsXG4gICAgYXBpQ2hlY2tJbnN0YW5jZTogYXBpQ2hlY2tJbnN0YW5jZVByb3BlcnR5Lm9wdGlvbmFsLFxuICAgIGFwaUNoZWNrRnVuY3Rpb246IGFwaUNoZWNrRnVuY3Rpb25Qcm9wZXJ0eS5vcHRpb25hbCxcbiAgICBhcGlDaGVja09wdGlvbnM6IGFwaUNoZWNrLm9iamVjdC5vcHRpb25hbCxcbiAgICBvdmVyd3JpdGVPazogYXBpQ2hlY2suYm9vbC5vcHRpb25hbFxuICB9KS5zdHJpY3Q7XG5cbiAgYW5ndWxhci5leHRlbmQoYXBpQ2hlY2ssIHtcbiAgICBmb3JtbHlUeXBlT3B0aW9ucywgZm9ybWx5RmllbGRPcHRpb25zLCBmb3JtbHlFeHByZXNzaW9uLCBmb3JtbHlXcmFwcGVyVHlwZVxuICB9KTtcbn07XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9wcm92aWRlcnMvZm9ybWx5QXBpQ2hlY2suanNcbiAqKi8iLCJ2YXIgYW5ndWxhciA9IHJlcXVpcmUoJ2FuZ3VsYXItZml4Jyk7XG5cbm1vZHVsZS5leHBvcnRzID0gbmdNb2R1bGUgPT4ge1xuICBuZ01vZHVsZS5wcm92aWRlcignZm9ybWx5VXNhYmlsaXR5JywgZnVuY3Rpb24oZm9ybWx5VmVyc2lvbiwgZm9ybWx5QXBpQ2hlY2spIHtcbiAgICB2YXIgZXJyb3JzQW5kV2FybmluZ3NVcmxQcmVmaXggPVxuICAgICAgYGh0dHBzOi8vZ2l0aHViLmNvbS9mb3JtbHktanMvYW5ndWxhci1mb3JtbHkvYmxvYi8ke2Zvcm1seVZlcnNpb259L290aGVyL0VSUk9SU19BTkRfV0FSTklOR1MubWQjYDtcbiAgICBhbmd1bGFyLmV4dGVuZCh0aGlzLCB7XG4gICAgICBnZXRGb3JtbHlFcnJvcjogZ2V0Rm9ybWx5RXJyb3IsXG4gICAgICBnZXRGaWVsZEVycm9yOiBnZXRGaWVsZEVycm9yLFxuICAgICAgY2hlY2tXcmFwcGVyOiBjaGVja1dyYXBwZXIsXG4gICAgICBjaGVja1dyYXBwZXJUZW1wbGF0ZTogY2hlY2tXcmFwcGVyVGVtcGxhdGUsXG4gICAgICAkZ2V0OiAoKSA9PiB0aGlzXG4gICAgfSk7XG5cbiAgICBmdW5jdGlvbiBnZXRGaWVsZEVycm9yKGVycm9ySW5mb1NsdWcsIG1lc3NhZ2UsIGZpZWxkKSB7XG4gICAgICBpZiAoYXJndW1lbnRzLmxlbmd0aCA8IDMpIHtcbiAgICAgICAgZmllbGQgPSBtZXNzYWdlO1xuICAgICAgICBtZXNzYWdlID0gZXJyb3JJbmZvU2x1ZztcbiAgICAgICAgZXJyb3JJbmZvU2x1ZyA9IG51bGw7XG4gICAgICB9XG4gICAgICByZXR1cm4gbmV3IEVycm9yKGdldEVycm9yTWVzc2FnZShlcnJvckluZm9TbHVnLCBtZXNzYWdlKSArIGAgRmllbGQgZGVmaW5pdGlvbjogJHthbmd1bGFyLnRvSnNvbihmaWVsZCl9YCk7XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gZ2V0Rm9ybWx5RXJyb3IoZXJyb3JJbmZvU2x1ZywgbWVzc2FnZSkge1xuICAgICAgaWYgKCFtZXNzYWdlKSB7XG4gICAgICAgIG1lc3NhZ2UgPSBlcnJvckluZm9TbHVnO1xuICAgICAgICBlcnJvckluZm9TbHVnID0gbnVsbDtcbiAgICAgIH1cbiAgICAgIHJldHVybiBuZXcgRXJyb3IoZ2V0RXJyb3JNZXNzYWdlKGVycm9ySW5mb1NsdWcsIG1lc3NhZ2UpKTtcbiAgICB9XG5cbiAgICBmdW5jdGlvbiBnZXRFcnJvck1lc3NhZ2UoZXJyb3JJbmZvU2x1ZywgbWVzc2FnZSkge1xuICAgICAgbGV0IHVybCA9ICcnO1xuICAgICAgaWYgKGVycm9ySW5mb1NsdWcgIT09IG51bGwpIHtcbiAgICAgICAgdXJsID0gYCR7ZXJyb3JzQW5kV2FybmluZ3NVcmxQcmVmaXh9JHtlcnJvckluZm9TbHVnfWA7XG4gICAgICB9XG4gICAgICByZXR1cm4gYEZvcm1seSBFcnJvcjogJHttZXNzYWdlfS4gJHt1cmx9YDtcbiAgICB9XG5cbiAgICBmdW5jdGlvbiBjaGVja1dyYXBwZXIod3JhcHBlcikge1xuICAgICAgZm9ybWx5QXBpQ2hlY2sudGhyb3coZm9ybWx5QXBpQ2hlY2suZm9ybWx5V3JhcHBlclR5cGUsIGFyZ3VtZW50cywge1xuICAgICAgICBwcmVmaXg6ICdmb3JtbHlDb25maWcuc2V0V3JhcHBlcicsXG4gICAgICAgIHVybFN1ZmZpeDogJ3NldHdyYXBwZXItdmFsaWRhdGlvbi1mYWlsZWQnXG4gICAgICB9KTtcbiAgICB9XG5cbiAgICBmdW5jdGlvbiBjaGVja1dyYXBwZXJUZW1wbGF0ZSh0ZW1wbGF0ZSwgYWRkaXRpb25hbEluZm8pIHtcbiAgICAgIHZhciBmb3JtbHlUcmFuc2NsdWRlID0gJzxmb3JtbHktdHJhbnNjbHVkZT48L2Zvcm1seS10cmFuc2NsdWRlPic7XG4gICAgICBpZiAodGVtcGxhdGUuaW5kZXhPZihmb3JtbHlUcmFuc2NsdWRlKSA9PT0gLTEpIHtcbiAgICAgICAgdGhyb3cgZ2V0Rm9ybWx5RXJyb3IoXG4gICAgICAgICAgYFRlbXBsYXRlIHdyYXBwZXIgdGVtcGxhdGVzIG11c3QgdXNlIFwiJHtmb3JtbHlUcmFuc2NsdWRlfVwiIHNvbWV3aGVyZSBpbiB0aGVtLiBgICtcbiAgICAgICAgICBgVGhpcyBvbmUgZG9lcyBub3QgaGF2ZSBcIjxmb3JtbHktdHJhbnNjbHVkZT48L2Zvcm1seS10cmFuc2NsdWRlPlwiIGluIGl0OiAke3RlbXBsYXRlfWAgKyAnXFxuJyArXG4gICAgICAgICAgYEFkZGl0aW9uYWwgaW5mb3JtYXRpb246ICR7SlNPTi5zdHJpbmdpZnkoYWRkaXRpb25hbEluZm8pfWBcbiAgICAgICAgKTtcbiAgICAgIH1cbiAgICB9XG4gIH0pO1xufTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL3Byb3ZpZGVycy9mb3JtbHlVc2FiaWxpdHkuanNcbiAqKi8iLCJjb25zdCBhbmd1bGFyID0gcmVxdWlyZSgnYW5ndWxhci1maXgnKTtcbmNvbnN0IHV0aWxzID0gcmVxdWlyZSgnLi4vb3RoZXIvdXRpbHMnKTtcblxubW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIG5nTW9kdWxlLnByb3ZpZGVyKCdmb3JtbHlDb25maWcnLCBmb3JtbHlDb25maWcpO1xuXG4gIGZvcm1seUNvbmZpZy50ZXN0cyA9IE9OX1RFU1QgPyByZXF1aXJlKCcuL2Zvcm1seUNvbmZpZy50ZXN0JykobmdNb2R1bGUpIDogbnVsbDtcblxuICBmdW5jdGlvbiBmb3JtbHlDb25maWcoZm9ybWx5VXNhYmlsaXR5UHJvdmlkZXIsIGZvcm1seUFwaUNoZWNrKSB7XG5cbiAgICB2YXIgdHlwZU1hcCA9IHt9O1xuICAgIHZhciB0ZW1wbGF0ZVdyYXBwZXJzTWFwID0ge307XG4gICAgdmFyIGRlZmF1bHRXcmFwcGVyTmFtZSA9ICdkZWZhdWx0JztcbiAgICB2YXIgX3RoaXMgPSB0aGlzO1xuICAgIHZhciBnZXRFcnJvciA9IGZvcm1seVVzYWJpbGl0eVByb3ZpZGVyLmdldEZvcm1seUVycm9yO1xuXG4gICAgYW5ndWxhci5leHRlbmQodGhpcywge1xuICAgICAgc2V0VHlwZSxcbiAgICAgIGdldFR5cGUsXG4gICAgICBzZXRXcmFwcGVyLFxuICAgICAgZ2V0V3JhcHBlcixcbiAgICAgIGdldFdyYXBwZXJCeVR5cGUsXG4gICAgICByZW1vdmVXcmFwcGVyQnlOYW1lLFxuICAgICAgcmVtb3ZlV3JhcHBlcnNGb3JUeXBlLFxuICAgICAgZGlzYWJsZVdhcm5pbmdzOiBmYWxzZSxcbiAgICAgIGV4dHJhczoge1xuICAgICAgICBkaXNhYmxlTmdNb2RlbEF0dHJzTWFuaXB1bGF0b3I6IGZhbHNlLFxuICAgICAgICBuZ01vZGVsQXR0cnNNYW5pcHVsYXRvclByZWZlckJvdW5kOiBmYWxzZVxuICAgICAgfSxcbiAgICAgIHRlbXBsYXRlTWFuaXB1bGF0b3JzOiB7XG4gICAgICAgIHByZVdyYXBwZXI6IFtdLFxuICAgICAgICBwb3N0V3JhcHBlcjogW11cbiAgICAgIH0sXG4gICAgICAkZ2V0OiAoKSA9PiB0aGlzXG4gICAgfSk7XG5cbiAgICBmdW5jdGlvbiBzZXRUeXBlKG9wdGlvbnMpIHtcbiAgICAgIGlmIChhbmd1bGFyLmlzQXJyYXkob3B0aW9ucykpIHtcbiAgICAgICAgYW5ndWxhci5mb3JFYWNoKG9wdGlvbnMsIHNldFR5cGUpO1xuICAgICAgfSBlbHNlIGlmIChhbmd1bGFyLmlzT2JqZWN0KG9wdGlvbnMpKSB7XG4gICAgICAgIGNoZWNrVHlwZShvcHRpb25zKTtcbiAgICAgICAgaWYgKG9wdGlvbnMuZXh0ZW5kcykge1xuICAgICAgICAgIGV4dGVuZFR5cGVPcHRpb25zKG9wdGlvbnMpO1xuICAgICAgICB9XG4gICAgICAgIHR5cGVNYXBbb3B0aW9ucy5uYW1lXSA9IG9wdGlvbnM7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICB0aHJvdyBnZXRFcnJvcihgWW91IG11c3QgcHJvdmlkZSBhbiBvYmplY3Qgb3IgYXJyYXkgZm9yIHNldFR5cGUuIFlvdSBwcm92aWRlZDogJHtKU09OLnN0cmluZ2lmeShhcmd1bWVudHMpfWApO1xuICAgICAgfVxuICAgIH1cblxuICAgIGZ1bmN0aW9uIGNoZWNrVHlwZShvcHRpb25zKSB7XG4gICAgICBmb3JtbHlBcGlDaGVjay50aHJvdyhmb3JtbHlBcGlDaGVjay5mb3JtbHlUeXBlT3B0aW9ucywgYXJndW1lbnRzLCB7XG4gICAgICAgIHByZWZpeDogJ2Zvcm1seUNvbmZpZy5zZXRUeXBlJyxcbiAgICAgICAgdXJsOiAnc2V0dHlwZS12YWxpZGF0aW9uLWZhaWxlZCdcbiAgICAgIH0pO1xuICAgICAgaWYgKCFvcHRpb25zLm92ZXJ3cml0ZU9rKSB7XG4gICAgICAgIGNoZWNrT3ZlcndyaXRlKG9wdGlvbnMubmFtZSwgdHlwZU1hcCwgb3B0aW9ucywgJ3R5cGVzJyk7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBvcHRpb25zLm92ZXJ3cml0ZU9rID0gdW5kZWZpbmVkO1xuICAgICAgfVxuICAgIH1cblxuICAgIGZ1bmN0aW9uIGV4dGVuZFR5cGVPcHRpb25zKG9wdGlvbnMpIHtcbiAgICAgIGNvbnN0IGV4dGVuZHNUeXBlID0gZ2V0VHlwZShvcHRpb25zLmV4dGVuZHMsIHRydWUsIG9wdGlvbnMpO1xuICAgICAgZXh0ZW5kVHlwZUNvbnRyb2xsZXJGdW5jdGlvbihvcHRpb25zLCBleHRlbmRzVHlwZSk7XG4gICAgICBleHRlbmRUeXBlTGlua0Z1bmN0aW9uKG9wdGlvbnMsIGV4dGVuZHNUeXBlKTtcbiAgICAgIGV4dGVuZFR5cGVWYWxpZGF0ZU9wdGlvbnNGdW5jdGlvbihvcHRpb25zLCBleHRlbmRzVHlwZSk7XG4gICAgICBleHRlbmRUeXBlRGVmYXVsdE9wdGlvbnMob3B0aW9ucywgZXh0ZW5kc1R5cGUpO1xuICAgICAgdXRpbHMucmV2ZXJzZURlZXBNZXJnZShvcHRpb25zLCBleHRlbmRzVHlwZSk7XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gZXh0ZW5kVHlwZUNvbnRyb2xsZXJGdW5jdGlvbihvcHRpb25zLCBleHRlbmRzVHlwZSkge1xuICAgICAgY29uc3QgZXh0ZW5kc0N0cmwgPSBleHRlbmRzVHlwZS5jb250cm9sbGVyO1xuICAgICAgaWYgKCFhbmd1bGFyLmlzRGVmaW5lZChleHRlbmRzQ3RybCkpIHtcbiAgICAgICAgcmV0dXJuO1xuICAgICAgfVxuICAgICAgY29uc3Qgb3B0aW9uc0N0cmwgPSBvcHRpb25zLmNvbnRyb2xsZXI7XG4gICAgICBpZiAoYW5ndWxhci5pc0RlZmluZWQob3B0aW9uc0N0cmwpKSB7XG4gICAgICAgIG9wdGlvbnMuY29udHJvbGxlciA9IGZ1bmN0aW9uKCRzY29wZSwgJGNvbnRyb2xsZXIpIHtcbiAgICAgICAgICAkY29udHJvbGxlcihleHRlbmRzQ3RybCwgeyRzY29wZX0pO1xuICAgICAgICAgICRjb250cm9sbGVyKG9wdGlvbnNDdHJsLCB7JHNjb3BlfSk7XG4gICAgICAgIH07XG4gICAgICAgIG9wdGlvbnMuY29udHJvbGxlci4kaW5qZWN0ID0gWyckc2NvcGUnLCAnJGNvbnRyb2xsZXInXTtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIG9wdGlvbnMuY29udHJvbGxlciA9IGV4dGVuZHNDdHJsO1xuICAgICAgfVxuICAgIH1cblxuICAgIGZ1bmN0aW9uIGV4dGVuZFR5cGVMaW5rRnVuY3Rpb24ob3B0aW9ucywgZXh0ZW5kc1R5cGUpIHtcbiAgICAgIGNvbnN0IGV4dGVuZHNGbiA9IGV4dGVuZHNUeXBlLmxpbms7XG4gICAgICBpZiAoIWFuZ3VsYXIuaXNEZWZpbmVkKGV4dGVuZHNGbikpIHtcbiAgICAgICAgcmV0dXJuO1xuICAgICAgfVxuICAgICAgY29uc3Qgb3B0aW9uc0ZuID0gb3B0aW9ucy5saW5rO1xuICAgICAgaWYgKGFuZ3VsYXIuaXNEZWZpbmVkKG9wdGlvbnNGbikpIHtcbiAgICAgICAgb3B0aW9ucy5saW5rID0gZnVuY3Rpb24oKSB7XG4gICAgICAgICAgZXh0ZW5kc0ZuKC4uLmFyZ3VtZW50cyk7XG4gICAgICAgICAgb3B0aW9uc0ZuKC4uLmFyZ3VtZW50cyk7XG4gICAgICAgIH07XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBvcHRpb25zLmxpbmsgPSBleHRlbmRzRm47XG4gICAgICB9XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gZXh0ZW5kVHlwZVZhbGlkYXRlT3B0aW9uc0Z1bmN0aW9uKG9wdGlvbnMsIGV4dGVuZHNUeXBlKSB7XG4gICAgICBjb25zdCBleHRlbmRzRm4gPSBleHRlbmRzVHlwZS52YWxpZGF0ZU9wdGlvbnM7XG4gICAgICBpZiAoIWFuZ3VsYXIuaXNEZWZpbmVkKGV4dGVuZHNGbikpIHtcbiAgICAgICAgcmV0dXJuO1xuICAgICAgfVxuICAgICAgY29uc3Qgb3B0aW9uc0ZuID0gb3B0aW9ucy52YWxpZGF0ZU9wdGlvbnM7XG4gICAgICBjb25zdCBvcmlnaW5hbERlZmF1bHRPcHRpb25zID0gb3B0aW9ucy5kZWZhdWx0T3B0aW9ucztcbiAgICAgIGlmIChhbmd1bGFyLmlzRGVmaW5lZChvcHRpb25zRm4pKSB7XG4gICAgICAgIG9wdGlvbnMudmFsaWRhdGVPcHRpb25zID0gZnVuY3Rpb24ob3B0aW9ucykge1xuICAgICAgICAgIG9wdGlvbnNGbihvcHRpb25zKTtcbiAgICAgICAgICBsZXQgbWVyZ2VkT3B0aW9ucyA9IGFuZ3VsYXIuY29weShvcHRpb25zKTtcbiAgICAgICAgICBsZXQgZGVmYXVsdE9wdGlvbnMgPSBvcmlnaW5hbERlZmF1bHRPcHRpb25zO1xuICAgICAgICAgIGlmIChkZWZhdWx0T3B0aW9ucykge1xuICAgICAgICAgICAgaWYgKGFuZ3VsYXIuaXNGdW5jdGlvbihkZWZhdWx0T3B0aW9ucykpIHtcbiAgICAgICAgICAgICAgZGVmYXVsdE9wdGlvbnMgPSBkZWZhdWx0T3B0aW9ucyhtZXJnZWRPcHRpb25zKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHV0aWxzLnJldmVyc2VEZWVwTWVyZ2UobWVyZ2VkT3B0aW9ucywgZGVmYXVsdE9wdGlvbnMpO1xuICAgICAgICAgIH1cbiAgICAgICAgICBleHRlbmRzRm4obWVyZ2VkT3B0aW9ucyk7XG4gICAgICAgIH07XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBvcHRpb25zLnZhbGlkYXRlT3B0aW9ucyA9IGV4dGVuZHNGbjtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBleHRlbmRUeXBlRGVmYXVsdE9wdGlvbnMob3B0aW9ucywgZXh0ZW5kc1R5cGUpIHtcbiAgICAgIGNvbnN0IGV4dGVuZHNETyA9IGV4dGVuZHNUeXBlLmRlZmF1bHRPcHRpb25zO1xuICAgICAgaWYgKCFhbmd1bGFyLmlzRGVmaW5lZChleHRlbmRzRE8pKSB7XG4gICAgICAgIHJldHVybjtcbiAgICAgIH1cbiAgICAgIGNvbnN0IG9wdGlvbnNETyA9IG9wdGlvbnMuZGVmYXVsdE9wdGlvbnM7XG4gICAgICBjb25zdCBvcHRpb25zRE9Jc0ZuID0gYW5ndWxhci5pc0Z1bmN0aW9uKG9wdGlvbnNETyk7XG4gICAgICBjb25zdCBleHRlbmRzRE9Jc0ZuID0gYW5ndWxhci5pc0Z1bmN0aW9uKGV4dGVuZHNETyk7XG4gICAgICBpZiAoZXh0ZW5kc0RPSXNGbikge1xuICAgICAgICBvcHRpb25zLmRlZmF1bHRPcHRpb25zID0gZnVuY3Rpb24gZGVmYXVsdE9wdGlvbnMob3B0aW9ucykge1xuICAgICAgICAgIGNvbnN0IGV4dGVuZHNEZWZhdWx0T3B0aW9ucyA9IGV4dGVuZHNETyhvcHRpb25zKTtcbiAgICAgICAgICBjb25zdCBtZXJnZWREZWZhdWx0T3B0aW9ucyA9IHt9O1xuICAgICAgICAgIHV0aWxzLnJldmVyc2VEZWVwTWVyZ2UobWVyZ2VkRGVmYXVsdE9wdGlvbnMsIG9wdGlvbnMsIGV4dGVuZHNEZWZhdWx0T3B0aW9ucyk7XG4gICAgICAgICAgbGV0IGV4dGVuZGVyT3B0aW9uc0RlZmF1bHRPcHRpb25zID0gb3B0aW9uc0RPO1xuICAgICAgICAgIGlmIChvcHRpb25zRE9Jc0ZuKSB7XG4gICAgICAgICAgICBleHRlbmRlck9wdGlvbnNEZWZhdWx0T3B0aW9ucyA9IGV4dGVuZGVyT3B0aW9uc0RlZmF1bHRPcHRpb25zKG1lcmdlZERlZmF1bHRPcHRpb25zKTtcbiAgICAgICAgICB9XG4gICAgICAgICAgdXRpbHMucmV2ZXJzZURlZXBNZXJnZShleHRlbmRzRGVmYXVsdE9wdGlvbnMsIGV4dGVuZGVyT3B0aW9uc0RlZmF1bHRPcHRpb25zKTtcbiAgICAgICAgICByZXR1cm4gZXh0ZW5kc0RlZmF1bHRPcHRpb25zO1xuICAgICAgICB9O1xuICAgICAgfSBlbHNlIGlmIChvcHRpb25zRE9Jc0ZuKSB7XG4gICAgICAgIG9wdGlvbnMuZGVmYXVsdE9wdGlvbnMgPSBmdW5jdGlvbiBkZWZhdWx0T3B0aW9ucyhvcHRpb25zKSB7XG4gICAgICAgICAgbGV0IG5ld0RlZmF1bHRPcHRpb25zID0ge307XG4gICAgICAgICAgdXRpbHMucmV2ZXJzZURlZXBNZXJnZShuZXdEZWZhdWx0T3B0aW9ucywgb3B0aW9ucywgZXh0ZW5kc0RPKTtcbiAgICAgICAgICByZXR1cm4gb3B0aW9uc0RPKG5ld0RlZmF1bHRPcHRpb25zKTtcbiAgICAgICAgfTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBnZXRUeXBlKG5hbWUsIHRocm93RXJyb3IsIGVycm9yQ29udGV4dCkge1xuICAgICAgaWYgKCFuYW1lKSB7XG4gICAgICAgIHJldHVybiB1bmRlZmluZWQ7XG4gICAgICB9XG4gICAgICB2YXIgdHlwZSA9IHR5cGVNYXBbbmFtZV07XG4gICAgICBpZiAoIXR5cGUgJiYgdGhyb3dFcnJvciA9PT0gdHJ1ZSkge1xuICAgICAgICB0aHJvdyBnZXRFcnJvcihcbiAgICAgICAgICBgVGhlcmUgaXMgbm8gdHlwZSBieSB0aGUgbmFtZSBvZiBcIiR7bmFtZX1cIjogJHtKU09OLnN0cmluZ2lmeShlcnJvckNvbnRleHQpfWBcbiAgICAgICAgKTtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIHJldHVybiB0eXBlO1xuICAgICAgfVxuICAgIH1cblxuICAgIGZ1bmN0aW9uIHNldFdyYXBwZXIob3B0aW9ucywgbmFtZSkge1xuICAgICAgaWYgKGFuZ3VsYXIuaXNBcnJheShvcHRpb25zKSkge1xuICAgICAgICByZXR1cm4gb3B0aW9ucy5tYXAod3JhcHBlck9wdGlvbnMgPT4gc2V0V3JhcHBlcih3cmFwcGVyT3B0aW9ucykpO1xuICAgICAgfSBlbHNlIGlmIChhbmd1bGFyLmlzT2JqZWN0KG9wdGlvbnMpKSB7XG4gICAgICAgIG9wdGlvbnMudHlwZXMgPSBnZXRPcHRpb25zVHlwZXMob3B0aW9ucyk7XG4gICAgICAgIG9wdGlvbnMubmFtZSA9IGdldE9wdGlvbnNOYW1lKG9wdGlvbnMsIG5hbWUpO1xuICAgICAgICBjaGVja1dyYXBwZXJBUEkob3B0aW9ucyk7XG4gICAgICAgIHRlbXBsYXRlV3JhcHBlcnNNYXBbb3B0aW9ucy5uYW1lXSA9IG9wdGlvbnM7XG4gICAgICAgIHJldHVybiBvcHRpb25zO1xuICAgICAgfSBlbHNlIGlmIChhbmd1bGFyLmlzU3RyaW5nKG9wdGlvbnMpKSB7XG4gICAgICAgIHJldHVybiBzZXRXcmFwcGVyKHtcbiAgICAgICAgICB0ZW1wbGF0ZTogb3B0aW9ucyxcbiAgICAgICAgICBuYW1lXG4gICAgICAgIH0pO1xuICAgICAgfVxuICAgIH1cblxuICAgIGZ1bmN0aW9uIGdldE9wdGlvbnNUeXBlcyhvcHRpb25zKSB7XG4gICAgICBpZiAoYW5ndWxhci5pc1N0cmluZyhvcHRpb25zLnR5cGVzKSkge1xuICAgICAgICByZXR1cm4gW29wdGlvbnMudHlwZXNdO1xuICAgICAgfVxuICAgICAgaWYgKCFhbmd1bGFyLmlzRGVmaW5lZChvcHRpb25zLnR5cGVzKSkge1xuICAgICAgICByZXR1cm4gW107XG4gICAgICB9IGVsc2Uge1xuICAgICAgICByZXR1cm4gb3B0aW9ucy50eXBlcztcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBnZXRPcHRpb25zTmFtZShvcHRpb25zLCBuYW1lKSB7XG4gICAgICByZXR1cm4gb3B0aW9ucy5uYW1lIHx8IG5hbWUgfHwgb3B0aW9ucy50eXBlcy5qb2luKCcgJykgfHwgZGVmYXVsdFdyYXBwZXJOYW1lO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIGNoZWNrV3JhcHBlckFQSShvcHRpb25zKSB7XG4gICAgICBmb3JtbHlVc2FiaWxpdHlQcm92aWRlci5jaGVja1dyYXBwZXIob3B0aW9ucyk7XG4gICAgICBpZiAob3B0aW9ucy50ZW1wbGF0ZSkge1xuICAgICAgICBmb3JtbHlVc2FiaWxpdHlQcm92aWRlci5jaGVja1dyYXBwZXJUZW1wbGF0ZShvcHRpb25zLnRlbXBsYXRlLCBvcHRpb25zKTtcbiAgICAgIH1cbiAgICAgIGlmICghb3B0aW9ucy5vdmVyd3JpdGVPaykge1xuICAgICAgICBjaGVja092ZXJ3cml0ZShvcHRpb25zLm5hbWUsIHRlbXBsYXRlV3JhcHBlcnNNYXAsIG9wdGlvbnMsICd0ZW1wbGF0ZVdyYXBwZXJzJyk7XG4gICAgICB9IGVsc2Uge1xuICAgICAgICBkZWxldGUgb3B0aW9ucy5vdmVyd3JpdGVPaztcbiAgICAgIH1cbiAgICAgIGNoZWNrV3JhcHBlclR5cGVzKG9wdGlvbnMpO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIGNoZWNrV3JhcHBlclR5cGVzKG9wdGlvbnMpIHtcbiAgICAgIGxldCBzaG91bGRUaHJvdyA9ICFhbmd1bGFyLmlzQXJyYXkob3B0aW9ucy50eXBlcykgfHwgIW9wdGlvbnMudHlwZXMuZXZlcnkoYW5ndWxhci5pc1N0cmluZyk7XG4gICAgICBpZiAoc2hvdWxkVGhyb3cpIHtcbiAgICAgICAgdGhyb3cgZ2V0RXJyb3IoYEF0dGVtcHRlZCB0byBjcmVhdGUgYSB0ZW1wbGF0ZSB3cmFwcGVyIHdpdGggdHlwZXMgdGhhdCBpcyBub3QgYSBzdHJpbmcgb3IgYW4gYXJyYXkgb2Ygc3RyaW5nc2ApO1xuICAgICAgfVxuICAgIH1cblxuICAgIGZ1bmN0aW9uIGNoZWNrT3ZlcndyaXRlKHByb3BlcnR5LCBvYmplY3QsIG5ld1ZhbHVlLCBvYmplY3ROYW1lKSB7XG4gICAgICBpZiAob2JqZWN0Lmhhc093blByb3BlcnR5KHByb3BlcnR5KSkge1xuICAgICAgICB3YXJuKFtcbiAgICAgICAgICBgQXR0ZW1wdGluZyB0byBvdmVyd3JpdGUgJHtwcm9wZXJ0eX0gb24gJHtvYmplY3ROYW1lfSB3aGljaCBpcyBjdXJyZW50bHlgLFxuICAgICAgICAgIGAke0pTT04uc3RyaW5naWZ5KG9iamVjdFtwcm9wZXJ0eV0pfSB3aXRoICR7SlNPTi5zdHJpbmdpZnkobmV3VmFsdWUpfWAsXG4gICAgICAgICAgYFRvIHN1cHJlc3MgdGhpcyB3YXJuaW5nLCBzcGVjaWZ5IHRoZSBwcm9wZXJ0eSBcIm92ZXJ3cml0ZU9rOiB0cnVlXCJgXG4gICAgICAgIF0uam9pbignICcpKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBnZXRXcmFwcGVyKG5hbWUpIHtcbiAgICAgIHJldHVybiB0ZW1wbGF0ZVdyYXBwZXJzTWFwW25hbWUgfHwgZGVmYXVsdFdyYXBwZXJOYW1lXTtcbiAgICB9XG5cbiAgICBmdW5jdGlvbiBnZXRXcmFwcGVyQnlUeXBlKHR5cGUpIHtcbiAgICAgIC8qIGpzaGludCBtYXhjb21wbGV4aXR5OjYgKi9cbiAgICAgIHZhciB3cmFwcGVycyA9IFtdO1xuICAgICAgZm9yICh2YXIgbmFtZSBpbiB0ZW1wbGF0ZVdyYXBwZXJzTWFwKSB7XG4gICAgICAgIGlmICh0ZW1wbGF0ZVdyYXBwZXJzTWFwLmhhc093blByb3BlcnR5KG5hbWUpKSB7XG4gICAgICAgICAgaWYgKHRlbXBsYXRlV3JhcHBlcnNNYXBbbmFtZV0udHlwZXMgJiYgdGVtcGxhdGVXcmFwcGVyc01hcFtuYW1lXS50eXBlcy5pbmRleE9mKHR5cGUpICE9PSAtMSkge1xuICAgICAgICAgICAgd3JhcHBlcnMucHVzaCh0ZW1wbGF0ZVdyYXBwZXJzTWFwW25hbWVdKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICAgIHJldHVybiB3cmFwcGVycztcbiAgICB9XG5cbiAgICBmdW5jdGlvbiByZW1vdmVXcmFwcGVyQnlOYW1lKG5hbWUpIHtcbiAgICAgIHZhciB3cmFwcGVyID0gdGVtcGxhdGVXcmFwcGVyc01hcFtuYW1lXTtcbiAgICAgIGRlbGV0ZSB0ZW1wbGF0ZVdyYXBwZXJzTWFwW25hbWVdO1xuICAgICAgcmV0dXJuIHdyYXBwZXI7XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gcmVtb3ZlV3JhcHBlcnNGb3JUeXBlKHR5cGUpIHtcbiAgICAgIHZhciB3cmFwcGVycyA9IGdldFdyYXBwZXJCeVR5cGUodHlwZSk7XG4gICAgICBpZiAoIXdyYXBwZXJzKSB7XG4gICAgICAgIHJldHVybjtcbiAgICAgIH1cbiAgICAgIGlmICghYW5ndWxhci5pc0FycmF5KHdyYXBwZXJzKSkge1xuICAgICAgICByZXR1cm4gcmVtb3ZlV3JhcHBlckJ5TmFtZSh3cmFwcGVycy5uYW1lKTtcbiAgICAgIH0gZWxzZSB7XG4gICAgICAgIHdyYXBwZXJzLmZvckVhY2goKHdyYXBwZXIpID0+IHJlbW92ZVdyYXBwZXJCeU5hbWUod3JhcHBlci5uYW1lKSk7XG4gICAgICAgIHJldHVybiB3cmFwcGVycztcbiAgICAgIH1cbiAgICB9XG5cblxuICAgIGZ1bmN0aW9uIHdhcm4oKSB7XG4gICAgICBpZiAoIV90aGlzLmRpc2FibGVXYXJuaW5ncykge1xuICAgICAgICBjb25zb2xlLndhcm4oLi4uYXJndW1lbnRzKTtcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuXG5cbn07XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9wcm92aWRlcnMvZm9ybWx5Q29uZmlnLmpzXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIG5nTW9kdWxlLmNvbnN0YW50KCdmb3JtbHlWZXJzaW9uJywgVkVSU0lPTik7XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vcHJvdmlkZXJzL2Zvcm1seVZlcnNpb24uanNcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IG5nTW9kdWxlID0+IHtcbiAgbmdNb2R1bGUuY29uc3RhbnQoXG4gICAgJ2Zvcm1seUVycm9yQW5kV2FybmluZ3NVcmxQcmVmaXgnLFxuICAgIGBodHRwczovL2dpdGh1Yi5jb20vZm9ybWx5LWpzL2FuZ3VsYXItZm9ybWx5L2Jsb2IvJHtWRVJTSU9OfS9vdGhlci9FUlJPUlNfQU5EX1dBUk5JTkdTLm1kI2BcbiAgKTtcbn07XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9wcm92aWRlcnMvZm9ybWx5RXJyb3JBbmRXYXJuaW5nc1VybFByZWZpeC5qc1xuICoqLyIsIm1vZHVsZS5leHBvcnRzID0gbmdNb2R1bGUgPT4ge1xuICBuZ01vZHVsZS5mYWN0b3J5KCdmb3JtbHlWYWxpZGF0aW9uTWVzc2FnZXMnLCBmdW5jdGlvbigpIHtcblxuICAgIHZhciBmb3JtbHlWYWxpZGF0aW9uTWVzc2FnZXMgPSB7XG4gICAgICBhZGRUZW1wbGF0ZU9wdGlvblZhbHVlTWVzc2FnZSxcbiAgICAgIGFkZFN0cmluZ01lc3NhZ2UsXG4gICAgICBtZXNzYWdlczoge31cbiAgICB9O1xuXG4gICAgcmV0dXJuIGZvcm1seVZhbGlkYXRpb25NZXNzYWdlcztcblxuICAgIGZ1bmN0aW9uIGFkZFRlbXBsYXRlT3B0aW9uVmFsdWVNZXNzYWdlKG5hbWUsIHByb3AsIHByZWZpeCwgc3VmZml4LCBhbHRlcm5hdGUpIHtcbiAgICAgIGZvcm1seVZhbGlkYXRpb25NZXNzYWdlcy5tZXNzYWdlc1tuYW1lXSA9IHRlbXBsYXRlT3B0aW9uVmFsdWUocHJvcCwgcHJlZml4LCBzdWZmaXgsIGFsdGVybmF0ZSk7XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gYWRkU3RyaW5nTWVzc2FnZShuYW1lLCBzdHJpbmcpIHtcbiAgICAgIGZvcm1seVZhbGlkYXRpb25NZXNzYWdlcy5tZXNzYWdlc1tuYW1lXSA9ICgpID0+IHN0cmluZztcbiAgICB9XG5cblxuICAgIGZ1bmN0aW9uIHRlbXBsYXRlT3B0aW9uVmFsdWUocHJvcCwgcHJlZml4LCBzdWZmaXgsIGFsdGVybmF0ZSkge1xuICAgICAgcmV0dXJuIGZ1bmN0aW9uIGdldFZhbGlkYXRpb25NZXNzYWdlKHZpZXdWYWx1ZSwgbW9kZWxWYWx1ZSwgc2NvcGUpIHtcbiAgICAgICAgaWYgKHNjb3BlLm9wdGlvbnMudGVtcGxhdGVPcHRpb25zW3Byb3BdKSB7XG4gICAgICAgICAgcmV0dXJuIGAke3ByZWZpeH0gJHtzY29wZS5vcHRpb25zLnRlbXBsYXRlT3B0aW9uc1twcm9wXX0gJHtzdWZmaXh9YDtcbiAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICByZXR1cm4gYWx0ZXJuYXRlO1xuICAgICAgICB9XG4gICAgICB9O1xuICAgIH1cbiAgfSk7XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vcHJvdmlkZXJzL2Zvcm1seVZhbGlkYXRpb25NZXNzYWdlcy5qc1xuICoqLyIsImNvbnN0IHV0aWxzID0gcmVxdWlyZSgnLi4vb3RoZXIvdXRpbHMnKTtcblxubW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIG5nTW9kdWxlLmZhY3RvcnkoJ2Zvcm1seVV0aWwnLCBmb3JtbHlVdGlsKTtcblxuICBmb3JtbHlVdGlsLnRlc3RzID0gT05fVEVTVCA/IHJlcXVpcmUoJy4vZm9ybWx5VXRpbC50ZXN0JykobmdNb2R1bGUpIDogbnVsbDtcblxuICBmdW5jdGlvbiBmb3JtbHlVdGlsKCkge1xuICAgIHJldHVybiB1dGlscztcbiAgfVxufTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL3NlcnZpY2VzL2Zvcm1seVV0aWwuanNcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IG5nTW9kdWxlID0+IHtcbiAgbmdNb2R1bGUuZmFjdG9yeSgnZm9ybWx5V2FybicsIGZ1bmN0aW9uIChmb3JtbHlDb25maWcsIGZvcm1seUVycm9yQW5kV2FybmluZ3NVcmxQcmVmaXgsICRsb2cpIHtcbiAgICByZXR1cm4gZnVuY3Rpb24gd2FybigpIHtcbiAgICAgIGlmICghZm9ybWx5Q29uZmlnLmRpc2FibGVXYXJuaW5ncykge1xuICAgICAgICB2YXIgYXJncyA9IEFycmF5LnByb3RvdHlwZS5zbGljZS5jYWxsKGFyZ3VtZW50cyk7XG4gICAgICAgIHZhciB3YXJuSW5mb1NsdWcgPSBhcmdzLnNoaWZ0KCk7XG4gICAgICAgIGFyZ3MudW5zaGlmdCgnRm9ybWx5IFdhcm5pbmc6Jyk7XG4gICAgICAgIGFyZ3MucHVzaChgJHtmb3JtbHlFcnJvckFuZFdhcm5pbmdzVXJsUHJlZml4fSR7d2FybkluZm9TbHVnfWApO1xuICAgICAgICAkbG9nLndhcm4oLi4uYXJncyk7XG4gICAgICB9XG4gICAgfTtcbiAgfSk7XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vc2VydmljZXMvZm9ybWx5V2Fybi5qc1xuICoqLyIsIm1vZHVsZS5leHBvcnRzID0gbmdNb2R1bGUgPT4ge1xuICBuZ01vZHVsZS5kaXJlY3RpdmUoJ2Zvcm1seUN1c3RvbVZhbGlkYXRpb24nLCBmb3JtbHlDdXN0b21WYWxpZGF0aW9uKTtcblxuICBmb3JtbHlDdXN0b21WYWxpZGF0aW9uLnRlc3RzID0gT05fVEVTVCA/IHJlcXVpcmUoJy4vZm9ybWx5LWN1c3RvbS12YWxpZGF0aW9uLnRlc3QnKShuZ01vZHVsZSkgOiBudWxsO1xuXG4gIGZ1bmN0aW9uIGZvcm1seUN1c3RvbVZhbGlkYXRpb24oZm9ybWx5VXRpbCwgJHEpIHtcbiAgICByZXR1cm4ge1xuICAgICAgcmVzdHJpY3Q6ICdBJyxcbiAgICAgIHJlcXVpcmU6ICduZ01vZGVsJyxcbiAgICAgIGxpbms6IGZ1bmN0aW9uKHNjb3BlLCBlbCwgYXR0cnMsIGN0cmwpIHtcbiAgICAgICAgdmFyIHZhbGlkYXRvcnMgPSBzY29wZS4kZXZhbChhdHRycy5mb3JtbHlDdXN0b21WYWxpZGF0aW9uKTtcbiAgICAgICAgaWYgKCF2YWxpZGF0b3JzKSB7XG4gICAgICAgICAgcmV0dXJuO1xuICAgICAgICB9XG4gICAgICAgIGNoZWNrVmFsaWRhdG9ycyh2YWxpZGF0b3JzKTtcbiAgICAgICAgc2NvcGUub3B0aW9ucy52YWxpZGF0aW9uLm1lc3NhZ2VzID0gc2NvcGUub3B0aW9ucy52YWxpZGF0aW9uLm1lc3NhZ2VzIHx8IHt9O1xuXG5cbiAgICAgICAgdmFyIHVzZU5ld1ZhbGlkYXRvcnNBcGkgPSBjdHJsLmhhc093blByb3BlcnR5KCckdmFsaWRhdG9ycycpICYmICFhdHRycy5oYXNPd25Qcm9wZXJ0eSgndXNlUGFyc2VycycpO1xuICAgICAgICBhbmd1bGFyLmZvckVhY2godmFsaWRhdG9ycywgZnVuY3Rpb24odmFsaWRhdG9yLCBuYW1lKSB7XG4gICAgICAgICAgdmFyIG1lc3NhZ2UgPSB2YWxpZGF0b3IubWVzc2FnZTtcbiAgICAgICAgICBpZiAobWVzc2FnZSkge1xuICAgICAgICAgICAgc2NvcGUub3B0aW9ucy52YWxpZGF0aW9uLm1lc3NhZ2VzW25hbWVdID0gKCkgPT4ge1xuICAgICAgICAgICAgICByZXR1cm4gZm9ybWx5VXRpbC5mb3JtbHlFdmFsKHNjb3BlLCBtZXNzYWdlLCBjdHJsLiRtb2RlbFZhbHVlLCBjdHJsLiR2aWV3VmFsdWUpO1xuICAgICAgICAgICAgfTtcbiAgICAgICAgICB9XG4gICAgICAgICAgdmFsaWRhdG9yID0gYW5ndWxhci5pc09iamVjdCh2YWxpZGF0b3IpID8gdmFsaWRhdG9yLmV4cHJlc3Npb24gOiB2YWxpZGF0b3I7XG4gICAgICAgICAgdmFyIGlzUG9zc2libHlBc3luYyA9ICFhbmd1bGFyLmlzU3RyaW5nKHZhbGlkYXRvcik7XG4gICAgICAgICAgaWYgKHVzZU5ld1ZhbGlkYXRvcnNBcGkpIHtcbiAgICAgICAgICAgIHNldHVwV2l0aFZhbGlkYXRvcnMoKTtcbiAgICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgc2V0dXBXaXRoUGFyc2VycygpO1xuICAgICAgICAgIH1cblxuICAgICAgICAgIGZ1bmN0aW9uIHNldHVwV2l0aFZhbGlkYXRvcnMoKSB7XG4gICAgICAgICAgICB2YXIgdmFsaWRhdG9yQ29sbGVjdGlvbiA9IGlzUG9zc2libHlBc3luYyA/ICckYXN5bmNWYWxpZGF0b3JzJyA6ICckdmFsaWRhdG9ycyc7XG4gICAgICAgICAgICBjdHJsW3ZhbGlkYXRvckNvbGxlY3Rpb25dW25hbWVdID0gZnVuY3Rpb24obW9kZWxWYWx1ZSwgdmlld1ZhbHVlKSB7XG4gICAgICAgICAgICAgIHZhciB2YWx1ZSA9IGZvcm1seVV0aWwuZm9ybWx5RXZhbChzY29wZSwgdmFsaWRhdG9yLCBtb2RlbFZhbHVlLCB2aWV3VmFsdWUpO1xuICAgICAgICAgICAgICBpZiAoaXNQb3NzaWJseUFzeW5jKSB7XG4gICAgICAgICAgICAgICAgcmV0dXJuIGlzUHJvbWlzZUxpa2UodmFsdWUpID8gdmFsdWUgOiB2YWx1ZSA/ICRxLndoZW4odmFsdWUpIDogJHEucmVqZWN0KHZhbHVlKTtcbiAgICAgICAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICAgICAgICByZXR1cm4gdmFsdWU7XG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH07XG4gICAgICAgICAgfVxuXG4gICAgICAgICAgZnVuY3Rpb24gc2V0dXBXaXRoUGFyc2VycygpIHtcbiAgICAgICAgICAgIGxldCBpbkZsaWdodFZhbGlkYXRvcjtcbiAgICAgICAgICAgIGN0cmwuJHBhcnNlcnMudW5zaGlmdChmdW5jdGlvbih2aWV3VmFsdWUpIHtcbiAgICAgICAgICAgICAgdmFyIGlzVmFsaWQgPSBmb3JtbHlVdGlsLmZvcm1seUV2YWwoc2NvcGUsIHZhbGlkYXRvciwgY3RybC4kbW9kZWxWYWx1ZSwgdmlld1ZhbHVlKTtcbiAgICAgICAgICAgICAgaWYgKGlzUHJvbWlzZUxpa2UoaXNWYWxpZCkpIHtcbiAgICAgICAgICAgICAgICBjdHJsLiRwZW5kaW5nID0gY3RybC4kcGVuZGluZyB8fCB7fTtcbiAgICAgICAgICAgICAgICBjdHJsLiRwZW5kaW5nW25hbWVdID0gdHJ1ZTtcbiAgICAgICAgICAgICAgICBpbkZsaWdodFZhbGlkYXRvciA9IGlzVmFsaWQ7XG4gICAgICAgICAgICAgICAgaXNWYWxpZC50aGVuKCgpID0+IHtcbiAgICAgICAgICAgICAgICAgIGlmIChpbkZsaWdodFZhbGlkYXRvciA9PT0gaXNWYWxpZCkge1xuICAgICAgICAgICAgICAgICAgICBjdHJsLiRzZXRWYWxpZGl0eShuYW1lLCB0cnVlKTtcbiAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICB9KS5jYXRjaCgoKSA9PiB7XG4gICAgICAgICAgICAgICAgICBpZiAoaW5GbGlnaHRWYWxpZGF0b3IgPT09IGlzVmFsaWQpIHtcbiAgICAgICAgICAgICAgICAgICAgY3RybC4kc2V0VmFsaWRpdHkobmFtZSwgZmFsc2UpO1xuICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIH0pLmZpbmFsbHkoKCkgPT4ge1xuICAgICAgICAgICAgICAgICAgaWYgKE9iamVjdC5rZXlzKGN0cmwuJHBlbmRpbmcpLmxlbmd0aCA9PT0gMSkge1xuICAgICAgICAgICAgICAgICAgICBkZWxldGUgY3RybC4kcGVuZGluZztcbiAgICAgICAgICAgICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICAgICAgICAgIGRlbGV0ZSBjdHJsLiRwZW5kaW5nW25hbWVdO1xuICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgICAgIGN0cmwuJHNldFZhbGlkaXR5KG5hbWUsIGlzVmFsaWQpO1xuICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgIHJldHVybiB2aWV3VmFsdWU7XG4gICAgICAgICAgICB9KTtcbiAgICAgICAgICB9XG4gICAgICAgIH0pO1xuICAgICAgfVxuICAgIH07XG5cbiAgICBmdW5jdGlvbiBpc1Byb21pc2VMaWtlKG9iaikge1xuICAgICAgcmV0dXJuIG9iaiAmJiBhbmd1bGFyLmlzRnVuY3Rpb24ob2JqLnRoZW4pO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIGNoZWNrVmFsaWRhdG9ycyh2YWxpZGF0b3JzKSB7XG4gICAgICB2YXIgYWxsb3dlZFByb3BlcnRpZXMgPSBbJ2V4cHJlc3Npb24nLCAnbWVzc2FnZSddO1xuICAgICAgdmFyIHZhbGlkYXRvcnNXaXRoRXh0cmFQcm9wcyA9IHt9O1xuICAgICAgYW5ndWxhci5mb3JFYWNoKHZhbGlkYXRvcnMsICh2YWxpZGF0b3IsIG5hbWUpID0+IHtcbiAgICAgICAgaWYgKGFuZ3VsYXIuaXNTdHJpbmcodmFsaWRhdG9yKSkge1xuICAgICAgICAgIHJldHVybjtcbiAgICAgICAgfVxuICAgICAgICB2YXIgZXh0cmFQcm9wcyA9IFtdO1xuICAgICAgICBhbmd1bGFyLmZvckVhY2godmFsaWRhdG9yLCAodiwga2V5KSA9PiB7XG4gICAgICAgICAgaWYgKGFsbG93ZWRQcm9wZXJ0aWVzLmluZGV4T2Yoa2V5KSA9PT0gLTEpIHtcbiAgICAgICAgICAgIGV4dHJhUHJvcHMucHVzaChrZXkpO1xuICAgICAgICAgIH1cbiAgICAgICAgfSk7XG4gICAgICAgIGlmIChleHRyYVByb3BzLmxlbmd0aCkge1xuICAgICAgICAgIHZhbGlkYXRvcnNXaXRoRXh0cmFQcm9wc1tuYW1lXSA9IGV4dHJhUHJvcHM7XG4gICAgICAgIH1cbiAgICAgIH0pO1xuICAgICAgaWYgKE9iamVjdC5rZXlzKHZhbGlkYXRvcnNXaXRoRXh0cmFQcm9wcykubGVuZ3RoKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihbXG4gICAgICAgICAgYFZhbGlkYXRvcnMgYXJlIG9ubHkgYWxsb3dlZCB0byBiZSBmdW5jdGlvbnMgb3Igb2JqZWN0cyB0aGF0IGhhdmUgJHthbGxvd2VkUHJvcGVydGllcy5qb2luKCcsICcpfS5gLFxuICAgICAgICAgIGBZb3UgcHJvdmlkZWQgc29tZSBleHRyYSBwcm9wZXJ0aWVzOiAke0pTT04uc3RyaW5naWZ5KHZhbGlkYXRvcnNXaXRoRXh0cmFQcm9wcyl9YFxuICAgICAgICBdLmpvaW4oJyAnKSk7XG4gICAgICB9XG4gICAgfVxuICB9XG59O1xuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi4vfi9qc2hpbnQtbG9hZGVyIS4vZGlyZWN0aXZlcy9mb3JtbHktY3VzdG9tLXZhbGlkYXRpb24uanNcbiAqKi8iLCJsZXQgYW5ndWxhciA9IHJlcXVpcmUoJ2FuZ3VsYXItZml4Jyk7XG5cbm1vZHVsZS5leHBvcnRzID0gbmdNb2R1bGUgPT4ge1xuICBuZ01vZHVsZS5kaXJlY3RpdmUoJ2Zvcm1seUZpZWxkJywgZm9ybWx5RmllbGQpO1xuXG4gIGZvcm1seUZpZWxkLnRlc3RzID0gT05fVEVTVCA/IHJlcXVpcmUoJy4vZm9ybWx5LWZpZWxkLnRlc3QnKShuZ01vZHVsZSkgOiBudWxsO1xuXG4gIC8qKlxuICAgKiBAbmdkb2MgZGlyZWN0aXZlXG4gICAqIEBuYW1lIGZvcm1seUZpZWxkXG4gICAqIEByZXN0cmljdCBBRVxuICAgKi9cbiAgZnVuY3Rpb24gZm9ybWx5RmllbGQoJGh0dHAsICRxLCAkY29tcGlsZSwgJHRlbXBsYXRlQ2FjaGUsIGZvcm1seUNvbmZpZywgZm9ybWx5VmFsaWRhdGlvbk1lc3NhZ2VzLCBmb3JtbHlBcGlDaGVjayxcbiAgICAgICAgICAgICAgICAgICAgICAgZm9ybWx5VXRpbCwgZm9ybWx5VXNhYmlsaXR5LCBmb3JtbHlXYXJuKSB7XG4gICAgcmV0dXJuIHtcbiAgICAgIHJlc3RyaWN0OiAnQUUnLFxuICAgICAgdHJhbnNjbHVkZTogdHJ1ZSxcbiAgICAgIHNjb3BlOiB7XG4gICAgICAgIG9wdGlvbnM6ICc9JyxcbiAgICAgICAgbW9kZWw6ICc9JyxcbiAgICAgICAgZm9ybUlkOiAnPT8nLFxuICAgICAgICBpbmRleDogJz0/JyxcbiAgICAgICAgZmllbGRzOiAnPT8nLFxuICAgICAgICBmb3JtU3RhdGU6ICc9PycsXG4gICAgICAgIGZvcm06ICc9PydcbiAgICAgIH0sXG4gICAgICBjb250cm9sbGVyOiBmdW5jdGlvbiBmaWVsZENvbnRyb2xsZXIoJHNjb3BlLCAkdGltZW91dCwgJHBhcnNlLCAkY29udHJvbGxlcikge1xuICAgICAgICB2YXIgb3B0cyA9ICRzY29wZS5vcHRpb25zO1xuICAgICAgICB2YXIgZmllbGRUeXBlID0gb3B0cy50eXBlICYmIGZvcm1seUNvbmZpZy5nZXRUeXBlKG9wdHMudHlwZSk7XG4gICAgICAgIHNpbXBsaWZ5TGlmZShvcHRzKTtcbiAgICAgICAgbWVyZ2VGaWVsZE9wdGlvbnNXaXRoVHlwZURlZmF1bHRzKG9wdHMsIGZpZWxkVHlwZSk7XG4gICAgICAgIGV4dGVuZE9wdGlvbnNXaXRoRGVmYXVsdHMob3B0cywgJHNjb3BlLmluZGV4KTtcbiAgICAgICAgY2hlY2tBcGkob3B0cyk7XG4gICAgICAgIC8vIHNldCBmaWVsZCBpZCB0byBsaW5rIGxhYmVscyBhbmQgZmllbGRzXG4gICAgICAgICRzY29wZS5pZCA9IGZvcm1seVV0aWwuZ2V0RmllbGRJZCgkc2NvcGUuZm9ybUlkLCBvcHRzLCAkc2NvcGUuaW5kZXgpO1xuXG4gICAgICAgIC8vIGluaXRhbGl6YXRpb25cbiAgICAgICAgcnVuRXhwcmVzc2lvbnMoKTtcbiAgICAgICAgc2V0Rm9ybUNvbnRyb2woJHNjb3BlLCBvcHRzKTtcbiAgICAgICAgYWRkTW9kZWxXYXRjaGVyKCRzY29wZSwgb3B0cyk7XG4gICAgICAgIGFkZFZhbGlkYXRpb25NZXNzYWdlcyhvcHRzKTtcbiAgICAgICAgLy8gc2ltcGxpZnkgdGhpbmdzXG4gICAgICAgIC8vIGNyZWF0ZSAkc2NvcGUudG8gc28gdGVtcGxhdGUgYXV0aG9ycyBjYW4gcmVmZXJlbmNlIHRvIGluc3RlYWQgb2YgJHNjb3BlLm9wdGlvbnMudGVtcGxhdGVPcHRpb25zXG4gICAgICAgICRzY29wZS50byA9ICRzY29wZS5vcHRpb25zLnRlbXBsYXRlT3B0aW9ucztcbiAgICAgICAgaW52b2tlQ29udHJvbGxlcnMoJHNjb3BlLCBvcHRzLCBmaWVsZFR5cGUpO1xuXG4gICAgICAgIC8vIGZ1bmN0aW9uIGRlZmluaXRpb25zXG4gICAgICAgIGZ1bmN0aW9uIHJ1bkV4cHJlc3Npb25zKCkge1xuICAgICAgICAgICR0aW1lb3V0KGZ1bmN0aW9uKCkgeyAvLyBtdXN0IHJ1biBvbiBuZXh0IHRpY2sgdG8gbWFrZSBzdXJlIHRoYXQgdGhlIGN1cnJlbnQgdmFsdWUgaXMgY29ycmVjdC5cbiAgICAgICAgICAgIHZhciBmaWVsZCA9ICRzY29wZS5vcHRpb25zO1xuICAgICAgICAgICAgdmFyIGN1cnJlbnRWYWx1ZSA9IHZhbHVlR2V0dGVyU2V0dGVyKCk7XG4gICAgICAgICAgICBhbmd1bGFyLmZvckVhY2goZmllbGQuZXhwcmVzc2lvblByb3BlcnRpZXMsIGZ1bmN0aW9uIHJ1bkV4cHJlc3Npb24oZXhwcmVzc2lvbiwgcHJvcCkge1xuICAgICAgICAgICAgICB2YXIgc2V0dGVyID0gJHBhcnNlKHByb3ApLmFzc2lnbjtcbiAgICAgICAgICAgICAgdmFyIHByb21pc2UgPSAkcS53aGVuKGZvcm1seVV0aWwuZm9ybWx5RXZhbCgkc2NvcGUsIGV4cHJlc3Npb24sIGN1cnJlbnRWYWx1ZSkpO1xuICAgICAgICAgICAgICBwcm9taXNlLnRoZW4oZnVuY3Rpb24odmFsdWUpIHtcbiAgICAgICAgICAgICAgICBzZXR0ZXIoZmllbGQsIHZhbHVlKTtcbiAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICB9KTtcbiAgICAgICAgICB9KTtcbiAgICAgICAgfVxuXG4gICAgICAgIGZ1bmN0aW9uIHZhbHVlR2V0dGVyU2V0dGVyKG5ld1ZhbCkge1xuICAgICAgICAgIGlmICghJHNjb3BlLm1vZGVsIHx8ICEkc2NvcGUub3B0aW9ucy5rZXkpIHtcbiAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICB9XG4gICAgICAgICAgaWYgKGFuZ3VsYXIuaXNEZWZpbmVkKG5ld1ZhbCkpIHtcbiAgICAgICAgICAgICRzY29wZS5tb2RlbFskc2NvcGUub3B0aW9ucy5rZXldID0gbmV3VmFsO1xuICAgICAgICAgIH1cbiAgICAgICAgICByZXR1cm4gJHNjb3BlLm1vZGVsWyRzY29wZS5vcHRpb25zLmtleV07XG4gICAgICAgIH1cblxuICAgICAgICBmdW5jdGlvbiBzaW1wbGlmeUxpZmUob3B0aW9ucykge1xuICAgICAgICAgIC8vIGFkZCBhIGZldyBlbXB0eSBvYmplY3RzIChpZiB0aGV5IGRvbid0IGFscmVhZHkgZXhpc3QpIHNvIHlvdSBkb24ndCBoYXZlIHRvIHVuZGVmaW5lZCBjaGVjayBldmVyeXdoZXJlXG4gICAgICAgICAgZm9ybWx5VXRpbC5yZXZlcnNlRGVlcE1lcmdlKG9wdGlvbnMsIHtcbiAgICAgICAgICAgIGRhdGE6IHt9LFxuICAgICAgICAgICAgdGVtcGxhdGVPcHRpb25zOiB7fSxcbiAgICAgICAgICAgIHZhbGlkYXRpb246IHt9XG4gICAgICAgICAgfSk7XG4gICAgICAgIH1cblxuICAgICAgICBmdW5jdGlvbiBtZXJnZUZpZWxkT3B0aW9uc1dpdGhUeXBlRGVmYXVsdHMob3B0aW9ucywgdHlwZSkge1xuICAgICAgICAgIGlmICh0eXBlKSB7XG4gICAgICAgICAgICBtZXJnZU9wdGlvbnMob3B0aW9ucywgdHlwZS5kZWZhdWx0T3B0aW9ucyk7XG4gICAgICAgICAgfVxuICAgICAgICAgIHZhciBwcm9wZXJPcmRlciA9IGFycmF5aWZ5KG9wdGlvbnMub3B0aW9uc1R5cGVzKS5yZXZlcnNlKCk7IC8vIHNvIHRoZSByaWdodCB0aGluZ3MgYXJlIG92ZXJyaWRkZW5cbiAgICAgICAgICBhbmd1bGFyLmZvckVhY2gocHJvcGVyT3JkZXIsIHR5cGVOYW1lID0+IHtcbiAgICAgICAgICAgIG1lcmdlT3B0aW9ucyhvcHRpb25zLCBmb3JtbHlDb25maWcuZ2V0VHlwZSh0eXBlTmFtZSwgdHJ1ZSwgb3B0aW9ucykuZGVmYXVsdE9wdGlvbnMpO1xuICAgICAgICAgIH0pO1xuICAgICAgICB9XG5cbiAgICAgICAgZnVuY3Rpb24gbWVyZ2VPcHRpb25zKG9wdGlvbnMsIGV4dHJhT3B0aW9ucykge1xuICAgICAgICAgIGlmIChleHRyYU9wdGlvbnMpIHtcbiAgICAgICAgICAgIGlmIChhbmd1bGFyLmlzRnVuY3Rpb24oZXh0cmFPcHRpb25zKSkge1xuICAgICAgICAgICAgICBleHRyYU9wdGlvbnMgPSBleHRyYU9wdGlvbnMob3B0aW9ucyk7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBmb3JtbHlVdGlsLnJldmVyc2VEZWVwTWVyZ2Uob3B0aW9ucywgZXh0cmFPcHRpb25zKTtcbiAgICAgICAgICB9XG4gICAgICAgIH1cblxuICAgICAgICBmdW5jdGlvbiBleHRlbmRPcHRpb25zV2l0aERlZmF1bHRzKG9wdGlvbnMsIGluZGV4KSB7XG4gICAgICAgICAgYW5ndWxhci5leHRlbmQob3B0aW9ucywge1xuICAgICAgICAgICAgLy8gYXR0YWNoIHRoZSBrZXkgaW4gY2FzZSB0aGUgZm9ybWx5LWZpZWxkIGRpcmVjdGl2ZSBpcyB1c2VkIGRpcmVjdGx5XG4gICAgICAgICAgICBrZXk6IG9wdGlvbnMua2V5IHx8IGluZGV4IHx8IDAsXG4gICAgICAgICAgICB2YWx1ZTogdmFsdWVHZXR0ZXJTZXR0ZXIsXG4gICAgICAgICAgICBydW5FeHByZXNzaW9uczogcnVuRXhwcmVzc2lvbnNcbiAgICAgICAgICB9KTtcbiAgICAgICAgfVxuXG4gICAgICAgIC8vIGluaXRpYWxpemF0aW9uIGZ1bmN0aW9uc1xuICAgICAgICBmdW5jdGlvbiBzZXRGb3JtQ29udHJvbChzY29wZSwgb3B0aW9ucykge1xuICAgICAgICAgIGlmIChvcHRpb25zLm5vRm9ybUNvbnRyb2wpIHtcbiAgICAgICAgICAgIHJldHVybjtcbiAgICAgICAgICB9XG4gICAgICAgICAgc2NvcGUuJHdhdGNoKCdmb3JtW1wiJyArIHNjb3BlLmlkICsgJ1wiXScsIGZ1bmN0aW9uKGZvcm1Db250cm9sKSB7XG4gICAgICAgICAgICBpZiAoZm9ybUNvbnRyb2wpIHtcbiAgICAgICAgICAgICAgc2NvcGUuZmMgPSBmb3JtQ29udHJvbDsgLy8gc2hvcnRjdXQgZm9yIHRlbXBsYXRlIGF1dGhvcnNcbiAgICAgICAgICAgICAgc2NvcGUub3B0aW9ucy5mb3JtQ29udHJvbCA9IGZvcm1Db250cm9sO1xuICAgICAgICAgICAgICBhZGRTaG93TWVzc2FnZXNXYXRjaGVyKHNjb3BlLCBvcHRpb25zKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICB9KTtcbiAgICAgICAgfVxuXG4gICAgICAgIGZ1bmN0aW9uIGFkZE1vZGVsV2F0Y2hlcihzY29wZSwgb3B0aW9ucykge1xuICAgICAgICAgIGlmIChvcHRpb25zLm1vZGVsKSB7XG4gICAgICAgICAgICBzY29wZS4kd2F0Y2goJ29wdGlvbnMubW9kZWwnLCBydW5FeHByZXNzaW9ucywgdHJ1ZSk7XG4gICAgICAgICAgfVxuICAgICAgICB9XG5cbiAgICAgICAgZnVuY3Rpb24gYWRkU2hvd01lc3NhZ2VzV2F0Y2hlcihzY29wZSwgb3B0aW9ucykge1xuICAgICAgICAgIHNjb3BlLiR3YXRjaChmdW5jdGlvbigpIHtcbiAgICAgICAgICAgIGlmICh0eXBlb2Ygc2NvcGUub3B0aW9ucy52YWxpZGF0aW9uLnNob3cgPT09ICdib29sZWFuJykge1xuICAgICAgICAgICAgICByZXR1cm4gc2NvcGUuZmMuJGludmFsaWQgJiYgc2NvcGUub3B0aW9ucy52YWxpZGF0aW9uLnNob3c7XG4gICAgICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgICByZXR1cm4gc2NvcGUuZmMuJGludmFsaWQgJiYgc2NvcGUuZmMuJHRvdWNoZWQ7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgfSwgZnVuY3Rpb24oc2hvdykge1xuICAgICAgICAgICAgb3B0aW9ucy52YWxpZGF0aW9uLmVycm9yRXhpc3RzQW5kU2hvdWxkQmVWaXNpYmxlID0gc2hvdztcbiAgICAgICAgICAgIHNjb3BlLnNob3dFcnJvciA9IHNob3c7IC8vIHNob3J0Y3V0IGZvciB0ZW1wbGF0ZSBhdXRob3JzXG4gICAgICAgICAgfSk7XG4gICAgICAgIH1cblxuICAgICAgICBmdW5jdGlvbiBhZGRWYWxpZGF0aW9uTWVzc2FnZXMob3B0aW9ucykge1xuICAgICAgICAgIG9wdGlvbnMudmFsaWRhdGlvbi5tZXNzYWdlcyA9IG9wdGlvbnMudmFsaWRhdGlvbi5tZXNzYWdlcyB8fCB7fTtcbiAgICAgICAgICBhbmd1bGFyLmZvckVhY2goZm9ybWx5VmFsaWRhdGlvbk1lc3NhZ2VzLm1lc3NhZ2VzLCBmdW5jdGlvbiAoZXhwcmVzc2lvbiwgbmFtZSkge1xuICAgICAgICAgICAgaWYgKCFvcHRpb25zLnZhbGlkYXRpb24ubWVzc2FnZXNbbmFtZV0pIHtcbiAgICAgICAgICAgICAgb3B0aW9ucy52YWxpZGF0aW9uLm1lc3NhZ2VzW25hbWVdID0gZnVuY3Rpb24gKHZpZXdWYWx1ZSwgbW9kZWxWYWx1ZSwgc2NvcGUpIHtcbiAgICAgICAgICAgICAgICByZXR1cm4gZm9ybWx5VXRpbC5mb3JtbHlFdmFsKHNjb3BlLCBleHByZXNzaW9uLCBtb2RlbFZhbHVlLCB2aWV3VmFsdWUpO1xuICAgICAgICAgICAgICB9O1xuICAgICAgICAgICAgfVxuICAgICAgICAgIH0pO1xuICAgICAgICB9XG5cbiAgICAgICAgZnVuY3Rpb24gaW52b2tlQ29udHJvbGxlcnMoc2NvcGUsIG9wdGlvbnMgPSB7fSwgdHlwZSA9IHt9KSB7XG4gICAgICAgICAgYW5ndWxhci5mb3JFYWNoKFt0eXBlLmNvbnRyb2xsZXIsIG9wdGlvbnMuY29udHJvbGxlcl0sIGNvbnRyb2xsZXIgPT4ge1xuICAgICAgICAgICAgaWYgKGNvbnRyb2xsZXIpIHtcbiAgICAgICAgICAgICAgJGNvbnRyb2xsZXIoY29udHJvbGxlciwgeyRzY29wZTogc2NvcGV9KTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICB9KTtcbiAgICAgICAgfVxuICAgICAgfSxcbiAgICAgIGxpbms6IGZ1bmN0aW9uIGZpZWxkTGluayhzY29wZSwgZWwpIHtcbiAgICAgICAgdmFyIHR5cGUgPSBzY29wZS5vcHRpb25zLnR5cGUgJiYgZm9ybWx5Q29uZmlnLmdldFR5cGUoc2NvcGUub3B0aW9ucy50eXBlKTtcbiAgICAgICAgdmFyIGFyZ3MgPSBhcmd1bWVudHM7XG4gICAgICAgIHZhciB0aHVzbHkgPSB0aGlzO1xuICAgICAgICBnZXRGaWVsZFRlbXBsYXRlKHNjb3BlLm9wdGlvbnMpXG4gICAgICAgICAgLnRoZW4ocnVuTWFuaXB1bGF0b3JzKGZvcm1seUNvbmZpZy50ZW1wbGF0ZU1hbmlwdWxhdG9ycy5wcmVXcmFwcGVyKSlcbiAgICAgICAgICAudGhlbih0cmFuc2NsdWRlSW5XcmFwcGVycyhzY29wZS5vcHRpb25zKSlcbiAgICAgICAgICAudGhlbihydW5NYW5pcHVsYXRvcnMoZm9ybWx5Q29uZmlnLnRlbXBsYXRlTWFuaXB1bGF0b3JzLnBvc3RXcmFwcGVyKSlcbiAgICAgICAgICAudGhlbihzZXRFbGVtZW50VGVtcGxhdGUpXG4gICAgICAgICAgLmNhdGNoKGVycm9yID0+IHtcbiAgICAgICAgICAgIGZvcm1seVdhcm4oXG4gICAgICAgICAgICAgICd0aGVyZS13YXMtYS1wcm9ibGVtLXNldHRpbmctdGhlLXRlbXBsYXRlLWZvci10aGlzLWZpZWxkJyxcbiAgICAgICAgICAgICAgJ1RoZXJlIHdhcyBhIHByb2JsZW0gc2V0dGluZyB0aGUgdGVtcGxhdGUgZm9yIHRoaXMgZmllbGQgJyxcbiAgICAgICAgICAgICAgc2NvcGUub3B0aW9ucyxcbiAgICAgICAgICAgICAgZXJyb3JcbiAgICAgICAgICAgICk7XG4gICAgICAgICAgfSk7XG5cbiAgICAgICAgZnVuY3Rpb24gc2V0RWxlbWVudFRlbXBsYXRlKHRlbXBsYXRlRWwpIHtcbiAgICAgICAgICBlbC5odG1sKGFzSHRtbCh0ZW1wbGF0ZUVsKSk7XG4gICAgICAgICAgJGNvbXBpbGUoZWwuY29udGVudHMoKSkoc2NvcGUpO1xuICAgICAgICAgIGlmICh0eXBlICYmIHR5cGUubGluaykge1xuICAgICAgICAgICAgdHlwZS5saW5rLmFwcGx5KHRodXNseSwgYXJncyk7XG4gICAgICAgICAgfVxuICAgICAgICAgIGlmIChzY29wZS5vcHRpb25zLmxpbmspIHtcbiAgICAgICAgICAgIHNjb3BlLm9wdGlvbnMubGluay5hcHBseSh0aHVzbHksIGFyZ3MpO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuXG4gICAgICAgIGZ1bmN0aW9uIHJ1bk1hbmlwdWxhdG9ycyhtYW5pcHVsYXRvcnMpIHtcbiAgICAgICAgICByZXR1cm4gZnVuY3Rpb24gcnVuTWFuaXB1bGF0b3JzT25UZW1wbGF0ZSh0ZW1wbGF0ZSkge1xuICAgICAgICAgICAgdmFyIGNoYWluID0gJHEud2hlbih0ZW1wbGF0ZSk7XG4gICAgICAgICAgICBhbmd1bGFyLmZvckVhY2gobWFuaXB1bGF0b3JzLCBtYW5pcHVsYXRvciA9PiB7XG4gICAgICAgICAgICAgIGNoYWluID0gY2hhaW4udGhlbih0ZW1wbGF0ZSA9PiB7XG4gICAgICAgICAgICAgICAgcmV0dXJuICRxLndoZW4obWFuaXB1bGF0b3IodGVtcGxhdGUsIHNjb3BlLm9wdGlvbnMsIHNjb3BlKSkudGhlbihuZXdUZW1wbGF0ZSA9PiB7XG4gICAgICAgICAgICAgICAgICByZXR1cm4gYW5ndWxhci5pc1N0cmluZyhuZXdUZW1wbGF0ZSkgPyBuZXdUZW1wbGF0ZSA6IGFzSHRtbChuZXdUZW1wbGF0ZSk7XG4gICAgICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICAgIH0pO1xuICAgICAgICAgICAgfSk7XG4gICAgICAgICAgICByZXR1cm4gY2hhaW47XG4gICAgICAgICAgfTtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH07XG5cbiAgICBmdW5jdGlvbiBhc0h0bWwoZWwpIHtcbiAgICAgIHZhciB3cmFwcGVyID0gYW5ndWxhci5lbGVtZW50KCc8YT48L2E+Jyk7XG4gICAgICByZXR1cm4gd3JhcHBlci5hcHBlbmQoZWwpLmh0bWwoKTtcbiAgICB9XG5cbiAgICBmdW5jdGlvbiBnZXRGaWVsZFRlbXBsYXRlKG9wdGlvbnMpIHtcbiAgICAgIGxldCB0eXBlID0gZm9ybWx5Q29uZmlnLmdldFR5cGUob3B0aW9ucy50eXBlLCB0cnVlLCBvcHRpb25zKTtcbiAgICAgIGxldCB0ZW1wbGF0ZSA9IG9wdGlvbnMudGVtcGxhdGUgfHwgdHlwZSAmJiB0eXBlLnRlbXBsYXRlO1xuICAgICAgbGV0IHRlbXBsYXRlVXJsID0gb3B0aW9ucy50ZW1wbGF0ZVVybCB8fCB0eXBlICYmIHR5cGUudGVtcGxhdGVVcmw7XG4gICAgICBpZiAoIXRlbXBsYXRlICYmICF0ZW1wbGF0ZVVybCkge1xuICAgICAgICB0aHJvdyBmb3JtbHlVc2FiaWxpdHkuZ2V0RmllbGRFcnJvcihcbiAgICAgICAgICAndHlwZS10eXBlLWhhcy1uby10ZW1wbGF0ZScsXG4gICAgICAgICAgYFR5cGUgJyR7b3B0aW9ucy50eXBlfScgaGFzIG5vdCB0ZW1wbGF0ZS4gT24gZWxlbWVudDpgLCBvcHRpb25zXG4gICAgICAgICk7XG4gICAgICB9XG4gICAgICByZXR1cm4gZ2V0VGVtcGxhdGUodGVtcGxhdGUgfHwgdGVtcGxhdGVVcmwsICF0ZW1wbGF0ZSk7XG4gICAgfVxuXG5cbiAgICBmdW5jdGlvbiBnZXRUZW1wbGF0ZSh0ZW1wbGF0ZSwgaXNVcmwpIHtcbiAgICAgIGlmICghaXNVcmwpIHtcbiAgICAgICAgcmV0dXJuICRxLndoZW4odGVtcGxhdGUpO1xuICAgICAgfSBlbHNlIHtcbiAgICAgICAgbGV0IGh0dHBPcHRpb25zID0ge2NhY2hlOiAkdGVtcGxhdGVDYWNoZX07XG4gICAgICAgIHJldHVybiAkaHR0cC5nZXQodGVtcGxhdGUsIGh0dHBPcHRpb25zKS50aGVuKGZ1bmN0aW9uKHJlc3BvbnNlKSB7XG4gICAgICAgICAgcmV0dXJuIHJlc3BvbnNlLmRhdGE7XG4gICAgICAgIH0pLmNhdGNoKGZ1bmN0aW9uKGVycm9yKSB7XG4gICAgICAgICAgZm9ybWx5V2FybihcbiAgICAgICAgICAgICdwcm9ibGVtLWxvYWRpbmctdGVtcGxhdGUtZm9yLXRlbXBsYXRldXJsJyxcbiAgICAgICAgICAgICdQcm9ibGVtIGxvYWRpbmcgdGVtcGxhdGUgZm9yICcgKyB0ZW1wbGF0ZSxcbiAgICAgICAgICAgIGVycm9yXG4gICAgICAgICAgKTtcbiAgICAgICAgfSk7XG4gICAgICB9XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gdHJhbnNjbHVkZUluV3JhcHBlcnMob3B0aW9ucykge1xuICAgICAgbGV0IHdyYXBwZXIgPSBnZXRXcmFwcGVyT3B0aW9uKG9wdGlvbnMpO1xuXG4gICAgICByZXR1cm4gZnVuY3Rpb24gdHJhbnNjbHVkZVRlbXBsYXRlKHRlbXBsYXRlKSB7XG4gICAgICAgIGlmICghd3JhcHBlci5sZW5ndGgpIHtcbiAgICAgICAgICByZXR1cm4gJHEud2hlbih0ZW1wbGF0ZSk7XG4gICAgICAgIH1cblxuICAgICAgICB3cmFwcGVyLmZvckVhY2goKHdyYXBwZXIpID0+IHtcbiAgICAgICAgICBmb3JtbHlVc2FiaWxpdHkuY2hlY2tXcmFwcGVyKHdyYXBwZXIsIG9wdGlvbnMpO1xuICAgICAgICAgIHdyYXBwZXIudmFsaWRhdGVPcHRpb25zICYmIHdyYXBwZXIudmFsaWRhdGVPcHRpb25zKG9wdGlvbnMpO1xuICAgICAgICAgIHJ1bkFwaUNoZWNrKHdyYXBwZXIsIG9wdGlvbnMpO1xuICAgICAgICB9KTtcbiAgICAgICAgbGV0IHByb21pc2VzID0gd3JhcHBlci5tYXAodyA9PiBnZXRUZW1wbGF0ZSh3LnRlbXBsYXRlIHx8IHcudGVtcGxhdGVVcmwsICF3LnRlbXBsYXRlKSk7XG4gICAgICAgIHJldHVybiAkcS5hbGwocHJvbWlzZXMpLnRoZW4od3JhcHBlcnNUZW1wbGF0ZXMgPT4ge1xuICAgICAgICAgIHdyYXBwZXJzVGVtcGxhdGVzLmZvckVhY2goKHdyYXBwZXJUZW1wbGF0ZSwgaW5kZXgpID0+IHtcbiAgICAgICAgICAgIGZvcm1seVVzYWJpbGl0eS5jaGVja1dyYXBwZXJUZW1wbGF0ZSh3cmFwcGVyVGVtcGxhdGUsIHdyYXBwZXJbaW5kZXhdKTtcbiAgICAgICAgICB9KTtcbiAgICAgICAgICB3cmFwcGVyc1RlbXBsYXRlcy5yZXZlcnNlKCk7IC8vIHdyYXBwZXIgMCBpcyB3cmFwcGVkIGluIHdyYXBwZXIgMSBhbmQgc28gb24uLi5cbiAgICAgICAgICBsZXQgdG90YWxXcmFwcGVyID0gd3JhcHBlcnNUZW1wbGF0ZXMuc2hpZnQoKTtcbiAgICAgICAgICB3cmFwcGVyc1RlbXBsYXRlcy5mb3JFYWNoKHdyYXBwZXJUZW1wbGF0ZSA9PiB7XG4gICAgICAgICAgICB0b3RhbFdyYXBwZXIgPSBkb1RyYW5zY2x1c2lvbih0b3RhbFdyYXBwZXIsIHdyYXBwZXJUZW1wbGF0ZSk7XG4gICAgICAgICAgfSk7XG4gICAgICAgICAgcmV0dXJuIGRvVHJhbnNjbHVzaW9uKHRvdGFsV3JhcHBlciwgdGVtcGxhdGUpO1xuICAgICAgICB9KTtcbiAgICAgIH07XG4gICAgfVxuXG4gICAgZnVuY3Rpb24gZG9UcmFuc2NsdXNpb24od3JhcHBlciwgdGVtcGxhdGUpIHtcbiAgICAgIGxldCBzdXBlcldyYXBwZXIgPSBhbmd1bGFyLmVsZW1lbnQoJzxhPjwvYT4nKTsgLy8gdGhpcyBhbGxvd3MgcGVvcGxlIG5vdCBoYXZlIHRvIGhhdmUgYSBzaW5nbGUgcm9vdCBpbiB3cmFwcGVyc1xuICAgICAgc3VwZXJXcmFwcGVyLmFwcGVuZCh3cmFwcGVyKTtcbiAgICAgIGxldCB0cmFuc2NsdWRlRWwgPSBzdXBlcldyYXBwZXIuZmluZCgnZm9ybWx5LXRyYW5zY2x1ZGUnKTtcbiAgICAgIGlmICghdHJhbnNjbHVkZUVsLmxlbmd0aCkge1xuICAgICAgICAvL3RyeSBpdCB1c2luZyBvdXIgY3VzdG9tIGZpbmQgZnVuY3Rpb25cbiAgICAgICAgdHJhbnNjbHVkZUVsID0gZm9ybWx5VXRpbC5maW5kQnlOb2RlTmFtZShzdXBlcldyYXBwZXIsICdmb3JtbHktdHJhbnNjbHVkZScpO1xuICAgICAgfVxuICAgICAgdHJhbnNjbHVkZUVsLnJlcGxhY2VXaXRoKHRlbXBsYXRlKTtcbiAgICAgIHJldHVybiBzdXBlcldyYXBwZXIuaHRtbCgpO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIGdldFdyYXBwZXJPcHRpb24ob3B0aW9ucykge1xuICAgICAgbGV0IHdyYXBwZXIgPSBvcHRpb25zLndyYXBwZXI7XG4gICAgICAvLyBleHBsaWNpdCBudWxsIG1lYW5zIG5vIHdyYXBwZXJcbiAgICAgIGlmICh3cmFwcGVyID09PSBudWxsKSB7XG4gICAgICAgIHJldHVybiBbXTtcbiAgICAgIH1cblxuICAgICAgLy8gbm90aGluZyBzcGVjaWZpZWQgbWVhbnMgdXNlIHRoZSBkZWZhdWx0IHdyYXBwZXIgZm9yIHRoZSB0eXBlXG4gICAgICBpZiAoIXdyYXBwZXIpIHtcbiAgICAgICAgLy8gZ2V0IGFsbCB3cmFwcGVycyB0aGF0IHNwZWNpZnkgdGhleSBhcHBseSB0byB0aGlzIHR5cGVcbiAgICAgICAgd3JhcHBlciA9IGFycmF5aWZ5KGZvcm1seUNvbmZpZy5nZXRXcmFwcGVyQnlUeXBlKG9wdGlvbnMudHlwZSkpO1xuICAgICAgfSBlbHNlIHtcbiAgICAgICAgd3JhcHBlciA9IGFycmF5aWZ5KHdyYXBwZXIpLm1hcChmb3JtbHlDb25maWcuZ2V0V3JhcHBlcik7XG4gICAgICB9XG5cbiAgICAgIC8vIGdldCBhbGwgd3JhcHBlcnMgZm9yIHRoYXQgdGhpcyB0eXBlIHNwZWNpZmllZCB0aGF0IGl0IHVzZXMuXG4gICAgICB2YXIgdHlwZSA9IGZvcm1seUNvbmZpZy5nZXRUeXBlKG9wdGlvbnMudHlwZSwgdHJ1ZSwgb3B0aW9ucyk7XG4gICAgICBpZiAodHlwZSAmJiB0eXBlLndyYXBwZXIpIHtcbiAgICAgICAgbGV0IHR5cGVXcmFwcGVycyA9IGFycmF5aWZ5KHR5cGUud3JhcHBlcikubWFwKGZvcm1seUNvbmZpZy5nZXRXcmFwcGVyKTtcbiAgICAgICAgd3JhcHBlciA9IHdyYXBwZXIuY29uY2F0KHR5cGVXcmFwcGVycyk7XG4gICAgICB9XG5cbiAgICAgIC8vIGFkZCB0aGUgZGVmYXVsdCB3cmFwcGVyIGxhc3RcbiAgICAgIHZhciBkZWZhdWx0V3JhcHBlciA9IGZvcm1seUNvbmZpZy5nZXRXcmFwcGVyKCk7XG4gICAgICBpZiAoZGVmYXVsdFdyYXBwZXIpIHtcbiAgICAgICAgd3JhcHBlci5wdXNoKGRlZmF1bHRXcmFwcGVyKTtcbiAgICAgIH1cbiAgICAgIHJldHVybiB3cmFwcGVyO1xuICAgIH1cblxuICAgIGZ1bmN0aW9uIGNoZWNrQXBpKG9wdGlvbnMpIHtcbiAgICAgIGZvcm1seUFwaUNoZWNrLnRocm93KGZvcm1seUFwaUNoZWNrLmZvcm1seUZpZWxkT3B0aW9ucywgYXJndW1lbnRzLCB7XG4gICAgICAgIHByZWZpeDogJ2Zvcm1seS1maWVsZCBkaXJlY3RpdmUnLFxuICAgICAgICB1cmw6ICdmb3JtbHktZmllbGQtZGlyZWN0aXZlLXZhbGlkYXRpb24tZmFpbGVkJ1xuICAgICAgfSk7XG4gICAgICAvLyB2YWxpZGF0ZSB3aXRoIHRoZSB0eXBlXG4gICAgICBjb25zdCB0eXBlID0gb3B0aW9ucy50eXBlICYmIGZvcm1seUNvbmZpZy5nZXRUeXBlKG9wdGlvbnMudHlwZSk7XG4gICAgICBpZiAodHlwZSkge1xuICAgICAgICBpZiAodHlwZS52YWxpZGF0ZU9wdGlvbnMpIHtcbiAgICAgICAgICB0eXBlLnZhbGlkYXRlT3B0aW9ucyhvcHRpb25zKTtcbiAgICAgICAgfVxuICAgICAgICBydW5BcGlDaGVjayh0eXBlLCBvcHRpb25zKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBmdW5jdGlvbiBydW5BcGlDaGVjayh7YXBpQ2hlY2ssIGFwaUNoZWNrSW5zdGFuY2UsIGFwaUNoZWNrRnVuY3Rpb24sIGFwaUNoZWNrT3B0aW9uc30sIG9wdGlvbnMpIHtcbiAgICAgIGlmICghYXBpQ2hlY2spIHtcbiAgICAgICAgcmV0dXJuO1xuICAgICAgfVxuICAgICAgY29uc3QgaW5zdGFuY2UgPSBhcGlDaGVja0luc3RhbmNlIHx8IGZvcm1seUFwaUNoZWNrO1xuICAgICAgY29uc3QgZm4gPSBhcGlDaGVja0Z1bmN0aW9uIHx8ICd3YXJuJztcbiAgICAgIGNvbnN0IHNoYXBlID0gaW5zdGFuY2Uuc2hhcGUoYXBpQ2hlY2spO1xuICAgICAgaW5zdGFuY2VbZm5dKHNoYXBlLCBbb3B0aW9uc10sIGFwaUNoZWNrT3B0aW9ucyB8fCB7XG4gICAgICAgIHByZWZpeDogYGZvcm1seS1maWVsZCAke25hbWV9YCxcbiAgICAgICAgdXJsOiBmb3JtbHlBcGlDaGVjay5jb25maWcub3V0cHV0LmRvY3NCYXNlVXJsICsgJ2Zvcm1seS1maWVsZC10eXBlLWFwaWNoZWNrLWZhaWxlZCdcbiAgICAgIH0pO1xuICAgIH1cblxuICB9XG5cbiAgZnVuY3Rpb24gYXJyYXlpZnkob2JqKSB7XG4gICAgaWYgKG9iaiAmJiAhYW5ndWxhci5pc0FycmF5KG9iaikpIHtcbiAgICAgIG9iaiA9IFtvYmpdO1xuICAgIH0gZWxzZSBpZiAoIW9iaikge1xuICAgICAgb2JqID0gW107XG4gICAgfVxuICAgIHJldHVybiBvYmo7XG4gIH1cbn07XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9kaXJlY3RpdmVzL2Zvcm1seS1maWVsZC5qc1xuICoqLyIsImxldCBhbmd1bGFyID0gcmVxdWlyZSgnYW5ndWxhci1maXgnKTtcblxubW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIG5nTW9kdWxlLmRpcmVjdGl2ZSgnZm9ybWx5Rm9ybScsIGZvcm1seUZvcm0pO1xuXG4gIGZvcm1seUZvcm0udGVzdHMgPSBPTl9URVNUID8gcmVxdWlyZSgnLi9mb3JtbHktZm9ybS50ZXN0JykobmdNb2R1bGUpIDogbnVsbDtcblxuICAvKipcbiAgICogQG5nZG9jIGRpcmVjdGl2ZVxuICAgKiBAbmFtZSBmb3JtbHlGb3JtXG4gICAqIEByZXN0cmljdCBFXG4gICAqL1xuICBmdW5jdGlvbiBmb3JtbHlGb3JtKGZvcm1seVVzYWJpbGl0eSkge1xuICAgIHZhciBjdXJyZW50Rm9ybUlkID0gMTtcbiAgICByZXR1cm4ge1xuICAgICAgcmVzdHJpY3Q6ICdFJyxcbiAgICAgIHRlbXBsYXRlOiBmdW5jdGlvbihlbCwgYXR0cnMpIHtcbiAgICAgICAgLyoganNoaW50IC1XMDMzICovIC8vIHRoaXMgYmVjYXVzZSBqc2hpbnQgaXMgYnJva2VuIEkgZ3Vlc3MuLi5cbiAgICAgICAgdmFyIHJvb3RFbCA9IGF0dHJzLnJvb3RFbCB8fCAnbmctZm9ybSc7XG4gICAgICAgIHJldHVybiBgXG4gICAgICAgICAgPCR7cm9vdEVsfSBjbGFzcz1cImZvcm1seVwiXG4gICAgICAgICAgICAgICAgICAgbmFtZT1cImZvcm1cIlxuICAgICAgICAgICAgICAgICAgIHJvbGU9XCJmb3JtXCI+XG4gICAgICAgICAgICA8ZGl2IGZvcm1seS1maWVsZFxuICAgICAgICAgICAgICAgICBuZy1yZXBlYXQ9XCJmaWVsZCBpbiBmaWVsZHMgdHJhY2sgYnkgJGluZGV4XCJcbiAgICAgICAgICAgICAgICAgbmctaWY9XCIhZmllbGQuaGlkZVwiXG4gICAgICAgICAgICAgICAgIGNsYXNzPVwiZm9ybWx5LWZpZWxkIHt7ZmllbGQudHlwZSA/ICdmb3JtbHktZmllbGQtJyArIGZpZWxkLnR5cGUgOiAnJ319XCJcbiAgICAgICAgICAgICAgICAgb3B0aW9ucz1cImZpZWxkXCJcbiAgICAgICAgICAgICAgICAgbW9kZWw9XCJmaWVsZC5tb2RlbCB8fCBtb2RlbFwiXG4gICAgICAgICAgICAgICAgIGZpZWxkcz1cImZpZWxkc1wiXG4gICAgICAgICAgICAgICAgIGZvcm09XCJmb3JtXCJcbiAgICAgICAgICAgICAgICAgZm9ybS1pZD1cImZvcm1JZFwiXG4gICAgICAgICAgICAgICAgIGZvcm0tc3RhdGU9XCJvcHRpb25zLmZvcm1TdGF0ZVwiXG4gICAgICAgICAgICAgICAgIGluZGV4PVwiJGluZGV4XCI+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgbmctdHJhbnNjbHVkZT48L2Rpdj5cbiAgICAgICAgICA8LyR7cm9vdEVsfT5cbiAgICAgICAgYDtcbiAgICAgIH0sXG4gICAgICByZXBsYWNlOiB0cnVlLFxuICAgICAgdHJhbnNjbHVkZTogdHJ1ZSxcbiAgICAgIHNjb3BlOiB7XG4gICAgICAgIGZpZWxkczogJz0nLFxuICAgICAgICBtb2RlbDogJz0nLCAvLyB3ZSdsbCBkbyBvdXIgb3duIHdhcm5pbmcgdG8gaGVscCB3aXRoIG1pZ3JhdGlvbnNcbiAgICAgICAgZm9ybTogJz0/JyxcbiAgICAgICAgb3B0aW9uczogJz0/J1xuICAgICAgfSxcbiAgICAgIGNvbnRyb2xsZXI6IGZ1bmN0aW9uKCRzY29wZSkge1xuICAgICAgICAkc2NvcGUuZm9ybUlkID0gYGZvcm1seV8ke2N1cnJlbnRGb3JtSWQrK31gO1xuICAgICAgICAkc2NvcGUub3B0aW9ucyA9ICRzY29wZS5vcHRpb25zIHx8IHt9O1xuICAgICAgICAkc2NvcGUub3B0aW9ucy5mb3JtU3RhdGUgPSAkc2NvcGUub3B0aW9ucy5mb3JtU3RhdGUgfHwge307XG5cbiAgICAgICAgYW5ndWxhci5mb3JFYWNoKCRzY29wZS5maWVsZHMsIGF0dGFjaEtleSk7IC8vIGF0dGFjaGVzIGEga2V5IGJhc2VkIG9uIHRoZSBpbmRleCBpZiBhIGtleSBpc24ndCBzcGVjaWZpZWRcbiAgICAgICAgYW5ndWxhci5mb3JFYWNoKCRzY29wZS5maWVsZHMsIHNldHVwV2F0Y2hlcnMpOyAvLyBzZXR1cCB3YXRjaGVycyBmb3IgYWxsIGZpZWxkc1xuXG4gICAgICAgIC8vIHdhdGNoIHRoZSBtb2RlbCBhbmQgZXZhbHVhdGUgd2F0Y2ggZXhwcmVzc2lvbnMgdGhhdCBkZXBlbmQgb24gaXQuXG4gICAgICAgICRzY29wZS4kd2F0Y2goJ21vZGVsJywgZnVuY3Rpb24gb25SZXN1bHRVcGRhdGUobmV3UmVzdWx0KSB7XG4gICAgICAgICAgYW5ndWxhci5mb3JFYWNoKCRzY29wZS5maWVsZHMsIGZ1bmN0aW9uKGZpZWxkKSB7XG4gICAgICAgICAgICAvKmpzaGludCAtVzAzMCAqL1xuICAgICAgICAgICAgZmllbGQucnVuRXhwcmVzc2lvbnMgJiYgZmllbGQucnVuRXhwcmVzc2lvbnMobmV3UmVzdWx0KTtcbiAgICAgICAgICB9KTtcbiAgICAgICAgfSwgdHJ1ZSk7XG5cbiAgICAgICAgZnVuY3Rpb24gYXR0YWNoS2V5KGZpZWxkLCBpbmRleCkge1xuICAgICAgICAgIGZpZWxkLmtleSA9IGZpZWxkLmtleSB8fCBpbmRleCB8fCAwO1xuICAgICAgICB9XG5cbiAgICAgICAgZnVuY3Rpb24gc2V0dXBXYXRjaGVycyhmaWVsZCwgaW5kZXgpIHtcbiAgICAgICAgICBpZiAoIWFuZ3VsYXIuaXNEZWZpbmVkKGZpZWxkLndhdGNoZXIpKSB7XG4gICAgICAgICAgICByZXR1cm47XG4gICAgICAgICAgfVxuICAgICAgICAgIHZhciB3YXRjaGVycyA9IGZpZWxkLndhdGNoZXI7XG4gICAgICAgICAgaWYgKCFhbmd1bGFyLmlzQXJyYXkod2F0Y2hlcnMpKSB7XG4gICAgICAgICAgICB3YXRjaGVycyA9IFt3YXRjaGVyc107XG4gICAgICAgICAgfVxuICAgICAgICAgIGFuZ3VsYXIuZm9yRWFjaCh3YXRjaGVycywgZnVuY3Rpb24od2F0Y2hlcikge1xuICAgICAgICAgICAgaWYgKCFhbmd1bGFyLmlzRGVmaW5lZCh3YXRjaGVyLmxpc3RlbmVyKSkge1xuICAgICAgICAgICAgICB0aHJvdyBmb3JtbHlVc2FiaWxpdHkuZ2V0RmllbGRFcnJvcihcbiAgICAgICAgICAgICAgICAnYWxsLWZpZWxkLXdhdGNoZXJzLW11c3QtaGF2ZS1hLWxpc3RlbmVyJyxcbiAgICAgICAgICAgICAgICAnQWxsIGZpZWxkIHdhdGNoZXJzIG11c3QgaGF2ZSBhIGxpc3RlbmVyJywgZmllbGRcbiAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAgIHZhciB3YXRjaEV4cHJlc3Npb24gPSBnZXRXYXRjaEV4cHJlc3Npb24od2F0Y2hlciwgZmllbGQsIGluZGV4KTtcbiAgICAgICAgICAgIHZhciB3YXRjaExpc3RlbmVyID0gZ2V0V2F0Y2hMaXN0ZW5lcih3YXRjaGVyLCBmaWVsZCwgaW5kZXgpO1xuXG4gICAgICAgICAgICB2YXIgdHlwZSA9IHdhdGNoZXIudHlwZSB8fCAnJHdhdGNoJztcbiAgICAgICAgICAgIHdhdGNoZXIuc3RvcFdhdGNoaW5nID0gJHNjb3BlW3R5cGVdKHdhdGNoRXhwcmVzc2lvbiwgd2F0Y2hMaXN0ZW5lciwgd2F0Y2hlci53YXRjaERlZXApO1xuICAgICAgICAgIH0pO1xuICAgICAgICB9XG5cbiAgICAgICAgZnVuY3Rpb24gZ2V0V2F0Y2hFeHByZXNzaW9uKHdhdGNoZXIsIGZpZWxkLCBpbmRleCkge1xuICAgICAgICAgIHZhciB3YXRjaEV4cHJlc3Npb24gPSB3YXRjaGVyLmV4cHJlc3Npb24gfHwgYG1vZGVsWycke2ZpZWxkLmtleX0nXWA7XG4gICAgICAgICAgaWYgKGFuZ3VsYXIuaXNGdW5jdGlvbih3YXRjaEV4cHJlc3Npb24pKSB7XG4gICAgICAgICAgICAvLyB3cmFwIHRoZSBmaWVsZCdzIHdhdGNoIGV4cHJlc3Npb24gc28gd2UgY2FuIGNhbGwgaXQgd2l0aCB0aGUgZmllbGQgYXMgdGhlIGZpcnN0IGFyZ1xuICAgICAgICAgICAgLy8gYW5kIHRoZSBzdG9wIGZ1bmN0aW9uIGFzIHRoZSBsYXN0IGFyZyBhcyBhIGhlbHBlclxuICAgICAgICAgICAgdmFyIG9yaWdpbmFsRXhwcmVzc2lvbiA9IHdhdGNoRXhwcmVzc2lvbjtcbiAgICAgICAgICAgIHdhdGNoRXhwcmVzc2lvbiA9IGZ1bmN0aW9uIGZvcm1seVdhdGNoRXhwcmVzc2lvbigpIHtcbiAgICAgICAgICAgICAgdmFyIGFyZ3MgPSBtb2RpZnlBcmdzKHdhdGNoZXIsIGluZGV4LCAuLi5hcmd1bWVudHMpO1xuICAgICAgICAgICAgICByZXR1cm4gb3JpZ2luYWxFeHByZXNzaW9uKC4uLmFyZ3MpO1xuICAgICAgICAgICAgfTtcbiAgICAgICAgICAgIHdhdGNoRXhwcmVzc2lvbi5kaXNwbGF5TmFtZSA9IGBGb3JtbHkgV2F0Y2ggRXhwcmVzc2lvbiBmb3IgZmllbGQgZm9yICR7ZmllbGQua2V5fWA7XG4gICAgICAgICAgfVxuICAgICAgICAgIHJldHVybiB3YXRjaEV4cHJlc3Npb247XG4gICAgICAgIH1cblxuICAgICAgICBmdW5jdGlvbiBnZXRXYXRjaExpc3RlbmVyKHdhdGNoZXIsIGZpZWxkLCBpbmRleCkge1xuICAgICAgICAgIHZhciB3YXRjaExpc3RlbmVyID0gd2F0Y2hlci5saXN0ZW5lcjtcbiAgICAgICAgICBpZiAoYW5ndWxhci5pc0Z1bmN0aW9uKHdhdGNoTGlzdGVuZXIpKSB7XG4gICAgICAgICAgICAvLyB3cmFwIHRoZSBmaWVsZCdzIHdhdGNoIGxpc3RlbmVyIHNvIHdlIGNhbiBjYWxsIGl0IHdpdGggdGhlIGZpZWxkIGFzIHRoZSBmaXJzdCBhcmdcbiAgICAgICAgICAgIC8vIGFuZCB0aGUgc3RvcCBmdW5jdGlvbiBhcyB0aGUgbGFzdCBhcmcgYXMgYSBoZWxwZXJcbiAgICAgICAgICAgIHZhciBvcmlnaW5hbExpc3RlbmVyID0gd2F0Y2hMaXN0ZW5lcjtcbiAgICAgICAgICAgIHdhdGNoTGlzdGVuZXIgPSBmdW5jdGlvbiBmb3JtbHlXYXRjaExpc3RlbmVyKCkge1xuICAgICAgICAgICAgICB2YXIgYXJncyA9IG1vZGlmeUFyZ3Mod2F0Y2hlciwgaW5kZXgsIC4uLmFyZ3VtZW50cyk7XG4gICAgICAgICAgICAgIHJldHVybiBvcmlnaW5hbExpc3RlbmVyKC4uLmFyZ3MpO1xuICAgICAgICAgICAgfTtcbiAgICAgICAgICAgIHdhdGNoTGlzdGVuZXIuZGlzcGxheU5hbWUgPSBgRm9ybWx5IFdhdGNoIExpc3RlbmVyIGZvciBmaWVsZCBmb3IgJHtmaWVsZC5rZXl9YDtcbiAgICAgICAgICB9XG4gICAgICAgICAgcmV0dXJuIHdhdGNoTGlzdGVuZXI7XG4gICAgICAgIH1cblxuICAgICAgICBmdW5jdGlvbiBtb2RpZnlBcmdzKHdhdGNoZXIsIGluZGV4LCAuLi5vcmlnaW5hbEFyZ3MpIHtcbiAgICAgICAgICByZXR1cm4gWyRzY29wZS5maWVsZHNbaW5kZXhdLCAuLi5vcmlnaW5hbEFyZ3MsIHdhdGNoZXIuc3RvcFdhdGNoaW5nXTtcbiAgICAgICAgfVxuICAgICAgfSxcbiAgICAgIGxpbms6IGZ1bmN0aW9uKHNjb3BlLCBlbCwgYXR0cnMpIHtcbiAgICAgICAgaWYgKGF0dHJzLmhhc093blByb3BlcnR5KCdyZXN1bHQnKSkge1xuICAgICAgICAgIHRocm93IGZvcm1seVVzYWJpbGl0eS5nZXRGb3JtbHlFcnJvcihcbiAgICAgICAgICAgICdUaGUgXCJyZXN1bHRcIiBhdHRyaWJ1dGUgb24gYSBmb3JtbHktZm9ybSBpcyBubyBsb25nZXIgdmFsaWQuIFVzZSBcIm1vZGVsXCIgaW5zdGVhZCdcbiAgICAgICAgICApO1xuICAgICAgICB9XG4gICAgICAgIGlmIChhdHRycy5uYW1lICE9PSAnZm9ybScpIHsgLy8gdGhlbiB0aGV5IHNwZWNpZmllZCB0aGVpciBvd24gbmFtZVxuICAgICAgICAgIHRocm93IGZvcm1seVVzYWJpbGl0eS5nZXRGb3JtbHlFcnJvcihcbiAgICAgICAgICAgICdUaGUgXCJuYW1lXCIgYXR0cmlidXRlIG9uIGEgZm9ybWx5LWZvcm0gaXMgbm8gbG9uZ2VyIHZhbGlkLiBVc2UgXCJmb3JtXCIgaW5zdGVhZCdcbiAgICAgICAgICApO1xuICAgICAgICB9XG4gICAgICB9XG4gICAgfTtcbiAgfVxufTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL2RpcmVjdGl2ZXMvZm9ybWx5LWZvcm0uanNcbiAqKi8iLCJtb2R1bGUuZXhwb3J0cyA9IG5nTW9kdWxlID0+IHtcbiAgbmdNb2R1bGUuZGlyZWN0aXZlKCdmb3JtbHlGb2N1cycsIGZ1bmN0aW9uKCR0aW1lb3V0LCAkZG9jdW1lbnQpIHtcbiAgICAvKiBqc2hpbnQgLVcwNTIgKi9cbiAgICByZXR1cm4ge1xuICAgICAgcmVzdHJpY3Q6ICdBJyxcbiAgICAgIGxpbms6IGZ1bmN0aW9uKHNjb3BlLCBlbGVtZW50LCBhdHRycykge1xuICAgICAgICB2YXIgcHJldmlvdXNFbCA9IG51bGw7XG4gICAgICAgIHZhciBlbCA9IGVsZW1lbnRbMF07XG4gICAgICAgIHZhciBkb2MgPSAkZG9jdW1lbnRbMF07XG4gICAgICAgIGF0dHJzLiRvYnNlcnZlKCdmb3JtbHlGb2N1cycsIGZ1bmN0aW9uKHZhbHVlKSB7XG4gICAgICAgICAgaWYgKHZhbHVlID09PSAndHJ1ZScpIHtcbiAgICAgICAgICAgICR0aW1lb3V0KGZ1bmN0aW9uKCkge1xuICAgICAgICAgICAgICBwcmV2aW91c0VsID0gZG9jLmFjdGl2ZUVsZW1lbnQ7XG4gICAgICAgICAgICAgIGVsLmZvY3VzKCk7XG4gICAgICAgICAgICB9LCB+fmF0dHJzLmZvY3VzV2FpdCk7XG4gICAgICAgICAgfSBlbHNlIGlmICh2YWx1ZSA9PT0gJ2ZhbHNlJykge1xuICAgICAgICAgICAgaWYgKGRvYy5hY3RpdmVFbGVtZW50ID09PSBlbCkge1xuICAgICAgICAgICAgICBlbC5ibHVyKCk7XG4gICAgICAgICAgICAgIGlmIChhdHRycy5oYXNPd25Qcm9wZXJ0eSgncmVmb2N1cycpICYmIHByZXZpb3VzRWwpIHtcbiAgICAgICAgICAgICAgICBwcmV2aW91c0VsLmZvY3VzKCk7XG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgICB9XG4gICAgICAgIH0pO1xuICAgICAgfVxuICAgIH07XG4gIH0pO1xufTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL2RpcmVjdGl2ZXMvZm9ybWx5LWZvY3VzLmpzXG4gKiovIiwibW9kdWxlLmV4cG9ydHMgPSBuZ01vZHVsZSA9PiB7XG4gIG5nTW9kdWxlLnJ1bihhZGRGb3JtbHlOZ01vZGVsQXR0cnNNYW5pcHVsYXRvcik7XG5cbiAgZnVuY3Rpb24gYWRkRm9ybWx5TmdNb2RlbEF0dHJzTWFuaXB1bGF0b3IoZm9ybWx5Q29uZmlnKSB7XG4gICAgaWYgKGZvcm1seUNvbmZpZy5leHRyYXMuZGlzYWJsZU5nTW9kZWxBdHRyc01hbmlwdWxhdG9yKSB7XG4gICAgICByZXR1cm47XG4gICAgfVxuICAgIGZvcm1seUNvbmZpZy50ZW1wbGF0ZU1hbmlwdWxhdG9ycy5wcmVXcmFwcGVyLnB1c2gobmdNb2RlbEF0dHJzTWFuaXB1bGF0b3IpO1xuXG5cbiAgICBmdW5jdGlvbiBuZ01vZGVsQXR0cnNNYW5pcHVsYXRvcih0ZW1wbGF0ZSwgb3B0aW9ucywgc2NvcGUpIHtcbiAgICAgIC8qIGpzaGludCBtYXhjb21wbGV4aXR5OjcgKi9cbiAgICAgIHZhciBlbCA9IGFuZ3VsYXIuZWxlbWVudCgnPGE+PC9hPicpO1xuICAgICAgdmFyIGRhdGEgPSBvcHRpb25zLmRhdGE7XG4gICAgICBpZiAoZGF0YS5ub1RvdWNoeSkge1xuICAgICAgICByZXR1cm4gdGVtcGxhdGU7XG4gICAgICB9XG4gICAgICBlbC5hcHBlbmQodGVtcGxhdGUpO1xuICAgICAgdmFyIG1vZGVsRWxzID0gYW5ndWxhci5lbGVtZW50KGVsWzBdLnF1ZXJ5U2VsZWN0b3JBbGwoJ1tuZy1tb2RlbF0nKSk7XG4gICAgICBpZiAoIW1vZGVsRWxzIHx8ICFtb2RlbEVscy5sZW5ndGgpIHtcbiAgICAgICAgcmV0dXJuIHRlbXBsYXRlO1xuICAgICAgfVxuXG4gICAgICBhZGRJZk5vdFByZXNlbnQobW9kZWxFbHMsICdpZCcsIHNjb3BlLmlkKTtcbiAgICAgIGFkZElmTm90UHJlc2VudChtb2RlbEVscywgJ25hbWUnLCBzY29wZS5pZCk7XG5cbiAgICAgIGlmIChhbmd1bGFyLmlzRGVmaW5lZChvcHRpb25zLnZhbGlkYXRvcnMpKSB7XG4gICAgICAgIGFkZElmTm90UHJlc2VudChtb2RlbEVscywgJ2Zvcm1seS1jdXN0b20tdmFsaWRhdGlvbicsICdvcHRpb25zLnZhbGlkYXRvcnMnKTtcbiAgICAgIH1cbiAgICAgIGlmIChhbmd1bGFyLmlzRGVmaW5lZChvcHRpb25zLm1vZGVsT3B0aW9ucykpIHtcbiAgICAgICAgYWRkSWZOb3RQcmVzZW50KG1vZGVsRWxzLCAnbmctbW9kZWwtb3B0aW9ucycsICdvcHRpb25zLm1vZGVsT3B0aW9ucycpO1xuICAgICAgICBpZiAob3B0aW9ucy5tb2RlbE9wdGlvbnMuZ2V0dGVyU2V0dGVyKSB7XG4gICAgICAgICAgbW9kZWxFbHMuYXR0cignbmctbW9kZWwnLCAnb3B0aW9ucy52YWx1ZScpO1xuICAgICAgICB9XG4gICAgICB9XG4gICAgICBhZGRUZW1wbGF0ZU9wdGlvbnNBdHRycygpO1xuXG4gICAgICByZXR1cm4gZWwuaHRtbCgpO1xuXG5cbiAgICAgIGZ1bmN0aW9uIGFkZFRlbXBsYXRlT3B0aW9uc0F0dHJzKCkge1xuICAgICAgICBpZiAoIW9wdGlvbnMudGVtcGxhdGVPcHRpb25zICYmICFvcHRpb25zLmV4cHJlc3Npb25Qcm9wZXJ0aWVzKSB7XG4gICAgICAgICAgLy8gbm8gbmVlZCB0byBydW4gdGhlc2UgaWYgdGhlcmUgYXJlIG5vIHRlbXBsYXRlT3B0aW9ucyBvciBleHByZXNzaW9uUHJvcGVydGllc1xuICAgICAgICAgIHJldHVybjtcbiAgICAgICAgfVxuICAgICAgICBjb25zdCB0byA9IG9wdGlvbnMudGVtcGxhdGVPcHRpb25zIHx8IHt9O1xuICAgICAgICBjb25zdCBlcCA9IG9wdGlvbnMuZXhwcmVzc2lvblByb3BlcnRpZXMgfHwge307XG5cbiAgICAgICAgbGV0IG5nTW9kZWxBdHRyaWJ1dGVzID0gZ2V0QnVpbHRpbkF0dHJpYnV0ZXMoKTtcblxuICAgICAgICAvLyBleHRlbmQgd2l0aCB0aGUgdXNlcidzIHNwZWNpZmljYXRpb25zIHdpbm5pbmdcbiAgICAgICAgYW5ndWxhci5leHRlbmQobmdNb2RlbEF0dHJpYnV0ZXMsIG9wdGlvbnMubmdNb2RlbEF0dHJzKTtcblxuICAgICAgICBhbmd1bGFyLmZvckVhY2gobmdNb2RlbEF0dHJpYnV0ZXMsICh2YWwsIG5hbWUpID0+IHtcbiAgICAgICAgICAvKiBqc2hpbnQgbWF4Y29tcGxleGl0eToxMCAqL1xuICAgICAgICAgIGxldCBhdHRyVmFsO1xuICAgICAgICAgIGxldCBhdHRyTmFtZTtcbiAgICAgICAgICBjb25zdCByZWYgPSBgb3B0aW9ucy50ZW1wbGF0ZU9wdGlvbnNbJyR7bmFtZX0nXWA7XG4gICAgICAgICAgY29uc3QgdG9WYWwgPSB0b1tuYW1lXTtcbiAgICAgICAgICBjb25zdCBlcFZhbCA9IGdldEVwVmFsdWUoZXAsIG5hbWUpO1xuXG4gICAgICAgICAgY29uc3QgaW5UbyA9IGFuZ3VsYXIuaXNEZWZpbmVkKHRvVmFsKTtcbiAgICAgICAgICBjb25zdCBpbkVwID0gYW5ndWxhci5pc0RlZmluZWQoZXBWYWwpO1xuICAgICAgICAgIGlmICh2YWwudmFsdWUpIHtcbiAgICAgICAgICAgIC8vIEkgcmVhbGl6ZSB0aGlzIGxvb2tzIGJhY2t3YXJkcywgYnV0IGl0J3MgcmlnaHQsIHRydXN0IG1lLi4uXG4gICAgICAgICAgICBhdHRyTmFtZSA9IHZhbC52YWx1ZTtcbiAgICAgICAgICAgIGF0dHJWYWwgPSBuYW1lO1xuICAgICAgICAgIH0gZWxzZSBpZiAodmFsLmV4cHJlc3Npb24gJiYgaW5Ubykge1xuICAgICAgICAgICAgYXR0ck5hbWUgPSB2YWwuZXhwcmVzc2lvbjtcbiAgICAgICAgICAgIGlmIChhbmd1bGFyLmlzU3RyaW5nKHRvW25hbWVdKSkge1xuICAgICAgICAgICAgICBhdHRyVmFsID0gYCRldmFsKCR7cmVmfSlgO1xuICAgICAgICAgICAgfSBlbHNlIGlmIChhbmd1bGFyLmlzRnVuY3Rpb24odG9bbmFtZV0pKSB7XG4gICAgICAgICAgICAgIGF0dHJWYWwgPSBgJHtyZWZ9KG1vZGVsW29wdGlvbnMua2V5XSwgb3B0aW9ucywgdGhpcywgJGV2ZW50KWA7XG4gICAgICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgICB0aHJvdyBuZXcgRXJyb3IoXG4gICAgICAgICAgICAgICAgYG9wdGlvbnMudGVtcGxhdGVPcHRpb25zLiR7bmFtZX0gbXVzdCBiZSBhIHN0cmluZyBvciBmdW5jdGlvbjogJHtKU09OLnN0cmluZ2lmeShvcHRpb25zKX1gXG4gICAgICAgICAgICAgICk7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgfSBlbHNlIGlmICh2YWwuYm91bmQgJiYgaW5FcCkge1xuICAgICAgICAgICAgYXR0ck5hbWUgPSB2YWwuYm91bmQ7XG4gICAgICAgICAgICBhdHRyVmFsID0gcmVmO1xuICAgICAgICAgIH0gZWxzZSBpZiAodmFsLmF0dHJpYnV0ZSAmJiBpbkVwKSB7XG4gICAgICAgICAgICBhdHRyTmFtZSA9IHZhbC5hdHRyaWJ1dGU7XG4gICAgICAgICAgICBhdHRyVmFsID0gYHt7JHtyZWZ9fX1gO1xuICAgICAgICAgIH0gZWxzZSBpZiAodmFsLmF0dHJpYnV0ZSAmJiBpblRvKSB7XG4gICAgICAgICAgICBhdHRyTmFtZSA9IHZhbC5hdHRyaWJ1dGU7XG4gICAgICAgICAgICBhdHRyVmFsID0gdG9WYWw7XG4gICAgICAgICAgfSBlbHNlIGlmICh2YWwuYm91bmQgJiYgaW5Ubykge1xuICAgICAgICAgICAgYXR0ck5hbWUgPSB2YWwuYm91bmQ7XG4gICAgICAgICAgICBhdHRyVmFsID0gcmVmO1xuICAgICAgICAgIH1cbiAgICAgICAgICBpZiAoYW5ndWxhci5pc0RlZmluZWQoYXR0ck5hbWUpICYmIGFuZ3VsYXIuaXNEZWZpbmVkKGF0dHJWYWwpKSB7XG4gICAgICAgICAgICBhZGRJZk5vdFByZXNlbnQobW9kZWxFbHMsIGF0dHJOYW1lLCBhdHRyVmFsKTtcbiAgICAgICAgICB9XG4gICAgICAgIH0pO1xuICAgICAgfVxuXG4gICAgICBmdW5jdGlvbiBnZXRCdWlsdGluQXR0cmlidXRlcygpIHtcbiAgICAgICAgbGV0IG5nTW9kZWxBdHRyaWJ1dGVzID0ge1xuICAgICAgICAgIGZvY3VzOiB7XG4gICAgICAgICAgICBhdHRyaWJ1dGU6ICdmb3JtbHktZm9jdXMnXG4gICAgICAgICAgfVxuICAgICAgICB9O1xuICAgICAgICBjb25zdCBib3VuZE9ubHkgPSBbXTtcbiAgICAgICAgY29uc3QgYm90aEF0dHJpYnV0ZUFuZEJvdW5kID0gWydyZXF1aXJlZCcsICdkaXNhYmxlZCcsICdwYXR0ZXJuJywgJ21pbmxlbmd0aCddO1xuICAgICAgICBjb25zdCBleHByZXNzaW9uT25seSA9IFsnY2hhbmdlJywgJ2tleWRvd24nLCAna2V5dXAnLCAna2V5cHJlc3MnLCAnY2xpY2snLCAnZm9jdXMnLCAnYmx1ciddO1xuICAgICAgICBjb25zdCBhdHRyaWJ1dGVPbmx5ID0gWydwbGFjZWhvbGRlcicsICdtaW4nLCAnbWF4JywgJ3RhYmluZGV4JywgJ3R5cGUnXTtcbiAgICAgICAgaWYgKGZvcm1seUNvbmZpZy5leHRyYXMubmdNb2RlbEF0dHJzTWFuaXB1bGF0b3JQcmVmZXJCb3VuZCkge1xuICAgICAgICAgIGJvdW5kT25seS5wdXNoKCdtYXhsZW5ndGgnKTtcbiAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICBib3RoQXR0cmlidXRlQW5kQm91bmQucHVzaCgnbWF4bGVuZ3RoJyk7XG4gICAgICAgIH1cblxuICAgICAgICBhbmd1bGFyLmZvckVhY2goYm91bmRPbmx5LCBpdGVtID0+IHtcbiAgICAgICAgICBuZ01vZGVsQXR0cmlidXRlc1tpdGVtXSA9IHtib3VuZDogJ25nLScgKyBpdGVtfTtcbiAgICAgICAgfSk7XG5cbiAgICAgICAgYW5ndWxhci5mb3JFYWNoKGJvdGhBdHRyaWJ1dGVBbmRCb3VuZCwgaXRlbSA9PiB7XG4gICAgICAgICAgbmdNb2RlbEF0dHJpYnV0ZXNbaXRlbV0gPSB7YXR0cmlidXRlOiBpdGVtLCBib3VuZDogJ25nLScgKyBpdGVtfTtcbiAgICAgICAgfSk7XG5cbiAgICAgICAgYW5ndWxhci5mb3JFYWNoKGV4cHJlc3Npb25Pbmx5LCBpdGVtID0+IHtcbiAgICAgICAgICB2YXIgcHJvcE5hbWUgPSAnb24nICsgaXRlbS5zdWJzdHIoMCwgMSkudG9VcHBlckNhc2UoKSArIGl0ZW0uc3Vic3RyKDEpO1xuICAgICAgICAgIG5nTW9kZWxBdHRyaWJ1dGVzW3Byb3BOYW1lXSA9IHtleHByZXNzaW9uOiAnbmctJyArIGl0ZW19O1xuICAgICAgICB9KTtcblxuICAgICAgICBhbmd1bGFyLmZvckVhY2goYXR0cmlidXRlT25seSwgaXRlbSA9PiB7XG4gICAgICAgICAgbmdNb2RlbEF0dHJpYnV0ZXNbaXRlbV0gPSB7YXR0cmlidXRlOiBpdGVtfTtcbiAgICAgICAgfSk7XG4gICAgICAgIHJldHVybiBuZ01vZGVsQXR0cmlidXRlcztcbiAgICAgIH1cblxuICAgICAgZnVuY3Rpb24gZ2V0RXBWYWx1ZShlcCwgbmFtZSkge1xuICAgICAgICByZXR1cm4gZXBbJ3RlbXBsYXRlT3B0aW9ucy4nICsgbmFtZV0gfHxcbiAgICAgICAgICBlcFtgdGVtcGxhdGVPcHRpb25zWycke25hbWV9J11gXSB8fFxuICAgICAgICAgIGVwW2B0ZW1wbGF0ZU9wdGlvbnNbXCIke25hbWV9XCJdYF07XG4gICAgICB9XG5cbiAgICAgIGZ1bmN0aW9uIGFkZElmTm90UHJlc2VudChlbCwgYXR0ciwgdmFsKSB7XG4gICAgICAgIGlmICghZWwuYXR0cihhdHRyKSkge1xuICAgICAgICAgIGVsLmF0dHIoYXR0ciwgdmFsKTtcbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgfVxufTtcblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL3J1bi9mb3JtbHlOZ01vZGVsQXR0cnNNYW5pcHVsYXRvci5qc1xuICoqLyIsIm1vZHVsZS5leHBvcnRzID0gbmdNb2R1bGUgPT4ge1xuICBuZ01vZHVsZS5ydW4oYWRkQ3VzdG9tVGFncyk7XG5cbiAgZnVuY3Rpb24gYWRkQ3VzdG9tVGFncygkZG9jdW1lbnQpIHtcblxuICAgIGlmICgkZG9jdW1lbnQgJiYgJGRvY3VtZW50LmdldCkge1xuICAgICAgLy9JRTggY2hlY2sgLT5cbiAgICAgIC8vIGh0dHA6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMTA5NjQ5NjYvZGV0ZWN0LWllLXZlcnNpb24tcHJpb3ItdG8tdjktaW4tamF2YXNjcmlwdC8xMDk2NTIwMyMxMDk2NTIwM1xuICAgICAgdmFyIGRvY3VtZW50ID0gJGRvY3VtZW50LmdldCgwKTtcbiAgICAgIHZhciBkaXYgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcbiAgICAgIGRpdi5pbm5lckhUTUwgPSAnPCEtLVtpZiBsdCBJRSA5XT48aT48L2k+PCFbZW5kaWZdLS0+JztcbiAgICAgIHZhciBpc0llTGVzc1RoYW45ID0gKGRpdi5nZXRFbGVtZW50c0J5VGFnTmFtZSgnaScpLmxlbmd0aCA9PT0gMSk7XG5cbiAgICAgIGlmIChpc0llTGVzc1RoYW45KSB7XG4gICAgICAgIC8vYWRkIHRoZSBjdXN0b20gZWxlbWVudHMgdGhhdCB3ZSBuZWVkIGZvciBmb3JtbHlcbiAgICAgICAgdmFyIGN1c3RvbUVsZW1lbnRzID1cbiAgICAgICAgICBbJ2Zvcm1seS1maWVsZCcsICdmb3JtbHktZm9ybScsICdmb3JtbHktY3VzdG9tLXZhbGlkYXRpb24nLCAnZm9ybWx5LWZvY3VzJywgJ2Zvcm1seS10cmFuc3Bvc2UnXTtcblxuICAgICAgICBmb3IgKHZhciBpID0gMDsgaSA8IGN1c3RvbUVsZW1lbnRzLmxlbmd0aDsgaSsrKSB7XG4gICAgICAgICAgZG9jdW1lbnQuY3JlYXRlRWxlbWVudChjdXN0b21FbGVtZW50c1tpXSk7XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gIH1cbn07XG5cblxuXG4vKiogV0VCUEFDSyBGT09URVIgKipcbiAqKiAuLi9+L2pzaGludC1sb2FkZXIhLi9ydW4vZm9ybWx5Q3VzdG9tVGFncy5qc1xuICoqLyIsImNvbnN0IGFuZ3VsYXIgPSByZXF1aXJlKCdhbmd1bGFyLWZpeCcpO1xuXG5leHBvcnQgZGVmYXVsdCB7Zm9ybWx5RXZhbCwgZ2V0RmllbGRJZCwgcmV2ZXJzZURlZXBNZXJnZSwgZmluZEJ5Tm9kZU5hbWV9O1xuXG5mdW5jdGlvbiBmb3JtbHlFdmFsKHNjb3BlLCBleHByZXNzaW9uLCBtb2RlbFZhbHVlLCB2aWV3VmFsdWUpIHtcbiAgaWYgKGFuZ3VsYXIuaXNGdW5jdGlvbihleHByZXNzaW9uKSkge1xuICAgIHJldHVybiBleHByZXNzaW9uKHZpZXdWYWx1ZSB8fCBtb2RlbFZhbHVlLCBtb2RlbFZhbHVlLCBzY29wZSk7XG4gIH0gZWxzZSB7XG4gICAgcmV0dXJuIHNjb3BlLiRldmFsKGV4cHJlc3Npb24sIHtcbiAgICAgICR2aWV3VmFsdWU6IHZpZXdWYWx1ZSB8fCBtb2RlbFZhbHVlLFxuICAgICAgJG1vZGVsVmFsdWU6IG1vZGVsVmFsdWVcbiAgICB9KTtcbiAgfVxufVxuXG5mdW5jdGlvbiBnZXRGaWVsZElkKGZvcm1JZCwgb3B0aW9ucywgaW5kZXgpIHtcbiAgdmFyIHR5cGUgPSBvcHRpb25zLnR5cGU7XG4gIGlmICghdHlwZSAmJiBvcHRpb25zLnRlbXBsYXRlKSB7XG4gICAgdHlwZSA9ICd0ZW1wbGF0ZSc7XG4gIH0gZWxzZSBpZiAoIXR5cGUgJiYgb3B0aW9ucy50ZW1wbGF0ZVVybCkge1xuICAgIHR5cGUgPSAndGVtcGxhdGVVcmwnO1xuICB9XG5cbiAgcmV0dXJuIFtmb3JtSWQsIHR5cGUsIG9wdGlvbnMua2V5LCBpbmRleF0uam9pbignXycpO1xufVxuXG5cbmZ1bmN0aW9uIHJldmVyc2VEZWVwTWVyZ2UoZGVzdCkge1xuICBhbmd1bGFyLmZvckVhY2goYXJndW1lbnRzLCAoc3JjLCBpbmRleCkgPT4ge1xuICAgIGlmICghaW5kZXgpIHtcbiAgICAgIHJldHVybjtcbiAgICB9XG4gICAgYW5ndWxhci5mb3JFYWNoKHNyYywgKHZhbCwgcHJvcCkgPT4ge1xuICAgICAgaWYgKCFhbmd1bGFyLmlzRGVmaW5lZChkZXN0W3Byb3BdKSkge1xuICAgICAgICBkZXN0W3Byb3BdID0gYW5ndWxhci5jb3B5KHZhbCk7XG4gICAgICB9IGVsc2UgaWYgKG9iakFuZFNhbWVUeXBlKGRlc3RbcHJvcF0sIHZhbCkpIHtcbiAgICAgICAgcmV2ZXJzZURlZXBNZXJnZShkZXN0W3Byb3BdLCB2YWwpO1xuICAgICAgfVxuICAgIH0pO1xuICB9KTtcbn1cblxuZnVuY3Rpb24gb2JqQW5kU2FtZVR5cGUob2JqMSwgb2JqMikge1xuICByZXR1cm4gYW5ndWxhci5pc09iamVjdChvYmoxKSAmJiBhbmd1bGFyLmlzT2JqZWN0KG9iajIpICYmXG4gICAgT2JqZWN0LmdldFByb3RvdHlwZU9mKG9iajEpID09PSBPYmplY3QuZ2V0UHJvdG90eXBlT2Yob2JqMik7XG59XG5cbi8vcmVjdXJzZSBkb3duIGEgbm9kZSB0cmVlIHRvIGZpbmQgYSBub2RlIHdpdGggbWF0Y2hpbmcgbm9kZU5hbWUsIGZvciBjdXN0b20gdGFncyBqUXVlcnkuZmluZCBkb2Vzbid0IHdvcmsgaW4gSUU4XG5mdW5jdGlvbiBmaW5kQnlOb2RlTmFtZShlbCwgbm9kZU5hbWUpIHtcbiAgaWYgKCFlbC5wcm9wKSB7IC8vIG5vdCBhIGpRdWVyeSBvciBqcUxpdGUgb2JqZWN0IC0+IHdyYXAgaXRcbiAgICBlbCA9IGFuZ3VsYXIuZWxlbWVudChlbCk7XG4gIH1cblxuICBpZiAoZWwucHJvcCgnbm9kZU5hbWUnKSA9PT0gbm9kZU5hbWUudG9VcHBlckNhc2UoKSkge1xuICAgIHJldHVybiBlbDtcbiAgfVxuXG4gIHZhciBjID0gZWwuY2hpbGRyZW4oKTtcbiAgZm9yKHZhciBpID0gMDsgYyAmJiBpIDwgYy5sZW5ndGg7IGkrKykge1xuICAgIHZhciBub2RlID0gZmluZEJ5Tm9kZU5hbWUoY1tpXSwgbm9kZU5hbWUpO1xuICAgIGlmIChub2RlKSB7XG4gICAgICByZXR1cm4gbm9kZTtcbiAgICB9XG4gIH1cbn1cblxuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4uL34vanNoaW50LWxvYWRlciEuL290aGVyL3V0aWxzLmpzXG4gKiovIl0sInNvdXJjZVJvb3QiOiIiLCJmaWxlIjoiZm9ybWx5LmpzIn0=
+
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS.org (1.2.2). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
+
+	/*************************
+	   Velocity jQuery Shim
+	*************************/
+
+	/*! VelocityJS.org jQuery Shim (1.0.1). (C) 2014 The jQuery Foundation. MIT @license: en.wikipedia.org/wiki/MIT_License. */
+
+	/* This file contains the jQuery functions that Velocity relies on, thereby removing Velocity's dependency on a full copy of jQuery, and allowing it to work in any environment. */
+	/* These shimmed functions are only used if jQuery isn't present. If both this shim and jQuery are loaded, Velocity defaults to jQuery proper. */
+	/* Browser support: Using this shim instead of jQuery proper removes support for IE8. */
+
+	;(function (window) {
+	    /***************
+	         Setup
+	    ***************/
+
+	    /* If jQuery is already loaded, there's no point in loading this shim. */
+	    if (window.jQuery) {
+	        return;
+	    }
+
+	    /* jQuery base. */
+	    var $ = function (selector, context) {
+	        return new $.fn.init(selector, context);
+	    };
+
+	    /********************
+	       Private Methods
+	    ********************/
+
+	    /* jQuery */
+	    $.isWindow = function (obj) {
+	        /* jshint eqeqeq: false */
+	        return obj != null && obj == obj.window;
+	    };
+
+	    /* jQuery */
+	    $.type = function (obj) {
+	        if (obj == null) {
+	            return obj + "";
+	        }
+
+	        return typeof obj === "object" || typeof obj === "function" ?
+	            class2type[toString.call(obj)] || "object" :
+	            typeof obj;
+	    };
+
+	    /* jQuery */
+	    $.isArray = Array.isArray || function (obj) {
+	        return $.type(obj) === "array";
+	    };
+
+	    /* jQuery */
+	    function isArraylike (obj) {
+	        var length = obj.length,
+	            type = $.type(obj);
+
+	        if (type === "function" || $.isWindow(obj)) {
+	            return false;
+	        }
+
+	        if (obj.nodeType === 1 && length) {
+	            return true;
+	        }
+
+	        return type === "array" || length === 0 || typeof length === "number" && length > 0 && (length - 1) in obj;
+	    }
+
+	    /***************
+	       $ Methods
+	    ***************/
+
+	    /* jQuery: Support removed for IE<9. */
+	    $.isPlainObject = function (obj) {
+	        var key;
+
+	        if (!obj || $.type(obj) !== "object" || obj.nodeType || $.isWindow(obj)) {
+	            return false;
+	        }
+
+	        try {
+	            if (obj.constructor &&
+	                !hasOwn.call(obj, "constructor") &&
+	                !hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
+	                return false;
+	            }
+	        } catch (e) {
+	            return false;
+	        }
+
+	        for (key in obj) {}
+
+	        return key === undefined || hasOwn.call(obj, key);
+	    };
+
+	    /* jQuery */
+	    $.each = function(obj, callback, args) {
+	        var value,
+	            i = 0,
+	            length = obj.length,
+	            isArray = isArraylike(obj);
+
+	        if (args) {
+	            if (isArray) {
+	                for (; i < length; i++) {
+	                    value = callback.apply(obj[i], args);
+
+	                    if (value === false) {
+	                        break;
+	                    }
+	                }
+	            } else {
+	                for (i in obj) {
+	                    value = callback.apply(obj[i], args);
+
+	                    if (value === false) {
+	                        break;
+	                    }
+	                }
+	            }
+
+	        } else {
+	            if (isArray) {
+	                for (; i < length; i++) {
+	                    value = callback.call(obj[i], i, obj[i]);
+
+	                    if (value === false) {
+	                        break;
+	                    }
+	                }
+	            } else {
+	                for (i in obj) {
+	                    value = callback.call(obj[i], i, obj[i]);
+
+	                    if (value === false) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        return obj;
+	    };
+
+	    /* Custom */
+	    $.data = function (node, key, value) {
+	        /* $.getData() */
+	        if (value === undefined) {
+	            var id = node[$.expando],
+	                store = id && cache[id];
+
+	            if (key === undefined) {
+	                return store;
+	            } else if (store) {
+	                if (key in store) {
+	                    return store[key];
+	                }
+	            }
+	        /* $.setData() */
+	        } else if (key !== undefined) {
+	            var id = node[$.expando] || (node[$.expando] = ++$.uuid);
+
+	            cache[id] = cache[id] || {};
+	            cache[id][key] = value;
+
+	            return value;
+	        }
+	    };
+
+	    /* Custom */
+	    $.removeData = function (node, keys) {
+	        var id = node[$.expando],
+	            store = id && cache[id];
+
+	        if (store) {
+	            $.each(keys, function(_, key) {
+	                delete store[key];
+	            });
+	        }
+	    };
+
+	    /* jQuery */
+	    $.extend = function () {
+	        var src, copyIsArray, copy, name, options, clone,
+	            target = arguments[0] || {},
+	            i = 1,
+	            length = arguments.length,
+	            deep = false;
+
+	        if (typeof target === "boolean") {
+	            deep = target;
+
+	            target = arguments[i] || {};
+	            i++;
+	        }
+
+	        if (typeof target !== "object" && $.type(target) !== "function") {
+	            target = {};
+	        }
+
+	        if (i === length) {
+	            target = this;
+	            i--;
+	        }
+
+	        for (; i < length; i++) {
+	            if ((options = arguments[i]) != null) {
+	                for (name in options) {
+	                    src = target[name];
+	                    copy = options[name];
+
+	                    if (target === copy) {
+	                        continue;
+	                    }
+
+	                    if (deep && copy && ($.isPlainObject(copy) || (copyIsArray = $.isArray(copy)))) {
+	                        if (copyIsArray) {
+	                            copyIsArray = false;
+	                            clone = src && $.isArray(src) ? src : [];
+
+	                        } else {
+	                            clone = src && $.isPlainObject(src) ? src : {};
+	                        }
+
+	                        target[name] = $.extend(deep, clone, copy);
+
+	                    } else if (copy !== undefined) {
+	                        target[name] = copy;
+	                    }
+	                }
+	            }
+	        }
+
+	        return target;
+	    };
+
+	    /* jQuery 1.4.3 */
+	    $.queue = function (elem, type, data) {
+	        function $makeArray (arr, results) {
+	            var ret = results || [];
+
+	            if (arr != null) {
+	                if (isArraylike(Object(arr))) {
+	                    /* $.merge */
+	                    (function(first, second) {
+	                        var len = +second.length,
+	                            j = 0,
+	                            i = first.length;
+
+	                        while (j < len) {
+	                            first[i++] = second[j++];
+	                        }
+
+	                        if (len !== len) {
+	                            while (second[j] !== undefined) {
+	                                first[i++] = second[j++];
+	                            }
+	                        }
+
+	                        first.length = i;
+
+	                        return first;
+	                    })(ret, typeof arr === "string" ? [arr] : arr);
+	                } else {
+	                    [].push.call(ret, arr);
+	                }
+	            }
+
+	            return ret;
+	        }
+
+	        if (!elem) {
+	            return;
+	        }
+
+	        type = (type || "fx") + "queue";
+
+	        var q = $.data(elem, type);
+
+	        if (!data) {
+	            return q || [];
+	        }
+
+	        if (!q || $.isArray(data)) {
+	            q = $.data(elem, type, $makeArray(data));
+	        } else {
+	            q.push(data);
+	        }
+
+	        return q;
+	    };
+
+	    /* jQuery 1.4.3 */
+	    $.dequeue = function (elems, type) {
+	        /* Custom: Embed element iteration. */
+	        $.each(elems.nodeType ? [ elems ] : elems, function(i, elem) {
+	            type = type || "fx";
+
+	            var queue = $.queue(elem, type),
+	                fn = queue.shift();
+
+	            if (fn === "inprogress") {
+	                fn = queue.shift();
+	            }
+
+	            if (fn) {
+	                if (type === "fx") {
+	                    queue.unshift("inprogress");
+	                }
+
+	                fn.call(elem, function() {
+	                    $.dequeue(elem, type);
+	                });
+	            }
+	        });
+	    };
+
+	    /******************
+	       $.fn Methods
+	    ******************/
+
+	    /* jQuery */
+	    $.fn = $.prototype = {
+	        init: function (selector) {
+	            /* Just return the element wrapped inside an array; don't proceed with the actual jQuery node wrapping process. */
+	            if (selector.nodeType) {
+	                this[0] = selector;
+
+	                return this;
+	            } else {
+	                throw new Error("Not a DOM node.");
+	            }
+	        },
+
+	        offset: function () {
+	            /* jQuery altered code: Dropped disconnected DOM node checking. */
+	            var box = this[0].getBoundingClientRect ? this[0].getBoundingClientRect() : { top: 0, left: 0 };
+
+	            return {
+	                top: box.top + (window.pageYOffset || document.scrollTop  || 0)  - (document.clientTop  || 0),
+	                left: box.left + (window.pageXOffset || document.scrollLeft  || 0) - (document.clientLeft || 0)
+	            };
+	        },
+
+	        position: function () {
+	            /* jQuery */
+	            function offsetParent() {
+	                var offsetParent = this.offsetParent || document;
+
+	                while (offsetParent && (!offsetParent.nodeType.toLowerCase === "html" && offsetParent.style.position === "static")) {
+	                    offsetParent = offsetParent.offsetParent;
+	                }
+
+	                return offsetParent || document;
+	            }
+
+	            /* Zepto */
+	            var elem = this[0],
+	                offsetParent = offsetParent.apply(elem),
+	                offset = this.offset(),
+	                parentOffset = /^(?:body|html)$/i.test(offsetParent.nodeName) ? { top: 0, left: 0 } : $(offsetParent).offset()
+
+	            offset.top -= parseFloat(elem.style.marginTop) || 0;
+	            offset.left -= parseFloat(elem.style.marginLeft) || 0;
+
+	            if (offsetParent.style) {
+	                parentOffset.top += parseFloat(offsetParent.style.borderTopWidth) || 0
+	                parentOffset.left += parseFloat(offsetParent.style.borderLeftWidth) || 0
+	            }
+
+	            return {
+	                top: offset.top - parentOffset.top,
+	                left: offset.left - parentOffset.left
+	            };
+	        }
+	    };
+
+	    /**********************
+	       Private Variables
+	    **********************/
+
+	    /* For $.data() */
+	    var cache = {};
+	    $.expando = "velocity" + (new Date().getTime());
+	    $.uuid = 0;
+
+	    /* For $.queue() */
+	    var class2type = {},
+	        hasOwn = class2type.hasOwnProperty,
+	        toString = class2type.toString;
+
+	    var types = "Boolean Number String Function Array Date RegExp Object Error".split(" ");
+	    for (var i = 0; i < types.length; i++) {
+	        class2type["[object " + types[i] + "]"] = types[i].toLowerCase();
+	    }
+
+	    /* Makes $(node) possible, without having to call init. */
+	    $.fn.init.prototype = $.fn;
+
+	    /* Globalize Velocity onto the window, and assign its Utilities property. */
+	    window.Velocity = { Utilities: $ };
+	})(window);
+
+	/******************
+	    Velocity.js
+	******************/
+
+	;(function (factory) {
+	    /* CommonJS module. */
+	    if (typeof module === "object" && typeof module.exports === "object") {
+	        module.exports = factory();
+	    /* AMD module. */
+	    } else if (true) {
+	        !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    /* Browser globals. */
+	    } else {
+	        factory();
+	    }
+	}(function() {
+	return function (global, window, document, undefined) {
+
+	    /***************
+	        Summary
+	    ***************/
+
+	    /*
+	    - CSS: CSS stack that works independently from the rest of Velocity.
+	    - animate(): Core animation method that iterates over the targeted elements and queues the incoming call onto each element individually.
+	      - Pre-Queueing: Prepare the element for animation by instantiating its data cache and processing the call's options.
+	      - Queueing: The logic that runs once the call has reached its point of execution in the element's $.queue() stack.
+	                  Most logic is placed here to avoid risking it becoming stale (if the element's properties have changed).
+	      - Pushing: Consolidation of the tween data followed by its push onto the global in-progress calls container.
+	    - tick(): The single requestAnimationFrame loop responsible for tweening all in-progress calls.
+	    - completeCall(): Handles the cleanup process for each Velocity call.
+	    */
+
+	    /*********************
+	       Helper Functions
+	    *********************/
+
+	    /* IE detection. Gist: https://gist.github.com/julianshapiro/9098609 */
+	    var IE = (function() {
+	        if (document.documentMode) {
+	            return document.documentMode;
+	        } else {
+	            for (var i = 7; i > 4; i--) {
+	                var div = document.createElement("div");
+
+	                div.innerHTML = "<!--[if IE " + i + "]><span></span><![endif]-->";
+
+	                if (div.getElementsByTagName("span").length) {
+	                    div = null;
+
+	                    return i;
+	                }
+	            }
+	        }
+
+	        return undefined;
+	    })();
+
+	    /* rAF shim. Gist: https://gist.github.com/julianshapiro/9497513 */
+	    var rAFShim = (function() {
+	        var timeLast = 0;
+
+	        return window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
+	            var timeCurrent = (new Date()).getTime(),
+	                timeDelta;
+
+	            /* Dynamically set delay on a per-tick basis to match 60fps. */
+	            /* Technique by Erik Moller. MIT license: https://gist.github.com/paulirish/1579671 */
+	            timeDelta = Math.max(0, 16 - (timeCurrent - timeLast));
+	            timeLast = timeCurrent + timeDelta;
+
+	            return setTimeout(function() { callback(timeCurrent + timeDelta); }, timeDelta);
+	        };
+	    })();
+
+	    /* Array compacting. Copyright Lo-Dash. MIT License: https://github.com/lodash/lodash/blob/master/LICENSE.txt */
+	    function compactSparseArray (array) {
+	        var index = -1,
+	            length = array ? array.length : 0,
+	            result = [];
+
+	        while (++index < length) {
+	            var value = array[index];
+
+	            if (value) {
+	                result.push(value);
+	            }
+	        }
+
+	        return result;
+	    }
+
+	    function sanitizeElements (elements) {
+	        /* Unwrap jQuery/Zepto objects. */
+	        if (Type.isWrapped(elements)) {
+	            elements = [].slice.call(elements);
+	        /* Wrap a single element in an array so that $.each() can iterate with the element instead of its node's children. */
+	        } else if (Type.isNode(elements)) {
+	            elements = [ elements ];
+	        }
+
+	        return elements;
+	    }
+
+	    var Type = {
+	        isString: function (variable) {
+	            return (typeof variable === "string");
+	        },
+	        isArray: Array.isArray || function (variable) {
+	            return Object.prototype.toString.call(variable) === "[object Array]";
+	        },
+	        isFunction: function (variable) {
+	            return Object.prototype.toString.call(variable) === "[object Function]";
+	        },
+	        isNode: function (variable) {
+	            return variable && variable.nodeType;
+	        },
+	        /* Copyright Martin Bohm. MIT License: https://gist.github.com/Tomalak/818a78a226a0738eaade */
+	        isNodeList: function (variable) {
+	            return typeof variable === "object" &&
+	                /^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(variable)) &&
+	                variable.length !== undefined &&
+	                (variable.length === 0 || (typeof variable[0] === "object" && variable[0].nodeType > 0));
+	        },
+	        /* Determine if variable is a wrapped jQuery or Zepto element. */
+	        isWrapped: function (variable) {
+	            return variable && (variable.jquery || (window.Zepto && window.Zepto.zepto.isZ(variable)));
+	        },
+	        isSVG: function (variable) {
+	            return window.SVGElement && (variable instanceof window.SVGElement);
+	        },
+	        isEmptyObject: function (variable) {
+	            for (var name in variable) {
+	                return false;
+	            }
+
+	            return true;
+	        }
+	    };
+
+	    /*****************
+	       Dependencies
+	    *****************/
+
+	    var $,
+	        isJQuery = false;
+
+	    if (global.fn && global.fn.jquery) {
+	        $ = global;
+	        isJQuery = true;
+	    } else {
+	        $ = window.Velocity.Utilities;
+	    }
+
+	    if (IE <= 8 && !isJQuery) {
+	        throw new Error("Velocity: IE8 and below require jQuery to be loaded before Velocity.");
+	    } else if (IE <= 7) {
+	        /* Revert to jQuery's $.animate(), and lose Velocity's extra features. */
+	        jQuery.fn.velocity = jQuery.fn.animate;
+
+	        /* Now that $.fn.velocity is aliased, abort this Velocity declaration. */
+	        return;
+	    }
+
+	    /*****************
+	        Constants
+	    *****************/
+
+	    var DURATION_DEFAULT = 400,
+	        EASING_DEFAULT = "swing";
+
+	    /*************
+	        State
+	    *************/
+
+	    var Velocity = {
+	        /* Container for page-wide Velocity state data. */
+	        State: {
+	            /* Detect mobile devices to determine if mobileHA should be turned on. */
+	            isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+	            /* The mobileHA option's behavior changes on older Android devices (Gingerbread, versions 2.3.3-2.3.7). */
+	            isAndroid: /Android/i.test(navigator.userAgent),
+	            isGingerbread: /Android 2\.3\.[3-7]/i.test(navigator.userAgent),
+	            isChrome: window.chrome,
+	            isFirefox: /Firefox/i.test(navigator.userAgent),
+	            /* Create a cached element for re-use when checking for CSS property prefixes. */
+	            prefixElement: document.createElement("div"),
+	            /* Cache every prefix match to avoid repeating lookups. */
+	            prefixMatches: {},
+	            /* Cache the anchor used for animating window scrolling. */
+	            scrollAnchor: null,
+	            /* Cache the browser-specific property names associated with the scroll anchor. */
+	            scrollPropertyLeft: null,
+	            scrollPropertyTop: null,
+	            /* Keep track of whether our RAF tick is running. */
+	            isTicking: false,
+	            /* Container for every in-progress call to Velocity. */
+	            calls: []
+	        },
+	        /* Velocity's custom CSS stack. Made global for unit testing. */
+	        CSS: { /* Defined below. */ },
+	        /* A shim of the jQuery utility functions used by Velocity -- provided by Velocity's optional jQuery shim. */
+	        Utilities: $,
+	        /* Container for the user's custom animation redirects that are referenced by name in place of the properties map argument. */
+	        Redirects: { /* Manually registered by the user. */ },
+	        Easings: { /* Defined below. */ },
+	        /* Attempt to use ES6 Promises by default. Users can override this with a third-party promises library. */
+	        Promise: window.Promise,
+	        /* Velocity option defaults, which can be overriden by the user. */
+	        defaults: {
+	            queue: "",
+	            duration: DURATION_DEFAULT,
+	            easing: EASING_DEFAULT,
+	            begin: undefined,
+	            complete: undefined,
+	            progress: undefined,
+	            display: undefined,
+	            visibility: undefined,
+	            loop: false,
+	            delay: false,
+	            mobileHA: true,
+	            /* Advanced: Set to false to prevent property values from being cached between consecutive Velocity-initiated chain calls. */
+	            _cacheValues: true
+	        },
+	        /* A design goal of Velocity is to cache data wherever possible in order to avoid DOM requerying. Accordingly, each element has a data cache. */
+	        init: function (element) {
+	            $.data(element, "velocity", {
+	                /* Store whether this is an SVG element, since its properties are retrieved and updated differently than standard HTML elements. */
+	                isSVG: Type.isSVG(element),
+	                /* Keep track of whether the element is currently being animated by Velocity.
+	                   This is used to ensure that property values are not transferred between non-consecutive (stale) calls. */
+	                isAnimating: false,
+	                /* A reference to the element's live computedStyle object. Learn more here: https://developer.mozilla.org/en/docs/Web/API/window.getComputedStyle */
+	                computedStyle: null,
+	                /* Tween data is cached for each animation on the element so that data can be passed across calls --
+	                   in particular, end values are used as subsequent start values in consecutive Velocity calls. */
+	                tweensContainer: null,
+	                /* The full root property values of each CSS hook being animated on this element are cached so that:
+	                   1) Concurrently-animating hooks sharing the same root can have their root values' merged into one while tweening.
+	                   2) Post-hook-injection root values can be transferred over to consecutively chained Velocity calls as starting root values. */
+	                rootPropertyValueCache: {},
+	                /* A cache for transform updates, which must be manually flushed via CSS.flushTransformCache(). */
+	                transformCache: {}
+	            });
+	        },
+	        /* A parallel to jQuery's $.css(), used for getting/setting Velocity's hooked CSS properties. */
+	        hook: null, /* Defined below. */
+	        /* Velocity-wide animation time remapping for testing purposes. */
+	        mock: false,
+	        version: { major: 1, minor: 2, patch: 2 },
+	        /* Set to 1 or 2 (most verbose) to output debug info to console. */
+	        debug: false
+	    };
+
+	    /* Retrieve the appropriate scroll anchor and property name for the browser: https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY */
+	    if (window.pageYOffset !== undefined) {
+	        Velocity.State.scrollAnchor = window;
+	        Velocity.State.scrollPropertyLeft = "pageXOffset";
+	        Velocity.State.scrollPropertyTop = "pageYOffset";
+	    } else {
+	        Velocity.State.scrollAnchor = document.documentElement || document.body.parentNode || document.body;
+	        Velocity.State.scrollPropertyLeft = "scrollLeft";
+	        Velocity.State.scrollPropertyTop = "scrollTop";
+	    }
+
+	    /* Shorthand alias for jQuery's $.data() utility. */
+	    function Data (element) {
+	        /* Hardcode a reference to the plugin name. */
+	        var response = $.data(element, "velocity");
+
+	        /* jQuery <=1.4.2 returns null instead of undefined when no match is found. We normalize this behavior. */
+	        return response === null ? undefined : response;
+	    };
+
+	    /**************
+	        Easing
+	    **************/
+
+	    /* Step easing generator. */
+	    function generateStep (steps) {
+	        return function (p) {
+	            return Math.round(p * steps) * (1 / steps);
+	        };
+	    }
+
+	    /* Bezier curve function generator. Copyright Gaetan Renaudeau. MIT License: http://en.wikipedia.org/wiki/MIT_License */
+	    function generateBezier (mX1, mY1, mX2, mY2) {
+	        var NEWTON_ITERATIONS = 4,
+	            NEWTON_MIN_SLOPE = 0.001,
+	            SUBDIVISION_PRECISION = 0.0000001,
+	            SUBDIVISION_MAX_ITERATIONS = 10,
+	            kSplineTableSize = 11,
+	            kSampleStepSize = 1.0 / (kSplineTableSize - 1.0),
+	            float32ArraySupported = "Float32Array" in window;
+
+	        /* Must contain four arguments. */
+	        if (arguments.length !== 4) {
+	            return false;
+	        }
+
+	        /* Arguments must be numbers. */
+	        for (var i = 0; i < 4; ++i) {
+	            if (typeof arguments[i] !== "number" || isNaN(arguments[i]) || !isFinite(arguments[i])) {
+	                return false;
+	            }
+	        }
+
+	        /* X values must be in the [0, 1] range. */
+	        mX1 = Math.min(mX1, 1);
+	        mX2 = Math.min(mX2, 1);
+	        mX1 = Math.max(mX1, 0);
+	        mX2 = Math.max(mX2, 0);
+
+	        var mSampleValues = float32ArraySupported ? new Float32Array(kSplineTableSize) : new Array(kSplineTableSize);
+
+	        function A (aA1, aA2) { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
+	        function B (aA1, aA2) { return 3.0 * aA2 - 6.0 * aA1; }
+	        function C (aA1)      { return 3.0 * aA1; }
+
+	        function calcBezier (aT, aA1, aA2) {
+	            return ((A(aA1, aA2)*aT + B(aA1, aA2))*aT + C(aA1))*aT;
+	        }
+
+	        function getSlope (aT, aA1, aA2) {
+	            return 3.0 * A(aA1, aA2)*aT*aT + 2.0 * B(aA1, aA2) * aT + C(aA1);
+	        }
+
+	        function newtonRaphsonIterate (aX, aGuessT) {
+	            for (var i = 0; i < NEWTON_ITERATIONS; ++i) {
+	                var currentSlope = getSlope(aGuessT, mX1, mX2);
+
+	                if (currentSlope === 0.0) return aGuessT;
+
+	                var currentX = calcBezier(aGuessT, mX1, mX2) - aX;
+	                aGuessT -= currentX / currentSlope;
+	            }
+
+	            return aGuessT;
+	        }
+
+	        function calcSampleValues () {
+	            for (var i = 0; i < kSplineTableSize; ++i) {
+	                mSampleValues[i] = calcBezier(i * kSampleStepSize, mX1, mX2);
+	            }
+	        }
+
+	        function binarySubdivide (aX, aA, aB) {
+	            var currentX, currentT, i = 0;
+
+	            do {
+	                currentT = aA + (aB - aA) / 2.0;
+	                currentX = calcBezier(currentT, mX1, mX2) - aX;
+	                if (currentX > 0.0) {
+	                  aB = currentT;
+	                } else {
+	                  aA = currentT;
+	                }
+	            } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
+
+	            return currentT;
+	        }
+
+	        function getTForX (aX) {
+	            var intervalStart = 0.0,
+	                currentSample = 1,
+	                lastSample = kSplineTableSize - 1;
+
+	            for (; currentSample != lastSample && mSampleValues[currentSample] <= aX; ++currentSample) {
+	                intervalStart += kSampleStepSize;
+	            }
+
+	            --currentSample;
+
+	            var dist = (aX - mSampleValues[currentSample]) / (mSampleValues[currentSample+1] - mSampleValues[currentSample]),
+	                guessForT = intervalStart + dist * kSampleStepSize,
+	                initialSlope = getSlope(guessForT, mX1, mX2);
+
+	            if (initialSlope >= NEWTON_MIN_SLOPE) {
+	                return newtonRaphsonIterate(aX, guessForT);
+	            } else if (initialSlope == 0.0) {
+	                return guessForT;
+	            } else {
+	                return binarySubdivide(aX, intervalStart, intervalStart + kSampleStepSize);
+	            }
+	        }
+
+	        var _precomputed = false;
+
+	        function precompute() {
+	            _precomputed = true;
+	            if (mX1 != mY1 || mX2 != mY2) calcSampleValues();
+	        }
+
+	        var f = function (aX) {
+	            if (!_precomputed) precompute();
+	            if (mX1 === mY1 && mX2 === mY2) return aX;
+	            if (aX === 0) return 0;
+	            if (aX === 1) return 1;
+
+	            return calcBezier(getTForX(aX), mY1, mY2);
+	        };
+
+	        f.getControlPoints = function() { return [{ x: mX1, y: mY1 }, { x: mX2, y: mY2 }]; };
+
+	        var str = "generateBezier(" + [mX1, mY1, mX2, mY2] + ")";
+	        f.toString = function () { return str; };
+
+	        return f;
+	    }
+
+	    /* Runge-Kutta spring physics function generator. Adapted from Framer.js, copyright Koen Bok. MIT License: http://en.wikipedia.org/wiki/MIT_License */
+	    /* Given a tension, friction, and duration, a simulation at 60FPS will first run without a defined duration in order to calculate the full path. A second pass
+	       then adjusts the time delta -- using the relation between actual time and duration -- to calculate the path for the duration-constrained animation. */
+	    var generateSpringRK4 = (function () {
+	        function springAccelerationForState (state) {
+	            return (-state.tension * state.x) - (state.friction * state.v);
+	        }
+
+	        function springEvaluateStateWithDerivative (initialState, dt, derivative) {
+	            var state = {
+	                x: initialState.x + derivative.dx * dt,
+	                v: initialState.v + derivative.dv * dt,
+	                tension: initialState.tension,
+	                friction: initialState.friction
+	            };
+
+	            return { dx: state.v, dv: springAccelerationForState(state) };
+	        }
+
+	        function springIntegrateState (state, dt) {
+	            var a = {
+	                    dx: state.v,
+	                    dv: springAccelerationForState(state)
+	                },
+	                b = springEvaluateStateWithDerivative(state, dt * 0.5, a),
+	                c = springEvaluateStateWithDerivative(state, dt * 0.5, b),
+	                d = springEvaluateStateWithDerivative(state, dt, c),
+	                dxdt = 1.0 / 6.0 * (a.dx + 2.0 * (b.dx + c.dx) + d.dx),
+	                dvdt = 1.0 / 6.0 * (a.dv + 2.0 * (b.dv + c.dv) + d.dv);
+
+	            state.x = state.x + dxdt * dt;
+	            state.v = state.v + dvdt * dt;
+
+	            return state;
+	        }
+
+	        return function springRK4Factory (tension, friction, duration) {
+
+	            var initState = {
+	                    x: -1,
+	                    v: 0,
+	                    tension: null,
+	                    friction: null
+	                },
+	                path = [0],
+	                time_lapsed = 0,
+	                tolerance = 1 / 10000,
+	                DT = 16 / 1000,
+	                have_duration, dt, last_state;
+
+	            tension = parseFloat(tension) || 500;
+	            friction = parseFloat(friction) || 20;
+	            duration = duration || null;
+
+	            initState.tension = tension;
+	            initState.friction = friction;
+
+	            have_duration = duration !== null;
+
+	            /* Calculate the actual time it takes for this animation to complete with the provided conditions. */
+	            if (have_duration) {
+	                /* Run the simulation without a duration. */
+	                time_lapsed = springRK4Factory(tension, friction);
+	                /* Compute the adjusted time delta. */
+	                dt = time_lapsed / duration * DT;
+	            } else {
+	                dt = DT;
+	            }
+
+	            while (true) {
+	                /* Next/step function .*/
+	                last_state = springIntegrateState(last_state || initState, dt);
+	                /* Store the position. */
+	                path.push(1 + last_state.x);
+	                time_lapsed += 16;
+	                /* If the change threshold is reached, break. */
+	                if (!(Math.abs(last_state.x) > tolerance && Math.abs(last_state.v) > tolerance)) {
+	                    break;
+	                }
+	            }
+
+	            /* If duration is not defined, return the actual time required for completing this animation. Otherwise, return a closure that holds the
+	               computed path and returns a snapshot of the position according to a given percentComplete. */
+	            return !have_duration ? time_lapsed : function(percentComplete) { return path[ (percentComplete * (path.length - 1)) | 0 ]; };
+	        };
+	    }());
+
+	    /* jQuery easings. */
+	    Velocity.Easings = {
+	        linear: function(p) { return p; },
+	        swing: function(p) { return 0.5 - Math.cos( p * Math.PI ) / 2 },
+	        /* Bonus "spring" easing, which is a less exaggerated version of easeInOutElastic. */
+	        spring: function(p) { return 1 - (Math.cos(p * 4.5 * Math.PI) * Math.exp(-p * 6)); }
+	    };
+
+	    /* CSS3 and Robert Penner easings. */
+	    $.each(
+	        [
+	            [ "ease", [ 0.25, 0.1, 0.25, 1.0 ] ],
+	            [ "ease-in", [ 0.42, 0.0, 1.00, 1.0 ] ],
+	            [ "ease-out", [ 0.00, 0.0, 0.58, 1.0 ] ],
+	            [ "ease-in-out", [ 0.42, 0.0, 0.58, 1.0 ] ],
+	            [ "easeInSine", [ 0.47, 0, 0.745, 0.715 ] ],
+	            [ "easeOutSine", [ 0.39, 0.575, 0.565, 1 ] ],
+	            [ "easeInOutSine", [ 0.445, 0.05, 0.55, 0.95 ] ],
+	            [ "easeInQuad", [ 0.55, 0.085, 0.68, 0.53 ] ],
+	            [ "easeOutQuad", [ 0.25, 0.46, 0.45, 0.94 ] ],
+	            [ "easeInOutQuad", [ 0.455, 0.03, 0.515, 0.955 ] ],
+	            [ "easeInCubic", [ 0.55, 0.055, 0.675, 0.19 ] ],
+	            [ "easeOutCubic", [ 0.215, 0.61, 0.355, 1 ] ],
+	            [ "easeInOutCubic", [ 0.645, 0.045, 0.355, 1 ] ],
+	            [ "easeInQuart", [ 0.895, 0.03, 0.685, 0.22 ] ],
+	            [ "easeOutQuart", [ 0.165, 0.84, 0.44, 1 ] ],
+	            [ "easeInOutQuart", [ 0.77, 0, 0.175, 1 ] ],
+	            [ "easeInQuint", [ 0.755, 0.05, 0.855, 0.06 ] ],
+	            [ "easeOutQuint", [ 0.23, 1, 0.32, 1 ] ],
+	            [ "easeInOutQuint", [ 0.86, 0, 0.07, 1 ] ],
+	            [ "easeInExpo", [ 0.95, 0.05, 0.795, 0.035 ] ],
+	            [ "easeOutExpo", [ 0.19, 1, 0.22, 1 ] ],
+	            [ "easeInOutExpo", [ 1, 0, 0, 1 ] ],
+	            [ "easeInCirc", [ 0.6, 0.04, 0.98, 0.335 ] ],
+	            [ "easeOutCirc", [ 0.075, 0.82, 0.165, 1 ] ],
+	            [ "easeInOutCirc", [ 0.785, 0.135, 0.15, 0.86 ] ]
+	        ], function(i, easingArray) {
+	            Velocity.Easings[easingArray[0]] = generateBezier.apply(null, easingArray[1]);
+	        });
+
+	    /* Determine the appropriate easing type given an easing input. */
+	    function getEasing(value, duration) {
+	        var easing = value;
+
+	        /* The easing option can either be a string that references a pre-registered easing,
+	           or it can be a two-/four-item array of integers to be converted into a bezier/spring function. */
+	        if (Type.isString(value)) {
+	            /* Ensure that the easing has been assigned to jQuery's Velocity.Easings object. */
+	            if (!Velocity.Easings[value]) {
+	                easing = false;
+	            }
+	        } else if (Type.isArray(value) && value.length === 1) {
+	            easing = generateStep.apply(null, value);
+	        } else if (Type.isArray(value) && value.length === 2) {
+	            /* springRK4 must be passed the animation's duration. */
+	            /* Note: If the springRK4 array contains non-numbers, generateSpringRK4() returns an easing
+	               function generated with default tension and friction values. */
+	            easing = generateSpringRK4.apply(null, value.concat([ duration ]));
+	        } else if (Type.isArray(value) && value.length === 4) {
+	            /* Note: If the bezier array contains non-numbers, generateBezier() returns false. */
+	            easing = generateBezier.apply(null, value);
+	        } else {
+	            easing = false;
+	        }
+
+	        /* Revert to the Velocity-wide default easing type, or fall back to "swing" (which is also jQuery's default)
+	           if the Velocity-wide default has been incorrectly modified. */
+	        if (easing === false) {
+	            if (Velocity.Easings[Velocity.defaults.easing]) {
+	                easing = Velocity.defaults.easing;
+	            } else {
+	                easing = EASING_DEFAULT;
+	            }
+	        }
+
+	        return easing;
+	    }
+
+	    /*****************
+	        CSS Stack
+	    *****************/
+
+	    /* The CSS object is a highly condensed and performant CSS stack that fully replaces jQuery's.
+	       It handles the validation, getting, and setting of both standard CSS properties and CSS property hooks. */
+	    /* Note: A "CSS" shorthand is aliased so that our code is easier to read. */
+	    var CSS = Velocity.CSS = {
+
+	        /*************
+	            RegEx
+	        *************/
+
+	        RegEx: {
+	            isHex: /^#([A-f\d]{3}){1,2}$/i,
+	            /* Unwrap a property value's surrounding text, e.g. "rgba(4, 3, 2, 1)" ==> "4, 3, 2, 1" and "rect(4px 3px 2px 1px)" ==> "4px 3px 2px 1px". */
+	            valueUnwrap: /^[A-z]+\((.*)\)$/i,
+	            wrappedValueAlreadyExtracted: /[0-9.]+ [0-9.]+ [0-9.]+( [0-9.]+)?/,
+	            /* Split a multi-value property into an array of subvalues, e.g. "rgba(4, 3, 2, 1) 4px 3px 2px 1px" ==> [ "rgba(4, 3, 2, 1)", "4px", "3px", "2px", "1px" ]. */
+	            valueSplit: /([A-z]+\(.+\))|(([A-z0-9#-.]+?)(?=\s|$))/ig
+	        },
+
+	        /************
+	            Lists
+	        ************/
+
+	        Lists: {
+	            colors: [ "fill", "stroke", "stopColor", "color", "backgroundColor", "borderColor", "borderTopColor", "borderRightColor", "borderBottomColor", "borderLeftColor", "outlineColor" ],
+	            transformsBase: [ "translateX", "translateY", "scale", "scaleX", "scaleY", "skewX", "skewY", "rotateZ" ],
+	            transforms3D: [ "transformPerspective", "translateZ", "scaleZ", "rotateX", "rotateY" ]
+	        },
+
+	        /************
+	            Hooks
+	        ************/
+
+	        /* Hooks allow a subproperty (e.g. "boxShadowBlur") of a compound-value CSS property
+	           (e.g. "boxShadow: X Y Blur Spread Color") to be animated as if it were a discrete property. */
+	        /* Note: Beyond enabling fine-grained property animation, hooking is necessary since Velocity only
+	           tweens properties with single numeric values; unlike CSS transitions, Velocity does not interpolate compound-values. */
+	        Hooks: {
+	            /********************
+	                Registration
+	            ********************/
+
+	            /* Templates are a concise way of indicating which subproperties must be individually registered for each compound-value CSS property. */
+	            /* Each template consists of the compound-value's base name, its constituent subproperty names, and those subproperties' default values. */
+	            templates: {
+	                "textShadow": [ "Color X Y Blur", "black 0px 0px 0px" ],
+	                "boxShadow": [ "Color X Y Blur Spread", "black 0px 0px 0px 0px" ],
+	                "clip": [ "Top Right Bottom Left", "0px 0px 0px 0px" ],
+	                "backgroundPosition": [ "X Y", "0% 0%" ],
+	                "transformOrigin": [ "X Y Z", "50% 50% 0px" ],
+	                "perspectiveOrigin": [ "X Y", "50% 50%" ]
+	            },
+
+	            /* A "registered" hook is one that has been converted from its template form into a live,
+	               tweenable property. It contains data to associate it with its root property. */
+	            registered: {
+	                /* Note: A registered hook looks like this ==> textShadowBlur: [ "textShadow", 3 ],
+	                   which consists of the subproperty's name, the associated root property's name,
+	                   and the subproperty's position in the root's value. */
+	            },
+	            /* Convert the templates into individual hooks then append them to the registered object above. */
+	            register: function () {
+	                /* Color hooks registration: Colors are defaulted to white -- as opposed to black -- since colors that are
+	                   currently set to "transparent" default to their respective template below when color-animated,
+	                   and white is typically a closer match to transparent than black is. An exception is made for text ("color"),
+	                   which is almost always set closer to black than white. */
+	                for (var i = 0; i < CSS.Lists.colors.length; i++) {
+	                    var rgbComponents = (CSS.Lists.colors[i] === "color") ? "0 0 0 1" : "255 255 255 1";
+	                    CSS.Hooks.templates[CSS.Lists.colors[i]] = [ "Red Green Blue Alpha", rgbComponents ];
+	                }
+
+	                var rootProperty,
+	                    hookTemplate,
+	                    hookNames;
+
+	                /* In IE, color values inside compound-value properties are positioned at the end the value instead of at the beginning.
+	                   Thus, we re-arrange the templates accordingly. */
+	                if (IE) {
+	                    for (rootProperty in CSS.Hooks.templates) {
+	                        hookTemplate = CSS.Hooks.templates[rootProperty];
+	                        hookNames = hookTemplate[0].split(" ");
+
+	                        var defaultValues = hookTemplate[1].match(CSS.RegEx.valueSplit);
+
+	                        if (hookNames[0] === "Color") {
+	                            /* Reposition both the hook's name and its default value to the end of their respective strings. */
+	                            hookNames.push(hookNames.shift());
+	                            defaultValues.push(defaultValues.shift());
+
+	                            /* Replace the existing template for the hook's root property. */
+	                            CSS.Hooks.templates[rootProperty] = [ hookNames.join(" "), defaultValues.join(" ") ];
+	                        }
+	                    }
+	                }
+
+	                /* Hook registration. */
+	                for (rootProperty in CSS.Hooks.templates) {
+	                    hookTemplate = CSS.Hooks.templates[rootProperty];
+	                    hookNames = hookTemplate[0].split(" ");
+
+	                    for (var i in hookNames) {
+	                        var fullHookName = rootProperty + hookNames[i],
+	                            hookPosition = i;
+
+	                        /* For each hook, register its full name (e.g. textShadowBlur) with its root property (e.g. textShadow)
+	                           and the hook's position in its template's default value string. */
+	                        CSS.Hooks.registered[fullHookName] = [ rootProperty, hookPosition ];
+	                    }
+	                }
+	            },
+
+	            /*****************************
+	               Injection and Extraction
+	            *****************************/
+
+	            /* Look up the root property associated with the hook (e.g. return "textShadow" for "textShadowBlur"). */
+	            /* Since a hook cannot be set directly (the browser won't recognize it), style updating for hooks is routed through the hook's root property. */
+	            getRoot: function (property) {
+	                var hookData = CSS.Hooks.registered[property];
+
+	                if (hookData) {
+	                    return hookData[0];
+	                } else {
+	                    /* If there was no hook match, return the property name untouched. */
+	                    return property;
+	                }
+	            },
+	            /* Convert any rootPropertyValue, null or otherwise, into a space-delimited list of hook values so that
+	               the targeted hook can be injected or extracted at its standard position. */
+	            cleanRootPropertyValue: function(rootProperty, rootPropertyValue) {
+	                /* If the rootPropertyValue is wrapped with "rgb()", "clip()", etc., remove the wrapping to normalize the value before manipulation. */
+	                if (CSS.RegEx.valueUnwrap.test(rootPropertyValue)) {
+	                    rootPropertyValue = rootPropertyValue.match(CSS.RegEx.valueUnwrap)[1];
+	                }
+
+	                /* If rootPropertyValue is a CSS null-value (from which there's inherently no hook value to extract),
+	                   default to the root's default value as defined in CSS.Hooks.templates. */
+	                /* Note: CSS null-values include "none", "auto", and "transparent". They must be converted into their
+	                   zero-values (e.g. textShadow: "none" ==> textShadow: "0px 0px 0px black") for hook manipulation to proceed. */
+	                if (CSS.Values.isCSSNullValue(rootPropertyValue)) {
+	                    rootPropertyValue = CSS.Hooks.templates[rootProperty][1];
+	                }
+
+	                return rootPropertyValue;
+	            },
+	            /* Extracted the hook's value from its root property's value. This is used to get the starting value of an animating hook. */
+	            extractValue: function (fullHookName, rootPropertyValue) {
+	                var hookData = CSS.Hooks.registered[fullHookName];
+
+	                if (hookData) {
+	                    var hookRoot = hookData[0],
+	                        hookPosition = hookData[1];
+
+	                    rootPropertyValue = CSS.Hooks.cleanRootPropertyValue(hookRoot, rootPropertyValue);
+
+	                    /* Split rootPropertyValue into its constituent hook values then grab the desired hook at its standard position. */
+	                    return rootPropertyValue.toString().match(CSS.RegEx.valueSplit)[hookPosition];
+	                } else {
+	                    /* If the provided fullHookName isn't a registered hook, return the rootPropertyValue that was passed in. */
+	                    return rootPropertyValue;
+	                }
+	            },
+	            /* Inject the hook's value into its root property's value. This is used to piece back together the root property
+	               once Velocity has updated one of its individually hooked values through tweening. */
+	            injectValue: function (fullHookName, hookValue, rootPropertyValue) {
+	                var hookData = CSS.Hooks.registered[fullHookName];
+
+	                if (hookData) {
+	                    var hookRoot = hookData[0],
+	                        hookPosition = hookData[1],
+	                        rootPropertyValueParts,
+	                        rootPropertyValueUpdated;
+
+	                    rootPropertyValue = CSS.Hooks.cleanRootPropertyValue(hookRoot, rootPropertyValue);
+
+	                    /* Split rootPropertyValue into its individual hook values, replace the targeted value with hookValue,
+	                       then reconstruct the rootPropertyValue string. */
+	                    rootPropertyValueParts = rootPropertyValue.toString().match(CSS.RegEx.valueSplit);
+	                    rootPropertyValueParts[hookPosition] = hookValue;
+	                    rootPropertyValueUpdated = rootPropertyValueParts.join(" ");
+
+	                    return rootPropertyValueUpdated;
+	                } else {
+	                    /* If the provided fullHookName isn't a registered hook, return the rootPropertyValue that was passed in. */
+	                    return rootPropertyValue;
+	                }
+	            }
+	        },
+
+	        /*******************
+	           Normalizations
+	        *******************/
+
+	        /* Normalizations standardize CSS property manipulation by pollyfilling browser-specific implementations (e.g. opacity)
+	           and reformatting special properties (e.g. clip, rgba) to look like standard ones. */
+	        Normalizations: {
+	            /* Normalizations are passed a normalization target (either the property's name, its extracted value, or its injected value),
+	               the targeted element (which may need to be queried), and the targeted property value. */
+	            registered: {
+	                clip: function (type, element, propertyValue) {
+	                    switch (type) {
+	                        case "name":
+	                            return "clip";
+	                        /* Clip needs to be unwrapped and stripped of its commas during extraction. */
+	                        case "extract":
+	                            var extracted;
+
+	                            /* If Velocity also extracted this value, skip extraction. */
+	                            if (CSS.RegEx.wrappedValueAlreadyExtracted.test(propertyValue)) {
+	                                extracted = propertyValue;
+	                            } else {
+	                                /* Remove the "rect()" wrapper. */
+	                                extracted = propertyValue.toString().match(CSS.RegEx.valueUnwrap);
+
+	                                /* Strip off commas. */
+	                                extracted = extracted ? extracted[1].replace(/,(\s+)?/g, " ") : propertyValue;
+	                            }
+
+	                            return extracted;
+	                        /* Clip needs to be re-wrapped during injection. */
+	                        case "inject":
+	                            return "rect(" + propertyValue + ")";
+	                    }
+	                },
+
+	                blur: function(type, element, propertyValue) {
+	                    switch (type) {
+	                        case "name":
+	                            return Velocity.State.isFirefox ? "filter" : "-webkit-filter";
+	                        case "extract":
+	                            var extracted = parseFloat(propertyValue);
+
+	                            /* If extracted is NaN, meaning the value isn't already extracted. */
+	                            if (!(extracted || extracted === 0)) {
+	                                var blurComponent = propertyValue.toString().match(/blur\(([0-9]+[A-z]+)\)/i);
+
+	                                /* If the filter string had a blur component, return just the blur value and unit type. */
+	                                if (blurComponent) {
+	                                    extracted = blurComponent[1];
+	                                /* If the component doesn't exist, default blur to 0. */
+	                                } else {
+	                                    extracted = 0;
+	                                }
+	                            }
+
+	                            return extracted;
+	                        /* Blur needs to be re-wrapped during injection. */
+	                        case "inject":
+	                            /* For the blur effect to be fully de-applied, it needs to be set to "none" instead of 0. */
+	                            if (!parseFloat(propertyValue)) {
+	                                return "none";
+	                            } else {
+	                                return "blur(" + propertyValue + ")";
+	                            }
+	                    }
+	                },
+
+	                /* <=IE8 do not support the standard opacity property. They use filter:alpha(opacity=INT) instead. */
+	                opacity: function (type, element, propertyValue) {
+	                    if (IE <= 8) {
+	                        switch (type) {
+	                            case "name":
+	                                return "filter";
+	                            case "extract":
+	                                /* <=IE8 return a "filter" value of "alpha(opacity=\d{1,3})".
+	                                   Extract the value and convert it to a decimal value to match the standard CSS opacity property's formatting. */
+	                                var extracted = propertyValue.toString().match(/alpha\(opacity=(.*)\)/i);
+
+	                                if (extracted) {
+	                                    /* Convert to decimal value. */
+	                                    propertyValue = extracted[1] / 100;
+	                                } else {
+	                                    /* When extracting opacity, default to 1 since a null value means opacity hasn't been set. */
+	                                    propertyValue = 1;
+	                                }
+
+	                                return propertyValue;
+	                            case "inject":
+	                                /* Opacified elements are required to have their zoom property set to a non-zero value. */
+	                                element.style.zoom = 1;
+
+	                                /* Setting the filter property on elements with certain font property combinations can result in a
+	                                   highly unappealing ultra-bolding effect. There's no way to remedy this throughout a tween, but dropping the
+	                                   value altogether (when opacity hits 1) at leasts ensures that the glitch is gone post-tweening. */
+	                                if (parseFloat(propertyValue) >= 1) {
+	                                    return "";
+	                                } else {
+	                                  /* As per the filter property's spec, convert the decimal value to a whole number and wrap the value. */
+	                                  return "alpha(opacity=" + parseInt(parseFloat(propertyValue) * 100, 10) + ")";
+	                                }
+	                        }
+	                    /* With all other browsers, normalization is not required; return the same values that were passed in. */
+	                    } else {
+	                        switch (type) {
+	                            case "name":
+	                                return "opacity";
+	                            case "extract":
+	                                return propertyValue;
+	                            case "inject":
+	                                return propertyValue;
+	                        }
+	                    }
+	                }
+	            },
+
+	            /*****************************
+	                Batched Registrations
+	            *****************************/
+
+	            /* Note: Batched normalizations extend the CSS.Normalizations.registered object. */
+	            register: function () {
+
+	                /*****************
+	                    Transforms
+	                *****************/
+
+	                /* Transforms are the subproperties contained by the CSS "transform" property. Transforms must undergo normalization
+	                   so that they can be referenced in a properties map by their individual names. */
+	                /* Note: When transforms are "set", they are actually assigned to a per-element transformCache. When all transform
+	                   setting is complete complete, CSS.flushTransformCache() must be manually called to flush the values to the DOM.
+	                   Transform setting is batched in this way to improve performance: the transform style only needs to be updated
+	                   once when multiple transform subproperties are being animated simultaneously. */
+	                /* Note: IE9 and Android Gingerbread have support for 2D -- but not 3D -- transforms. Since animating unsupported
+	                   transform properties results in the browser ignoring the *entire* transform string, we prevent these 3D values
+	                   from being normalized for these browsers so that tweening skips these properties altogether
+	                   (since it will ignore them as being unsupported by the browser.) */
+	                if (!(IE <= 9) && !Velocity.State.isGingerbread) {
+	                    /* Note: Since the standalone CSS "perspective" property and the CSS transform "perspective" subproperty
+	                    share the same name, the latter is given a unique token within Velocity: "transformPerspective". */
+	                    CSS.Lists.transformsBase = CSS.Lists.transformsBase.concat(CSS.Lists.transforms3D);
+	                }
+
+	                for (var i = 0; i < CSS.Lists.transformsBase.length; i++) {
+	                    /* Wrap the dynamically generated normalization function in a new scope so that transformName's value is
+	                    paired with its respective function. (Otherwise, all functions would take the final for loop's transformName.) */
+	                    (function() {
+	                        var transformName = CSS.Lists.transformsBase[i];
+
+	                        CSS.Normalizations.registered[transformName] = function (type, element, propertyValue) {
+	                            switch (type) {
+	                                /* The normalized property name is the parent "transform" property -- the property that is actually set in CSS. */
+	                                case "name":
+	                                    return "transform";
+	                                /* Transform values are cached onto a per-element transformCache object. */
+	                                case "extract":
+	                                    /* If this transform has yet to be assigned a value, return its null value. */
+	                                    if (Data(element) === undefined || Data(element).transformCache[transformName] === undefined) {
+	                                        /* Scale CSS.Lists.transformsBase default to 1 whereas all other transform properties default to 0. */
+	                                        return /^scale/i.test(transformName) ? 1 : 0;
+	                                    /* When transform values are set, they are wrapped in parentheses as per the CSS spec.
+	                                       Thus, when extracting their values (for tween calculations), we strip off the parentheses. */
+	                                    } else {
+	                                        return Data(element).transformCache[transformName].replace(/[()]/g, "");
+	                                    }
+	                                case "inject":
+	                                    var invalid = false;
+
+	                                    /* If an individual transform property contains an unsupported unit type, the browser ignores the *entire* transform property.
+	                                       Thus, protect users from themselves by skipping setting for transform values supplied with invalid unit types. */
+	                                    /* Switch on the base transform type; ignore the axis by removing the last letter from the transform's name. */
+	                                    switch (transformName.substr(0, transformName.length - 1)) {
+	                                        /* Whitelist unit types for each transform. */
+	                                        case "translate":
+	                                            invalid = !/(%|px|em|rem|vw|vh|\d)$/i.test(propertyValue);
+	                                            break;
+	                                        /* Since an axis-free "scale" property is supported as well, a little hack is used here to detect it by chopping off its last letter. */
+	                                        case "scal":
+	                                        case "scale":
+	                                            /* Chrome on Android has a bug in which scaled elements blur if their initial scale
+	                                               value is below 1 (which can happen with forcefeeding). Thus, we detect a yet-unset scale property
+	                                               and ensure that its first value is always 1. More info: http://stackoverflow.com/questions/10417890/css3-animations-with-transform-causes-blurred-elements-on-webkit/10417962#10417962 */
+	                                            if (Velocity.State.isAndroid && Data(element).transformCache[transformName] === undefined && propertyValue < 1) {
+	                                                propertyValue = 1;
+	                                            }
+
+	                                            invalid = !/(\d)$/i.test(propertyValue);
+	                                            break;
+	                                        case "skew":
+	                                            invalid = !/(deg|\d)$/i.test(propertyValue);
+	                                            break;
+	                                        case "rotate":
+	                                            invalid = !/(deg|\d)$/i.test(propertyValue);
+	                                            break;
+	                                    }
+
+	                                    if (!invalid) {
+	                                        /* As per the CSS spec, wrap the value in parentheses. */
+	                                        Data(element).transformCache[transformName] = "(" + propertyValue + ")";
+	                                    }
+
+	                                    /* Although the value is set on the transformCache object, return the newly-updated value for the calling code to process as normal. */
+	                                    return Data(element).transformCache[transformName];
+	                            }
+	                        };
+	                    })();
+	                }
+
+	                /*************
+	                    Colors
+	                *************/
+
+	                /* Since Velocity only animates a single numeric value per property, color animation is achieved by hooking the individual RGBA components of CSS color properties.
+	                   Accordingly, color values must be normalized (e.g. "#ff0000", "red", and "rgb(255, 0, 0)" ==> "255 0 0 1") so that their components can be injected/extracted by CSS.Hooks logic. */
+	                for (var i = 0; i < CSS.Lists.colors.length; i++) {
+	                    /* Wrap the dynamically generated normalization function in a new scope so that colorName's value is paired with its respective function.
+	                       (Otherwise, all functions would take the final for loop's colorName.) */
+	                    (function () {
+	                        var colorName = CSS.Lists.colors[i];
+
+	                        /* Note: In IE<=8, which support rgb but not rgba, color properties are reverted to rgb by stripping off the alpha component. */
+	                        CSS.Normalizations.registered[colorName] = function(type, element, propertyValue) {
+	                            switch (type) {
+	                                case "name":
+	                                    return colorName;
+	                                /* Convert all color values into the rgb format. (Old IE can return hex values and color names instead of rgb/rgba.) */
+	                                case "extract":
+	                                    var extracted;
+
+	                                    /* If the color is already in its hookable form (e.g. "255 255 255 1") due to having been previously extracted, skip extraction. */
+	                                    if (CSS.RegEx.wrappedValueAlreadyExtracted.test(propertyValue)) {
+	                                        extracted = propertyValue;
+	                                    } else {
+	                                        var converted,
+	                                            colorNames = {
+	                                                black: "rgb(0, 0, 0)",
+	                                                blue: "rgb(0, 0, 255)",
+	                                                gray: "rgb(128, 128, 128)",
+	                                                green: "rgb(0, 128, 0)",
+	                                                red: "rgb(255, 0, 0)",
+	                                                white: "rgb(255, 255, 255)"
+	                                            };
+
+	                                        /* Convert color names to rgb. */
+	                                        if (/^[A-z]+$/i.test(propertyValue)) {
+	                                            if (colorNames[propertyValue] !== undefined) {
+	                                                converted = colorNames[propertyValue]
+	                                            } else {
+	                                                /* If an unmatched color name is provided, default to black. */
+	                                                converted = colorNames.black;
+	                                            }
+	                                        /* Convert hex values to rgb. */
+	                                        } else if (CSS.RegEx.isHex.test(propertyValue)) {
+	                                            converted = "rgb(" + CSS.Values.hexToRgb(propertyValue).join(" ") + ")";
+	                                        /* If the provided color doesn't match any of the accepted color formats, default to black. */
+	                                        } else if (!(/^rgba?\(/i.test(propertyValue))) {
+	                                            converted = colorNames.black;
+	                                        }
+
+	                                        /* Remove the surrounding "rgb/rgba()" string then replace commas with spaces and strip
+	                                           repeated spaces (in case the value included spaces to begin with). */
+	                                        extracted = (converted || propertyValue).toString().match(CSS.RegEx.valueUnwrap)[1].replace(/,(\s+)?/g, " ");
+	                                    }
+
+	                                    /* So long as this isn't <=IE8, add a fourth (alpha) component if it's missing and default it to 1 (visible). */
+	                                    if (!(IE <= 8) && extracted.split(" ").length === 3) {
+	                                        extracted += " 1";
+	                                    }
+
+	                                    return extracted;
+	                                case "inject":
+	                                    /* If this is IE<=8 and an alpha component exists, strip it off. */
+	                                    if (IE <= 8) {
+	                                        if (propertyValue.split(" ").length === 4) {
+	                                            propertyValue = propertyValue.split(/\s+/).slice(0, 3).join(" ");
+	                                        }
+	                                    /* Otherwise, add a fourth (alpha) component if it's missing and default it to 1 (visible). */
+	                                    } else if (propertyValue.split(" ").length === 3) {
+	                                        propertyValue += " 1";
+	                                    }
+
+	                                    /* Re-insert the browser-appropriate wrapper("rgb/rgba()"), insert commas, and strip off decimal units
+	                                       on all values but the fourth (R, G, and B only accept whole numbers). */
+	                                    return (IE <= 8 ? "rgb" : "rgba") + "(" + propertyValue.replace(/\s+/g, ",").replace(/\.(\d)+(?=,)/g, "") + ")";
+	                            }
+	                        };
+	                    })();
+	                }
+	            }
+	        },
+
+	        /************************
+	           CSS Property Names
+	        ************************/
+
+	        Names: {
+	            /* Camelcase a property name into its JavaScript notation (e.g. "background-color" ==> "backgroundColor").
+	               Camelcasing is used to normalize property names between and across calls. */
+	            camelCase: function (property) {
+	                return property.replace(/-(\w)/g, function (match, subMatch) {
+	                    return subMatch.toUpperCase();
+	                });
+	            },
+
+	            /* For SVG elements, some properties (namely, dimensional ones) are GET/SET via the element's HTML attributes (instead of via CSS styles). */
+	            SVGAttribute: function (property) {
+	                var SVGAttributes = "width|height|x|y|cx|cy|r|rx|ry|x1|x2|y1|y2";
+
+	                /* Certain browsers require an SVG transform to be applied as an attribute. (Otherwise, application via CSS is preferable due to 3D support.) */
+	                if (IE || (Velocity.State.isAndroid && !Velocity.State.isChrome)) {
+	                    SVGAttributes += "|transform";
+	                }
+
+	                return new RegExp("^(" + SVGAttributes + ")$", "i").test(property);
+	            },
+
+	            /* Determine whether a property should be set with a vendor prefix. */
+	            /* If a prefixed version of the property exists, return it. Otherwise, return the original property name.
+	               If the property is not at all supported by the browser, return a false flag. */
+	            prefixCheck: function (property) {
+	                /* If this property has already been checked, return the cached value. */
+	                if (Velocity.State.prefixMatches[property]) {
+	                    return [ Velocity.State.prefixMatches[property], true ];
+	                } else {
+	                    var vendors = [ "", "Webkit", "Moz", "ms", "O" ];
+
+	                    for (var i = 0, vendorsLength = vendors.length; i < vendorsLength; i++) {
+	                        var propertyPrefixed;
+
+	                        if (i === 0) {
+	                            propertyPrefixed = property;
+	                        } else {
+	                            /* Capitalize the first letter of the property to conform to JavaScript vendor prefix notation (e.g. webkitFilter). */
+	                            propertyPrefixed = vendors[i] + property.replace(/^\w/, function(match) { return match.toUpperCase(); });
+	                        }
+
+	                        /* Check if the browser supports this property as prefixed. */
+	                        if (Type.isString(Velocity.State.prefixElement.style[propertyPrefixed])) {
+	                            /* Cache the match. */
+	                            Velocity.State.prefixMatches[property] = propertyPrefixed;
+
+	                            return [ propertyPrefixed, true ];
+	                        }
+	                    }
+
+	                    /* If the browser doesn't support this property in any form, include a false flag so that the caller can decide how to proceed. */
+	                    return [ property, false ];
+	                }
+	            }
+	        },
+
+	        /************************
+	           CSS Property Values
+	        ************************/
+
+	        Values: {
+	            /* Hex to RGB conversion. Copyright Tim Down: http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
+	            hexToRgb: function (hex) {
+	                var shortformRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+	                    longformRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i,
+	                    rgbParts;
+
+	                hex = hex.replace(shortformRegex, function (m, r, g, b) {
+	                    return r + r + g + g + b + b;
+	                });
+
+	                rgbParts = longformRegex.exec(hex);
+
+	                return rgbParts ? [ parseInt(rgbParts[1], 16), parseInt(rgbParts[2], 16), parseInt(rgbParts[3], 16) ] : [ 0, 0, 0 ];
+	            },
+
+	            isCSSNullValue: function (value) {
+	                /* The browser defaults CSS values that have not been set to either 0 or one of several possible null-value strings.
+	                   Thus, we check for both falsiness and these special strings. */
+	                /* Null-value checking is performed to default the special strings to 0 (for the sake of tweening) or their hook
+	                   templates as defined as CSS.Hooks (for the sake of hook injection/extraction). */
+	                /* Note: Chrome returns "rgba(0, 0, 0, 0)" for an undefined color whereas IE returns "transparent". */
+	                return (value == 0 || /^(none|auto|transparent|(rgba\(0, ?0, ?0, ?0\)))$/i.test(value));
+	            },
+
+	            /* Retrieve a property's default unit type. Used for assigning a unit type when one is not supplied by the user. */
+	            getUnitType: function (property) {
+	                if (/^(rotate|skew)/i.test(property)) {
+	                    return "deg";
+	                } else if (/(^(scale|scaleX|scaleY|scaleZ|alpha|flexGrow|flexHeight|zIndex|fontWeight)$)|((opacity|red|green|blue|alpha)$)/i.test(property)) {
+	                    /* The above properties are unitless. */
+	                    return "";
+	                } else {
+	                    /* Default to px for all other properties. */
+	                    return "px";
+	                }
+	            },
+
+	            /* HTML elements default to an associated display type when they're not set to display:none. */
+	            /* Note: This function is used for correctly setting the non-"none" display value in certain Velocity redirects, such as fadeIn/Out. */
+	            getDisplayType: function (element) {
+	                var tagName = element && element.tagName.toString().toLowerCase();
+
+	                if (/^(b|big|i|small|tt|abbr|acronym|cite|code|dfn|em|kbd|strong|samp|var|a|bdo|br|img|map|object|q|script|span|sub|sup|button|input|label|select|textarea)$/i.test(tagName)) {
+	                    return "inline";
+	                } else if (/^(li)$/i.test(tagName)) {
+	                    return "list-item";
+	                } else if (/^(tr)$/i.test(tagName)) {
+	                    return "table-row";
+	                } else if (/^(table)$/i.test(tagName)) {
+	                    return "table";
+	                } else if (/^(tbody)$/i.test(tagName)) {
+	                    return "table-row-group";
+	                /* Default to "block" when no match is found. */
+	                } else {
+	                    return "block";
+	                }
+	            },
+
+	            /* The class add/remove functions are used to temporarily apply a "velocity-animating" class to elements while they're animating. */
+	            addClass: function (element, className) {
+	                if (element.classList) {
+	                    element.classList.add(className);
+	                } else {
+	                    element.className += (element.className.length ? " " : "") + className;
+	                }
+	            },
+
+	            removeClass: function (element, className) {
+	                if (element.classList) {
+	                    element.classList.remove(className);
+	                } else {
+	                    element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+	                }
+	            }
+	        },
+
+	        /****************************
+	           Style Getting & Setting
+	        ****************************/
+
+	        /* The singular getPropertyValue, which routes the logic for all normalizations, hooks, and standard CSS properties. */
+	        getPropertyValue: function (element, property, rootPropertyValue, forceStyleLookup) {
+	            /* Get an element's computed property value. */
+	            /* Note: Retrieving the value of a CSS property cannot simply be performed by checking an element's
+	               style attribute (which only reflects user-defined values). Instead, the browser must be queried for a property's
+	               *computed* value. You can read more about getComputedStyle here: https://developer.mozilla.org/en/docs/Web/API/window.getComputedStyle */
+	            function computePropertyValue (element, property) {
+	                /* When box-sizing isn't set to border-box, height and width style values are incorrectly computed when an
+	                   element's scrollbars are visible (which expands the element's dimensions). Thus, we defer to the more accurate
+	                   offsetHeight/Width property, which includes the total dimensions for interior, border, padding, and scrollbar.
+	                   We subtract border and padding to get the sum of interior + scrollbar. */
+	                var computedValue = 0;
+
+	                /* IE<=8 doesn't support window.getComputedStyle, thus we defer to jQuery, which has an extensive array
+	                   of hacks to accurately retrieve IE8 property values. Re-implementing that logic here is not worth bloating the
+	                   codebase for a dying browser. The performance repercussions of using jQuery here are minimal since
+	                   Velocity is optimized to rarely (and sometimes never) query the DOM. Further, the $.css() codepath isn't that slow. */
+	                if (IE <= 8) {
+	                    computedValue = $.css(element, property); /* GET */
+	                /* All other browsers support getComputedStyle. The returned live object reference is cached onto its
+	                   associated element so that it does not need to be refetched upon every GET. */
+	                } else {
+	                    /* Browsers do not return height and width values for elements that are set to display:"none". Thus, we temporarily
+	                       toggle display to the element type's default value. */
+	                    var toggleDisplay = false;
+
+	                    if (/^(width|height)$/.test(property) && CSS.getPropertyValue(element, "display") === 0) {
+	                        toggleDisplay = true;
+	                        CSS.setPropertyValue(element, "display", CSS.Values.getDisplayType(element));
+	                    }
+
+	                    function revertDisplay () {
+	                        if (toggleDisplay) {
+	                            CSS.setPropertyValue(element, "display", "none");
+	                        }
+	                    }
+
+	                    if (!forceStyleLookup) {
+	                        if (property === "height" && CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() !== "border-box") {
+	                            var contentBoxHeight = element.offsetHeight - (parseFloat(CSS.getPropertyValue(element, "borderTopWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "borderBottomWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingTop")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingBottom")) || 0);
+	                            revertDisplay();
+
+	                            return contentBoxHeight;
+	                        } else if (property === "width" && CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() !== "border-box") {
+	                            var contentBoxWidth = element.offsetWidth - (parseFloat(CSS.getPropertyValue(element, "borderLeftWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "borderRightWidth")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingLeft")) || 0) - (parseFloat(CSS.getPropertyValue(element, "paddingRight")) || 0);
+	                            revertDisplay();
+
+	                            return contentBoxWidth;
+	                        }
+	                    }
+
+	                    var computedStyle;
+
+	                    /* For elements that Velocity hasn't been called on directly (e.g. when Velocity queries the DOM on behalf
+	                       of a parent of an element its animating), perform a direct getComputedStyle lookup since the object isn't cached. */
+	                    if (Data(element) === undefined) {
+	                        computedStyle = window.getComputedStyle(element, null); /* GET */
+	                    /* If the computedStyle object has yet to be cached, do so now. */
+	                    } else if (!Data(element).computedStyle) {
+	                        computedStyle = Data(element).computedStyle = window.getComputedStyle(element, null); /* GET */
+	                    /* If computedStyle is cached, use it. */
+	                    } else {
+	                        computedStyle = Data(element).computedStyle;
+	                    }
+
+	                    /* IE and Firefox do not return a value for the generic borderColor -- they only return individual values for each border side's color.
+	                       Also, in all browsers, when border colors aren't all the same, a compound value is returned that Velocity isn't setup to parse.
+	                       So, as a polyfill for querying individual border side colors, we just return the top border's color and animate all borders from that value. */
+	                    if (property === "borderColor") {
+	                        property = "borderTopColor";
+	                    }
+
+	                    /* IE9 has a bug in which the "filter" property must be accessed from computedStyle using the getPropertyValue method
+	                       instead of a direct property lookup. The getPropertyValue method is slower than a direct lookup, which is why we avoid it by default. */
+	                    if (IE === 9 && property === "filter") {
+	                        computedValue = computedStyle.getPropertyValue(property); /* GET */
+	                    } else {
+	                        computedValue = computedStyle[property];
+	                    }
+
+	                    /* Fall back to the property's style value (if defined) when computedValue returns nothing,
+	                       which can happen when the element hasn't been painted. */
+	                    if (computedValue === "" || computedValue === null) {
+	                        computedValue = element.style[property];
+	                    }
+
+	                    revertDisplay();
+	                }
+
+	                /* For top, right, bottom, and left (TRBL) values that are set to "auto" on elements of "fixed" or "absolute" position,
+	                   defer to jQuery for converting "auto" to a numeric value. (For elements with a "static" or "relative" position, "auto" has the same
+	                   effect as being set to 0, so no conversion is necessary.) */
+	                /* An example of why numeric conversion is necessary: When an element with "position:absolute" has an untouched "left"
+	                   property, which reverts to "auto", left's value is 0 relative to its parent element, but is often non-zero relative
+	                   to its *containing* (not parent) element, which is the nearest "position:relative" ancestor or the viewport (and always the viewport in the case of "position:fixed"). */
+	                if (computedValue === "auto" && /^(top|right|bottom|left)$/i.test(property)) {
+	                    var position = computePropertyValue(element, "position"); /* GET */
+
+	                    /* For absolute positioning, jQuery's $.position() only returns values for top and left;
+	                       right and bottom will have their "auto" value reverted to 0. */
+	                    /* Note: A jQuery object must be created here since jQuery doesn't have a low-level alias for $.position().
+	                       Not a big deal since we're currently in a GET batch anyway. */
+	                    if (position === "fixed" || (position === "absolute" && /top|left/i.test(property))) {
+	                        /* Note: jQuery strips the pixel unit from its returned values; we re-add it here to conform with computePropertyValue's behavior. */
+	                        computedValue = $(element).position()[property] + "px"; /* GET */
+	                    }
+	                }
+
+	                return computedValue;
+	            }
+
+	            var propertyValue;
+
+	            /* If this is a hooked property (e.g. "clipLeft" instead of the root property of "clip"),
+	               extract the hook's value from a normalized rootPropertyValue using CSS.Hooks.extractValue(). */
+	            if (CSS.Hooks.registered[property]) {
+	                var hook = property,
+	                    hookRoot = CSS.Hooks.getRoot(hook);
+
+	                /* If a cached rootPropertyValue wasn't passed in (which Velocity always attempts to do in order to avoid requerying the DOM),
+	                   query the DOM for the root property's value. */
+	                if (rootPropertyValue === undefined) {
+	                    /* Since the browser is now being directly queried, use the official post-prefixing property name for this lookup. */
+	                    rootPropertyValue = CSS.getPropertyValue(element, CSS.Names.prefixCheck(hookRoot)[0]); /* GET */
+	                }
+
+	                /* If this root has a normalization registered, peform the associated normalization extraction. */
+	                if (CSS.Normalizations.registered[hookRoot]) {
+	                    rootPropertyValue = CSS.Normalizations.registered[hookRoot]("extract", element, rootPropertyValue);
+	                }
+
+	                /* Extract the hook's value. */
+	                propertyValue = CSS.Hooks.extractValue(hook, rootPropertyValue);
+
+	            /* If this is a normalized property (e.g. "opacity" becomes "filter" in <=IE8) or "translateX" becomes "transform"),
+	               normalize the property's name and value, and handle the special case of transforms. */
+	            /* Note: Normalizing a property is mutually exclusive from hooking a property since hook-extracted values are strictly
+	               numerical and therefore do not require normalization extraction. */
+	            } else if (CSS.Normalizations.registered[property]) {
+	                var normalizedPropertyName,
+	                    normalizedPropertyValue;
+
+	                normalizedPropertyName = CSS.Normalizations.registered[property]("name", element);
+
+	                /* Transform values are calculated via normalization extraction (see below), which checks against the element's transformCache.
+	                   At no point do transform GETs ever actually query the DOM; initial stylesheet values are never processed.
+	                   This is because parsing 3D transform matrices is not always accurate and would bloat our codebase;
+	                   thus, normalization extraction defaults initial transform values to their zero-values (e.g. 1 for scaleX and 0 for translateX). */
+	                if (normalizedPropertyName !== "transform") {
+	                    normalizedPropertyValue = computePropertyValue(element, CSS.Names.prefixCheck(normalizedPropertyName)[0]); /* GET */
+
+	                    /* If the value is a CSS null-value and this property has a hook template, use that zero-value template so that hooks can be extracted from it. */
+	                    if (CSS.Values.isCSSNullValue(normalizedPropertyValue) && CSS.Hooks.templates[property]) {
+	                        normalizedPropertyValue = CSS.Hooks.templates[property][1];
+	                    }
+	                }
+
+	                propertyValue = CSS.Normalizations.registered[property]("extract", element, normalizedPropertyValue);
+	            }
+
+	            /* If a (numeric) value wasn't produced via hook extraction or normalization, query the DOM. */
+	            if (!/^[\d-]/.test(propertyValue)) {
+	                /* For SVG elements, dimensional properties (which SVGAttribute() detects) are tweened via
+	                   their HTML attribute values instead of their CSS style values. */
+	                if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
+	                    /* Since the height/width attribute values must be set manually, they don't reflect computed values.
+	                       Thus, we use use getBBox() to ensure we always get values for elements with undefined height/width attributes. */
+	                    if (/^(height|width)$/i.test(property)) {
+	                        /* Firefox throws an error if .getBBox() is called on an SVG that isn't attached to the DOM. */
+	                        try {
+	                            propertyValue = element.getBBox()[property];
+	                        } catch (error) {
+	                            propertyValue = 0;
+	                        }
+	                    /* Otherwise, access the attribute value directly. */
+	                    } else {
+	                        propertyValue = element.getAttribute(property);
+	                    }
+	                } else {
+	                    propertyValue = computePropertyValue(element, CSS.Names.prefixCheck(property)[0]); /* GET */
+	                }
+	            }
+
+	            /* Since property lookups are for animation purposes (which entails computing the numeric delta between start and end values),
+	               convert CSS null-values to an integer of value 0. */
+	            if (CSS.Values.isCSSNullValue(propertyValue)) {
+	                propertyValue = 0;
+	            }
+
+	            if (Velocity.debug >= 2) console.log("Get " + property + ": " + propertyValue);
+
+	            return propertyValue;
+	        },
+
+	        /* The singular setPropertyValue, which routes the logic for all normalizations, hooks, and standard CSS properties. */
+	        setPropertyValue: function(element, property, propertyValue, rootPropertyValue, scrollData) {
+	            var propertyName = property;
+
+	            /* In order to be subjected to call options and element queueing, scroll animation is routed through Velocity as if it were a standard CSS property. */
+	            if (property === "scroll") {
+	                /* If a container option is present, scroll the container instead of the browser window. */
+	                if (scrollData.container) {
+	                    scrollData.container["scroll" + scrollData.direction] = propertyValue;
+	                /* Otherwise, Velocity defaults to scrolling the browser window. */
+	                } else {
+	                    if (scrollData.direction === "Left") {
+	                        window.scrollTo(propertyValue, scrollData.alternateValue);
+	                    } else {
+	                        window.scrollTo(scrollData.alternateValue, propertyValue);
+	                    }
+	                }
+	            } else {
+	                /* Transforms (translateX, rotateZ, etc.) are applied to a per-element transformCache object, which is manually flushed via flushTransformCache().
+	                   Thus, for now, we merely cache transforms being SET. */
+	                if (CSS.Normalizations.registered[property] && CSS.Normalizations.registered[property]("name", element) === "transform") {
+	                    /* Perform a normalization injection. */
+	                    /* Note: The normalization logic handles the transformCache updating. */
+	                    CSS.Normalizations.registered[property]("inject", element, propertyValue);
+
+	                    propertyName = "transform";
+	                    propertyValue = Data(element).transformCache[property];
+	                } else {
+	                    /* Inject hooks. */
+	                    if (CSS.Hooks.registered[property]) {
+	                        var hookName = property,
+	                            hookRoot = CSS.Hooks.getRoot(property);
+
+	                        /* If a cached rootPropertyValue was not provided, query the DOM for the hookRoot's current value. */
+	                        rootPropertyValue = rootPropertyValue || CSS.getPropertyValue(element, hookRoot); /* GET */
+
+	                        propertyValue = CSS.Hooks.injectValue(hookName, propertyValue, rootPropertyValue);
+	                        property = hookRoot;
+	                    }
+
+	                    /* Normalize names and values. */
+	                    if (CSS.Normalizations.registered[property]) {
+	                        propertyValue = CSS.Normalizations.registered[property]("inject", element, propertyValue);
+	                        property = CSS.Normalizations.registered[property]("name", element);
+	                    }
+
+	                    /* Assign the appropriate vendor prefix before performing an official style update. */
+	                    propertyName = CSS.Names.prefixCheck(property)[0];
+
+	                    /* A try/catch is used for IE<=8, which throws an error when "invalid" CSS values are set, e.g. a negative width.
+	                       Try/catch is avoided for other browsers since it incurs a performance overhead. */
+	                    if (IE <= 8) {
+	                        try {
+	                            element.style[propertyName] = propertyValue;
+	                        } catch (error) { if (Velocity.debug) console.log("Browser does not support [" + propertyValue + "] for [" + propertyName + "]"); }
+	                    /* SVG elements have their dimensional properties (width, height, x, y, cx, etc.) applied directly as attributes instead of as styles. */
+	                    /* Note: IE8 does not support SVG elements, so it's okay that we skip it for SVG animation. */
+	                    } else if (Data(element) && Data(element).isSVG && CSS.Names.SVGAttribute(property)) {
+	                        /* Note: For SVG attributes, vendor-prefixed property names are never used. */
+	                        /* Note: Not all CSS properties can be animated via attributes, but the browser won't throw an error for unsupported properties. */
+	                        element.setAttribute(property, propertyValue);
+	                    } else {
+	                        element.style[propertyName] = propertyValue;
+	                    }
+
+	                    if (Velocity.debug >= 2) console.log("Set " + property + " (" + propertyName + "): " + propertyValue);
+	                }
+	            }
+
+	            /* Return the normalized property name and value in case the caller wants to know how these values were modified before being applied to the DOM. */
+	            return [ propertyName, propertyValue ];
+	        },
+
+	        /* To increase performance by batching transform updates into a single SET, transforms are not directly applied to an element until flushTransformCache() is called. */
+	        /* Note: Velocity applies transform properties in the same order that they are chronogically introduced to the element's CSS styles. */
+	        flushTransformCache: function(element) {
+	            var transformString = "";
+
+	            /* Certain browsers require that SVG transforms be applied as an attribute. However, the SVG transform attribute takes a modified version of CSS's transform string
+	               (units are dropped and, except for skewX/Y, subproperties are merged into their master property -- e.g. scaleX and scaleY are merged into scale(X Y). */
+	            if ((IE || (Velocity.State.isAndroid && !Velocity.State.isChrome)) && Data(element).isSVG) {
+	                /* Since transform values are stored in their parentheses-wrapped form, we use a helper function to strip out their numeric values.
+	                   Further, SVG transform properties only take unitless (representing pixels) values, so it's okay that parseFloat() strips the unit suffixed to the float value. */
+	                function getTransformFloat (transformProperty) {
+	                    return parseFloat(CSS.getPropertyValue(element, transformProperty));
+	                }
+
+	                /* Create an object to organize all the transforms that we'll apply to the SVG element. To keep the logic simple,
+	                   we process *all* transform properties -- even those that may not be explicitly applied (since they default to their zero-values anyway). */
+	                var SVGTransforms = {
+	                    translate: [ getTransformFloat("translateX"), getTransformFloat("translateY") ],
+	                    skewX: [ getTransformFloat("skewX") ], skewY: [ getTransformFloat("skewY") ],
+	                    /* If the scale property is set (non-1), use that value for the scaleX and scaleY values
+	                       (this behavior mimics the result of animating all these properties at once on HTML elements). */
+	                    scale: getTransformFloat("scale") !== 1 ? [ getTransformFloat("scale"), getTransformFloat("scale") ] : [ getTransformFloat("scaleX"), getTransformFloat("scaleY") ],
+	                    /* Note: SVG's rotate transform takes three values: rotation degrees followed by the X and Y values
+	                       defining the rotation's origin point. We ignore the origin values (default them to 0). */
+	                    rotate: [ getTransformFloat("rotateZ"), 0, 0 ]
+	                };
+
+	                /* Iterate through the transform properties in the user-defined property map order.
+	                   (This mimics the behavior of non-SVG transform animation.) */
+	                $.each(Data(element).transformCache, function(transformName) {
+	                    /* Except for with skewX/Y, revert the axis-specific transform subproperties to their axis-free master
+	                       properties so that they match up with SVG's accepted transform properties. */
+	                    if (/^translate/i.test(transformName)) {
+	                        transformName = "translate";
+	                    } else if (/^scale/i.test(transformName)) {
+	                        transformName = "scale";
+	                    } else if (/^rotate/i.test(transformName)) {
+	                        transformName = "rotate";
+	                    }
+
+	                    /* Check that we haven't yet deleted the property from the SVGTransforms container. */
+	                    if (SVGTransforms[transformName]) {
+	                        /* Append the transform property in the SVG-supported transform format. As per the spec, surround the space-delimited values in parentheses. */
+	                        transformString += transformName + "(" + SVGTransforms[transformName].join(" ") + ")" + " ";
+
+	                        /* After processing an SVG transform property, delete it from the SVGTransforms container so we don't
+	                           re-insert the same master property if we encounter another one of its axis-specific properties. */
+	                        delete SVGTransforms[transformName];
+	                    }
+	                });
+	            } else {
+	                var transformValue,
+	                    perspective;
+
+	                /* Transform properties are stored as members of the transformCache object. Concatenate all the members into a string. */
+	                $.each(Data(element).transformCache, function(transformName) {
+	                    transformValue = Data(element).transformCache[transformName];
+
+	                    /* Transform's perspective subproperty must be set first in order to take effect. Store it temporarily. */
+	                    if (transformName === "transformPerspective") {
+	                        perspective = transformValue;
+	                        return true;
+	                    }
+
+	                    /* IE9 only supports one rotation type, rotateZ, which it refers to as "rotate". */
+	                    if (IE === 9 && transformName === "rotateZ") {
+	                        transformName = "rotate";
+	                    }
+
+	                    transformString += transformName + transformValue + " ";
+	                });
+
+	                /* If present, set the perspective subproperty first. */
+	                if (perspective) {
+	                    transformString = "perspective" + perspective + " " + transformString;
+	                }
+	            }
+
+	            CSS.setPropertyValue(element, "transform", transformString);
+	        }
+	    };
+
+	    /* Register hooks and normalizations. */
+	    CSS.Hooks.register();
+	    CSS.Normalizations.register();
+
+	    /* Allow hook setting in the same fashion as jQuery's $.css(). */
+	    Velocity.hook = function (elements, arg2, arg3) {
+	        var value = undefined;
+
+	        elements = sanitizeElements(elements);
+
+	        $.each(elements, function(i, element) {
+	            /* Initialize Velocity's per-element data cache if this element hasn't previously been animated. */
+	            if (Data(element) === undefined) {
+	                Velocity.init(element);
+	            }
+
+	            /* Get property value. If an element set was passed in, only return the value for the first element. */
+	            if (arg3 === undefined) {
+	                if (value === undefined) {
+	                    value = Velocity.CSS.getPropertyValue(element, arg2);
+	                }
+	            /* Set property value. */
+	            } else {
+	                /* sPV returns an array of the normalized propertyName/propertyValue pair used to update the DOM. */
+	                var adjustedSet = Velocity.CSS.setPropertyValue(element, arg2, arg3);
+
+	                /* Transform properties don't automatically set. They have to be flushed to the DOM. */
+	                if (adjustedSet[0] === "transform") {
+	                    Velocity.CSS.flushTransformCache(element);
+	                }
+
+	                value = adjustedSet;
+	            }
+	        });
+
+	        return value;
+	    };
+
+	    /*****************
+	        Animation
+	    *****************/
+
+	    var animate = function() {
+
+	        /******************
+	            Call Chain
+	        ******************/
+
+	        /* Logic for determining what to return to the call stack when exiting out of Velocity. */
+	        function getChain () {
+	            /* If we are using the utility function, attempt to return this call's promise. If no promise library was detected,
+	               default to null instead of returning the targeted elements so that utility function's return value is standardized. */
+	            if (isUtility) {
+	                return promiseData.promise || null;
+	            /* Otherwise, if we're using $.fn, return the jQuery-/Zepto-wrapped element set. */
+	            } else {
+	                return elementsWrapped;
+	            }
+	        }
+
+	        /*************************
+	           Arguments Assignment
+	        *************************/
+
+	        /* To allow for expressive CoffeeScript code, Velocity supports an alternative syntax in which "elements" (or "e"), "properties" (or "p"), and "options" (or "o")
+	           objects are defined on a container object that's passed in as Velocity's sole argument. */
+	        /* Note: Some browsers automatically populate arguments with a "properties" object. We detect it by checking for its default "names" property. */
+	        var syntacticSugar = (arguments[0] && (arguments[0].p || (($.isPlainObject(arguments[0].properties) && !arguments[0].properties.names) || Type.isString(arguments[0].properties)))),
+	            /* Whether Velocity was called via the utility function (as opposed to on a jQuery/Zepto object). */
+	            isUtility,
+	            /* When Velocity is called via the utility function ($.Velocity()/Velocity()), elements are explicitly
+	               passed in as the first parameter. Thus, argument positioning varies. We normalize them here. */
+	            elementsWrapped,
+	            argumentIndex;
+
+	        var elements,
+	            propertiesMap,
+	            options;
+
+	        /* Detect jQuery/Zepto elements being animated via the $.fn method. */
+	        if (Type.isWrapped(this)) {
+	            isUtility = false;
+
+	            argumentIndex = 0;
+	            elements = this;
+	            elementsWrapped = this;
+	        /* Otherwise, raw elements are being animated via the utility function. */
+	        } else {
+	            isUtility = true;
+
+	            argumentIndex = 1;
+	            elements = syntacticSugar ? (arguments[0].elements || arguments[0].e) : arguments[0];
+	        }
+
+	        elements = sanitizeElements(elements);
+
+	        if (!elements) {
+	            return;
+	        }
+
+	        if (syntacticSugar) {
+	            propertiesMap = arguments[0].properties || arguments[0].p;
+	            options = arguments[0].options || arguments[0].o;
+	        } else {
+	            propertiesMap = arguments[argumentIndex];
+	            options = arguments[argumentIndex + 1];
+	        }
+
+	        /* The length of the element set (in the form of a nodeList or an array of elements) is defaulted to 1 in case a
+	           single raw DOM element is passed in (which doesn't contain a length property). */
+	        var elementsLength = elements.length,
+	            elementsIndex = 0;
+
+	        /***************************
+	            Argument Overloading
+	        ***************************/
+
+	        /* Support is included for jQuery's argument overloading: $.animate(propertyMap [, duration] [, easing] [, complete]).
+	           Overloading is detected by checking for the absence of an object being passed into options. */
+	        /* Note: The stop and finish actions do not accept animation options, and are therefore excluded from this check. */
+	        if (!/^(stop|finish)$/i.test(propertiesMap) && !$.isPlainObject(options)) {
+	            /* The utility function shifts all arguments one position to the right, so we adjust for that offset. */
+	            var startingArgumentPosition = argumentIndex + 1;
+
+	            options = {};
+
+	            /* Iterate through all options arguments */
+	            for (var i = startingArgumentPosition; i < arguments.length; i++) {
+	                /* Treat a number as a duration. Parse it out. */
+	                /* Note: The following RegEx will return true if passed an array with a number as its first item.
+	                   Thus, arrays are skipped from this check. */
+	                if (!Type.isArray(arguments[i]) && (/^(fast|normal|slow)$/i.test(arguments[i]) || /^\d/.test(arguments[i]))) {
+	                    options.duration = arguments[i];
+	                /* Treat strings and arrays as easings. */
+	                } else if (Type.isString(arguments[i]) || Type.isArray(arguments[i])) {
+	                    options.easing = arguments[i];
+	                /* Treat a function as a complete callback. */
+	                } else if (Type.isFunction(arguments[i])) {
+	                    options.complete = arguments[i];
+	                }
+	            }
+	        }
+
+	        /***************
+	            Promises
+	        ***************/
+
+	        var promiseData = {
+	                promise: null,
+	                resolver: null,
+	                rejecter: null
+	            };
+
+	        /* If this call was made via the utility function (which is the default method of invocation when jQuery/Zepto are not being used), and if
+	           promise support was detected, create a promise object for this call and store references to its resolver and rejecter methods. The resolve
+	           method is used when a call completes naturally or is prematurely stopped by the user. In both cases, completeCall() handles the associated
+	           call cleanup and promise resolving logic. The reject method is used when an invalid set of arguments is passed into a Velocity call. */
+	        /* Note: Velocity employs a call-based queueing architecture, which means that stopping an animating element actually stops the full call that
+	           triggered it -- not that one element exclusively. Similarly, there is one promise per call, and all elements targeted by a Velocity call are
+	           grouped together for the purposes of resolving and rejecting a promise. */
+	        if (isUtility && Velocity.Promise) {
+	            promiseData.promise = new Velocity.Promise(function (resolve, reject) {
+	                promiseData.resolver = resolve;
+	                promiseData.rejecter = reject;
+	            });
+	        }
+
+	        /*********************
+	           Action Detection
+	        *********************/
+
+	        /* Velocity's behavior is categorized into "actions": Elements can either be specially scrolled into view,
+	           or they can be started, stopped, or reversed. If a literal or referenced properties map is passed in as Velocity's
+	           first argument, the associated action is "start". Alternatively, "scroll", "reverse", or "stop" can be passed in instead of a properties map. */
+	        var action;
+
+	        switch (propertiesMap) {
+	            case "scroll":
+	                action = "scroll";
+	                break;
+
+	            case "reverse":
+	                action = "reverse";
+	                break;
+
+	            case "finish":
+	            case "stop":
+	                /*******************
+	                    Action: Stop
+	                *******************/
+
+	                /* Clear the currently-active delay on each targeted element. */
+	                $.each(elements, function(i, element) {
+	                    if (Data(element) && Data(element).delayTimer) {
+	                        /* Stop the timer from triggering its cached next() function. */
+	                        clearTimeout(Data(element).delayTimer.setTimeout);
+
+	                        /* Manually call the next() function so that the subsequent queue items can progress. */
+	                        if (Data(element).delayTimer.next) {
+	                            Data(element).delayTimer.next();
+	                        }
+
+	                        delete Data(element).delayTimer;
+	                    }
+	                });
+
+	                var callsToStop = [];
+
+	                /* When the stop action is triggered, the elements' currently active call is immediately stopped. The active call might have
+	                   been applied to multiple elements, in which case all of the call's elements will be stopped. When an element
+	                   is stopped, the next item in its animation queue is immediately triggered. */
+	                /* An additional argument may be passed in to clear an element's remaining queued calls. Either true (which defaults to the "fx" queue)
+	                   or a custom queue string can be passed in. */
+	                /* Note: The stop command runs prior to Velocity's Queueing phase since its behavior is intended to take effect *immediately*,
+	                   regardless of the element's current queue state. */
+
+	                /* Iterate through every active call. */
+	                $.each(Velocity.State.calls, function(i, activeCall) {
+	                    /* Inactive calls are set to false by the logic inside completeCall(). Skip them. */
+	                    if (activeCall) {
+	                        /* Iterate through the active call's targeted elements. */
+	                        $.each(activeCall[1], function(k, activeElement) {
+	                            /* If true was passed in as a secondary argument, clear absolutely all calls on this element. Otherwise, only
+	                               clear calls associated with the relevant queue. */
+	                            /* Call stopping logic works as follows:
+	                               - options === true --> stop current default queue calls (and queue:false calls), including remaining queued ones.
+	                               - options === undefined --> stop current queue:"" call and all queue:false calls.
+	                               - options === false --> stop only queue:false calls.
+	                               - options === "custom" --> stop current queue:"custom" call, including remaining queued ones (there is no functionality to only clear the currently-running queue:"custom" call). */
+	                            var queueName = (options === undefined) ? "" : options;
+
+	                            if (queueName !== true && (activeCall[2].queue !== queueName) && !(options === undefined && activeCall[2].queue === false)) {
+	                                return true;
+	                            }
+
+	                            /* Iterate through the calls targeted by the stop command. */
+	                            $.each(elements, function(l, element) {                                
+	                                /* Check that this call was applied to the target element. */
+	                                if (element === activeElement) {
+	                                    /* Optionally clear the remaining queued calls. */
+	                                    if (options === true || Type.isString(options)) {
+	                                        /* Iterate through the items in the element's queue. */
+	                                        $.each($.queue(element, Type.isString(options) ? options : ""), function(_, item) {
+	                                            /* The queue array can contain an "inprogress" string, which we skip. */
+	                                            if (Type.isFunction(item)) {
+	                                                /* Pass the item's callback a flag indicating that we want to abort from the queue call.
+	                                                   (Specifically, the queue will resolve the call's associated promise then abort.)  */
+	                                                item(null, true);
+	                                            }
+	                                        });
+
+	                                        /* Clearing the $.queue() array is achieved by resetting it to []. */
+	                                        $.queue(element, Type.isString(options) ? options : "", []);
+	                                    }
+
+	                                    if (propertiesMap === "stop") {
+	                                        /* Since "reverse" uses cached start values (the previous call's endValues), these values must be
+	                                           changed to reflect the final value that the elements were actually tweened to. */
+	                                        /* Note: If only queue:false animations are currently running on an element, it won't have a tweensContainer
+	                                           object. Also, queue:false animations can't be reversed. */
+	                                        if (Data(element) && Data(element).tweensContainer && queueName !== false) {
+	                                            $.each(Data(element).tweensContainer, function(m, activeTween) {
+	                                                activeTween.endValue = activeTween.currentValue;
+	                                            });
+	                                        }
+
+	                                        callsToStop.push(i);
+	                                    } else if (propertiesMap === "finish") {
+	                                        /* To get active tweens to finish immediately, we forcefully shorten their durations to 1ms so that
+	                                        they finish upon the next rAf tick then proceed with normal call completion logic. */
+	                                        activeCall[2].duration = 1;
+	                                    }
+	                                }
+	                            });
+	                        });
+	                    }
+	                });
+
+	                /* Prematurely call completeCall() on each matched active call. Pass an additional flag for "stop" to indicate
+	                   that the complete callback and display:none setting should be skipped since we're completing prematurely. */
+	                if (propertiesMap === "stop") {
+	                    $.each(callsToStop, function(i, j) {
+	                        completeCall(j, true);
+	                    });
+
+	                    if (promiseData.promise) {
+	                        /* Immediately resolve the promise associated with this stop call since stop runs synchronously. */
+	                        promiseData.resolver(elements);
+	                    }
+	                }
+
+	                /* Since we're stopping, and not proceeding with queueing, exit out of Velocity. */
+	                return getChain();
+
+	            default:
+	                /* Treat a non-empty plain object as a literal properties map. */
+	                if ($.isPlainObject(propertiesMap) && !Type.isEmptyObject(propertiesMap)) {
+	                    action = "start";
+
+	                /****************
+	                    Redirects
+	                ****************/
+
+	                /* Check if a string matches a registered redirect (see Redirects above). */
+	                } else if (Type.isString(propertiesMap) && Velocity.Redirects[propertiesMap]) {
+	                    var opts = $.extend({}, options),
+	                        durationOriginal = opts.duration,
+	                        delayOriginal = opts.delay || 0;
+
+	                    /* If the backwards option was passed in, reverse the element set so that elements animate from the last to the first. */
+	                    if (opts.backwards === true) {
+	                        elements = $.extend(true, [], elements).reverse();
+	                    }
+
+	                    /* Individually trigger the redirect for each element in the set to prevent users from having to handle iteration logic in their redirect. */
+	                    $.each(elements, function(elementIndex, element) {
+	                        /* If the stagger option was passed in, successively delay each element by the stagger value (in ms). Retain the original delay value. */
+	                        if (parseFloat(opts.stagger)) {
+	                            opts.delay = delayOriginal + (parseFloat(opts.stagger) * elementIndex);
+	                        } else if (Type.isFunction(opts.stagger)) {
+	                            opts.delay = delayOriginal + opts.stagger.call(element, elementIndex, elementsLength);
+	                        }
+
+	                        /* If the drag option was passed in, successively increase/decrease (depending on the presense of opts.backwards)
+	                           the duration of each element's animation, using floors to prevent producing very short durations. */
+	                        if (opts.drag) {
+	                            /* Default the duration of UI pack effects (callouts and transitions) to 1000ms instead of the usual default duration of 400ms. */
+	                            opts.duration = parseFloat(durationOriginal) || (/^(callout|transition)/.test(propertiesMap) ? 1000 : DURATION_DEFAULT);
+
+	                            /* For each element, take the greater duration of: A) animation completion percentage relative to the original duration,
+	                               B) 75% of the original duration, or C) a 200ms fallback (in case duration is already set to a low value).
+	                               The end result is a baseline of 75% of the redirect's duration that increases/decreases as the end of the element set is approached. */
+	                            opts.duration = Math.max(opts.duration * (opts.backwards ? 1 - elementIndex/elementsLength : (elementIndex + 1) / elementsLength), opts.duration * 0.75, 200);
+	                        }
+
+	                        /* Pass in the call's opts object so that the redirect can optionally extend it. It defaults to an empty object instead of null to
+	                           reduce the opts checking logic required inside the redirect. */
+	                        Velocity.Redirects[propertiesMap].call(element, element, opts || {}, elementIndex, elementsLength, elements, promiseData.promise ? promiseData : undefined);
+	                    });
+
+	                    /* Since the animation logic resides within the redirect's own code, abort the remainder of this call.
+	                       (The performance overhead up to this point is virtually non-existant.) */
+	                    /* Note: The jQuery call chain is kept intact by returning the complete element set. */
+	                    return getChain();
+	                } else {
+	                    var abortError = "Velocity: First argument (" + propertiesMap + ") was not a property map, a known action, or a registered redirect. Aborting.";
+
+	                    if (promiseData.promise) {
+	                        promiseData.rejecter(new Error(abortError));
+	                    } else {
+	                        console.log(abortError);
+	                    }
+
+	                    return getChain();
+	                }
+	        }
+
+	        /**************************
+	            Call-Wide Variables
+	        **************************/
+
+	        /* A container for CSS unit conversion ratios (e.g. %, rem, and em ==> px) that is used to cache ratios across all elements
+	           being animated in a single Velocity call. Calculating unit ratios necessitates DOM querying and updating, and is therefore
+	           avoided (via caching) wherever possible. This container is call-wide instead of page-wide to avoid the risk of using stale
+	           conversion metrics across Velocity animations that are not immediately consecutively chained. */
+	        var callUnitConversionData = {
+	                lastParent: null,
+	                lastPosition: null,
+	                lastFontSize: null,
+	                lastPercentToPxWidth: null,
+	                lastPercentToPxHeight: null,
+	                lastEmToPx: null,
+	                remToPx: null,
+	                vwToPx: null,
+	                vhToPx: null
+	            };
+
+	        /* A container for all the ensuing tween data and metadata associated with this call. This container gets pushed to the page-wide
+	           Velocity.State.calls array that is processed during animation ticking. */
+	        var call = [];
+
+	        /************************
+	           Element Processing
+	        ************************/
+
+	        /* Element processing consists of three parts -- data processing that cannot go stale and data processing that *can* go stale (i.e. third-party style modifications):
+	           1) Pre-Queueing: Element-wide variables, including the element's data storage, are instantiated. Call options are prepared. If triggered, the Stop action is executed.
+	           2) Queueing: The logic that runs once this call has reached its point of execution in the element's $.queue() stack. Most logic is placed here to avoid risking it becoming stale.
+	           3) Pushing: Consolidation of the tween data followed by its push onto the global in-progress calls container.
+	        */
+
+	        function processElement () {
+
+	            /*************************
+	               Part I: Pre-Queueing
+	            *************************/
+
+	            /***************************
+	               Element-Wide Variables
+	            ***************************/
+
+	            var element = this,
+	                /* The runtime opts object is the extension of the current call's options and Velocity's page-wide option defaults. */
+	                opts = $.extend({}, Velocity.defaults, options),
+	                /* A container for the processed data associated with each property in the propertyMap.
+	                   (Each property in the map produces its own "tween".) */
+	                tweensContainer = {},
+	                elementUnitConversionData;
+
+	            /******************
+	               Element Init
+	            ******************/
+
+	            if (Data(element) === undefined) {
+	                Velocity.init(element);
+	            }
+
+	            /******************
+	               Option: Delay
+	            ******************/
+
+	            /* Since queue:false doesn't respect the item's existing queue, we avoid injecting its delay here (it's set later on). */
+	            /* Note: Velocity rolls its own delay function since jQuery doesn't have a utility alias for $.fn.delay()
+	               (and thus requires jQuery element creation, which we avoid since its overhead includes DOM querying). */
+	            if (parseFloat(opts.delay) && opts.queue !== false) {
+	                $.queue(element, opts.queue, function(next) {
+	                    /* This is a flag used to indicate to the upcoming completeCall() function that this queue entry was initiated by Velocity. See completeCall() for further details. */
+	                    Velocity.velocityQueueEntryFlag = true;
+
+	                    /* The ensuing queue item (which is assigned to the "next" argument that $.queue() automatically passes in) will be triggered after a setTimeout delay.
+	                       The setTimeout is stored so that it can be subjected to clearTimeout() if this animation is prematurely stopped via Velocity's "stop" command. */
+	                    Data(element).delayTimer = {
+	                        setTimeout: setTimeout(next, parseFloat(opts.delay)),
+	                        next: next
+	                    };
+	                });
+	            }
+
+	            /*********************
+	               Option: Duration
+	            *********************/
+
+	            /* Support for jQuery's named durations. */
+	            switch (opts.duration.toString().toLowerCase()) {
+	                case "fast":
+	                    opts.duration = 200;
+	                    break;
+
+	                case "normal":
+	                    opts.duration = DURATION_DEFAULT;
+	                    break;
+
+	                case "slow":
+	                    opts.duration = 600;
+	                    break;
+
+	                default:
+	                    /* Remove the potential "ms" suffix and default to 1 if the user is attempting to set a duration of 0 (in order to produce an immediate style change). */
+	                    opts.duration = parseFloat(opts.duration) || 1;
+	            }
+
+	            /************************
+	               Global Option: Mock
+	            ************************/
+
+	            if (Velocity.mock !== false) {
+	                /* In mock mode, all animations are forced to 1ms so that they occur immediately upon the next rAF tick.
+	                   Alternatively, a multiplier can be passed in to time remap all delays and durations. */
+	                if (Velocity.mock === true) {
+	                    opts.duration = opts.delay = 1;
+	                } else {
+	                    opts.duration *= parseFloat(Velocity.mock) || 1;
+	                    opts.delay *= parseFloat(Velocity.mock) || 1;
+	                }
+	            }
+
+	            /*******************
+	               Option: Easing
+	            *******************/
+
+	            opts.easing = getEasing(opts.easing, opts.duration);
+
+	            /**********************
+	               Option: Callbacks
+	            **********************/
+
+	            /* Callbacks must functions. Otherwise, default to null. */
+	            if (opts.begin && !Type.isFunction(opts.begin)) {
+	                opts.begin = null;
+	            }
+
+	            if (opts.progress && !Type.isFunction(opts.progress)) {
+	                opts.progress = null;
+	            }
+
+	            if (opts.complete && !Type.isFunction(opts.complete)) {
+	                opts.complete = null;
+	            }
+
+	            /*********************************
+	               Option: Display & Visibility
+	            *********************************/
+
+	            /* Refer to Velocity's documentation (VelocityJS.org/#displayAndVisibility) for a description of the display and visibility options' behavior. */
+	            /* Note: We strictly check for undefined instead of falsiness because display accepts an empty string value. */
+	            if (opts.display !== undefined && opts.display !== null) {
+	                opts.display = opts.display.toString().toLowerCase();
+
+	                /* Users can pass in a special "auto" value to instruct Velocity to set the element to its default display value. */
+	                if (opts.display === "auto") {
+	                    opts.display = Velocity.CSS.Values.getDisplayType(element);
+	                }
+	            }
+
+	            if (opts.visibility !== undefined && opts.visibility !== null) {
+	                opts.visibility = opts.visibility.toString().toLowerCase();
+	            }
+
+	            /**********************
+	               Option: mobileHA
+	            **********************/
+
+	            /* When set to true, and if this is a mobile device, mobileHA automatically enables hardware acceleration (via a null transform hack)
+	               on animating elements. HA is removed from the element at the completion of its animation. */
+	            /* Note: Android Gingerbread doesn't support HA. If a null transform hack (mobileHA) is in fact set, it will prevent other tranform subproperties from taking effect. */
+	            /* Note: You can read more about the use of mobileHA in Velocity's documentation: VelocityJS.org/#mobileHA. */
+	            opts.mobileHA = (opts.mobileHA && Velocity.State.isMobile && !Velocity.State.isGingerbread);
+
+	            /***********************
+	               Part II: Queueing
+	            ***********************/
+
+	            /* When a set of elements is targeted by a Velocity call, the set is broken up and each element has the current Velocity call individually queued onto it.
+	               In this way, each element's existing queue is respected; some elements may already be animating and accordingly should not have this current Velocity call triggered immediately. */
+	            /* In each queue, tween data is processed for each animating property then pushed onto the call-wide calls array. When the last element in the set has had its tweens processed,
+	               the call array is pushed to Velocity.State.calls for live processing by the requestAnimationFrame tick. */
+	            function buildQueue (next) {
+
+	                /*******************
+	                   Option: Begin
+	                *******************/
+
+	                /* The begin callback is fired once per call -- not once per elemenet -- and is passed the full raw DOM element set as both its context and its first argument. */
+	                if (opts.begin && elementsIndex === 0) {
+	                    /* We throw callbacks in a setTimeout so that thrown errors don't halt the execution of Velocity itself. */
+	                    try {
+	                        opts.begin.call(elements, elements);
+	                    } catch (error) {
+	                        setTimeout(function() { throw error; }, 1);
+	                    }
+	                }
+
+	                /*****************************************
+	                   Tween Data Construction (for Scroll)
+	                *****************************************/
+
+	                /* Note: In order to be subjected to chaining and animation options, scroll's tweening is routed through Velocity as if it were a standard CSS property animation. */
+	                if (action === "scroll") {
+	                    /* The scroll action uniquely takes an optional "offset" option -- specified in pixels -- that offsets the targeted scroll position. */
+	                    var scrollDirection = (/^x$/i.test(opts.axis) ? "Left" : "Top"),
+	                        scrollOffset = parseFloat(opts.offset) || 0,
+	                        scrollPositionCurrent,
+	                        scrollPositionCurrentAlternate,
+	                        scrollPositionEnd;
+
+	                    /* Scroll also uniquely takes an optional "container" option, which indicates the parent element that should be scrolled --
+	                       as opposed to the browser window itself. This is useful for scrolling toward an element that's inside an overflowing parent element. */
+	                    if (opts.container) {
+	                        /* Ensure that either a jQuery object or a raw DOM element was passed in. */
+	                        if (Type.isWrapped(opts.container) || Type.isNode(opts.container)) {
+	                            /* Extract the raw DOM element from the jQuery wrapper. */
+	                            opts.container = opts.container[0] || opts.container;
+	                            /* Note: Unlike other properties in Velocity, the browser's scroll position is never cached since it so frequently changes
+	                               (due to the user's natural interaction with the page). */
+	                            scrollPositionCurrent = opts.container["scroll" + scrollDirection]; /* GET */
+
+	                            /* $.position() values are relative to the container's currently viewable area (without taking into account the container's true dimensions
+	                               -- say, for example, if the container was not overflowing). Thus, the scroll end value is the sum of the child element's position *and*
+	                               the scroll container's current scroll position. */
+	                            scrollPositionEnd = (scrollPositionCurrent + $(element).position()[scrollDirection.toLowerCase()]) + scrollOffset; /* GET */
+	                        /* If a value other than a jQuery object or a raw DOM element was passed in, default to null so that this option is ignored. */
+	                        } else {
+	                            opts.container = null;
+	                        }
+	                    } else {
+	                        /* If the window itself is being scrolled -- not a containing element -- perform a live scroll position lookup using
+	                           the appropriate cached property names (which differ based on browser type). */
+	                        scrollPositionCurrent = Velocity.State.scrollAnchor[Velocity.State["scrollProperty" + scrollDirection]]; /* GET */
+	                        /* When scrolling the browser window, cache the alternate axis's current value since window.scrollTo() doesn't let us change only one value at a time. */
+	                        scrollPositionCurrentAlternate = Velocity.State.scrollAnchor[Velocity.State["scrollProperty" + (scrollDirection === "Left" ? "Top" : "Left")]]; /* GET */
+
+	                        /* Unlike $.position(), $.offset() values are relative to the browser window's true dimensions -- not merely its currently viewable area --
+	                           and therefore end values do not need to be compounded onto current values. */
+	                        scrollPositionEnd = $(element).offset()[scrollDirection.toLowerCase()] + scrollOffset; /* GET */
+	                    }
+
+	                    /* Since there's only one format that scroll's associated tweensContainer can take, we create it manually. */
+	                    tweensContainer = {
+	                        scroll: {
+	                            rootPropertyValue: false,
+	                            startValue: scrollPositionCurrent,
+	                            currentValue: scrollPositionCurrent,
+	                            endValue: scrollPositionEnd,
+	                            unitType: "",
+	                            easing: opts.easing,
+	                            scrollData: {
+	                                container: opts.container,
+	                                direction: scrollDirection,
+	                                alternateValue: scrollPositionCurrentAlternate
+	                            }
+	                        },
+	                        element: element
+	                    };
+
+	                    if (Velocity.debug) console.log("tweensContainer (scroll): ", tweensContainer.scroll, element);
+
+	                /******************************************
+	                   Tween Data Construction (for Reverse)
+	                ******************************************/
+
+	                /* Reverse acts like a "start" action in that a property map is animated toward. The only difference is
+	                   that the property map used for reverse is the inverse of the map used in the previous call. Thus, we manipulate
+	                   the previous call to construct our new map: use the previous map's end values as our new map's start values. Copy over all other data. */
+	                /* Note: Reverse can be directly called via the "reverse" parameter, or it can be indirectly triggered via the loop option. (Loops are composed of multiple reverses.) */
+	                /* Note: Reverse calls do not need to be consecutively chained onto a currently-animating element in order to operate on cached values;
+	                   there is no harm to reverse being called on a potentially stale data cache since reverse's behavior is simply defined
+	                   as reverting to the element's values as they were prior to the previous *Velocity* call. */
+	                } else if (action === "reverse") {
+	                    /* Abort if there is no prior animation data to reverse to. */
+	                    if (!Data(element).tweensContainer) {
+	                        /* Dequeue the element so that this queue entry releases itself immediately, allowing subsequent queue entries to run. */
+	                        $.dequeue(element, opts.queue);
+
+	                        return;
+	                    } else {
+	                        /*********************
+	                           Options Parsing
+	                        *********************/
+
+	                        /* If the element was hidden via the display option in the previous call,
+	                           revert display to "auto" prior to reversal so that the element is visible again. */
+	                        if (Data(element).opts.display === "none") {
+	                            Data(element).opts.display = "auto";
+	                        }
+
+	                        if (Data(element).opts.visibility === "hidden") {
+	                            Data(element).opts.visibility = "visible";
+	                        }
+
+	                        /* If the loop option was set in the previous call, disable it so that "reverse" calls aren't recursively generated.
+	                           Further, remove the previous call's callback options; typically, users do not want these to be refired. */
+	                        Data(element).opts.loop = false;
+	                        Data(element).opts.begin = null;
+	                        Data(element).opts.complete = null;
+
+	                        /* Since we're extending an opts object that has already been extended with the defaults options object,
+	                           we remove non-explicitly-defined properties that are auto-assigned values. */
+	                        if (!options.easing) {
+	                            delete opts.easing;
+	                        }
+
+	                        if (!options.duration) {
+	                            delete opts.duration;
+	                        }
+
+	                        /* The opts object used for reversal is an extension of the options object optionally passed into this
+	                           reverse call plus the options used in the previous Velocity call. */
+	                        opts = $.extend({}, Data(element).opts, opts);
+
+	                        /*************************************
+	                           Tweens Container Reconstruction
+	                        *************************************/
+
+	                        /* Create a deepy copy (indicated via the true flag) of the previous call's tweensContainer. */
+	                        var lastTweensContainer = $.extend(true, {}, Data(element).tweensContainer);
+
+	                        /* Manipulate the previous tweensContainer by replacing its end values and currentValues with its start values. */
+	                        for (var lastTween in lastTweensContainer) {
+	                            /* In addition to tween data, tweensContainers contain an element property that we ignore here. */
+	                            if (lastTween !== "element") {
+	                                var lastStartValue = lastTweensContainer[lastTween].startValue;
+
+	                                lastTweensContainer[lastTween].startValue = lastTweensContainer[lastTween].currentValue = lastTweensContainer[lastTween].endValue;
+	                                lastTweensContainer[lastTween].endValue = lastStartValue;
+
+	                                /* Easing is the only option that embeds into the individual tween data (since it can be defined on a per-property basis).
+	                                   Accordingly, every property's easing value must be updated when an options object is passed in with a reverse call.
+	                                   The side effect of this extensibility is that all per-property easing values are forcefully reset to the new value. */
+	                                if (!Type.isEmptyObject(options)) {
+	                                    lastTweensContainer[lastTween].easing = opts.easing;
+	                                }
+
+	                                if (Velocity.debug) console.log("reverse tweensContainer (" + lastTween + "): " + JSON.stringify(lastTweensContainer[lastTween]), element);
+	                            }
+	                        }
+
+	                        tweensContainer = lastTweensContainer;
+	                    }
+
+	                /*****************************************
+	                   Tween Data Construction (for Start)
+	                *****************************************/
+
+	                } else if (action === "start") {
+
+	                    /*************************
+	                        Value Transferring
+	                    *************************/
+
+	                    /* If this queue entry follows a previous Velocity-initiated queue entry *and* if this entry was created
+	                       while the element was in the process of being animated by Velocity, then this current call is safe to use
+	                       the end values from the prior call as its start values. Velocity attempts to perform this value transfer
+	                       process whenever possible in order to avoid requerying the DOM. */
+	                    /* If values aren't transferred from a prior call and start values were not forcefed by the user (more on this below),
+	                       then the DOM is queried for the element's current values as a last resort. */
+	                    /* Note: Conversely, animation reversal (and looping) *always* perform inter-call value transfers; they never requery the DOM. */
+	                    var lastTweensContainer;
+
+	                    /* The per-element isAnimating flag is used to indicate whether it's safe (i.e. the data isn't stale)
+	                       to transfer over end values to use as start values. If it's set to true and there is a previous
+	                       Velocity call to pull values from, do so. */
+	                    if (Data(element).tweensContainer && Data(element).isAnimating === true) {
+	                        lastTweensContainer = Data(element).tweensContainer;
+	                    }
+
+	                    /***************************
+	                       Tween Data Calculation
+	                    ***************************/
+
+	                    /* This function parses property data and defaults endValue, easing, and startValue as appropriate. */
+	                    /* Property map values can either take the form of 1) a single value representing the end value,
+	                       or 2) an array in the form of [ endValue, [, easing] [, startValue] ].
+	                       The optional third parameter is a forcefed startValue to be used instead of querying the DOM for
+	                       the element's current value. Read Velocity's docmentation to learn more about forcefeeding: VelocityJS.org/#forcefeeding */
+	                    function parsePropertyValue (valueData, skipResolvingEasing) {
+	                        var endValue = undefined,
+	                            easing = undefined,
+	                            startValue = undefined;
+
+	                        /* Handle the array format, which can be structured as one of three potential overloads:
+	                           A) [ endValue, easing, startValue ], B) [ endValue, easing ], or C) [ endValue, startValue ] */
+	                        if (Type.isArray(valueData)) {
+	                            /* endValue is always the first item in the array. Don't bother validating endValue's value now
+	                               since the ensuing property cycling logic does that. */
+	                            endValue = valueData[0];
+
+	                            /* Two-item array format: If the second item is a number, function, or hex string, treat it as a
+	                               start value since easings can only be non-hex strings or arrays. */
+	                            if ((!Type.isArray(valueData[1]) && /^[\d-]/.test(valueData[1])) || Type.isFunction(valueData[1]) || CSS.RegEx.isHex.test(valueData[1])) {
+	                                startValue = valueData[1];
+	                            /* Two or three-item array: If the second item is a non-hex string or an array, treat it as an easing. */
+	                            } else if ((Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1])) || Type.isArray(valueData[1])) {
+	                                easing = skipResolvingEasing ? valueData[1] : getEasing(valueData[1], opts.duration);
+
+	                                /* Don't bother validating startValue's value now since the ensuing property cycling logic inherently does that. */
+	                                if (valueData[2] !== undefined) {
+	                                    startValue = valueData[2];
+	                                }
+	                            }
+	                        /* Handle the single-value format. */
+	                        } else {
+	                            endValue = valueData;
+	                        }
+
+	                        /* Default to the call's easing if a per-property easing type was not defined. */
+	                        if (!skipResolvingEasing) {
+	                            easing = easing || opts.easing;
+	                        }
+
+	                        /* If functions were passed in as values, pass the function the current element as its context,
+	                           plus the element's index and the element set's size as arguments. Then, assign the returned value. */
+	                        if (Type.isFunction(endValue)) {
+	                            endValue = endValue.call(element, elementsIndex, elementsLength);
+	                        }
+
+	                        if (Type.isFunction(startValue)) {
+	                            startValue = startValue.call(element, elementsIndex, elementsLength);
+	                        }
+
+	                        /* Allow startValue to be left as undefined to indicate to the ensuing code that its value was not forcefed. */
+	                        return [ endValue || 0, easing, startValue ];
+	                    }
+
+	                    /* Cycle through each property in the map, looking for shorthand color properties (e.g. "color" as opposed to "colorRed"). Inject the corresponding
+	                       colorRed, colorGreen, and colorBlue RGB component tweens into the propertiesMap (which Velocity understands) and remove the shorthand property. */
+	                    $.each(propertiesMap, function(property, value) {
+	                        /* Find shorthand color properties that have been passed a hex string. */
+	                        if (RegExp("^" + CSS.Lists.colors.join("$|^") + "$").test(property)) {
+	                            /* Parse the value data for each shorthand. */
+	                            var valueData = parsePropertyValue(value, true),
+	                                endValue = valueData[0],
+	                                easing = valueData[1],
+	                                startValue = valueData[2];
+
+	                            if (CSS.RegEx.isHex.test(endValue)) {
+	                                /* Convert the hex strings into their RGB component arrays. */
+	                                var colorComponents = [ "Red", "Green", "Blue" ],
+	                                    endValueRGB = CSS.Values.hexToRgb(endValue),
+	                                    startValueRGB = startValue ? CSS.Values.hexToRgb(startValue) : undefined;
+
+	                                /* Inject the RGB component tweens into propertiesMap. */
+	                                for (var i = 0; i < colorComponents.length; i++) {
+	                                    var dataArray = [ endValueRGB[i] ];
+
+	                                    if (easing) {
+	                                        dataArray.push(easing);
+	                                    }
+
+	                                    if (startValueRGB !== undefined) {
+	                                        dataArray.push(startValueRGB[i]);
+	                                    }
+
+	                                    propertiesMap[property + colorComponents[i]] = dataArray;
+	                                }
+
+	                                /* Remove the intermediary shorthand property entry now that we've processed it. */
+	                                delete propertiesMap[property];
+	                            }
+	                        }
+	                    });
+
+	                    /* Create a tween out of each property, and append its associated data to tweensContainer. */
+	                    for (var property in propertiesMap) {
+
+	                        /**************************
+	                           Start Value Sourcing
+	                        **************************/
+
+	                        /* Parse out endValue, easing, and startValue from the property's data. */
+	                        var valueData = parsePropertyValue(propertiesMap[property]),
+	                            endValue = valueData[0],
+	                            easing = valueData[1],
+	                            startValue = valueData[2];
+
+	                        /* Now that the original property name's format has been used for the parsePropertyValue() lookup above,
+	                           we force the property to its camelCase styling to normalize it for manipulation. */
+	                        property = CSS.Names.camelCase(property);
+
+	                        /* In case this property is a hook, there are circumstances where we will intend to work on the hook's root property and not the hooked subproperty. */
+	                        var rootProperty = CSS.Hooks.getRoot(property),
+	                            rootPropertyValue = false;
+
+	                        /* Other than for the dummy tween property, properties that are not supported by the browser (and do not have an associated normalization) will
+	                           inherently produce no style changes when set, so they are skipped in order to decrease animation tick overhead.
+	                           Property support is determined via prefixCheck(), which returns a false flag when no supported is detected. */
+	                        /* Note: Since SVG elements have some of their properties directly applied as HTML attributes,
+	                           there is no way to check for their explicit browser support, and so we skip skip this check for them. */
+	                        if (!Data(element).isSVG && rootProperty !== "tween" && CSS.Names.prefixCheck(rootProperty)[1] === false && CSS.Normalizations.registered[rootProperty] === undefined) {
+	                            if (Velocity.debug) console.log("Skipping [" + rootProperty + "] due to a lack of browser support.");
+
+	                            continue;
+	                        }
+
+	                        /* If the display option is being set to a non-"none" (e.g. "block") and opacity (filter on IE<=8) is being
+	                           animated to an endValue of non-zero, the user's intention is to fade in from invisible, thus we forcefeed opacity
+	                           a startValue of 0 if its startValue hasn't already been sourced by value transferring or prior forcefeeding. */
+	                        if (((opts.display !== undefined && opts.display !== null && opts.display !== "none") || (opts.visibility !== undefined && opts.visibility !== "hidden")) && /opacity|filter/.test(property) && !startValue && endValue !== 0) {
+	                            startValue = 0;
+	                        }
+
+	                        /* If values have been transferred from the previous Velocity call, extract the endValue and rootPropertyValue
+	                           for all of the current call's properties that were *also* animated in the previous call. */
+	                        /* Note: Value transferring can optionally be disabled by the user via the _cacheValues option. */
+	                        if (opts._cacheValues && lastTweensContainer && lastTweensContainer[property]) {
+	                            if (startValue === undefined) {
+	                                startValue = lastTweensContainer[property].endValue + lastTweensContainer[property].unitType;
+	                            }
+
+	                            /* The previous call's rootPropertyValue is extracted from the element's data cache since that's the
+	                               instance of rootPropertyValue that gets freshly updated by the tweening process, whereas the rootPropertyValue
+	                               attached to the incoming lastTweensContainer is equal to the root property's value prior to any tweening. */
+	                            rootPropertyValue = Data(element).rootPropertyValueCache[rootProperty];
+	                        /* If values were not transferred from a previous Velocity call, query the DOM as needed. */
+	                        } else {
+	                            /* Handle hooked properties. */
+	                            if (CSS.Hooks.registered[property]) {
+	                               if (startValue === undefined) {
+	                                    rootPropertyValue = CSS.getPropertyValue(element, rootProperty); /* GET */
+	                                    /* Note: The following getPropertyValue() call does not actually trigger a DOM query;
+	                                       getPropertyValue() will extract the hook from rootPropertyValue. */
+	                                    startValue = CSS.getPropertyValue(element, property, rootPropertyValue);
+	                                /* If startValue is already defined via forcefeeding, do not query the DOM for the root property's value;
+	                                   just grab rootProperty's zero-value template from CSS.Hooks. This overwrites the element's actual
+	                                   root property value (if one is set), but this is acceptable since the primary reason users forcefeed is
+	                                   to avoid DOM queries, and thus we likewise avoid querying the DOM for the root property's value. */
+	                                } else {
+	                                    /* Grab this hook's zero-value template, e.g. "0px 0px 0px black". */
+	                                    rootPropertyValue = CSS.Hooks.templates[rootProperty][1];
+	                                }
+	                            /* Handle non-hooked properties that haven't already been defined via forcefeeding. */
+	                            } else if (startValue === undefined) {
+	                                startValue = CSS.getPropertyValue(element, property); /* GET */
+	                            }
+	                        }
+
+	                        /**************************
+	                           Value Data Extraction
+	                        **************************/
+
+	                        var separatedValue,
+	                            endValueUnitType,
+	                            startValueUnitType,
+	                            operator = false;
+
+	                        /* Separates a property value into its numeric value and its unit type. */
+	                        function separateValue (property, value) {
+	                            var unitType,
+	                                numericValue;
+
+	                            numericValue = (value || "0")
+	                                .toString()
+	                                .toLowerCase()
+	                                /* Match the unit type at the end of the value. */
+	                                .replace(/[%A-z]+$/, function(match) {
+	                                    /* Grab the unit type. */
+	                                    unitType = match;
+
+	                                    /* Strip the unit type off of value. */
+	                                    return "";
+	                                });
+
+	                            /* If no unit type was supplied, assign one that is appropriate for this property (e.g. "deg" for rotateZ or "px" for width). */
+	                            if (!unitType) {
+	                                unitType = CSS.Values.getUnitType(property);
+	                            }
+
+	                            return [ numericValue, unitType ];
+	                        }
+
+	                        /* Separate startValue. */
+	                        separatedValue = separateValue(property, startValue);
+	                        startValue = separatedValue[0];
+	                        startValueUnitType = separatedValue[1];
+
+	                        /* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
+	                        separatedValue = separateValue(property, endValue);
+	                        endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
+	                            operator = subMatch;
+
+	                            /* Strip the operator off of the value. */
+	                            return "";
+	                        });
+	                        endValueUnitType = separatedValue[1];
+
+	                        /* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
+	                        startValue = parseFloat(startValue) || 0;
+	                        endValue = parseFloat(endValue) || 0;
+
+	                        /***************************************
+	                           Property-Specific Value Conversion
+	                        ***************************************/
+
+	                        /* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
+	                        if (endValueUnitType === "%") {
+	                            /* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
+	                               which is identical to the em unit's behavior, so we piggyback off of that. */
+	                            if (/^(fontSize|lineHeight)$/.test(property)) {
+	                                /* Convert % into an em decimal value. */
+	                                endValue = endValue / 100;
+	                                endValueUnitType = "em";
+	                            /* For scaleX and scaleY, convert the value into its decimal format and strip off the unit type. */
+	                            } else if (/^scale/.test(property)) {
+	                                endValue = endValue / 100;
+	                                endValueUnitType = "";
+	                            /* For RGB components, take the defined percentage of 255 and strip off the unit type. */
+	                            } else if (/(Red|Green|Blue)$/i.test(property)) {
+	                                endValue = (endValue / 100) * 255;
+	                                endValueUnitType = "";
+	                            }
+	                        }
+
+	                        /***************************
+	                           Unit Ratio Calculation
+	                        ***************************/
+
+	                        /* When queried, the browser returns (most) CSS property values in pixels. Therefore, if an endValue with a unit type of
+	                           %, em, or rem is animated toward, startValue must be converted from pixels into the same unit type as endValue in order
+	                           for value manipulation logic (increment/decrement) to proceed. Further, if the startValue was forcefed or transferred
+	                           from a previous call, startValue may also not be in pixels. Unit conversion logic therefore consists of two steps:
+	                           1) Calculating the ratio of %/em/rem/vh/vw relative to pixels
+	                           2) Converting startValue into the same unit of measurement as endValue based on these ratios. */
+	                        /* Unit conversion ratios are calculated by inserting a sibling node next to the target node, copying over its position property,
+	                           setting values with the target unit type then comparing the returned pixel value. */
+	                        /* Note: Even if only one of these unit types is being animated, all unit ratios are calculated at once since the overhead
+	                           of batching the SETs and GETs together upfront outweights the potential overhead
+	                           of layout thrashing caused by re-querying for uncalculated ratios for subsequently-processed properties. */
+	                        /* Todo: Shift this logic into the calls' first tick instance so that it's synced with RAF. */
+	                        function calculateUnitRatios () {
+
+	                            /************************
+	                                Same Ratio Checks
+	                            ************************/
+
+	                            /* The properties below are used to determine whether the element differs sufficiently from this call's
+	                               previously iterated element to also differ in its unit conversion ratios. If the properties match up with those
+	                               of the prior element, the prior element's conversion ratios are used. Like most optimizations in Velocity,
+	                               this is done to minimize DOM querying. */
+	                            var sameRatioIndicators = {
+	                                    myParent: element.parentNode || document.body, /* GET */
+	                                    position: CSS.getPropertyValue(element, "position"), /* GET */
+	                                    fontSize: CSS.getPropertyValue(element, "fontSize") /* GET */
+	                                },
+	                                /* Determine if the same % ratio can be used. % is based on the element's position value and its parent's width and height dimensions. */
+	                                samePercentRatio = ((sameRatioIndicators.position === callUnitConversionData.lastPosition) && (sameRatioIndicators.myParent === callUnitConversionData.lastParent)),
+	                                /* Determine if the same em ratio can be used. em is relative to the element's fontSize. */
+	                                sameEmRatio = (sameRatioIndicators.fontSize === callUnitConversionData.lastFontSize);
+
+	                            /* Store these ratio indicators call-wide for the next element to compare against. */
+	                            callUnitConversionData.lastParent = sameRatioIndicators.myParent;
+	                            callUnitConversionData.lastPosition = sameRatioIndicators.position;
+	                            callUnitConversionData.lastFontSize = sameRatioIndicators.fontSize;
+
+	                            /***************************
+	                               Element-Specific Units
+	                            ***************************/
+
+	                            /* Note: IE8 rounds to the nearest pixel when returning CSS values, thus we perform conversions using a measurement
+	                               of 100 (instead of 1) to give our ratios a precision of at least 2 decimal values. */
+	                            var measurement = 100,
+	                                unitRatios = {};
+
+	                            if (!sameEmRatio || !samePercentRatio) {
+	                                var dummy = Data(element).isSVG ? document.createElementNS("http://www.w3.org/2000/svg", "rect") : document.createElement("div");
+
+	                                Velocity.init(dummy);
+	                                sameRatioIndicators.myParent.appendChild(dummy);
+
+	                                /* To accurately and consistently calculate conversion ratios, the element's cascaded overflow and box-sizing are stripped.
+	                                   Similarly, since width/height can be artificially constrained by their min-/max- equivalents, these are controlled for as well. */
+	                                /* Note: Overflow must be also be controlled for per-axis since the overflow property overwrites its per-axis values. */
+	                                $.each([ "overflow", "overflowX", "overflowY" ], function(i, property) {
+	                                    Velocity.CSS.setPropertyValue(dummy, property, "hidden");
+	                                });
+	                                Velocity.CSS.setPropertyValue(dummy, "position", sameRatioIndicators.position);
+	                                Velocity.CSS.setPropertyValue(dummy, "fontSize", sameRatioIndicators.fontSize);
+	                                Velocity.CSS.setPropertyValue(dummy, "boxSizing", "content-box");
+
+	                                /* width and height act as our proxy properties for measuring the horizontal and vertical % ratios. */
+	                                $.each([ "minWidth", "maxWidth", "width", "minHeight", "maxHeight", "height" ], function(i, property) {
+	                                    Velocity.CSS.setPropertyValue(dummy, property, measurement + "%");
+	                                });
+	                                /* paddingLeft arbitrarily acts as our proxy property for the em ratio. */
+	                                Velocity.CSS.setPropertyValue(dummy, "paddingLeft", measurement + "em");
+
+	                                /* Divide the returned value by the measurement to get the ratio between 1% and 1px. Default to 1 since working with 0 can produce Infinite. */
+	                                unitRatios.percentToPxWidth = callUnitConversionData.lastPercentToPxWidth = (parseFloat(CSS.getPropertyValue(dummy, "width", null, true)) || 1) / measurement; /* GET */
+	                                unitRatios.percentToPxHeight = callUnitConversionData.lastPercentToPxHeight = (parseFloat(CSS.getPropertyValue(dummy, "height", null, true)) || 1) / measurement; /* GET */
+	                                unitRatios.emToPx = callUnitConversionData.lastEmToPx = (parseFloat(CSS.getPropertyValue(dummy, "paddingLeft")) || 1) / measurement; /* GET */
+
+	                                sameRatioIndicators.myParent.removeChild(dummy);
+	                            } else {
+	                                unitRatios.emToPx = callUnitConversionData.lastEmToPx;
+	                                unitRatios.percentToPxWidth = callUnitConversionData.lastPercentToPxWidth;
+	                                unitRatios.percentToPxHeight = callUnitConversionData.lastPercentToPxHeight;
+	                            }
+
+	                            /***************************
+	                               Element-Agnostic Units
+	                            ***************************/
+
+	                            /* Whereas % and em ratios are determined on a per-element basis, the rem unit only needs to be checked
+	                               once per call since it's exclusively dependant upon document.body's fontSize. If this is the first time
+	                               that calculateUnitRatios() is being run during this call, remToPx will still be set to its default value of null,
+	                               so we calculate it now. */
+	                            if (callUnitConversionData.remToPx === null) {
+	                                /* Default to browsers' default fontSize of 16px in the case of 0. */
+	                                callUnitConversionData.remToPx = parseFloat(CSS.getPropertyValue(document.body, "fontSize")) || 16; /* GET */
+	                            }
+
+	                            /* Similarly, viewport units are %-relative to the window's inner dimensions. */
+	                            if (callUnitConversionData.vwToPx === null) {
+	                                callUnitConversionData.vwToPx = parseFloat(window.innerWidth) / 100; /* GET */
+	                                callUnitConversionData.vhToPx = parseFloat(window.innerHeight) / 100; /* GET */
+	                            }
+
+	                            unitRatios.remToPx = callUnitConversionData.remToPx;
+	                            unitRatios.vwToPx = callUnitConversionData.vwToPx;
+	                            unitRatios.vhToPx = callUnitConversionData.vhToPx;
+
+	                            if (Velocity.debug >= 1) console.log("Unit ratios: " + JSON.stringify(unitRatios), element);
+
+	                            return unitRatios;
+	                        }
+
+	                        /********************
+	                           Unit Conversion
+	                        ********************/
+
+	                        /* The * and / operators, which are not passed in with an associated unit, inherently use startValue's unit. Skip value and unit conversion. */
+	                        if (/[\/*]/.test(operator)) {
+	                            endValueUnitType = startValueUnitType;
+	                        /* If startValue and endValue differ in unit type, convert startValue into the same unit type as endValue so that if endValueUnitType
+	                           is a relative unit (%, em, rem), the values set during tweening will continue to be accurately relative even if the metrics they depend
+	                           on are dynamically changing during the course of the animation. Conversely, if we always normalized into px and used px for setting values, the px ratio
+	                           would become stale if the original unit being animated toward was relative and the underlying metrics change during the animation. */
+	                        /* Since 0 is 0 in any unit type, no conversion is necessary when startValue is 0 -- we just start at 0 with endValueUnitType. */
+	                        } else if ((startValueUnitType !== endValueUnitType) && startValue !== 0) {
+	                            /* Unit conversion is also skipped when endValue is 0, but *startValueUnitType* must be used for tween values to remain accurate. */
+	                            /* Note: Skipping unit conversion here means that if endValueUnitType was originally a relative unit, the animation won't relatively
+	                               match the underlying metrics if they change, but this is acceptable since we're animating toward invisibility instead of toward visibility,
+	                               which remains past the point of the animation's completion. */
+	                            if (endValue === 0) {
+	                                endValueUnitType = startValueUnitType;
+	                            } else {
+	                                /* By this point, we cannot avoid unit conversion (it's undesirable since it causes layout thrashing).
+	                                   If we haven't already, we trigger calculateUnitRatios(), which runs once per element per call. */
+	                                elementUnitConversionData = elementUnitConversionData || calculateUnitRatios();
+
+	                                /* The following RegEx matches CSS properties that have their % values measured relative to the x-axis. */
+	                                /* Note: W3C spec mandates that all of margin and padding's properties (even top and bottom) are %-relative to the *width* of the parent element. */
+	                                var axis = (/margin|padding|left|right|width|text|word|letter/i.test(property) || /X$/.test(property) || property === "x") ? "x" : "y";
+
+	                                /* In order to avoid generating n^2 bespoke conversion functions, unit conversion is a two-step process:
+	                                   1) Convert startValue into pixels. 2) Convert this new pixel value into endValue's unit type. */
+	                                switch (startValueUnitType) {
+	                                    case "%":
+	                                        /* Note: translateX and translateY are the only properties that are %-relative to an element's own dimensions -- not its parent's dimensions.
+	                                           Velocity does not include a special conversion process to account for this behavior. Therefore, animating translateX/Y from a % value
+	                                           to a non-% value will produce an incorrect start value. Fortunately, this sort of cross-unit conversion is rarely done by users in practice. */
+	                                        startValue *= (axis === "x" ? elementUnitConversionData.percentToPxWidth : elementUnitConversionData.percentToPxHeight);
+	                                        break;
+
+	                                    case "px":
+	                                        /* px acts as our midpoint in the unit conversion process; do nothing. */
+	                                        break;
+
+	                                    default:
+	                                        startValue *= elementUnitConversionData[startValueUnitType + "ToPx"];
+	                                }
+
+	                                /* Invert the px ratios to convert into to the target unit. */
+	                                switch (endValueUnitType) {
+	                                    case "%":
+	                                        startValue *= 1 / (axis === "x" ? elementUnitConversionData.percentToPxWidth : elementUnitConversionData.percentToPxHeight);
+	                                        break;
+
+	                                    case "px":
+	                                        /* startValue is already in px, do nothing; we're done. */
+	                                        break;
+
+	                                    default:
+	                                        startValue *= 1 / elementUnitConversionData[endValueUnitType + "ToPx"];
+	                                }
+	                            }
+	                        }
+
+	                        /*********************
+	                           Relative Values
+	                        *********************/
+
+	                        /* Operator logic must be performed last since it requires unit-normalized start and end values. */
+	                        /* Note: Relative *percent values* do not behave how most people think; while one would expect "+=50%"
+	                           to increase the property 1.5x its current value, it in fact increases the percent units in absolute terms:
+	                           50 points is added on top of the current % value. */
+	                        switch (operator) {
+	                            case "+":
+	                                endValue = startValue + endValue;
+	                                break;
+
+	                            case "-":
+	                                endValue = startValue - endValue;
+	                                break;
+
+	                            case "*":
+	                                endValue = startValue * endValue;
+	                                break;
+
+	                            case "/":
+	                                endValue = startValue / endValue;
+	                                break;
+	                        }
+
+	                        /**************************
+	                           tweensContainer Push
+	                        **************************/
+
+	                        /* Construct the per-property tween object, and push it to the element's tweensContainer. */
+	                        tweensContainer[property] = {
+	                            rootPropertyValue: rootPropertyValue,
+	                            startValue: startValue,
+	                            currentValue: startValue,
+	                            endValue: endValue,
+	                            unitType: endValueUnitType,
+	                            easing: easing
+	                        };
+
+	                        if (Velocity.debug) console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
+	                    }
+
+	                    /* Along with its property data, store a reference to the element itself onto tweensContainer. */
+	                    tweensContainer.element = element;
+	                }
+
+	                /*****************
+	                    Call Push
+	                *****************/
+
+	                /* Note: tweensContainer can be empty if all of the properties in this call's property map were skipped due to not
+	                   being supported by the browser. The element property is used for checking that the tweensContainer has been appended to. */
+	                if (tweensContainer.element) {
+	                    /* Apply the "velocity-animating" indicator class. */
+	                    CSS.Values.addClass(element, "velocity-animating");
+
+	                    /* The call array houses the tweensContainers for each element being animated in the current call. */
+	                    call.push(tweensContainer);
+
+	                    /* Store the tweensContainer and options if we're working on the default effects queue, so that they can be used by the reverse command. */
+	                    if (opts.queue === "") {
+	                        Data(element).tweensContainer = tweensContainer;
+	                        Data(element).opts = opts;
+	                    }
+
+	                    /* Switch on the element's animating flag. */
+	                    Data(element).isAnimating = true;
+
+	                    /* Once the final element in this call's element set has been processed, push the call array onto
+	                       Velocity.State.calls for the animation tick to immediately begin processing. */
+	                    if (elementsIndex === elementsLength - 1) {
+	                        /* Add the current call plus its associated metadata (the element set and the call's options) onto the global call container.
+	                           Anything on this call container is subjected to tick() processing. */
+	                        Velocity.State.calls.push([ call, elements, opts, null, promiseData.resolver ]);
+
+	                        /* If the animation tick isn't running, start it. (Velocity shuts it off when there are no active calls to process.) */
+	                        if (Velocity.State.isTicking === false) {
+	                            Velocity.State.isTicking = true;
+
+	                            /* Start the tick loop. */
+	                            tick();
+	                        }
+	                    } else {
+	                        elementsIndex++;
+	                    }
+	                }
+	            }
+
+	            /* When the queue option is set to false, the call skips the element's queue and fires immediately. */
+	            if (opts.queue === false) {
+	                /* Since this buildQueue call doesn't respect the element's existing queue (which is where a delay option would have been appended),
+	                   we manually inject the delay property here with an explicit setTimeout. */
+	                if (opts.delay) {
+	                    setTimeout(buildQueue, opts.delay);
+	                } else {
+	                    buildQueue();
+	                }
+	            /* Otherwise, the call undergoes element queueing as normal. */
+	            /* Note: To interoperate with jQuery, Velocity uses jQuery's own $.queue() stack for queuing logic. */
+	            } else {
+	                $.queue(element, opts.queue, function(next, clearQueue) {
+	                    /* If the clearQueue flag was passed in by the stop command, resolve this call's promise. (Promises can only be resolved once,
+	                       so it's fine if this is repeatedly triggered for each element in the associated call.) */
+	                    if (clearQueue === true) {
+	                        if (promiseData.promise) {
+	                            promiseData.resolver(elements);
+	                        }
+
+	                        /* Do not continue with animation queueing. */
+	                        return true;
+	                    }
+
+	                    /* This flag indicates to the upcoming completeCall() function that this queue entry was initiated by Velocity.
+	                       See completeCall() for further details. */
+	                    Velocity.velocityQueueEntryFlag = true;
+
+	                    buildQueue(next);
+	                });
+	            }
+
+	            /*********************
+	                Auto-Dequeuing
+	            *********************/
+
+	            /* As per jQuery's $.queue() behavior, to fire the first non-custom-queue entry on an element, the element
+	               must be dequeued if its queue stack consists *solely* of the current call. (This can be determined by checking
+	               for the "inprogress" item that jQuery prepends to active queue stack arrays.) Regardless, whenever the element's
+	               queue is further appended with additional items -- including $.delay()'s or even $.animate() calls, the queue's
+	               first entry is automatically fired. This behavior contrasts that of custom queues, which never auto-fire. */
+	            /* Note: When an element set is being subjected to a non-parallel Velocity call, the animation will not begin until
+	               each one of the elements in the set has reached the end of its individually pre-existing queue chain. */
+	            /* Note: Unfortunately, most people don't fully grasp jQuery's powerful, yet quirky, $.queue() function.
+	               Lean more here: http://stackoverflow.com/questions/1058158/can-somebody-explain-jquery-queue-to-me */
+	            if ((opts.queue === "" || opts.queue === "fx") && $.queue(element)[0] !== "inprogress") {
+	                $.dequeue(element);
+	            }
+	        }
+
+	        /**************************
+	           Element Set Iteration
+	        **************************/
+
+	        /* If the "nodeType" property exists on the elements variable, we're animating a single element.
+	           Place it in an array so that $.each() can iterate over it. */
+	        $.each(elements, function(i, element) {
+	            /* Ensure each element in a set has a nodeType (is a real element) to avoid throwing errors. */
+	            if (Type.isNode(element)) {
+	                processElement.call(element);
+	            }
+	        });
+
+	        /******************
+	           Option: Loop
+	        ******************/
+
+	        /* The loop option accepts an integer indicating how many times the element should loop between the values in the
+	           current call's properties map and the element's property values prior to this call. */
+	        /* Note: The loop option's logic is performed here -- after element processing -- because the current call needs
+	           to undergo its queue insertion prior to the loop option generating its series of constituent "reverse" calls,
+	           which chain after the current call. Two reverse calls (two "alternations") constitute one loop. */
+	        var opts = $.extend({}, Velocity.defaults, options),
+	            reverseCallsCount;
+
+	        opts.loop = parseInt(opts.loop);
+	        reverseCallsCount = (opts.loop * 2) - 1;
+
+	        if (opts.loop) {
+	            /* Double the loop count to convert it into its appropriate number of "reverse" calls.
+	               Subtract 1 from the resulting value since the current call is included in the total alternation count. */
+	            for (var x = 0; x < reverseCallsCount; x++) {
+	                /* Since the logic for the reverse action occurs inside Queueing and therefore this call's options object
+	                   isn't parsed until then as well, the current call's delay option must be explicitly passed into the reverse
+	                   call so that the delay logic that occurs inside *Pre-Queueing* can process it. */
+	                var reverseOptions = {
+	                    delay: opts.delay,
+	                    progress: opts.progress
+	                };
+
+	                /* If a complete callback was passed into this call, transfer it to the loop redirect's final "reverse" call
+	                   so that it's triggered when the entire redirect is complete (and not when the very first animation is complete). */
+	                if (x === reverseCallsCount - 1) {
+	                    reverseOptions.display = opts.display;
+	                    reverseOptions.visibility = opts.visibility;
+	                    reverseOptions.complete = opts.complete;
+	                }
+
+	                animate(elements, "reverse", reverseOptions);
+	            }
+	        }
+
+	        /***************
+	            Chaining
+	        ***************/
+
+	        /* Return the elements back to the call chain, with wrapped elements taking precedence in case Velocity was called via the $.fn. extension. */
+	        return getChain();
+	    };
+
+	    /* Turn Velocity into the animation function, extended with the pre-existing Velocity object. */
+	    Velocity = $.extend(animate, Velocity);
+	    /* For legacy support, also expose the literal animate method. */
+	    Velocity.animate = animate;
+
+	    /**************
+	        Timing
+	    **************/
+
+	    /* Ticker function. */
+	    var ticker = window.requestAnimationFrame || rAFShim;
+
+	    /* Inactive browser tabs pause rAF, which results in all active animations immediately sprinting to their completion states when the tab refocuses.
+	       To get around this, we dynamically switch rAF to setTimeout (which the browser *doesn't* pause) when the tab loses focus. We skip this for mobile
+	       devices to avoid wasting battery power on inactive tabs. */
+	    /* Note: Tab focus detection doesn't work on older versions of IE, but that's okay since they don't support rAF to begin with. */
+	    if (!Velocity.State.isMobile && document.hidden !== undefined) {
+	        document.addEventListener("visibilitychange", function() {
+	            /* Reassign the rAF function (which the global tick() function uses) based on the tab's focus state. */
+	            if (document.hidden) {
+	                ticker = function(callback) {
+	                    /* The tick function needs a truthy first argument in order to pass its internal timestamp check. */
+	                    return setTimeout(function() { callback(true) }, 16);
+	                };
+
+	                /* The rAF loop has been paused by the browser, so we manually restart the tick. */
+	                tick();
+	            } else {
+	                ticker = window.requestAnimationFrame || rAFShim;
+	            }
+	        });
+	    }
+
+	    /************
+	        Tick
+	    ************/
+
+	    /* Note: All calls to Velocity are pushed to the Velocity.State.calls array, which is fully iterated through upon each tick. */
+	    function tick (timestamp) {
+	        /* An empty timestamp argument indicates that this is the first tick occurence since ticking was turned on.
+	           We leverage this metadata to fully ignore the first tick pass since RAF's initial pass is fired whenever
+	           the browser's next tick sync time occurs, which results in the first elements subjected to Velocity
+	           calls being animated out of sync with any elements animated immediately thereafter. In short, we ignore
+	           the first RAF tick pass so that elements being immediately consecutively animated -- instead of simultaneously animated
+	           by the same Velocity call -- are properly batched into the same initial RAF tick and consequently remain in sync thereafter. */
+	        if (timestamp) {
+	            /* We ignore RAF's high resolution timestamp since it can be significantly offset when the browser is
+	               under high stress; we opt for choppiness over allowing the browser to drop huge chunks of frames. */
+	            var timeCurrent = (new Date).getTime();
+
+	            /********************
+	               Call Iteration
+	            ********************/
+
+	            var callsLength = Velocity.State.calls.length;
+
+	            /* To speed up iterating over this array, it is compacted (falsey items -- calls that have completed -- are removed)
+	               when its length has ballooned to a point that can impact tick performance. This only becomes necessary when animation
+	               has been continuous with many elements over a long period of time; whenever all active calls are completed, completeCall() clears Velocity.State.calls. */
+	            if (callsLength > 10000) {
+	                Velocity.State.calls = compactSparseArray(Velocity.State.calls);
+	            }
+
+	            /* Iterate through each active call. */
+	            for (var i = 0; i < callsLength; i++) {
+	                /* When a Velocity call is completed, its Velocity.State.calls entry is set to false. Continue on to the next call. */
+	                if (!Velocity.State.calls[i]) {
+	                    continue;
+	                }
+
+	                /************************
+	                   Call-Wide Variables
+	                ************************/
+
+	                var callContainer = Velocity.State.calls[i],
+	                    call = callContainer[0],
+	                    opts = callContainer[2],
+	                    timeStart = callContainer[3],
+	                    firstTick = !!timeStart,
+	                    tweenDummyValue = null;
+
+	                /* If timeStart is undefined, then this is the first time that this call has been processed by tick().
+	                   We assign timeStart now so that its value is as close to the real animation start time as possible.
+	                   (Conversely, had timeStart been defined when this call was added to Velocity.State.calls, the delay
+	                   between that time and now would cause the first few frames of the tween to be skipped since
+	                   percentComplete is calculated relative to timeStart.) */
+	                /* Further, subtract 16ms (the approximate resolution of RAF) from the current time value so that the
+	                   first tick iteration isn't wasted by animating at 0% tween completion, which would produce the
+	                   same style value as the element's current value. */
+	                if (!timeStart) {
+	                    timeStart = Velocity.State.calls[i][3] = timeCurrent - 16;
+	                }
+
+	                /* The tween's completion percentage is relative to the tween's start time, not the tween's start value
+	                   (which would result in unpredictable tween durations since JavaScript's timers are not particularly accurate).
+	                   Accordingly, we ensure that percentComplete does not exceed 1. */
+	                var percentComplete = Math.min((timeCurrent - timeStart) / opts.duration, 1);
+
+	                /**********************
+	                   Element Iteration
+	                **********************/
+
+	                /* For every call, iterate through each of the elements in its set. */
+	                for (var j = 0, callLength = call.length; j < callLength; j++) {
+	                    var tweensContainer = call[j],
+	                        element = tweensContainer.element;
+
+	                    /* Check to see if this element has been deleted midway through the animation by checking for the
+	                       continued existence of its data cache. If it's gone, skip animating this element. */
+	                    if (!Data(element)) {
+	                        continue;
+	                    }
+
+	                    var transformPropertyExists = false;
+
+	                    /**********************************
+	                       Display & Visibility Toggling
+	                    **********************************/
+
+	                    /* If the display option is set to non-"none", set it upfront so that the element can become visible before tweening begins.
+	                       (Otherwise, display's "none" value is set in completeCall() once the animation has completed.) */
+	                    if (opts.display !== undefined && opts.display !== null && opts.display !== "none") {
+	                        if (opts.display === "flex") {
+	                            var flexValues = [ "-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex" ];
+
+	                            $.each(flexValues, function(i, flexValue) {
+	                                CSS.setPropertyValue(element, "display", flexValue);
+	                            });
+	                        }
+
+	                        CSS.setPropertyValue(element, "display", opts.display);
+	                    }
+
+	                    /* Same goes with the visibility option, but its "none" equivalent is "hidden". */
+	                    if (opts.visibility !== undefined && opts.visibility !== "hidden") {
+	                        CSS.setPropertyValue(element, "visibility", opts.visibility);
+	                    }
+
+	                    /************************
+	                       Property Iteration
+	                    ************************/
+
+	                    /* For every element, iterate through each property. */
+	                    for (var property in tweensContainer) {
+	                        /* Note: In addition to property tween data, tweensContainer contains a reference to its associated element. */
+	                        if (property !== "element") {
+	                            var tween = tweensContainer[property],
+	                                currentValue,
+	                                /* Easing can either be a pre-genereated function or a string that references a pre-registered easing
+	                                   on the Velocity.Easings object. In either case, return the appropriate easing *function*. */
+	                                easing = Type.isString(tween.easing) ? Velocity.Easings[tween.easing] : tween.easing;
+
+	                            /******************************
+	                               Current Value Calculation
+	                            ******************************/
+
+	                            /* If this is the last tick pass (if we've reached 100% completion for this tween),
+	                               ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
+	                            if (percentComplete === 1) {
+	                                currentValue = tween.endValue;
+	                            /* Otherwise, calculate currentValue based on the current delta from startValue. */
+	                            } else {
+	                                var tweenDelta = tween.endValue - tween.startValue;
+	                                currentValue = tween.startValue + (tweenDelta * easing(percentComplete, opts, tweenDelta));
+
+	                                /* If no value change is occurring, don't proceed with DOM updating. */
+	                                if (!firstTick && (currentValue === tween.currentValue)) {
+	                                    continue;
+	                                }
+	                            }
+
+	                            tween.currentValue = currentValue;
+
+	                            /* If we're tweening a fake 'tween' property in order to log transition values, update the one-per-call variable so that
+	                               it can be passed into the progress callback. */ 
+	                            if (property === "tween") {
+	                                tweenDummyValue = currentValue;
+	                            } else {
+	                                /******************
+	                                   Hooks: Part I
+	                                ******************/
+
+	                                /* For hooked properties, the newly-updated rootPropertyValueCache is cached onto the element so that it can be used
+	                                   for subsequent hooks in this call that are associated with the same root property. If we didn't cache the updated
+	                                   rootPropertyValue, each subsequent update to the root property in this tick pass would reset the previous hook's
+	                                   updates to rootPropertyValue prior to injection. A nice performance byproduct of rootPropertyValue caching is that
+	                                   subsequently chained animations using the same hookRoot but a different hook can use this cached rootPropertyValue. */
+	                                if (CSS.Hooks.registered[property]) {
+	                                    var hookRoot = CSS.Hooks.getRoot(property),
+	                                        rootPropertyValueCache = Data(element).rootPropertyValueCache[hookRoot];
+
+	                                    if (rootPropertyValueCache) {
+	                                        tween.rootPropertyValue = rootPropertyValueCache;
+	                                    }
+	                                }
+
+	                                /*****************
+	                                    DOM Update
+	                                *****************/
+
+	                                /* setPropertyValue() returns an array of the property name and property value post any normalization that may have been performed. */
+	                                /* Note: To solve an IE<=8 positioning bug, the unit type is dropped when setting a property value of 0. */
+	                                var adjustedSetData = CSS.setPropertyValue(element, /* SET */
+	                                                                           property,
+	                                                                           tween.currentValue + (parseFloat(currentValue) === 0 ? "" : tween.unitType),
+	                                                                           tween.rootPropertyValue,
+	                                                                           tween.scrollData);
+
+	                                /*******************
+	                                   Hooks: Part II
+	                                *******************/
+
+	                                /* Now that we have the hook's updated rootPropertyValue (the post-processed value provided by adjustedSetData), cache it onto the element. */
+	                                if (CSS.Hooks.registered[property]) {
+	                                    /* Since adjustedSetData contains normalized data ready for DOM updating, the rootPropertyValue needs to be re-extracted from its normalized form. ?? */
+	                                    if (CSS.Normalizations.registered[hookRoot]) {
+	                                        Data(element).rootPropertyValueCache[hookRoot] = CSS.Normalizations.registered[hookRoot]("extract", null, adjustedSetData[1]);
+	                                    } else {
+	                                        Data(element).rootPropertyValueCache[hookRoot] = adjustedSetData[1];
+	                                    }
+	                                }
+
+	                                /***************
+	                                   Transforms
+	                                ***************/
+
+	                                /* Flag whether a transform property is being animated so that flushTransformCache() can be triggered once this tick pass is complete. */
+	                                if (adjustedSetData[0] === "transform") {
+	                                    transformPropertyExists = true;
+	                                }
+
+	                            }
+	                        }
+	                    }
+
+	                    /****************
+	                        mobileHA
+	                    ****************/
+
+	                    /* If mobileHA is enabled, set the translate3d transform to null to force hardware acceleration.
+	                       It's safe to override this property since Velocity doesn't actually support its animation (hooks are used in its place). */
+	                    if (opts.mobileHA) {
+	                        /* Don't set the null transform hack if we've already done so. */
+	                        if (Data(element).transformCache.translate3d === undefined) {
+	                            /* All entries on the transformCache object are later concatenated into a single transform string via flushTransformCache(). */
+	                            Data(element).transformCache.translate3d = "(0px, 0px, 0px)";
+
+	                            transformPropertyExists = true;
+	                        }
+	                    }
+
+	                    if (transformPropertyExists) {
+	                        CSS.flushTransformCache(element);
+	                    }
+	                }
+
+	                /* The non-"none" display value is only applied to an element once -- when its associated call is first ticked through.
+	                   Accordingly, it's set to false so that it isn't re-processed by this call in the next tick. */
+	                if (opts.display !== undefined && opts.display !== "none") {
+	                    Velocity.State.calls[i][2].display = false;
+	                }
+	                if (opts.visibility !== undefined && opts.visibility !== "hidden") {
+	                    Velocity.State.calls[i][2].visibility = false;
+	                }
+
+	                /* Pass the elements and the timing data (percentComplete, msRemaining, timeStart, tweenDummyValue) into the progress callback. */
+	                if (opts.progress) {
+	                    opts.progress.call(callContainer[1],
+	                                       callContainer[1],
+	                                       percentComplete,
+	                                       Math.max(0, (timeStart + opts.duration) - timeCurrent),
+	                                       timeStart,
+	                                       tweenDummyValue);
+	                }
+
+	                /* If this call has finished tweening, pass its index to completeCall() to handle call cleanup. */
+	                if (percentComplete === 1) {
+	                    completeCall(i);
+	                }
+	            }
+	        }
+
+	        /* Note: completeCall() sets the isTicking flag to false when the last call on Velocity.State.calls has completed. */
+	        if (Velocity.State.isTicking) {
+	            ticker(tick);
+	        }
+	    }
+
+	    /**********************
+	        Call Completion
+	    **********************/
+
+	    /* Note: Unlike tick(), which processes all active calls at once, call completion is handled on a per-call basis. */
+	    function completeCall (callIndex, isStopped) {
+	        /* Ensure the call exists. */
+	        if (!Velocity.State.calls[callIndex]) {
+	            return false;
+	        }
+
+	        /* Pull the metadata from the call. */
+	        var call = Velocity.State.calls[callIndex][0],
+	            elements = Velocity.State.calls[callIndex][1],
+	            opts = Velocity.State.calls[callIndex][2],
+	            resolver = Velocity.State.calls[callIndex][4];
+
+	        var remainingCallsExist = false;
+
+	        /*************************
+	           Element Finalization
+	        *************************/
+
+	        for (var i = 0, callLength = call.length; i < callLength; i++) {
+	            var element = call[i].element;
+
+	            /* If the user set display to "none" (intending to hide the element), set it now that the animation has completed. */
+	            /* Note: display:none isn't set when calls are manually stopped (via Velocity("stop"). */
+	            /* Note: Display gets ignored with "reverse" calls and infinite loops, since this behavior would be undesirable. */
+	            if (!isStopped && !opts.loop) {
+	                if (opts.display === "none") {
+	                    CSS.setPropertyValue(element, "display", opts.display);
+	                }
+
+	                if (opts.visibility === "hidden") {
+	                    CSS.setPropertyValue(element, "visibility", opts.visibility);
+	                }
+	            }
+
+	            /* If the element's queue is empty (if only the "inprogress" item is left at position 0) or if its queue is about to run
+	               a non-Velocity-initiated entry, turn off the isAnimating flag. A non-Velocity-initiatied queue entry's logic might alter
+	               an element's CSS values and thereby cause Velocity's cached value data to go stale. To detect if a queue entry was initiated by Velocity,
+	               we check for the existence of our special Velocity.queueEntryFlag declaration, which minifiers won't rename since the flag
+	               is assigned to jQuery's global $ object and thus exists out of Velocity's own scope. */
+	            if (opts.loop !== true && ($.queue(element)[1] === undefined || !/\.velocityQueueEntryFlag/i.test($.queue(element)[1]))) {
+	                /* The element may have been deleted. Ensure that its data cache still exists before acting on it. */
+	                if (Data(element)) {
+	                    Data(element).isAnimating = false;
+	                    /* Clear the element's rootPropertyValueCache, which will become stale. */
+	                    Data(element).rootPropertyValueCache = {};
+
+	                    var transformHAPropertyExists = false;
+	                    /* If any 3D transform subproperty is at its default value (regardless of unit type), remove it. */
+	                    $.each(CSS.Lists.transforms3D, function(i, transformName) {
+	                        var defaultValue = /^scale/.test(transformName) ? 1 : 0,
+	                            currentValue = Data(element).transformCache[transformName];
+
+	                        if (Data(element).transformCache[transformName] !== undefined && new RegExp("^\\(" + defaultValue + "[^.]").test(currentValue)) {
+	                            transformHAPropertyExists = true;
+
+	                            delete Data(element).transformCache[transformName];
+	                        }
+	                    });
+
+	                    /* Mobile devices have hardware acceleration removed at the end of the animation in order to avoid hogging the GPU's memory. */
+	                    if (opts.mobileHA) {
+	                        transformHAPropertyExists = true;
+	                        delete Data(element).transformCache.translate3d;
+	                    }
+
+	                    /* Flush the subproperty removals to the DOM. */
+	                    if (transformHAPropertyExists) {
+	                        CSS.flushTransformCache(element);
+	                    }
+
+	                    /* Remove the "velocity-animating" indicator class. */
+	                    CSS.Values.removeClass(element, "velocity-animating");
+	                }
+	            }
+
+	            /*********************
+	               Option: Complete
+	            *********************/
+
+	            /* Complete is fired once per call (not once per element) and is passed the full raw DOM element set as both its context and its first argument. */
+	            /* Note: Callbacks aren't fired when calls are manually stopped (via Velocity("stop"). */
+	            if (!isStopped && opts.complete && !opts.loop && (i === callLength - 1)) {
+	                /* We throw callbacks in a setTimeout so that thrown errors don't halt the execution of Velocity itself. */
+	                try {
+	                    opts.complete.call(elements, elements);
+	                } catch (error) {
+	                    setTimeout(function() { throw error; }, 1);
+	                }
+	            }
+
+	            /**********************
+	               Promise Resolving
+	            **********************/
+
+	            /* Note: Infinite loops don't return promises. */
+	            if (resolver && opts.loop !== true) {
+	                resolver(elements);
+	            }
+
+	            /****************************
+	               Option: Loop (Infinite)
+	            ****************************/
+
+	            if (Data(element) && opts.loop === true && !isStopped) {
+	                /* If a rotateX/Y/Z property is being animated to 360 deg with loop:true, swap tween start/end values to enable
+	                   continuous iterative rotation looping. (Otherise, the element would just rotate back and forth.) */
+	                $.each(Data(element).tweensContainer, function(propertyName, tweenContainer) {
+	                    if (/^rotate/.test(propertyName) && parseFloat(tweenContainer.endValue) === 360) {
+	                        tweenContainer.endValue = 0;
+	                        tweenContainer.startValue = 360;
+	                    }
+
+	                    if (/^backgroundPosition/.test(propertyName) && parseFloat(tweenContainer.endValue) === 100 && tweenContainer.unitType === "%") {
+	                        tweenContainer.endValue = 0;
+	                        tweenContainer.startValue = 100;
+	                    }
+	                });
+
+	                Velocity(element, "reverse", { loop: true, delay: opts.delay });
+	            }
+
+	            /***************
+	               Dequeueing
+	            ***************/
+
+	            /* Fire the next call in the queue so long as this call's queue wasn't set to false (to trigger a parallel animation),
+	               which would have already caused the next call to fire. Note: Even if the end of the animation queue has been reached,
+	               $.dequeue() must still be called in order to completely clear jQuery's animation queue. */
+	            if (opts.queue !== false) {
+	                $.dequeue(element, opts.queue);
+	            }
+	        }
+
+	        /************************
+	           Calls Array Cleanup
+	        ************************/
+
+	        /* Since this call is complete, set it to false so that the rAF tick skips it. This array is later compacted via compactSparseArray().
+	          (For performance reasons, the call is set to false instead of being deleted from the array: http://www.html5rocks.com/en/tutorials/speed/v8/) */
+	        Velocity.State.calls[callIndex] = false;
+
+	        /* Iterate through the calls array to determine if this was the final in-progress animation.
+	           If so, set a flag to end ticking and clear the calls array. */
+	        for (var j = 0, callsLength = Velocity.State.calls.length; j < callsLength; j++) {
+	            if (Velocity.State.calls[j] !== false) {
+	                remainingCallsExist = true;
+
+	                break;
+	            }
+	        }
+
+	        if (remainingCallsExist === false) {
+	            /* tick() will detect this flag upon its next iteration and subsequently turn itself off. */
+	            Velocity.State.isTicking = false;
+
+	            /* Clear the calls array so that its length is reset. */
+	            delete Velocity.State.calls;
+	            Velocity.State.calls = [];
+	        }
+	    }
+
+	    /******************
+	        Frameworks
+	    ******************/
+
+	    /* Both jQuery and Zepto allow their $.fn object to be extended to allow wrapped elements to be subjected to plugin calls.
+	       If either framework is loaded, register a "velocity" extension pointing to Velocity's core animate() method.  Velocity
+	       also registers itself onto a global container (window.jQuery || window.Zepto || window) so that certain features are
+	       accessible beyond just a per-element scope. This master object contains an .animate() method, which is later assigned to $.fn
+	       (if jQuery or Zepto are present). Accordingly, Velocity can both act on wrapped DOM elements and stand alone for targeting raw DOM elements. */
+	    global.Velocity = Velocity;
+
+	    if (global !== window) {
+	        /* Assign the element function to Velocity's core animate() method. */
+	        global.fn.velocity = animate;
+	        /* Assign the object function's defaults to Velocity's global defaults object. */
+	        global.fn.velocity.defaults = Velocity.defaults;
+	    }
+
+	    /***********************
+	       Packaged Redirects
+	    ***********************/
+
+	    /* slideUp, slideDown */
+	    $.each([ "Down", "Up" ], function(i, direction) {
+	        Velocity.Redirects["slide" + direction] = function (element, options, elementsIndex, elementsSize, elements, promiseData) {
+	            var opts = $.extend({}, options),
+	                begin = opts.begin,
+	                complete = opts.complete,
+	                computedValues = { height: "", marginTop: "", marginBottom: "", paddingTop: "", paddingBottom: "" },
+	                inlineValues = {};
+
+	            if (opts.display === undefined) {
+	                /* Show the element before slideDown begins and hide the element after slideUp completes. */
+	                /* Note: Inline elements cannot have dimensions animated, so they're reverted to inline-block. */
+	                opts.display = (direction === "Down" ? (Velocity.CSS.Values.getDisplayType(element) === "inline" ? "inline-block" : "block") : "none");
+	            }
+
+	            opts.begin = function() {
+	                /* If the user passed in a begin callback, fire it now. */
+	                begin && begin.call(elements, elements);
+
+	                /* Cache the elements' original vertical dimensional property values so that we can animate back to them. */
+	                for (var property in computedValues) {
+	                    inlineValues[property] = element.style[property];
+
+	                    /* For slideDown, use forcefeeding to animate all vertical properties from 0. For slideUp,
+	                       use forcefeeding to start from computed values and animate down to 0. */
+	                    var propertyValue = Velocity.CSS.getPropertyValue(element, property);
+	                    computedValues[property] = (direction === "Down") ? [ propertyValue, 0 ] : [ 0, propertyValue ];
+	                }
+
+	                /* Force vertical overflow content to clip so that sliding works as expected. */
+	                inlineValues.overflow = element.style.overflow;
+	                element.style.overflow = "hidden";
+	            }
+
+	            opts.complete = function() {
+	                /* Reset element to its pre-slide inline values once its slide animation is complete. */
+	                for (var property in inlineValues) {
+	                    element.style[property] = inlineValues[property];
+	                }
+
+	                /* If the user passed in a complete callback, fire it now. */
+	                complete && complete.call(elements, elements);
+	                promiseData && promiseData.resolver(elements);
+	            };
+
+	            Velocity(element, computedValues, opts);
+	        };
+	    });
+
+	    /* fadeIn, fadeOut */
+	    $.each([ "In", "Out" ], function(i, direction) {
+	        Velocity.Redirects["fade" + direction] = function (element, options, elementsIndex, elementsSize, elements, promiseData) {
+	            var opts = $.extend({}, options),
+	                propertiesMap = { opacity: (direction === "In") ? 1 : 0 },
+	                originalComplete = opts.complete;
+
+	            /* Since redirects are triggered individually for each element in the animated set, avoid repeatedly triggering
+	               callbacks by firing them only when the final element has been reached. */
+	            if (elementsIndex !== elementsSize - 1) {
+	                opts.complete = opts.begin = null;
+	            } else {
+	                opts.complete = function() {
+	                    if (originalComplete) {
+	                        originalComplete.call(elements, elements);
+	                    }
+
+	                    promiseData && promiseData.resolver(elements);
+	                }
+	            }
+
+	            /* If a display was passed in, use it. Otherwise, default to "none" for fadeOut or the element-specific default for fadeIn. */
+	            /* Note: We allow users to pass in "null" to skip display setting altogether. */
+	            if (opts.display === undefined) {
+	                opts.display = (direction === "In" ? "auto" : "none");
+	            }
+
+	            Velocity(this, propertiesMap, opts);
+	        };
+	    });
+
+	    return Velocity;
+	}((window.jQuery || window.Zepto || window), window, document);
+	}));
+
+	/******************
+	   Known Issues
+	******************/
+
+	/* The CSS spec mandates that the translateX/Y/Z transforms are %-relative to the element itself -- not its parent.
+	Velocity, however, doesn't make this distinction. Thus, converting to or from the % unit with these subproperties
+	will produce an inaccurate conversion value. The same issue exists with the cx/cy attributes of SVG circles and ellipses. */
 
 /***/ },
 /* 47 */
@@ -41949,6 +41979,413 @@
 	 */
 	(function(window, angular, undefined) {'use strict';
 
+	/**
+	 * @ngdoc module
+	 * @name ngMessages
+	 * @description
+	 *
+	 * The `ngMessages` module provides enhanced support for displaying messages within templates
+	 * (typically within forms or when rendering message objects that return key/value data).
+	 * Instead of relying on JavaScript code and/or complex ng-if statements within your form template to
+	 * show and hide error messages specific to the state of an input field, the `ngMessages` and
+	 * `ngMessage` directives are designed to handle the complexity, inheritance and priority
+	 * sequencing based on the order of how the messages are defined in the template.
+	 *
+	 * Currently, the ngMessages module only contains the code for the `ngMessages`
+	 * and `ngMessage` directives.
+	 *
+	 * # Usage
+	 * The `ngMessages` directive listens on a key/value collection which is set on the ngMessages attribute.
+	 * Since the {@link ngModel ngModel} directive exposes an `$error` object, this error object can be
+	 * used with `ngMessages` to display control error messages in an easier way than with just regular angular
+	 * template directives.
+	 *
+	 * ```html
+	 * <form name="myForm">
+	 *   <input type="text" ng-model="field" name="myField" required minlength="5" />
+	 *   <div ng-messages="myForm.myField.$error">
+	 *     <div ng-message="required">You did not enter a field</div>
+	 *     <div ng-message="minlength">The value entered is too short</div>
+	 *   </div>
+	 * </form>
+	 * ```
+	 *
+	 * Now whatever key/value entries are present within the provided object (in this case `$error`) then
+	 * the ngMessages directive will render the inner first ngMessage directive (depending if the key values
+	 * match the attribute value present on each ngMessage directive). In other words, if your errors
+	 * object contains the following data:
+	 *
+	 * ```javascript
+	 * <!-- keep in mind that ngModel automatically sets these error flags -->
+	 * myField.$error = { minlength : true, required : false };
+	 * ```
+	 *
+	 * Then the `required` message will be displayed first. When required is false then the `minlength` message
+	 * will be displayed right after (since these messages are ordered this way in the template HTML code).
+	 * The prioritization of each message is determined by what order they're present in the DOM.
+	 * Therefore, instead of having custom JavaScript code determine the priority of what errors are
+	 * present before others, the presentation of the errors are handled within the template.
+	 *
+	 * By default, ngMessages will only display one error at a time. However, if you wish to display all
+	 * messages then the `ng-messages-multiple` attribute flag can be used on the element containing the
+	 * ngMessages directive to make this happen.
+	 *
+	 * ```html
+	 * <div ng-messages="myForm.myField.$error" ng-messages-multiple>...</div>
+	 * ```
+	 *
+	 * ## Reusing and Overriding Messages
+	 * In addition to prioritization, ngMessages also allows for including messages from a remote or an inline
+	 * template. This allows for generic collection of messages to be reused across multiple parts of an
+	 * application.
+	 *
+	 * ```html
+	 * <script type="text/ng-template" id="error-messages">
+	 *   <div ng-message="required">This field is required</div>
+	 *   <div ng-message="minlength">This field is too short</div>
+	 * </script>
+	 * <div ng-messages="myForm.myField.$error" ng-messages-include="error-messages"></div>
+	 * ```
+	 *
+	 * However, including generic messages may not be useful enough to match all input fields, therefore,
+	 * `ngMessages` provides the ability to override messages defined in the remote template by redefining
+	 * then within the directive container.
+	 *
+	 * ```html
+	 * <!-- a generic template of error messages known as "my-custom-messages" -->
+	 * <script type="text/ng-template" id="my-custom-messages">
+	 *   <div ng-message="required">This field is required</div>
+	 *   <div ng-message="minlength">This field is too short</div>
+	 * </script>
+	 *
+	 * <form name="myForm">
+	 *   <input type="email"
+	 *          id="email"
+	 *          name="myEmail"
+	 *          ng-model="email"
+	 *          minlength="5"
+	 *          required />
+	 *
+	 *   <div ng-messages="myForm.myEmail.$error" ng-messages-include="my-custom-messages">
+	 *     <!-- this required message has overridden the template message -->
+	 *     <div ng-message="required">You did not enter your email address</div>
+	 *
+	 *     <!-- this is a brand new message and will appear last in the prioritization -->
+	 *     <div ng-message="email">Your email address is invalid</div>
+	 *   </div>
+	 * </form>
+	 * ```
+	 *
+	 * In the example HTML code above the message that is set on required will override the corresponding
+	 * required message defined within the remote template. Therefore, with particular input fields (such
+	 * email addresses, date fields, autocomplete inputs, etc...), specialized error messages can be applied
+	 * while more generic messages can be used to handle other, more general input errors.
+	 *
+	 * ## Animations
+	 * If the `ngAnimate` module is active within the application then both the `ngMessages` and
+	 * `ngMessage` directives will trigger animations whenever any messages are added and removed
+	 * from the DOM by the `ngMessages` directive.
+	 *
+	 * Whenever the `ngMessages` directive contains one or more visible messages then the `.ng-active` CSS
+	 * class will be added to the element. The `.ng-inactive` CSS class will be applied when there are no
+	 * animations present. Therefore, CSS transitions and keyframes as well as JavaScript animations can
+	 * hook into the animations whenever these classes are added/removed.
+	 *
+	 * Let's say that our HTML code for our messages container looks like so:
+	 *
+	 * ```html
+	 * <div ng-messages="myMessages" class="my-messages">
+	 *   <div ng-message="alert" class="some-message">...</div>
+	 *   <div ng-message="fail" class="some-message">...</div>
+	 * </div>
+	 * ```
+	 *
+	 * Then the CSS animation code for the message container looks like so:
+	 *
+	 * ```css
+	 * .my-messages {
+	 *   transition:1s linear all;
+	 * }
+	 * .my-messages.ng-active {
+	 *   // messages are visible
+	 * }
+	 * .my-messages.ng-inactive {
+	 *   // messages are hidden
+	 * }
+	 * ```
+	 *
+	 * Whenever an inner message is attached (becomes visible) or removed (becomes hidden) then the enter
+	 * and leave animation is triggered for each particular element bound to the `ngMessage` directive.
+	 *
+	 * Therefore, the CSS code for the inner messages looks like so:
+	 *
+	 * ```css
+	 * .some-message {
+	 *   transition:1s linear all;
+	 * }
+	 *
+	 * .some-message.ng-enter {}
+	 * .some-message.ng-enter.ng-enter-active {}
+	 *
+	 * .some-message.ng-leave {}
+	 * .some-message.ng-leave.ng-leave-active {}
+	 * ```
+	 *
+	 * {@link ngAnimate Click here} to learn how to use JavaScript animations or to learn more about ngAnimate.
+	 */
+	angular.module('ngMessages', [])
+
+	   /**
+	    * @ngdoc directive
+	    * @module ngMessages
+	    * @name ngMessages
+	    * @restrict AE
+	    *
+	    * @description
+	    * `ngMessages` is a directive that is designed to show and hide messages based on the state
+	    * of a key/value object that it listens on. The directive itself compliments error message
+	    * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
+	    *
+	    * `ngMessages` manages the state of internal messages within its container element. The internal
+	    * messages use the `ngMessage` directive and will be inserted/removed from the page depending
+	    * on if they're present within the key/value object. By default, only one message will be displayed
+	    * at a time and this depends on the prioritization of the messages within the template. (This can
+	    * be changed by using the ng-messages-multiple on the directive container.)
+	    *
+	    * A remote template can also be used to promote message reusability and messages can also be
+	    * overridden.
+	    *
+	    * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
+	    *
+	    * @usage
+	    * ```html
+	    * <!-- using attribute directives -->
+	    * <ANY ng-messages="expression">
+	    *   <ANY ng-message="keyValue1">...</ANY>
+	    *   <ANY ng-message="keyValue2">...</ANY>
+	    *   <ANY ng-message="keyValue3">...</ANY>
+	    * </ANY>
+	    *
+	    * <!-- or by using element directives -->
+	    * <ng-messages for="expression">
+	    *   <ng-message when="keyValue1">...</ng-message>
+	    *   <ng-message when="keyValue2">...</ng-message>
+	    *   <ng-message when="keyValue3">...</ng-message>
+	    * </ng-messages>
+	    * ```
+	    *
+	    * @param {string} ngMessages an angular expression evaluating to a key/value object
+	    *                 (this is typically the $error object on an ngModel instance).
+	    * @param {string=} ngMessagesMultiple|multiple when set, all messages will be displayed with true
+	    * @param {string=} ngMessagesInclude|include when set, the specified template will be included into the ng-messages container
+	    *
+	    * @example
+	    * <example name="ngMessages-directive" module="ngMessagesExample"
+	    *          deps="angular-messages.js"
+	    *          animations="true" fixBase="true">
+	    *   <file name="index.html">
+	    *     <form name="myForm">
+	    *       <label>Enter your name:</label>
+	    *       <input type="text"
+	    *              name="myName"
+	    *              ng-model="name"
+	    *              ng-minlength="5"
+	    *              ng-maxlength="20"
+	    *              required />
+	    *
+	    *       <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
+	    *
+	    *       <div ng-messages="myForm.myName.$error" style="color:maroon">
+	    *         <div ng-message="required">You did not enter a field</div>
+	    *         <div ng-message="minlength">Your field is too short</div>
+	    *         <div ng-message="maxlength">Your field is too long</div>
+	    *       </div>
+	    *     </form>
+	    *   </file>
+	    *   <file name="script.js">
+	    *     angular.module('ngMessagesExample', ['ngMessages']);
+	    *   </file>
+	    * </example>
+	    */
+	  .directive('ngMessages', ['$compile', '$animate', '$templateRequest',
+	                   function($compile,    $animate,   $templateRequest) {
+	    var ACTIVE_CLASS = 'ng-active';
+	    var INACTIVE_CLASS = 'ng-inactive';
+
+	    return {
+	      restrict: 'AE',
+	      controller: function() {
+	        this.$renderNgMessageClasses = angular.noop;
+
+	        var messages = [];
+	        this.registerMessage = function(index, message) {
+	          for (var i = 0; i < messages.length; i++) {
+	            if (messages[i].type == message.type) {
+	              if (index != i) {
+	                var temp = messages[index];
+	                messages[index] = messages[i];
+	                if (index < messages.length) {
+	                  messages[i] = temp;
+	                } else {
+	                  messages.splice(0, i); //remove the old one (and shift left)
+	                }
+	              }
+	              return;
+	            }
+	          }
+	          messages.splice(index, 0, message); //add the new one (and shift right)
+	        };
+
+	        this.renderMessages = function(values, multiple) {
+	          values = values || {};
+
+	          var found;
+	          angular.forEach(messages, function(message) {
+	            if ((!found || multiple) && truthyVal(values[message.type])) {
+	              message.attach();
+	              found = true;
+	            } else {
+	              message.detach();
+	            }
+	          });
+
+	          this.renderElementClasses(found);
+
+	          function truthyVal(value) {
+	            return value !== null && value !== false && value;
+	          }
+	        };
+	      },
+	      require: 'ngMessages',
+	      link: function($scope, element, $attrs, ctrl) {
+	        ctrl.renderElementClasses = function(bool) {
+	          bool ? $animate.setClass(element, ACTIVE_CLASS, INACTIVE_CLASS)
+	               : $animate.setClass(element, INACTIVE_CLASS, ACTIVE_CLASS);
+	        };
+
+	        //JavaScript treats empty strings as false, but ng-message-multiple by itself is an empty string
+	        var multiple = angular.isString($attrs.ngMessagesMultiple) ||
+	                       angular.isString($attrs.multiple);
+
+	        var cachedValues, watchAttr = $attrs.ngMessages || $attrs['for']; //for is a reserved keyword
+	        $scope.$watchCollection(watchAttr, function(values) {
+	          cachedValues = values;
+	          ctrl.renderMessages(values, multiple);
+	        });
+
+	        var tpl = $attrs.ngMessagesInclude || $attrs.include;
+	        if (tpl) {
+	          $templateRequest(tpl)
+	            .then(function processTemplate(html) {
+	              var after, container = angular.element('<div/>').html(html);
+	              angular.forEach(container.children(), function(elm) {
+	               elm = angular.element(elm);
+	               after ? after.after(elm)
+	                     : element.prepend(elm); //start of the container
+	               after = elm;
+	               $compile(elm)($scope);
+	              });
+	              ctrl.renderMessages(cachedValues, multiple);
+	            });
+	        }
+	      }
+	    };
+	  }])
+
+
+	   /**
+	    * @ngdoc directive
+	    * @name ngMessage
+	    * @restrict AE
+	    * @scope
+	    *
+	    * @description
+	    * `ngMessage` is a directive with the purpose to show and hide a particular message.
+	    * For `ngMessage` to operate, a parent `ngMessages` directive on a parent DOM element
+	    * must be situated since it determines which messages are visible based on the state
+	    * of the provided key/value map that `ngMessages` listens on.
+	    *
+	    * More information about using `ngMessage` can be found in the
+	    * {@link module:ngMessages `ngMessages` module documentation}.
+	    *
+	    * @usage
+	    * ```html
+	    * <!-- using attribute directives -->
+	    * <ANY ng-messages="expression">
+	    *   <ANY ng-message="keyValue1">...</ANY>
+	    *   <ANY ng-message="keyValue2">...</ANY>
+	    *   <ANY ng-message="keyValue3">...</ANY>
+	    * </ANY>
+	    *
+	    * <!-- or by using element directives -->
+	    * <ng-messages for="expression">
+	    *   <ng-message when="keyValue1">...</ng-message>
+	    *   <ng-message when="keyValue2">...</ng-message>
+	    *   <ng-message when="keyValue3">...</ng-message>
+	    * </ng-messages>
+	    * ```
+	    *
+	    * @param {string} ngMessage a string value corresponding to the message key.
+	    */
+	  .directive('ngMessage', ['$animate', function($animate) {
+	    var COMMENT_NODE = 8;
+	    return {
+	      require: '^ngMessages',
+	      transclude: 'element',
+	      terminal: true,
+	      restrict: 'AE',
+	      link: function($scope, $element, $attrs, ngMessages, $transclude) {
+	        var index, element;
+
+	        var commentNode = $element[0];
+	        var parentNode = commentNode.parentNode;
+	        for (var i = 0, j = 0; i < parentNode.childNodes.length; i++) {
+	          var node = parentNode.childNodes[i];
+	          if (node.nodeType == COMMENT_NODE && node.nodeValue.indexOf('ngMessage') >= 0) {
+	            if (node === commentNode) {
+	              index = j;
+	              break;
+	            }
+	            j++;
+	          }
+	        }
+
+	        ngMessages.registerMessage(index, {
+	          type: $attrs.ngMessage || $attrs.when,
+	          attach: function() {
+	            if (!element) {
+	              $transclude($scope, function(clone) {
+	                $animate.enter(clone, null, $element);
+	                element = clone;
+	              });
+	            }
+	          },
+	          detach: function(now) {
+	            if (element) {
+	              $animate.leave(element);
+	              element = null;
+	            }
+	          }
+	        });
+	      }
+	    };
+	  }]);
+
+
+	})(window, window.angular);
+
+
+/***/ },
+/* 50 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license AngularJS v1.3.15
+	 * (c) 2010-2014 Google, Inc. http://angularjs.org
+	 * License: MIT
+	 */
+	(function(window, angular, undefined) {'use strict';
+
 	/* jshint maxlen: false */
 
 	/**
@@ -44082,7 +44519,635 @@
 
 
 /***/ },
-/* 50 */
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * @license AngularJS v1.3.15
+	 * (c) 2010-2014 Google, Inc. http://angularjs.org
+	 * License: MIT
+	 */
+	(function(window, angular, undefined) {'use strict';
+
+	/**
+	 * @ngdoc module
+	 * @name ngTouch
+	 * @description
+	 *
+	 * # ngTouch
+	 *
+	 * The `ngTouch` module provides touch events and other helpers for touch-enabled devices.
+	 * The implementation is based on jQuery Mobile touch event handling
+	 * ([jquerymobile.com](http://jquerymobile.com/)).
+	 *
+	 *
+	 * See {@link ngTouch.$swipe `$swipe`} for usage.
+	 *
+	 * <div doc-module-components="ngTouch"></div>
+	 *
+	 */
+
+	// define ngTouch module
+	/* global -ngTouch */
+	var ngTouch = angular.module('ngTouch', []);
+
+	/* global ngTouch: false */
+
+	    /**
+	     * @ngdoc service
+	     * @name $swipe
+	     *
+	     * @description
+	     * The `$swipe` service is a service that abstracts the messier details of hold-and-drag swipe
+	     * behavior, to make implementing swipe-related directives more convenient.
+	     *
+	     * Requires the {@link ngTouch `ngTouch`} module to be installed.
+	     *
+	     * `$swipe` is used by the `ngSwipeLeft` and `ngSwipeRight` directives in `ngTouch`, and by
+	     * `ngCarousel` in a separate component.
+	     *
+	     * # Usage
+	     * The `$swipe` service is an object with a single method: `bind`. `bind` takes an element
+	     * which is to be watched for swipes, and an object with four handler functions. See the
+	     * documentation for `bind` below.
+	     */
+
+	ngTouch.factory('$swipe', [function() {
+	  // The total distance in any direction before we make the call on swipe vs. scroll.
+	  var MOVE_BUFFER_RADIUS = 10;
+
+	  var POINTER_EVENTS = {
+	    'mouse': {
+	      start: 'mousedown',
+	      move: 'mousemove',
+	      end: 'mouseup'
+	    },
+	    'touch': {
+	      start: 'touchstart',
+	      move: 'touchmove',
+	      end: 'touchend',
+	      cancel: 'touchcancel'
+	    }
+	  };
+
+	  function getCoordinates(event) {
+	    var touches = event.touches && event.touches.length ? event.touches : [event];
+	    var e = (event.changedTouches && event.changedTouches[0]) ||
+	        (event.originalEvent && event.originalEvent.changedTouches &&
+	            event.originalEvent.changedTouches[0]) ||
+	        touches[0].originalEvent || touches[0];
+
+	    return {
+	      x: e.clientX,
+	      y: e.clientY
+	    };
+	  }
+
+	  function getEvents(pointerTypes, eventType) {
+	    var res = [];
+	    angular.forEach(pointerTypes, function(pointerType) {
+	      var eventName = POINTER_EVENTS[pointerType][eventType];
+	      if (eventName) {
+	        res.push(eventName);
+	      }
+	    });
+	    return res.join(' ');
+	  }
+
+	  return {
+	    /**
+	     * @ngdoc method
+	     * @name $swipe#bind
+	     *
+	     * @description
+	     * The main method of `$swipe`. It takes an element to be watched for swipe motions, and an
+	     * object containing event handlers.
+	     * The pointer types that should be used can be specified via the optional
+	     * third argument, which is an array of strings `'mouse'` and `'touch'`. By default,
+	     * `$swipe` will listen for `mouse` and `touch` events.
+	     *
+	     * The four events are `start`, `move`, `end`, and `cancel`. `start`, `move`, and `end`
+	     * receive as a parameter a coordinates object of the form `{ x: 150, y: 310 }`.
+	     *
+	     * `start` is called on either `mousedown` or `touchstart`. After this event, `$swipe` is
+	     * watching for `touchmove` or `mousemove` events. These events are ignored until the total
+	     * distance moved in either dimension exceeds a small threshold.
+	     *
+	     * Once this threshold is exceeded, either the horizontal or vertical delta is greater.
+	     * - If the horizontal distance is greater, this is a swipe and `move` and `end` events follow.
+	     * - If the vertical distance is greater, this is a scroll, and we let the browser take over.
+	     *   A `cancel` event is sent.
+	     *
+	     * `move` is called on `mousemove` and `touchmove` after the above logic has determined that
+	     * a swipe is in progress.
+	     *
+	     * `end` is called when a swipe is successfully completed with a `touchend` or `mouseup`.
+	     *
+	     * `cancel` is called either on a `touchcancel` from the browser, or when we begin scrolling
+	     * as described above.
+	     *
+	     */
+	    bind: function(element, eventHandlers, pointerTypes) {
+	      // Absolute total movement, used to control swipe vs. scroll.
+	      var totalX, totalY;
+	      // Coordinates of the start position.
+	      var startCoords;
+	      // Last event's position.
+	      var lastPos;
+	      // Whether a swipe is active.
+	      var active = false;
+
+	      pointerTypes = pointerTypes || ['mouse', 'touch'];
+	      element.on(getEvents(pointerTypes, 'start'), function(event) {
+	        startCoords = getCoordinates(event);
+	        active = true;
+	        totalX = 0;
+	        totalY = 0;
+	        lastPos = startCoords;
+	        eventHandlers['start'] && eventHandlers['start'](startCoords, event);
+	      });
+	      var events = getEvents(pointerTypes, 'cancel');
+	      if (events) {
+	        element.on(events, function(event) {
+	          active = false;
+	          eventHandlers['cancel'] && eventHandlers['cancel'](event);
+	        });
+	      }
+
+	      element.on(getEvents(pointerTypes, 'move'), function(event) {
+	        if (!active) return;
+
+	        // Android will send a touchcancel if it thinks we're starting to scroll.
+	        // So when the total distance (+ or - or both) exceeds 10px in either direction,
+	        // we either:
+	        // - On totalX > totalY, we send preventDefault() and treat this as a swipe.
+	        // - On totalY > totalX, we let the browser handle it as a scroll.
+
+	        if (!startCoords) return;
+	        var coords = getCoordinates(event);
+
+	        totalX += Math.abs(coords.x - lastPos.x);
+	        totalY += Math.abs(coords.y - lastPos.y);
+
+	        lastPos = coords;
+
+	        if (totalX < MOVE_BUFFER_RADIUS && totalY < MOVE_BUFFER_RADIUS) {
+	          return;
+	        }
+
+	        // One of totalX or totalY has exceeded the buffer, so decide on swipe vs. scroll.
+	        if (totalY > totalX) {
+	          // Allow native scrolling to take over.
+	          active = false;
+	          eventHandlers['cancel'] && eventHandlers['cancel'](event);
+	          return;
+	        } else {
+	          // Prevent the browser from scrolling.
+	          event.preventDefault();
+	          eventHandlers['move'] && eventHandlers['move'](coords, event);
+	        }
+	      });
+
+	      element.on(getEvents(pointerTypes, 'end'), function(event) {
+	        if (!active) return;
+	        active = false;
+	        eventHandlers['end'] && eventHandlers['end'](getCoordinates(event), event);
+	      });
+	    }
+	  };
+	}]);
+
+	/* global ngTouch: false */
+
+	/**
+	 * @ngdoc directive
+	 * @name ngClick
+	 *
+	 * @description
+	 * A more powerful replacement for the default ngClick designed to be used on touchscreen
+	 * devices. Most mobile browsers wait about 300ms after a tap-and-release before sending
+	 * the click event. This version handles them immediately, and then prevents the
+	 * following click event from propagating.
+	 *
+	 * Requires the {@link ngTouch `ngTouch`} module to be installed.
+	 *
+	 * This directive can fall back to using an ordinary click event, and so works on desktop
+	 * browsers as well as mobile.
+	 *
+	 * This directive also sets the CSS class `ng-click-active` while the element is being held
+	 * down (by a mouse click or touch) so you can restyle the depressed element if you wish.
+	 *
+	 * @element ANY
+	 * @param {expression} ngClick {@link guide/expression Expression} to evaluate
+	 * upon tap. (Event object is available as `$event`)
+	 *
+	 * @example
+	    <example module="ngClickExample" deps="angular-touch.js">
+	      <file name="index.html">
+	        <button ng-click="count = count + 1" ng-init="count=0">
+	          Increment
+	        </button>
+	        count: {{ count }}
+	      </file>
+	      <file name="script.js">
+	        angular.module('ngClickExample', ['ngTouch']);
+	      </file>
+	    </example>
+	 */
+
+	ngTouch.config(['$provide', function($provide) {
+	  $provide.decorator('ngClickDirective', ['$delegate', function($delegate) {
+	    // drop the default ngClick directive
+	    $delegate.shift();
+	    return $delegate;
+	  }]);
+	}]);
+
+	ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
+	    function($parse, $timeout, $rootElement) {
+	  var TAP_DURATION = 750; // Shorter than 750ms is a tap, longer is a taphold or drag.
+	  var MOVE_TOLERANCE = 12; // 12px seems to work in most mobile browsers.
+	  var PREVENT_DURATION = 2500; // 2.5 seconds maximum from preventGhostClick call to click
+	  var CLICKBUSTER_THRESHOLD = 25; // 25 pixels in any dimension is the limit for busting clicks.
+
+	  var ACTIVE_CLASS_NAME = 'ng-click-active';
+	  var lastPreventedTime;
+	  var touchCoordinates;
+	  var lastLabelClickCoordinates;
+
+
+	  // TAP EVENTS AND GHOST CLICKS
+	  //
+	  // Why tap events?
+	  // Mobile browsers detect a tap, then wait a moment (usually ~300ms) to see if you're
+	  // double-tapping, and then fire a click event.
+	  //
+	  // This delay sucks and makes mobile apps feel unresponsive.
+	  // So we detect touchstart, touchmove, touchcancel and touchend ourselves and determine when
+	  // the user has tapped on something.
+	  //
+	  // What happens when the browser then generates a click event?
+	  // The browser, of course, also detects the tap and fires a click after a delay. This results in
+	  // tapping/clicking twice. We do "clickbusting" to prevent it.
+	  //
+	  // How does it work?
+	  // We attach global touchstart and click handlers, that run during the capture (early) phase.
+	  // So the sequence for a tap is:
+	  // - global touchstart: Sets an "allowable region" at the point touched.
+	  // - element's touchstart: Starts a touch
+	  // (- touchmove or touchcancel ends the touch, no click follows)
+	  // - element's touchend: Determines if the tap is valid (didn't move too far away, didn't hold
+	  //   too long) and fires the user's tap handler. The touchend also calls preventGhostClick().
+	  // - preventGhostClick() removes the allowable region the global touchstart created.
+	  // - The browser generates a click event.
+	  // - The global click handler catches the click, and checks whether it was in an allowable region.
+	  //     - If preventGhostClick was called, the region will have been removed, the click is busted.
+	  //     - If the region is still there, the click proceeds normally. Therefore clicks on links and
+	  //       other elements without ngTap on them work normally.
+	  //
+	  // This is an ugly, terrible hack!
+	  // Yeah, tell me about it. The alternatives are using the slow click events, or making our users
+	  // deal with the ghost clicks, so I consider this the least of evils. Fortunately Angular
+	  // encapsulates this ugly logic away from the user.
+	  //
+	  // Why not just put click handlers on the element?
+	  // We do that too, just to be sure. If the tap event caused the DOM to change,
+	  // it is possible another element is now in that position. To take account for these possibly
+	  // distinct elements, the handlers are global and care only about coordinates.
+
+	  // Checks if the coordinates are close enough to be within the region.
+	  function hit(x1, y1, x2, y2) {
+	    return Math.abs(x1 - x2) < CLICKBUSTER_THRESHOLD && Math.abs(y1 - y2) < CLICKBUSTER_THRESHOLD;
+	  }
+
+	  // Checks a list of allowable regions against a click location.
+	  // Returns true if the click should be allowed.
+	  // Splices out the allowable region from the list after it has been used.
+	  function checkAllowableRegions(touchCoordinates, x, y) {
+	    for (var i = 0; i < touchCoordinates.length; i += 2) {
+	      if (hit(touchCoordinates[i], touchCoordinates[i + 1], x, y)) {
+	        touchCoordinates.splice(i, i + 2);
+	        return true; // allowable region
+	      }
+	    }
+	    return false; // No allowable region; bust it.
+	  }
+
+	  // Global click handler that prevents the click if it's in a bustable zone and preventGhostClick
+	  // was called recently.
+	  function onClick(event) {
+	    if (Date.now() - lastPreventedTime > PREVENT_DURATION) {
+	      return; // Too old.
+	    }
+
+	    var touches = event.touches && event.touches.length ? event.touches : [event];
+	    var x = touches[0].clientX;
+	    var y = touches[0].clientY;
+	    // Work around desktop Webkit quirk where clicking a label will fire two clicks (on the label
+	    // and on the input element). Depending on the exact browser, this second click we don't want
+	    // to bust has either (0,0), negative coordinates, or coordinates equal to triggering label
+	    // click event
+	    if (x < 1 && y < 1) {
+	      return; // offscreen
+	    }
+	    if (lastLabelClickCoordinates &&
+	        lastLabelClickCoordinates[0] === x && lastLabelClickCoordinates[1] === y) {
+	      return; // input click triggered by label click
+	    }
+	    // reset label click coordinates on first subsequent click
+	    if (lastLabelClickCoordinates) {
+	      lastLabelClickCoordinates = null;
+	    }
+	    // remember label click coordinates to prevent click busting of trigger click event on input
+	    if (event.target.tagName.toLowerCase() === 'label') {
+	      lastLabelClickCoordinates = [x, y];
+	    }
+
+	    // Look for an allowable region containing this click.
+	    // If we find one, that means it was created by touchstart and not removed by
+	    // preventGhostClick, so we don't bust it.
+	    if (checkAllowableRegions(touchCoordinates, x, y)) {
+	      return;
+	    }
+
+	    // If we didn't find an allowable region, bust the click.
+	    event.stopPropagation();
+	    event.preventDefault();
+
+	    // Blur focused form elements
+	    event.target && event.target.blur();
+	  }
+
+
+	  // Global touchstart handler that creates an allowable region for a click event.
+	  // This allowable region can be removed by preventGhostClick if we want to bust it.
+	  function onTouchStart(event) {
+	    var touches = event.touches && event.touches.length ? event.touches : [event];
+	    var x = touches[0].clientX;
+	    var y = touches[0].clientY;
+	    touchCoordinates.push(x, y);
+
+	    $timeout(function() {
+	      // Remove the allowable region.
+	      for (var i = 0; i < touchCoordinates.length; i += 2) {
+	        if (touchCoordinates[i] == x && touchCoordinates[i + 1] == y) {
+	          touchCoordinates.splice(i, i + 2);
+	          return;
+	        }
+	      }
+	    }, PREVENT_DURATION, false);
+	  }
+
+	  // On the first call, attaches some event handlers. Then whenever it gets called, it creates a
+	  // zone around the touchstart where clicks will get busted.
+	  function preventGhostClick(x, y) {
+	    if (!touchCoordinates) {
+	      $rootElement[0].addEventListener('click', onClick, true);
+	      $rootElement[0].addEventListener('touchstart', onTouchStart, true);
+	      touchCoordinates = [];
+	    }
+
+	    lastPreventedTime = Date.now();
+
+	    checkAllowableRegions(touchCoordinates, x, y);
+	  }
+
+	  // Actual linking function.
+	  return function(scope, element, attr) {
+	    var clickHandler = $parse(attr.ngClick),
+	        tapping = false,
+	        tapElement,  // Used to blur the element after a tap.
+	        startTime,   // Used to check if the tap was held too long.
+	        touchStartX,
+	        touchStartY;
+
+	    function resetState() {
+	      tapping = false;
+	      element.removeClass(ACTIVE_CLASS_NAME);
+	    }
+
+	    element.on('touchstart', function(event) {
+	      tapping = true;
+	      tapElement = event.target ? event.target : event.srcElement; // IE uses srcElement.
+	      // Hack for Safari, which can target text nodes instead of containers.
+	      if (tapElement.nodeType == 3) {
+	        tapElement = tapElement.parentNode;
+	      }
+
+	      element.addClass(ACTIVE_CLASS_NAME);
+
+	      startTime = Date.now();
+
+	      var touches = event.touches && event.touches.length ? event.touches : [event];
+	      var e = touches[0].originalEvent || touches[0];
+	      touchStartX = e.clientX;
+	      touchStartY = e.clientY;
+	    });
+
+	    element.on('touchmove', function(event) {
+	      resetState();
+	    });
+
+	    element.on('touchcancel', function(event) {
+	      resetState();
+	    });
+
+	    element.on('touchend', function(event) {
+	      var diff = Date.now() - startTime;
+
+	      var touches = (event.changedTouches && event.changedTouches.length) ? event.changedTouches :
+	          ((event.touches && event.touches.length) ? event.touches : [event]);
+	      var e = touches[0].originalEvent || touches[0];
+	      var x = e.clientX;
+	      var y = e.clientY;
+	      var dist = Math.sqrt(Math.pow(x - touchStartX, 2) + Math.pow(y - touchStartY, 2));
+
+	      if (tapping && diff < TAP_DURATION && dist < MOVE_TOLERANCE) {
+	        // Call preventGhostClick so the clickbuster will catch the corresponding click.
+	        preventGhostClick(x, y);
+
+	        // Blur the focused element (the button, probably) before firing the callback.
+	        // This doesn't work perfectly on Android Chrome, but seems to work elsewhere.
+	        // I couldn't get anything to work reliably on Android Chrome.
+	        if (tapElement) {
+	          tapElement.blur();
+	        }
+
+	        if (!angular.isDefined(attr.disabled) || attr.disabled === false) {
+	          element.triggerHandler('click', [event]);
+	        }
+	      }
+
+	      resetState();
+	    });
+
+	    // Hack for iOS Safari's benefit. It goes searching for onclick handlers and is liable to click
+	    // something else nearby.
+	    element.onclick = function(event) { };
+
+	    // Actual click handler.
+	    // There are three different kinds of clicks, only two of which reach this point.
+	    // - On desktop browsers without touch events, their clicks will always come here.
+	    // - On mobile browsers, the simulated "fast" click will call this.
+	    // - But the browser's follow-up slow click will be "busted" before it reaches this handler.
+	    // Therefore it's safe to use this directive on both mobile and desktop.
+	    element.on('click', function(event, touchend) {
+	      scope.$apply(function() {
+	        clickHandler(scope, {$event: (touchend || event)});
+	      });
+	    });
+
+	    element.on('mousedown', function(event) {
+	      element.addClass(ACTIVE_CLASS_NAME);
+	    });
+
+	    element.on('mousemove mouseup', function(event) {
+	      element.removeClass(ACTIVE_CLASS_NAME);
+	    });
+
+	  };
+	}]);
+
+	/* global ngTouch: false */
+
+	/**
+	 * @ngdoc directive
+	 * @name ngSwipeLeft
+	 *
+	 * @description
+	 * Specify custom behavior when an element is swiped to the left on a touchscreen device.
+	 * A leftward swipe is a quick, right-to-left slide of the finger.
+	 * Though ngSwipeLeft is designed for touch-based devices, it will work with a mouse click and drag
+	 * too.
+	 *
+	 * To disable the mouse click and drag functionality, add `ng-swipe-disable-mouse` to
+	 * the `ng-swipe-left` or `ng-swipe-right` DOM Element.
+	 *
+	 * Requires the {@link ngTouch `ngTouch`} module to be installed.
+	 *
+	 * @element ANY
+	 * @param {expression} ngSwipeLeft {@link guide/expression Expression} to evaluate
+	 * upon left swipe. (Event object is available as `$event`)
+	 *
+	 * @example
+	    <example module="ngSwipeLeftExample" deps="angular-touch.js">
+	      <file name="index.html">
+	        <div ng-show="!showActions" ng-swipe-left="showActions = true">
+	          Some list content, like an email in the inbox
+	        </div>
+	        <div ng-show="showActions" ng-swipe-right="showActions = false">
+	          <button ng-click="reply()">Reply</button>
+	          <button ng-click="delete()">Delete</button>
+	        </div>
+	      </file>
+	      <file name="script.js">
+	        angular.module('ngSwipeLeftExample', ['ngTouch']);
+	      </file>
+	    </example>
+	 */
+
+	/**
+	 * @ngdoc directive
+	 * @name ngSwipeRight
+	 *
+	 * @description
+	 * Specify custom behavior when an element is swiped to the right on a touchscreen device.
+	 * A rightward swipe is a quick, left-to-right slide of the finger.
+	 * Though ngSwipeRight is designed for touch-based devices, it will work with a mouse click and drag
+	 * too.
+	 *
+	 * Requires the {@link ngTouch `ngTouch`} module to be installed.
+	 *
+	 * @element ANY
+	 * @param {expression} ngSwipeRight {@link guide/expression Expression} to evaluate
+	 * upon right swipe. (Event object is available as `$event`)
+	 *
+	 * @example
+	    <example module="ngSwipeRightExample" deps="angular-touch.js">
+	      <file name="index.html">
+	        <div ng-show="!showActions" ng-swipe-left="showActions = true">
+	          Some list content, like an email in the inbox
+	        </div>
+	        <div ng-show="showActions" ng-swipe-right="showActions = false">
+	          <button ng-click="reply()">Reply</button>
+	          <button ng-click="delete()">Delete</button>
+	        </div>
+	      </file>
+	      <file name="script.js">
+	        angular.module('ngSwipeRightExample', ['ngTouch']);
+	      </file>
+	    </example>
+	 */
+
+	function makeSwipeDirective(directiveName, direction, eventName) {
+	  ngTouch.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
+	    // The maximum vertical delta for a swipe should be less than 75px.
+	    var MAX_VERTICAL_DISTANCE = 75;
+	    // Vertical distance should not be more than a fraction of the horizontal distance.
+	    var MAX_VERTICAL_RATIO = 0.3;
+	    // At least a 30px lateral motion is necessary for a swipe.
+	    var MIN_HORIZONTAL_DISTANCE = 30;
+
+	    return function(scope, element, attr) {
+	      var swipeHandler = $parse(attr[directiveName]);
+
+	      var startCoords, valid;
+
+	      function validSwipe(coords) {
+	        // Check that it's within the coordinates.
+	        // Absolute vertical distance must be within tolerances.
+	        // Horizontal distance, we take the current X - the starting X.
+	        // This is negative for leftward swipes and positive for rightward swipes.
+	        // After multiplying by the direction (-1 for left, +1 for right), legal swipes
+	        // (ie. same direction as the directive wants) will have a positive delta and
+	        // illegal ones a negative delta.
+	        // Therefore this delta must be positive, and larger than the minimum.
+	        if (!startCoords) return false;
+	        var deltaY = Math.abs(coords.y - startCoords.y);
+	        var deltaX = (coords.x - startCoords.x) * direction;
+	        return valid && // Short circuit for already-invalidated swipes.
+	            deltaY < MAX_VERTICAL_DISTANCE &&
+	            deltaX > 0 &&
+	            deltaX > MIN_HORIZONTAL_DISTANCE &&
+	            deltaY / deltaX < MAX_VERTICAL_RATIO;
+	      }
+
+	      var pointerTypes = ['touch'];
+	      if (!angular.isDefined(attr['ngSwipeDisableMouse'])) {
+	        pointerTypes.push('mouse');
+	      }
+	      $swipe.bind(element, {
+	        'start': function(coords, event) {
+	          startCoords = coords;
+	          valid = true;
+	        },
+	        'cancel': function(event) {
+	          valid = false;
+	        },
+	        'end': function(coords, event) {
+	          if (validSwipe(coords)) {
+	            scope.$apply(function() {
+	              element.triggerHandler(eventName);
+	              swipeHandler(scope, {$event: event});
+	            });
+	          }
+	        }
+	      }, pointerTypes);
+	    };
+	  }]);
+	}
+
+	// Left is negative X-coordinate, right is positive.
+	makeSwipeDirective('ngSwipeLeft', -1, 'swipeleft');
+	makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
+
+
+
+	})(window, window.angular);
+
+
+/***/ },
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -44767,1041 +45832,6 @@
 
 
 /***/ },
-/* 51 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license AngularJS v1.3.15
-	 * (c) 2010-2014 Google, Inc. http://angularjs.org
-	 * License: MIT
-	 */
-	(function(window, angular, undefined) {'use strict';
-
-	/**
-	 * @ngdoc module
-	 * @name ngTouch
-	 * @description
-	 *
-	 * # ngTouch
-	 *
-	 * The `ngTouch` module provides touch events and other helpers for touch-enabled devices.
-	 * The implementation is based on jQuery Mobile touch event handling
-	 * ([jquerymobile.com](http://jquerymobile.com/)).
-	 *
-	 *
-	 * See {@link ngTouch.$swipe `$swipe`} for usage.
-	 *
-	 * <div doc-module-components="ngTouch"></div>
-	 *
-	 */
-
-	// define ngTouch module
-	/* global -ngTouch */
-	var ngTouch = angular.module('ngTouch', []);
-
-	/* global ngTouch: false */
-
-	    /**
-	     * @ngdoc service
-	     * @name $swipe
-	     *
-	     * @description
-	     * The `$swipe` service is a service that abstracts the messier details of hold-and-drag swipe
-	     * behavior, to make implementing swipe-related directives more convenient.
-	     *
-	     * Requires the {@link ngTouch `ngTouch`} module to be installed.
-	     *
-	     * `$swipe` is used by the `ngSwipeLeft` and `ngSwipeRight` directives in `ngTouch`, and by
-	     * `ngCarousel` in a separate component.
-	     *
-	     * # Usage
-	     * The `$swipe` service is an object with a single method: `bind`. `bind` takes an element
-	     * which is to be watched for swipes, and an object with four handler functions. See the
-	     * documentation for `bind` below.
-	     */
-
-	ngTouch.factory('$swipe', [function() {
-	  // The total distance in any direction before we make the call on swipe vs. scroll.
-	  var MOVE_BUFFER_RADIUS = 10;
-
-	  var POINTER_EVENTS = {
-	    'mouse': {
-	      start: 'mousedown',
-	      move: 'mousemove',
-	      end: 'mouseup'
-	    },
-	    'touch': {
-	      start: 'touchstart',
-	      move: 'touchmove',
-	      end: 'touchend',
-	      cancel: 'touchcancel'
-	    }
-	  };
-
-	  function getCoordinates(event) {
-	    var touches = event.touches && event.touches.length ? event.touches : [event];
-	    var e = (event.changedTouches && event.changedTouches[0]) ||
-	        (event.originalEvent && event.originalEvent.changedTouches &&
-	            event.originalEvent.changedTouches[0]) ||
-	        touches[0].originalEvent || touches[0];
-
-	    return {
-	      x: e.clientX,
-	      y: e.clientY
-	    };
-	  }
-
-	  function getEvents(pointerTypes, eventType) {
-	    var res = [];
-	    angular.forEach(pointerTypes, function(pointerType) {
-	      var eventName = POINTER_EVENTS[pointerType][eventType];
-	      if (eventName) {
-	        res.push(eventName);
-	      }
-	    });
-	    return res.join(' ');
-	  }
-
-	  return {
-	    /**
-	     * @ngdoc method
-	     * @name $swipe#bind
-	     *
-	     * @description
-	     * The main method of `$swipe`. It takes an element to be watched for swipe motions, and an
-	     * object containing event handlers.
-	     * The pointer types that should be used can be specified via the optional
-	     * third argument, which is an array of strings `'mouse'` and `'touch'`. By default,
-	     * `$swipe` will listen for `mouse` and `touch` events.
-	     *
-	     * The four events are `start`, `move`, `end`, and `cancel`. `start`, `move`, and `end`
-	     * receive as a parameter a coordinates object of the form `{ x: 150, y: 310 }`.
-	     *
-	     * `start` is called on either `mousedown` or `touchstart`. After this event, `$swipe` is
-	     * watching for `touchmove` or `mousemove` events. These events are ignored until the total
-	     * distance moved in either dimension exceeds a small threshold.
-	     *
-	     * Once this threshold is exceeded, either the horizontal or vertical delta is greater.
-	     * - If the horizontal distance is greater, this is a swipe and `move` and `end` events follow.
-	     * - If the vertical distance is greater, this is a scroll, and we let the browser take over.
-	     *   A `cancel` event is sent.
-	     *
-	     * `move` is called on `mousemove` and `touchmove` after the above logic has determined that
-	     * a swipe is in progress.
-	     *
-	     * `end` is called when a swipe is successfully completed with a `touchend` or `mouseup`.
-	     *
-	     * `cancel` is called either on a `touchcancel` from the browser, or when we begin scrolling
-	     * as described above.
-	     *
-	     */
-	    bind: function(element, eventHandlers, pointerTypes) {
-	      // Absolute total movement, used to control swipe vs. scroll.
-	      var totalX, totalY;
-	      // Coordinates of the start position.
-	      var startCoords;
-	      // Last event's position.
-	      var lastPos;
-	      // Whether a swipe is active.
-	      var active = false;
-
-	      pointerTypes = pointerTypes || ['mouse', 'touch'];
-	      element.on(getEvents(pointerTypes, 'start'), function(event) {
-	        startCoords = getCoordinates(event);
-	        active = true;
-	        totalX = 0;
-	        totalY = 0;
-	        lastPos = startCoords;
-	        eventHandlers['start'] && eventHandlers['start'](startCoords, event);
-	      });
-	      var events = getEvents(pointerTypes, 'cancel');
-	      if (events) {
-	        element.on(events, function(event) {
-	          active = false;
-	          eventHandlers['cancel'] && eventHandlers['cancel'](event);
-	        });
-	      }
-
-	      element.on(getEvents(pointerTypes, 'move'), function(event) {
-	        if (!active) return;
-
-	        // Android will send a touchcancel if it thinks we're starting to scroll.
-	        // So when the total distance (+ or - or both) exceeds 10px in either direction,
-	        // we either:
-	        // - On totalX > totalY, we send preventDefault() and treat this as a swipe.
-	        // - On totalY > totalX, we let the browser handle it as a scroll.
-
-	        if (!startCoords) return;
-	        var coords = getCoordinates(event);
-
-	        totalX += Math.abs(coords.x - lastPos.x);
-	        totalY += Math.abs(coords.y - lastPos.y);
-
-	        lastPos = coords;
-
-	        if (totalX < MOVE_BUFFER_RADIUS && totalY < MOVE_BUFFER_RADIUS) {
-	          return;
-	        }
-
-	        // One of totalX or totalY has exceeded the buffer, so decide on swipe vs. scroll.
-	        if (totalY > totalX) {
-	          // Allow native scrolling to take over.
-	          active = false;
-	          eventHandlers['cancel'] && eventHandlers['cancel'](event);
-	          return;
-	        } else {
-	          // Prevent the browser from scrolling.
-	          event.preventDefault();
-	          eventHandlers['move'] && eventHandlers['move'](coords, event);
-	        }
-	      });
-
-	      element.on(getEvents(pointerTypes, 'end'), function(event) {
-	        if (!active) return;
-	        active = false;
-	        eventHandlers['end'] && eventHandlers['end'](getCoordinates(event), event);
-	      });
-	    }
-	  };
-	}]);
-
-	/* global ngTouch: false */
-
-	/**
-	 * @ngdoc directive
-	 * @name ngClick
-	 *
-	 * @description
-	 * A more powerful replacement for the default ngClick designed to be used on touchscreen
-	 * devices. Most mobile browsers wait about 300ms after a tap-and-release before sending
-	 * the click event. This version handles them immediately, and then prevents the
-	 * following click event from propagating.
-	 *
-	 * Requires the {@link ngTouch `ngTouch`} module to be installed.
-	 *
-	 * This directive can fall back to using an ordinary click event, and so works on desktop
-	 * browsers as well as mobile.
-	 *
-	 * This directive also sets the CSS class `ng-click-active` while the element is being held
-	 * down (by a mouse click or touch) so you can restyle the depressed element if you wish.
-	 *
-	 * @element ANY
-	 * @param {expression} ngClick {@link guide/expression Expression} to evaluate
-	 * upon tap. (Event object is available as `$event`)
-	 *
-	 * @example
-	    <example module="ngClickExample" deps="angular-touch.js">
-	      <file name="index.html">
-	        <button ng-click="count = count + 1" ng-init="count=0">
-	          Increment
-	        </button>
-	        count: {{ count }}
-	      </file>
-	      <file name="script.js">
-	        angular.module('ngClickExample', ['ngTouch']);
-	      </file>
-	    </example>
-	 */
-
-	ngTouch.config(['$provide', function($provide) {
-	  $provide.decorator('ngClickDirective', ['$delegate', function($delegate) {
-	    // drop the default ngClick directive
-	    $delegate.shift();
-	    return $delegate;
-	  }]);
-	}]);
-
-	ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
-	    function($parse, $timeout, $rootElement) {
-	  var TAP_DURATION = 750; // Shorter than 750ms is a tap, longer is a taphold or drag.
-	  var MOVE_TOLERANCE = 12; // 12px seems to work in most mobile browsers.
-	  var PREVENT_DURATION = 2500; // 2.5 seconds maximum from preventGhostClick call to click
-	  var CLICKBUSTER_THRESHOLD = 25; // 25 pixels in any dimension is the limit for busting clicks.
-
-	  var ACTIVE_CLASS_NAME = 'ng-click-active';
-	  var lastPreventedTime;
-	  var touchCoordinates;
-	  var lastLabelClickCoordinates;
-
-
-	  // TAP EVENTS AND GHOST CLICKS
-	  //
-	  // Why tap events?
-	  // Mobile browsers detect a tap, then wait a moment (usually ~300ms) to see if you're
-	  // double-tapping, and then fire a click event.
-	  //
-	  // This delay sucks and makes mobile apps feel unresponsive.
-	  // So we detect touchstart, touchmove, touchcancel and touchend ourselves and determine when
-	  // the user has tapped on something.
-	  //
-	  // What happens when the browser then generates a click event?
-	  // The browser, of course, also detects the tap and fires a click after a delay. This results in
-	  // tapping/clicking twice. We do "clickbusting" to prevent it.
-	  //
-	  // How does it work?
-	  // We attach global touchstart and click handlers, that run during the capture (early) phase.
-	  // So the sequence for a tap is:
-	  // - global touchstart: Sets an "allowable region" at the point touched.
-	  // - element's touchstart: Starts a touch
-	  // (- touchmove or touchcancel ends the touch, no click follows)
-	  // - element's touchend: Determines if the tap is valid (didn't move too far away, didn't hold
-	  //   too long) and fires the user's tap handler. The touchend also calls preventGhostClick().
-	  // - preventGhostClick() removes the allowable region the global touchstart created.
-	  // - The browser generates a click event.
-	  // - The global click handler catches the click, and checks whether it was in an allowable region.
-	  //     - If preventGhostClick was called, the region will have been removed, the click is busted.
-	  //     - If the region is still there, the click proceeds normally. Therefore clicks on links and
-	  //       other elements without ngTap on them work normally.
-	  //
-	  // This is an ugly, terrible hack!
-	  // Yeah, tell me about it. The alternatives are using the slow click events, or making our users
-	  // deal with the ghost clicks, so I consider this the least of evils. Fortunately Angular
-	  // encapsulates this ugly logic away from the user.
-	  //
-	  // Why not just put click handlers on the element?
-	  // We do that too, just to be sure. If the tap event caused the DOM to change,
-	  // it is possible another element is now in that position. To take account for these possibly
-	  // distinct elements, the handlers are global and care only about coordinates.
-
-	  // Checks if the coordinates are close enough to be within the region.
-	  function hit(x1, y1, x2, y2) {
-	    return Math.abs(x1 - x2) < CLICKBUSTER_THRESHOLD && Math.abs(y1 - y2) < CLICKBUSTER_THRESHOLD;
-	  }
-
-	  // Checks a list of allowable regions against a click location.
-	  // Returns true if the click should be allowed.
-	  // Splices out the allowable region from the list after it has been used.
-	  function checkAllowableRegions(touchCoordinates, x, y) {
-	    for (var i = 0; i < touchCoordinates.length; i += 2) {
-	      if (hit(touchCoordinates[i], touchCoordinates[i + 1], x, y)) {
-	        touchCoordinates.splice(i, i + 2);
-	        return true; // allowable region
-	      }
-	    }
-	    return false; // No allowable region; bust it.
-	  }
-
-	  // Global click handler that prevents the click if it's in a bustable zone and preventGhostClick
-	  // was called recently.
-	  function onClick(event) {
-	    if (Date.now() - lastPreventedTime > PREVENT_DURATION) {
-	      return; // Too old.
-	    }
-
-	    var touches = event.touches && event.touches.length ? event.touches : [event];
-	    var x = touches[0].clientX;
-	    var y = touches[0].clientY;
-	    // Work around desktop Webkit quirk where clicking a label will fire two clicks (on the label
-	    // and on the input element). Depending on the exact browser, this second click we don't want
-	    // to bust has either (0,0), negative coordinates, or coordinates equal to triggering label
-	    // click event
-	    if (x < 1 && y < 1) {
-	      return; // offscreen
-	    }
-	    if (lastLabelClickCoordinates &&
-	        lastLabelClickCoordinates[0] === x && lastLabelClickCoordinates[1] === y) {
-	      return; // input click triggered by label click
-	    }
-	    // reset label click coordinates on first subsequent click
-	    if (lastLabelClickCoordinates) {
-	      lastLabelClickCoordinates = null;
-	    }
-	    // remember label click coordinates to prevent click busting of trigger click event on input
-	    if (event.target.tagName.toLowerCase() === 'label') {
-	      lastLabelClickCoordinates = [x, y];
-	    }
-
-	    // Look for an allowable region containing this click.
-	    // If we find one, that means it was created by touchstart and not removed by
-	    // preventGhostClick, so we don't bust it.
-	    if (checkAllowableRegions(touchCoordinates, x, y)) {
-	      return;
-	    }
-
-	    // If we didn't find an allowable region, bust the click.
-	    event.stopPropagation();
-	    event.preventDefault();
-
-	    // Blur focused form elements
-	    event.target && event.target.blur();
-	  }
-
-
-	  // Global touchstart handler that creates an allowable region for a click event.
-	  // This allowable region can be removed by preventGhostClick if we want to bust it.
-	  function onTouchStart(event) {
-	    var touches = event.touches && event.touches.length ? event.touches : [event];
-	    var x = touches[0].clientX;
-	    var y = touches[0].clientY;
-	    touchCoordinates.push(x, y);
-
-	    $timeout(function() {
-	      // Remove the allowable region.
-	      for (var i = 0; i < touchCoordinates.length; i += 2) {
-	        if (touchCoordinates[i] == x && touchCoordinates[i + 1] == y) {
-	          touchCoordinates.splice(i, i + 2);
-	          return;
-	        }
-	      }
-	    }, PREVENT_DURATION, false);
-	  }
-
-	  // On the first call, attaches some event handlers. Then whenever it gets called, it creates a
-	  // zone around the touchstart where clicks will get busted.
-	  function preventGhostClick(x, y) {
-	    if (!touchCoordinates) {
-	      $rootElement[0].addEventListener('click', onClick, true);
-	      $rootElement[0].addEventListener('touchstart', onTouchStart, true);
-	      touchCoordinates = [];
-	    }
-
-	    lastPreventedTime = Date.now();
-
-	    checkAllowableRegions(touchCoordinates, x, y);
-	  }
-
-	  // Actual linking function.
-	  return function(scope, element, attr) {
-	    var clickHandler = $parse(attr.ngClick),
-	        tapping = false,
-	        tapElement,  // Used to blur the element after a tap.
-	        startTime,   // Used to check if the tap was held too long.
-	        touchStartX,
-	        touchStartY;
-
-	    function resetState() {
-	      tapping = false;
-	      element.removeClass(ACTIVE_CLASS_NAME);
-	    }
-
-	    element.on('touchstart', function(event) {
-	      tapping = true;
-	      tapElement = event.target ? event.target : event.srcElement; // IE uses srcElement.
-	      // Hack for Safari, which can target text nodes instead of containers.
-	      if (tapElement.nodeType == 3) {
-	        tapElement = tapElement.parentNode;
-	      }
-
-	      element.addClass(ACTIVE_CLASS_NAME);
-
-	      startTime = Date.now();
-
-	      var touches = event.touches && event.touches.length ? event.touches : [event];
-	      var e = touches[0].originalEvent || touches[0];
-	      touchStartX = e.clientX;
-	      touchStartY = e.clientY;
-	    });
-
-	    element.on('touchmove', function(event) {
-	      resetState();
-	    });
-
-	    element.on('touchcancel', function(event) {
-	      resetState();
-	    });
-
-	    element.on('touchend', function(event) {
-	      var diff = Date.now() - startTime;
-
-	      var touches = (event.changedTouches && event.changedTouches.length) ? event.changedTouches :
-	          ((event.touches && event.touches.length) ? event.touches : [event]);
-	      var e = touches[0].originalEvent || touches[0];
-	      var x = e.clientX;
-	      var y = e.clientY;
-	      var dist = Math.sqrt(Math.pow(x - touchStartX, 2) + Math.pow(y - touchStartY, 2));
-
-	      if (tapping && diff < TAP_DURATION && dist < MOVE_TOLERANCE) {
-	        // Call preventGhostClick so the clickbuster will catch the corresponding click.
-	        preventGhostClick(x, y);
-
-	        // Blur the focused element (the button, probably) before firing the callback.
-	        // This doesn't work perfectly on Android Chrome, but seems to work elsewhere.
-	        // I couldn't get anything to work reliably on Android Chrome.
-	        if (tapElement) {
-	          tapElement.blur();
-	        }
-
-	        if (!angular.isDefined(attr.disabled) || attr.disabled === false) {
-	          element.triggerHandler('click', [event]);
-	        }
-	      }
-
-	      resetState();
-	    });
-
-	    // Hack for iOS Safari's benefit. It goes searching for onclick handlers and is liable to click
-	    // something else nearby.
-	    element.onclick = function(event) { };
-
-	    // Actual click handler.
-	    // There are three different kinds of clicks, only two of which reach this point.
-	    // - On desktop browsers without touch events, their clicks will always come here.
-	    // - On mobile browsers, the simulated "fast" click will call this.
-	    // - But the browser's follow-up slow click will be "busted" before it reaches this handler.
-	    // Therefore it's safe to use this directive on both mobile and desktop.
-	    element.on('click', function(event, touchend) {
-	      scope.$apply(function() {
-	        clickHandler(scope, {$event: (touchend || event)});
-	      });
-	    });
-
-	    element.on('mousedown', function(event) {
-	      element.addClass(ACTIVE_CLASS_NAME);
-	    });
-
-	    element.on('mousemove mouseup', function(event) {
-	      element.removeClass(ACTIVE_CLASS_NAME);
-	    });
-
-	  };
-	}]);
-
-	/* global ngTouch: false */
-
-	/**
-	 * @ngdoc directive
-	 * @name ngSwipeLeft
-	 *
-	 * @description
-	 * Specify custom behavior when an element is swiped to the left on a touchscreen device.
-	 * A leftward swipe is a quick, right-to-left slide of the finger.
-	 * Though ngSwipeLeft is designed for touch-based devices, it will work with a mouse click and drag
-	 * too.
-	 *
-	 * To disable the mouse click and drag functionality, add `ng-swipe-disable-mouse` to
-	 * the `ng-swipe-left` or `ng-swipe-right` DOM Element.
-	 *
-	 * Requires the {@link ngTouch `ngTouch`} module to be installed.
-	 *
-	 * @element ANY
-	 * @param {expression} ngSwipeLeft {@link guide/expression Expression} to evaluate
-	 * upon left swipe. (Event object is available as `$event`)
-	 *
-	 * @example
-	    <example module="ngSwipeLeftExample" deps="angular-touch.js">
-	      <file name="index.html">
-	        <div ng-show="!showActions" ng-swipe-left="showActions = true">
-	          Some list content, like an email in the inbox
-	        </div>
-	        <div ng-show="showActions" ng-swipe-right="showActions = false">
-	          <button ng-click="reply()">Reply</button>
-	          <button ng-click="delete()">Delete</button>
-	        </div>
-	      </file>
-	      <file name="script.js">
-	        angular.module('ngSwipeLeftExample', ['ngTouch']);
-	      </file>
-	    </example>
-	 */
-
-	/**
-	 * @ngdoc directive
-	 * @name ngSwipeRight
-	 *
-	 * @description
-	 * Specify custom behavior when an element is swiped to the right on a touchscreen device.
-	 * A rightward swipe is a quick, left-to-right slide of the finger.
-	 * Though ngSwipeRight is designed for touch-based devices, it will work with a mouse click and drag
-	 * too.
-	 *
-	 * Requires the {@link ngTouch `ngTouch`} module to be installed.
-	 *
-	 * @element ANY
-	 * @param {expression} ngSwipeRight {@link guide/expression Expression} to evaluate
-	 * upon right swipe. (Event object is available as `$event`)
-	 *
-	 * @example
-	    <example module="ngSwipeRightExample" deps="angular-touch.js">
-	      <file name="index.html">
-	        <div ng-show="!showActions" ng-swipe-left="showActions = true">
-	          Some list content, like an email in the inbox
-	        </div>
-	        <div ng-show="showActions" ng-swipe-right="showActions = false">
-	          <button ng-click="reply()">Reply</button>
-	          <button ng-click="delete()">Delete</button>
-	        </div>
-	      </file>
-	      <file name="script.js">
-	        angular.module('ngSwipeRightExample', ['ngTouch']);
-	      </file>
-	    </example>
-	 */
-
-	function makeSwipeDirective(directiveName, direction, eventName) {
-	  ngTouch.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
-	    // The maximum vertical delta for a swipe should be less than 75px.
-	    var MAX_VERTICAL_DISTANCE = 75;
-	    // Vertical distance should not be more than a fraction of the horizontal distance.
-	    var MAX_VERTICAL_RATIO = 0.3;
-	    // At least a 30px lateral motion is necessary for a swipe.
-	    var MIN_HORIZONTAL_DISTANCE = 30;
-
-	    return function(scope, element, attr) {
-	      var swipeHandler = $parse(attr[directiveName]);
-
-	      var startCoords, valid;
-
-	      function validSwipe(coords) {
-	        // Check that it's within the coordinates.
-	        // Absolute vertical distance must be within tolerances.
-	        // Horizontal distance, we take the current X - the starting X.
-	        // This is negative for leftward swipes and positive for rightward swipes.
-	        // After multiplying by the direction (-1 for left, +1 for right), legal swipes
-	        // (ie. same direction as the directive wants) will have a positive delta and
-	        // illegal ones a negative delta.
-	        // Therefore this delta must be positive, and larger than the minimum.
-	        if (!startCoords) return false;
-	        var deltaY = Math.abs(coords.y - startCoords.y);
-	        var deltaX = (coords.x - startCoords.x) * direction;
-	        return valid && // Short circuit for already-invalidated swipes.
-	            deltaY < MAX_VERTICAL_DISTANCE &&
-	            deltaX > 0 &&
-	            deltaX > MIN_HORIZONTAL_DISTANCE &&
-	            deltaY / deltaX < MAX_VERTICAL_RATIO;
-	      }
-
-	      var pointerTypes = ['touch'];
-	      if (!angular.isDefined(attr['ngSwipeDisableMouse'])) {
-	        pointerTypes.push('mouse');
-	      }
-	      $swipe.bind(element, {
-	        'start': function(coords, event) {
-	          startCoords = coords;
-	          valid = true;
-	        },
-	        'cancel': function(event) {
-	          valid = false;
-	        },
-	        'end': function(coords, event) {
-	          if (validSwipe(coords)) {
-	            scope.$apply(function() {
-	              element.triggerHandler(eventName);
-	              swipeHandler(scope, {$event: event});
-	            });
-	          }
-	        }
-	      }, pointerTypes);
-	    };
-	  }]);
-	}
-
-	// Left is negative X-coordinate, right is positive.
-	makeSwipeDirective('ngSwipeLeft', -1, 'swipeleft');
-	makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
-
-
-
-	})(window, window.angular);
-
-
-/***/ },
-/* 52 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * @license AngularJS v1.3.15
-	 * (c) 2010-2014 Google, Inc. http://angularjs.org
-	 * License: MIT
-	 */
-	(function(window, angular, undefined) {'use strict';
-
-	/**
-	 * @ngdoc module
-	 * @name ngMessages
-	 * @description
-	 *
-	 * The `ngMessages` module provides enhanced support for displaying messages within templates
-	 * (typically within forms or when rendering message objects that return key/value data).
-	 * Instead of relying on JavaScript code and/or complex ng-if statements within your form template to
-	 * show and hide error messages specific to the state of an input field, the `ngMessages` and
-	 * `ngMessage` directives are designed to handle the complexity, inheritance and priority
-	 * sequencing based on the order of how the messages are defined in the template.
-	 *
-	 * Currently, the ngMessages module only contains the code for the `ngMessages`
-	 * and `ngMessage` directives.
-	 *
-	 * # Usage
-	 * The `ngMessages` directive listens on a key/value collection which is set on the ngMessages attribute.
-	 * Since the {@link ngModel ngModel} directive exposes an `$error` object, this error object can be
-	 * used with `ngMessages` to display control error messages in an easier way than with just regular angular
-	 * template directives.
-	 *
-	 * ```html
-	 * <form name="myForm">
-	 *   <input type="text" ng-model="field" name="myField" required minlength="5" />
-	 *   <div ng-messages="myForm.myField.$error">
-	 *     <div ng-message="required">You did not enter a field</div>
-	 *     <div ng-message="minlength">The value entered is too short</div>
-	 *   </div>
-	 * </form>
-	 * ```
-	 *
-	 * Now whatever key/value entries are present within the provided object (in this case `$error`) then
-	 * the ngMessages directive will render the inner first ngMessage directive (depending if the key values
-	 * match the attribute value present on each ngMessage directive). In other words, if your errors
-	 * object contains the following data:
-	 *
-	 * ```javascript
-	 * <!-- keep in mind that ngModel automatically sets these error flags -->
-	 * myField.$error = { minlength : true, required : false };
-	 * ```
-	 *
-	 * Then the `required` message will be displayed first. When required is false then the `minlength` message
-	 * will be displayed right after (since these messages are ordered this way in the template HTML code).
-	 * The prioritization of each message is determined by what order they're present in the DOM.
-	 * Therefore, instead of having custom JavaScript code determine the priority of what errors are
-	 * present before others, the presentation of the errors are handled within the template.
-	 *
-	 * By default, ngMessages will only display one error at a time. However, if you wish to display all
-	 * messages then the `ng-messages-multiple` attribute flag can be used on the element containing the
-	 * ngMessages directive to make this happen.
-	 *
-	 * ```html
-	 * <div ng-messages="myForm.myField.$error" ng-messages-multiple>...</div>
-	 * ```
-	 *
-	 * ## Reusing and Overriding Messages
-	 * In addition to prioritization, ngMessages also allows for including messages from a remote or an inline
-	 * template. This allows for generic collection of messages to be reused across multiple parts of an
-	 * application.
-	 *
-	 * ```html
-	 * <script type="text/ng-template" id="error-messages">
-	 *   <div ng-message="required">This field is required</div>
-	 *   <div ng-message="minlength">This field is too short</div>
-	 * </script>
-	 * <div ng-messages="myForm.myField.$error" ng-messages-include="error-messages"></div>
-	 * ```
-	 *
-	 * However, including generic messages may not be useful enough to match all input fields, therefore,
-	 * `ngMessages` provides the ability to override messages defined in the remote template by redefining
-	 * then within the directive container.
-	 *
-	 * ```html
-	 * <!-- a generic template of error messages known as "my-custom-messages" -->
-	 * <script type="text/ng-template" id="my-custom-messages">
-	 *   <div ng-message="required">This field is required</div>
-	 *   <div ng-message="minlength">This field is too short</div>
-	 * </script>
-	 *
-	 * <form name="myForm">
-	 *   <input type="email"
-	 *          id="email"
-	 *          name="myEmail"
-	 *          ng-model="email"
-	 *          minlength="5"
-	 *          required />
-	 *
-	 *   <div ng-messages="myForm.myEmail.$error" ng-messages-include="my-custom-messages">
-	 *     <!-- this required message has overridden the template message -->
-	 *     <div ng-message="required">You did not enter your email address</div>
-	 *
-	 *     <!-- this is a brand new message and will appear last in the prioritization -->
-	 *     <div ng-message="email">Your email address is invalid</div>
-	 *   </div>
-	 * </form>
-	 * ```
-	 *
-	 * In the example HTML code above the message that is set on required will override the corresponding
-	 * required message defined within the remote template. Therefore, with particular input fields (such
-	 * email addresses, date fields, autocomplete inputs, etc...), specialized error messages can be applied
-	 * while more generic messages can be used to handle other, more general input errors.
-	 *
-	 * ## Animations
-	 * If the `ngAnimate` module is active within the application then both the `ngMessages` and
-	 * `ngMessage` directives will trigger animations whenever any messages are added and removed
-	 * from the DOM by the `ngMessages` directive.
-	 *
-	 * Whenever the `ngMessages` directive contains one or more visible messages then the `.ng-active` CSS
-	 * class will be added to the element. The `.ng-inactive` CSS class will be applied when there are no
-	 * animations present. Therefore, CSS transitions and keyframes as well as JavaScript animations can
-	 * hook into the animations whenever these classes are added/removed.
-	 *
-	 * Let's say that our HTML code for our messages container looks like so:
-	 *
-	 * ```html
-	 * <div ng-messages="myMessages" class="my-messages">
-	 *   <div ng-message="alert" class="some-message">...</div>
-	 *   <div ng-message="fail" class="some-message">...</div>
-	 * </div>
-	 * ```
-	 *
-	 * Then the CSS animation code for the message container looks like so:
-	 *
-	 * ```css
-	 * .my-messages {
-	 *   transition:1s linear all;
-	 * }
-	 * .my-messages.ng-active {
-	 *   // messages are visible
-	 * }
-	 * .my-messages.ng-inactive {
-	 *   // messages are hidden
-	 * }
-	 * ```
-	 *
-	 * Whenever an inner message is attached (becomes visible) or removed (becomes hidden) then the enter
-	 * and leave animation is triggered for each particular element bound to the `ngMessage` directive.
-	 *
-	 * Therefore, the CSS code for the inner messages looks like so:
-	 *
-	 * ```css
-	 * .some-message {
-	 *   transition:1s linear all;
-	 * }
-	 *
-	 * .some-message.ng-enter {}
-	 * .some-message.ng-enter.ng-enter-active {}
-	 *
-	 * .some-message.ng-leave {}
-	 * .some-message.ng-leave.ng-leave-active {}
-	 * ```
-	 *
-	 * {@link ngAnimate Click here} to learn how to use JavaScript animations or to learn more about ngAnimate.
-	 */
-	angular.module('ngMessages', [])
-
-	   /**
-	    * @ngdoc directive
-	    * @module ngMessages
-	    * @name ngMessages
-	    * @restrict AE
-	    *
-	    * @description
-	    * `ngMessages` is a directive that is designed to show and hide messages based on the state
-	    * of a key/value object that it listens on. The directive itself compliments error message
-	    * reporting with the `ngModel` $error object (which stores a key/value state of validation errors).
-	    *
-	    * `ngMessages` manages the state of internal messages within its container element. The internal
-	    * messages use the `ngMessage` directive and will be inserted/removed from the page depending
-	    * on if they're present within the key/value object. By default, only one message will be displayed
-	    * at a time and this depends on the prioritization of the messages within the template. (This can
-	    * be changed by using the ng-messages-multiple on the directive container.)
-	    *
-	    * A remote template can also be used to promote message reusability and messages can also be
-	    * overridden.
-	    *
-	    * {@link module:ngMessages Click here} to learn more about `ngMessages` and `ngMessage`.
-	    *
-	    * @usage
-	    * ```html
-	    * <!-- using attribute directives -->
-	    * <ANY ng-messages="expression">
-	    *   <ANY ng-message="keyValue1">...</ANY>
-	    *   <ANY ng-message="keyValue2">...</ANY>
-	    *   <ANY ng-message="keyValue3">...</ANY>
-	    * </ANY>
-	    *
-	    * <!-- or by using element directives -->
-	    * <ng-messages for="expression">
-	    *   <ng-message when="keyValue1">...</ng-message>
-	    *   <ng-message when="keyValue2">...</ng-message>
-	    *   <ng-message when="keyValue3">...</ng-message>
-	    * </ng-messages>
-	    * ```
-	    *
-	    * @param {string} ngMessages an angular expression evaluating to a key/value object
-	    *                 (this is typically the $error object on an ngModel instance).
-	    * @param {string=} ngMessagesMultiple|multiple when set, all messages will be displayed with true
-	    * @param {string=} ngMessagesInclude|include when set, the specified template will be included into the ng-messages container
-	    *
-	    * @example
-	    * <example name="ngMessages-directive" module="ngMessagesExample"
-	    *          deps="angular-messages.js"
-	    *          animations="true" fixBase="true">
-	    *   <file name="index.html">
-	    *     <form name="myForm">
-	    *       <label>Enter your name:</label>
-	    *       <input type="text"
-	    *              name="myName"
-	    *              ng-model="name"
-	    *              ng-minlength="5"
-	    *              ng-maxlength="20"
-	    *              required />
-	    *
-	    *       <pre>myForm.myName.$error = {{ myForm.myName.$error | json }}</pre>
-	    *
-	    *       <div ng-messages="myForm.myName.$error" style="color:maroon">
-	    *         <div ng-message="required">You did not enter a field</div>
-	    *         <div ng-message="minlength">Your field is too short</div>
-	    *         <div ng-message="maxlength">Your field is too long</div>
-	    *       </div>
-	    *     </form>
-	    *   </file>
-	    *   <file name="script.js">
-	    *     angular.module('ngMessagesExample', ['ngMessages']);
-	    *   </file>
-	    * </example>
-	    */
-	  .directive('ngMessages', ['$compile', '$animate', '$templateRequest',
-	                   function($compile,    $animate,   $templateRequest) {
-	    var ACTIVE_CLASS = 'ng-active';
-	    var INACTIVE_CLASS = 'ng-inactive';
-
-	    return {
-	      restrict: 'AE',
-	      controller: function() {
-	        this.$renderNgMessageClasses = angular.noop;
-
-	        var messages = [];
-	        this.registerMessage = function(index, message) {
-	          for (var i = 0; i < messages.length; i++) {
-	            if (messages[i].type == message.type) {
-	              if (index != i) {
-	                var temp = messages[index];
-	                messages[index] = messages[i];
-	                if (index < messages.length) {
-	                  messages[i] = temp;
-	                } else {
-	                  messages.splice(0, i); //remove the old one (and shift left)
-	                }
-	              }
-	              return;
-	            }
-	          }
-	          messages.splice(index, 0, message); //add the new one (and shift right)
-	        };
-
-	        this.renderMessages = function(values, multiple) {
-	          values = values || {};
-
-	          var found;
-	          angular.forEach(messages, function(message) {
-	            if ((!found || multiple) && truthyVal(values[message.type])) {
-	              message.attach();
-	              found = true;
-	            } else {
-	              message.detach();
-	            }
-	          });
-
-	          this.renderElementClasses(found);
-
-	          function truthyVal(value) {
-	            return value !== null && value !== false && value;
-	          }
-	        };
-	      },
-	      require: 'ngMessages',
-	      link: function($scope, element, $attrs, ctrl) {
-	        ctrl.renderElementClasses = function(bool) {
-	          bool ? $animate.setClass(element, ACTIVE_CLASS, INACTIVE_CLASS)
-	               : $animate.setClass(element, INACTIVE_CLASS, ACTIVE_CLASS);
-	        };
-
-	        //JavaScript treats empty strings as false, but ng-message-multiple by itself is an empty string
-	        var multiple = angular.isString($attrs.ngMessagesMultiple) ||
-	                       angular.isString($attrs.multiple);
-
-	        var cachedValues, watchAttr = $attrs.ngMessages || $attrs['for']; //for is a reserved keyword
-	        $scope.$watchCollection(watchAttr, function(values) {
-	          cachedValues = values;
-	          ctrl.renderMessages(values, multiple);
-	        });
-
-	        var tpl = $attrs.ngMessagesInclude || $attrs.include;
-	        if (tpl) {
-	          $templateRequest(tpl)
-	            .then(function processTemplate(html) {
-	              var after, container = angular.element('<div/>').html(html);
-	              angular.forEach(container.children(), function(elm) {
-	               elm = angular.element(elm);
-	               after ? after.after(elm)
-	                     : element.prepend(elm); //start of the container
-	               after = elm;
-	               $compile(elm)($scope);
-	              });
-	              ctrl.renderMessages(cachedValues, multiple);
-	            });
-	        }
-	      }
-	    };
-	  }])
-
-
-	   /**
-	    * @ngdoc directive
-	    * @name ngMessage
-	    * @restrict AE
-	    * @scope
-	    *
-	    * @description
-	    * `ngMessage` is a directive with the purpose to show and hide a particular message.
-	    * For `ngMessage` to operate, a parent `ngMessages` directive on a parent DOM element
-	    * must be situated since it determines which messages are visible based on the state
-	    * of the provided key/value map that `ngMessages` listens on.
-	    *
-	    * More information about using `ngMessage` can be found in the
-	    * {@link module:ngMessages `ngMessages` module documentation}.
-	    *
-	    * @usage
-	    * ```html
-	    * <!-- using attribute directives -->
-	    * <ANY ng-messages="expression">
-	    *   <ANY ng-message="keyValue1">...</ANY>
-	    *   <ANY ng-message="keyValue2">...</ANY>
-	    *   <ANY ng-message="keyValue3">...</ANY>
-	    * </ANY>
-	    *
-	    * <!-- or by using element directives -->
-	    * <ng-messages for="expression">
-	    *   <ng-message when="keyValue1">...</ng-message>
-	    *   <ng-message when="keyValue2">...</ng-message>
-	    *   <ng-message when="keyValue3">...</ng-message>
-	    * </ng-messages>
-	    * ```
-	    *
-	    * @param {string} ngMessage a string value corresponding to the message key.
-	    */
-	  .directive('ngMessage', ['$animate', function($animate) {
-	    var COMMENT_NODE = 8;
-	    return {
-	      require: '^ngMessages',
-	      transclude: 'element',
-	      terminal: true,
-	      restrict: 'AE',
-	      link: function($scope, $element, $attrs, ngMessages, $transclude) {
-	        var index, element;
-
-	        var commentNode = $element[0];
-	        var parentNode = commentNode.parentNode;
-	        for (var i = 0, j = 0; i < parentNode.childNodes.length; i++) {
-	          var node = parentNode.childNodes[i];
-	          if (node.nodeType == COMMENT_NODE && node.nodeValue.indexOf('ngMessage') >= 0) {
-	            if (node === commentNode) {
-	              index = j;
-	              break;
-	            }
-	            j++;
-	          }
-	        }
-
-	        ngMessages.registerMessage(index, {
-	          type: $attrs.ngMessage || $attrs.when,
-	          attach: function() {
-	            if (!element) {
-	              $transclude($scope, function(clone) {
-	                $animate.enter(clone, null, $element);
-	                element = clone;
-	              });
-	            }
-	          },
-	          detach: function(now) {
-	            if (element) {
-	              $animate.leave(element);
-	              element = null;
-	            }
-	          }
-	        });
-	      }
-	    };
-	  }]);
-
-
-	})(window, window.angular);
-
-
-/***/ },
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45850,7 +45880,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(53)();
-	exports.push([module.id, "/* styles */\n.form-pending {\n  color: rgba(0, 0, 0, 0.541176);\n  font-size: 0.85em;\n  list-style: none;\n}\n\n.form-error {\n  color: #F44336;\n  font-size: 0.85em;\n  list-style: none;\n}\n\n/* spacing fixes */\n.aftl-select {\n  position: relative;\n  bottom: -11px;\n}\n\n\n/* inline styles */\n.inline-wrapper {\n  display: inline;\n}\n\n.inline--before {\n  display: inline-block;\n}\n\n.inline--content {\n  display: inline-block;\n}\n\n.inline--after {\n  display: inline-block;\n}\n", ""]);
+	exports.push([module.id, "/* styles */\n.form-pending {\n  color: rgba(0, 0, 0, 0.541176);\n  font-size: 0.85em;\n  list-style: none;\n}\n\n.form-error {\n  color: #F44336;\n  font-size: 0.85em;\n  list-style: none;\n}\n\n/* spacing fixes */\n.aftl-select {\n  position: relative;\n  bottom: -11px;\n}\n\n\n/* inline styles */\n.inline-wrapper {\n  display: inline;\n}\n\n.inline--before {\n  display: inline-block;\n}\n\n.inline--content {\n  display: inline-block;\n}\n\n.inline--after {\n  display: inline-block;\n}\n\n.radio-button__inline {\n  display: inline-block;\n  margin-right: 10px;\n}\n\n", ""]);
 
 /***/ },
 /* 57 */
@@ -46970,54 +47000,6 @@
 /* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<shmck-progress-spinner items=\"vm.formFields\"></shmck-progress-spinner>\n<div class=\"main-section__content\" flex-container=\"row\" ng-cloak>\n\n  <!-- Form Field Inputs -->\n  <section flex-item=\"40\" class=\"content content-fields\">\n    <div class=\"card tc-black-2 p-\">\n      <shmck-divider></shmck-divider>\n      <a ng-if=\"vm.contents.docsLink\" class=\"docs-icon\" ng-href=\"{{vm.contents.docsLink}}\" target=\"_blank\">Docs <i\n        class=\"mdi mdi-file\"></i></a>\n      <a ng-if=\"vm.contents.docFile\" class=\"docs-icon\" ng-click=\"vm.openDialog()\">Docs <i class=\"mdi mdi-file\"></i></a>\n\n\n      <h1 class=\"fs-display2\">{{::vm.contents.title}}</h1>\n      <span class=\"fs-subhead\">{{::vm.contents.subhead}}</span>\n      <br/>\n\n      <shmck-contents content=\"::vm.contents.description\"></shmck-contents>\n\n      <shmck-container title=\"Examples\" bgc=\"bgc-white\">\n        <div ng-class=\"::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''\">\n          <formly-form model=\"vm.formData\" fields=\"vm.formFields\" id=\"formly-fields\">\n            <br/>\n            <button class=\"btn btn--l btn--blue btn--raised\" lx-ripple\n                    ng-click=\"vm.submit()\" type=\"submit\">Submit\n            </button>\n          </formly-form>\n        </div>\n      </shmck-container>\n\n      <shmck-form-data form-data=\"::vm.formData\"></shmck-form-data>\n\n      <shmck-contents content=\"::vm.contents.notes\"></shmck-contents>\n    </div>\n\n  </section>\n\n  <!-- Form Field JSON -->\n  <section flex-item=\"40\" class=\"content content-json\">\n    <shmck-json-fields fields=\"::vm.jsonFields\"></shmck-json-fields>\n  </section>\n\n\n</div>\n\n<shmck-docs-modal></shmck-docs-modal>\n"
-
-/***/ },
-/* 66 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<header class=\"header bgc-light-blue-600\" ng-cloak>\n  <div class=\"menubar\">\n    <button class=\"btn btn--l btn--icon btn--white\" lx-ripple=\"white\" ng-click=\"vm.sidebar.toggleSidebar()\">\n      <i class=\"mdi mdi-menu\"></i>\n    </button>\n  </div>\n\n  <h1 class=\"main-logo\">\n    <a ui-sref=\"text\" class=\"main-logo__link\" lx-ripple=\"white\">\n      <img class=\"main-nav--icon\" src=\"images/angular-formly.png\"/>\n      <span class=\"main-nav--title\">Formly LumX </span>\n      <span class=\"main-nav--version\">v{{::vm.version}}</span>\n    </a>\n  </h1>\n\n  <nav class=\"main-nav main-nav--lap-and-up\">\n    <ul>\n      <li ng-repeat=\"n in vm.links\">\n        <a href=\"{{n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n          {{n.text}}</a>\n      </li>\n    </ul>\n  </nav>\n  <nav class=\"main-nav main-nav--palm\">\n    <lx-dropdown position=\"right\" from-top=\"true\" width=\"150px\">\n      <button class=\"btn btn--l btn--white btn--icon\" lx-ripple=\"white\" lx-dropdown-toggle>\n        <i class=\"mdi mdi-dots-vertical\"></i>\n      </button>\n\n      <lx-dropdown-menu>\n        <ul>\n          <li ng-repeat=\"n in vm.links\">\n            <a ng-href=\"{{::n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n              <span style=\"color: rgba(0, 0, 0, 0.541176)\">{{n.text}}</span>\n            </a>\n          </li>\n        </ul>\n      </lx-dropdown-menu>\n    </lx-dropdown>\n  </nav>\n</header>\n"
-
-/***/ },
-/* 67 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div class=\"sidebar\" ng-class=\"{ 'sidebar--is-shown': vm.sidebar.isSidebarShown() }\">\n  <div class=\"sidebar-menu\">\n    <ul ng-repeat=\"(key, value) in vm.sidebarLinks track by $index\" lx-scrollbar>\n      <li class=\"dropdown-divider\">\n      <li class=\"sidebar-menu__link bgc-blue-grey-50\"\n          ng-click=\"vm.sidebar.toggleSidebarItem($index)\"\n          lx-ripple=\"white\">{{::key}}\n        <i ng-if=\"vm.sidebar.items[$index]\" class=\"mdi mdi-menu-up\"></i>\n        <i ng-if=\"!vm.sidebar.items[$index]\" class=\"mdi mdi-menu-down\"></i>\n      </li>\n      <div ng-show=\"vm.sidebar.items[$index]\">\n        <li ng-repeat=\"item in value\"\n            ui-sref=\"{{::item.state}}\"\n            class=\"sidebar-menu__link\"\n            ng-click=\"vm.sidebar.toggleSidebar()\"\n            lx-ripple=\"white\">{{::item.text}}\n        </li>\n      </div>\n    </ul>\n  </div>\n</div>\n\n"
-
-/***/ },
-/* 68 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<shmck-container title=\"Form Data\" bgc=\"bgc-blue-200\" id=\"form-data\">\n\n  <pre ng-bind-html=\"formData | json | prettify\" lx-scrollbar></pre>\n  <!--<pre pretty-json=\"formData\" class=\"aftl-formdata\" lx-scrollbar></pre>-->\n\n</shmck-container>\n"
-
-/***/ },
-/* 69 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<shmck-container title=\"Form Fields\" id=\"json-form-fields\">\n  <pre>[</pre>\n    <!--<pretty-json json=\"fields[$index]\" ng-repeat=\"item in fields track by $index\"-->\n         <!--class=\"bgc-yellow-100 aftl-json-field-item\">-->\n         <!--</pretty-json>-->\n  <pre ng-repeat=\"item in fields track by $index\" class=\"bgc-yellow-100\"\n       ng-bind-html=\"item | json | prettify\" lx-scrollbar></pre>\n\n  <pre>]</pre>\n\n</shmck-container>\n"
-
-/***/ },
-/* 70 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div class=\"card tc-black-2 p-\">\n  <shmck-divider></shmck-divider>\n  <h1 class=\"fs-display1\">{{::title}}</h1>\n\n  <div class=\"card__content\" ng-class=\"bgc\" style=\"max-width: 450px\" ng-transclude>\n  </div>\n</div>\n"
-
-/***/ },
-/* 71 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<lx-dialog class=\"dialog dialog--l\" id=\"docsModal\">\n\n  <div class=\"dialog__header\">\n    <div class=\"toolbar bgc-light-blue-500\">\n            <span class=\"toolbar__label tc-white fs-title\">\n              {{::vm.contents.title}} Docs\n            </span>\n    </div>\n  </div>\n\n  <div class=\"dialog__content\" lx-scrollbar>\n    <div btf-markdown ng-include=\"::vm.contents.docFile\" lx-scrollbar></div>\n  </div>\n</lx-dialog>\n\n"
-
-/***/ },
-/* 72 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = "<div ng-if=\"::content\">\n  <br/>\n  <div btf-markdown ng-include=\"::content\" class=\"markdown-description\"></div>\n  <br/>\n</div>\n"
-
-/***/ },
-/* 73 */
-/***/ function(module, exports, __webpack_require__) {
-
 	module.exports = {
 		"TYPES": [
 			{
@@ -47059,7 +47041,7 @@
 				"text": "Errors"
 			},
 			{
-				"state": "theme",
+				"state": "themes",
 				"text": "Themes"
 			},
 			{
@@ -47088,8 +47070,62 @@
 				"state": "ctrlLink",
 				"text": "Controller / Link"
 			}
+		],
+		"EXPERIMENTAL": [
+			{
+				"state": "googlePlaces",
+				"text": "Google Places"
+			}
 		]
 	}
+
+/***/ },
+/* 66 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<header class=\"header bgc-light-blue-600\" ng-cloak>\n  <div class=\"menubar\">\n    <button class=\"btn btn--l btn--icon btn--white\" lx-ripple=\"white\" ng-click=\"vm.sidebar.toggleSidebar()\">\n      <i class=\"mdi mdi-menu\"></i>\n    </button>\n  </div>\n\n  <h1 class=\"main-logo\">\n    <a ui-sref=\"text\" class=\"main-logo__link\" lx-ripple=\"white\">\n      <img class=\"main-nav--icon\" src=\"images/angular-formly.png\"/>\n      <span class=\"main-nav--title\">Formly LumX </span>\n      <span class=\"main-nav--version\">v{{::vm.version}}</span>\n    </a>\n  </h1>\n\n  <nav class=\"main-nav main-nav--lap-and-up\">\n    <ul>\n      <li ng-repeat=\"n in vm.links\">\n        <a href=\"{{n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n          {{n.text}}</a>\n      </li>\n    </ul>\n  </nav>\n  <nav class=\"main-nav main-nav--palm\">\n    <lx-dropdown position=\"right\" from-top=\"true\" width=\"150px\">\n      <button class=\"btn btn--l btn--white btn--icon\" lx-ripple=\"white\" lx-dropdown-toggle>\n        <i class=\"mdi mdi-dots-vertical\"></i>\n      </button>\n\n      <lx-dropdown-menu>\n        <ul>\n          <li ng-repeat=\"n in vm.links\">\n            <a ng-href=\"{{::n.link}}\" class=\"main-nav__link\" lx-ripple=\"white\">\n              <span style=\"color: rgba(0, 0, 0, 0.541176)\">{{n.text}}</span>\n            </a>\n          </li>\n        </ul>\n      </lx-dropdown-menu>\n    </lx-dropdown>\n  </nav>\n</header>\n"
+
+/***/ },
+/* 67 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div class=\"sidebar\" ng-class=\"{ 'sidebar--is-shown': vm.sidebar.isSidebarShown() }\">\n  <div class=\"sidebar-menu\">\n    <ul ng-repeat=\"(key, value) in vm.sidebarLinks track by $index\" lx-scrollbar>\n      <li class=\"dropdown-divider\">\n      <li class=\"sidebar-menu__link bgc-blue-grey-50\"\n          ng-click=\"vm.sidebar.toggleSidebarItem($index)\"\n          lx-ripple=\"white\">{{::key}}\n        <i ng-if=\"vm.sidebar.items[$index]\" class=\"mdi mdi-menu-up\"></i>\n        <i ng-if=\"!vm.sidebar.items[$index]\" class=\"mdi mdi-menu-down\"></i>\n      </li>\n      <div ng-show=\"vm.sidebar.items[$index]\">\n        <li ng-repeat=\"item in value\"\n            ui-sref=\"{{::item.state}}\"\n            class=\"sidebar-menu__link\"\n            ng-click=\"vm.sidebar.toggleSidebar()\"\n            lx-ripple=\"white\">{{::item.text}}\n        </li>\n      </div>\n    </ul>\n  </div>\n</div>\n\n"
+
+/***/ },
+/* 68 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<shmck-container title=\"Form Data\" bgc=\"bgc-blue-200\" id=\"form-data\">\n\n  <pre ng-bind-html=\"formData | json | prettify\" lx-scrollbar></pre>\n  <!--<pre pretty-json=\"formData\" class=\"aftl-formdata\" lx-scrollbar></pre>-->\n\n</shmck-container>\n"
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<shmck-container title=\"Form Fields\" id=\"json-form-fields\">\n  <pre>[</pre>\n    <!--<pretty-json json=\"fields[$index]\" ng-repeat=\"item in fields track by $index\"-->\n         <!--class=\"bgc-yellow-100 aftl-json-field-item\">-->\n         <!--</pretty-json>-->\n  <pre ng-repeat=\"item in fields track by $index\" class=\"bgc-yellow-100\"\n       ng-bind-html=\"item | json | prettify\" lx-scrollbar></pre>\n\n  <pre>]</pre>\n\n</shmck-container>\n"
+
+/***/ },
+/* 70 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<lx-dialog class=\"dialog dialog--l\" id=\"docsModal\">\n\n  <div class=\"dialog__header\">\n    <div class=\"toolbar bgc-light-blue-500\">\n            <span class=\"toolbar__label tc-white fs-title\">\n              {{::vm.contents.title}} Docs\n            </span>\n    </div>\n  </div>\n\n  <div class=\"dialog__content\" lx-scrollbar>\n    <div btf-markdown ng-include=\"::vm.contents.docFile\" lx-scrollbar></div>\n  </div>\n</lx-dialog>\n\n"
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div ng-if=\"::content\">\n  <br/>\n  <div btf-markdown ng-include=\"::content\" class=\"markdown-description\"></div>\n  <br/>\n</div>\n"
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<shmck-progress-spinner items=\"vm.formFields\"></shmck-progress-spinner>\n<div class=\"main-section__content\" flex-container=\"row\" ng-cloak>\n\n  <!-- Form Field Inputs -->\n  <section flex-item=\"40\" class=\"content content-fields\">\n    <div class=\"card tc-black-2 p-\">\n      <shmck-divider></shmck-divider>\n      <a ng-if=\"vm.contents.docsLink\" class=\"docs-icon\" ng-href=\"{{vm.contents.docsLink}}\" target=\"_blank\">Docs <i\n        class=\"mdi mdi-file\"></i></a>\n      <a ng-if=\"vm.contents.docFile\" class=\"docs-icon\" ng-click=\"vm.openDialog()\">Docs <i class=\"mdi mdi-file\"></i></a>\n\n\n      <h1 class=\"fs-display2\">{{::vm.contents.title}}</h1>\n      <span class=\"fs-subhead\">{{::vm.contents.subhead}}</span>\n      <br/>\n\n      <shmck-contents content=\"::vm.contents.description\"></shmck-contents>\n\n      <shmck-container title=\"Examples\" bgc=\"bgc-white\">\n        <div ng-class=\"::vm.contents.formFieldsClass ? vm.contents.formFieldsClass : ''\">\n          <formly-form model=\"vm.formData\" fields=\"vm.formFields\" id=\"formly-fields\">\n            <br/>\n            <button class=\"btn btn--l btn--blue btn--raised\" lx-ripple\n                    ng-click=\"vm.submit()\" type=\"submit\">Submit\n            </button>\n          </formly-form>\n        </div>\n      </shmck-container>\n\n      <shmck-form-data form-data=\"::vm.formData\"></shmck-form-data>\n\n      <shmck-contents content=\"::vm.contents.notes\"></shmck-contents>\n    </div>\n\n  </section>\n\n  <!-- Form Field JSON -->\n  <section flex-item=\"40\" class=\"content content-json\">\n    <shmck-json-fields fields=\"::vm.jsonFields\"></shmck-json-fields>\n  </section>\n\n\n</div>\n\n<shmck-docs-modal></shmck-docs-modal>\n"
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = "<div class=\"card tc-black-2 p-\">\n  <shmck-divider></shmck-divider>\n  <h1 class=\"fs-display1\">{{::title}}</h1>\n\n  <div class=\"card__content\" ng-class=\"bgc\" style=\"max-width: 450px\" ng-transclude>\n  </div>\n</div>\n"
 
 /***/ },
 /* 74 */

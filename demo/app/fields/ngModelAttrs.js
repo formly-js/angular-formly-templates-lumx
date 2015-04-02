@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.ngModelAttrs', [])
-  .service('ngModelAttrsFormFields', ngModelAttrsFormFields)
-  .config(stateRoutes);
+const name = 'ngModelAttrs';
 
-function ngModelAttrsFormFields() {
+function fields() {
   this.contents = {
     title: 'ngModelAttrs',
     docsLink: 'http://formly-js.github.io/angular-formly/#/example/very-advanced/ngModelAttrs',
@@ -32,24 +30,29 @@ function ngModelAttrsFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('ngModelAttrs', {
-      url: '/ngModelAttrs',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(ngModelAttrsFormFields) {
-              return ngModelAttrsFormFields.fields;
+            formFields: function(ngModelAttrsFF) {
+              return ngModelAttrsFF.fields;
             },
-            contents: function(ngModelAttrsFormFields) {
-              return ngModelAttrsFormFields.contents;
+            contents: function(ngModelAttrsFF) {
+              return ngModelAttrsFF.contents;
             },
-            formData: function(ngModelAttrsFormFields) {
-              return ngModelAttrsFormFields.formData;
+            formData: function(ngModelAttrsFF) {
+              return ngModelAttrsFF.formData;
             }
           }
         }
       }
     });
 }
+
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);
+

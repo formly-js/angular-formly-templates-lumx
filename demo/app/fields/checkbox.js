@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.checkbox', [])
-  .service('checkboxFormFields', checkboxFormFields)
-  .config(stateRoutes);
+const name = 'checkbox';
 
-function checkboxFormFields() {
+function fields() {
   this.contents = {
     title: 'Checkbox',
     docFile: 'docs/checkbox.md'
@@ -58,25 +56,27 @@ function checkboxFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('checkbox', {
-      url: '/checkbox',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(checkboxFormFields) {
-              return checkboxFormFields.fields;
+            formFields: function(checkboxFF) {
+              return checkboxFF.fields;
             },
-            contents: function(checkboxFormFields) {
-              return checkboxFormFields.contents;
+            contents: function(checkboxFF) {
+              return checkboxFF.contents;
             },
-            formData: function(checkboxFormFields) {
-              return checkboxFormFields.formData;
+            formData: function(checkboxFF) {
+              return checkboxFF.formData;
             }
           }
         }
       }
     });
 }
-
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

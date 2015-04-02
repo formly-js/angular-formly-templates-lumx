@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.datePicker', [])
-  .service('datePickerFormFields', datePickerFormFields)
-  .config(stateRoutes);
+const name = 'datePicker';
 
-function datePickerFormFields() {
+function fields() {
   this.contents = {
     title: 'Date Picker',
     docFile: 'docs/datePicker.md'
@@ -20,27 +18,30 @@ function datePickerFormFields() {
     }];
   };
 }
-
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('datePicker', {
-      url: '/datePicker',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(datePickerFormFields) {
-              return datePickerFormFields.fields;
+            formFields: function(datePickerFF) {
+              return datePickerFF.fields;
             },
-            contents: function(datePickerFormFields) {
-              return datePickerFormFields.contents;
+            contents: function(datePickerFF) {
+              return datePickerFF.contents;
             },
-            formData: function(datePickerFormFields) {
-              return datePickerFormFields.formData;
+            formData: function(datePickerFF) {
+              return datePickerFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);
+

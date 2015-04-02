@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.inline', [])
-  .service('inlineFormFields', inlineFormFields)
-  .config(stateRoutes);
+const name = 'inline';
 
-function inlineFormFields() {
+function fields() {
   this.contents = {
     title: 'Inline Wrapper',
     docFile: 'docs/inline.md'
@@ -67,24 +65,27 @@ function inlineFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('inline', {
-      url: '/inline',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(inlineFormFields) {
-              return inlineFormFields.fields;
+            formFields: function(inlineFF) {
+              return inlineFF.fields;
             },
-            contents: function(inlineFormFields) {
-              return inlineFormFields.contents;
+            contents: function(inlineFF) {
+              return inlineFF.contents;
             },
-            formData: function(inlineFormFields) {
-              return inlineFormFields.formData;
+            formData: function(inlineFF) {
+              return inlineFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

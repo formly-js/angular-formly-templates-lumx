@@ -1,9 +1,7 @@
-export default angular.module('shmck.formFields.validators', [])
-  .service('validatorsFormFields', validatorsFormFields)
-  .config(stateRoutes);
+const name = 'validators';
 
 /*@ngInject*/
-function validatorsFormFields($timeout, $q) {
+function fields($timeout, $q) {
   this.contents = {
     title: 'Validators',
     subhead: 'sync & async, pending',
@@ -62,24 +60,27 @@ function validatorsFormFields($timeout, $q) {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('validators', {
-      url: '/validators',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(validatorsFormFields) {
-              return validatorsFormFields.fields;
+            formFields: function(validatorsFF) {
+              return validatorsFF.fields;
             },
-            contents: function(validatorsFormFields) {
-              return validatorsFormFields.contents;
+            contents: function(validatorsFF) {
+              return validatorsFF.contents;
             },
-            formData: function(validatorsFormFields) {
-              return validatorsFormFields.formData;
+            formData: function(validatorsFF) {
+              return validatorsFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

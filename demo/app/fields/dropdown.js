@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.dropdown', [])
-  .service('dropdownFormFields', dropdownFormFields)
-  .config(stateRoutes);
+const name = 'dropdown';
 
-function dropdownFormFields() {
+function fields() {
   this.contents = {
     title: 'Dropdown'
     //markdownFile: 'app/docs/dropdown.md'
@@ -62,27 +60,29 @@ function dropdownFormFields() {
     }];
   };
 }
-
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('dropdown', {
-      url: '/dropdown',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(dropdownFormFields) {
-              return dropdownFormFields.fields;
+            formFields: function(dropdownFF) {
+              return dropdownFF.fields;
             },
-            contents: function(dropdownFormFields) {
-              return dropdownFormFields.contents;
+            contents: function(dropdownFF) {
+              return dropdownFF.contents;
             },
-            formData: function(dropdownFormFields) {
-              return dropdownFormFields.formData;
+            formData: function(dropdownFF) {
+              return dropdownFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

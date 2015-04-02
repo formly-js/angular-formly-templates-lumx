@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.select', [])
-  .service('selectFormFields', selectFormFields)
-  .config(stateRoutes);
+const name = 'select';
 
-function selectFormFields() {
+function fields() {
   this.contents = {
     title: 'Selectors',
     subhead: 'select, multiple-select',
@@ -104,24 +102,27 @@ function selectFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('select', {
-      url: '/select',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(selectFormFields) {
-              return selectFormFields.fields;
+            formFields: function(selectFF) {
+              return selectFF.fields;
             },
-            contents: function(selectFormFields) {
-              return selectFormFields.contents;
+            contents: function(selectFF) {
+              return selectFF.contents;
             },
-            formData: function(selectFormFields) {
-              return selectFormFields.formData;
+            formData: function(selectFF) {
+              return selectFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

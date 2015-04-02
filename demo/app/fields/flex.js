@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.flex', [])
-  .service('flexFormFields', flexFormFields)
-  .config(stateRoutes);
+const name = 'flex';
 
-function flexFormFields() {
+function fields() {
   this.contents = {
     title: 'FlexBox Wrappers',
     subhead: 'lx-flex',
@@ -146,24 +144,28 @@ function flexFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('flex', {
-      url: '/flex',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(flexFormFields) {
-              return flexFormFields.fields;
+            formFields: function(flexFF) {
+              return flexFF.fields;
             },
-            contents: function(flexFormFields) {
-              return flexFormFields.contents;
+            contents: function(flexFF) {
+              return flexFF.contents;
             },
-            formData: function(flexFormFields) {
-              return flexFormFields.formData;
+            formData: function(flexFF) {
+              return flexFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);
+

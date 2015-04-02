@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.expression', [])
-  .service('expressionFormFields', expressionFormFields)
-  .config(stateRoutes);
+const name = 'expression';
 
-function expressionFormFields() {
+function fields() {
   this.contents = {
     title: 'Expression Properties',
     docsLink: 'http://formly-js.github.io/angular-formly/#/example/intro/expression-properties'
@@ -80,24 +78,27 @@ function expressionFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('expression', {
-      url: '/expression',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(expressionFormFields) {
-              return expressionFormFields.fields;
+            formFields: function(expressionFF) {
+              return expressionFF.fields;
             },
-            contents: function(expressionFormFields) {
-              return expressionFormFields.contents;
+            contents: function(expressionFF) {
+              return expressionFF.contents;
             },
-            formData: function(expressionFormFields) {
-              return expressionFormFields.formData;
+            formData: function(expressionFF) {
+              return expressionFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

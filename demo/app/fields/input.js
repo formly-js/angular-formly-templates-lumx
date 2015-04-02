@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.input', [])
-  .service('inputFormFields', inputFormFields)
-  .config(stateRoutes);
+const name = 'input';
 
-function inputFormFields() {
+function fields() {
   this.contents = {
     title: 'Input Fields',
     subhead: 'input & textarea',
@@ -98,24 +96,27 @@ function inputFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('input', {
-      url: '/input',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(inputFormFields) {
-              return inputFormFields.fields;
+            formFields: function(inputFF) {
+              return inputFF.fields;
             },
-            contents: function(inputFormFields) {
-              return inputFormFields.contents;
+            contents: function(inputFF) {
+              return inputFF.contents;
             },
-            formData: function(inputFormFields) {
-              return inputFormFields.formData;
+            formData: function(inputFF) {
+              return inputFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

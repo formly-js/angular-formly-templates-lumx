@@ -1,10 +1,7 @@
-export default angular.module('shmck.formFields.error', [])
-  .service('errorFormFields', errorFormFields)
-  .directive('iceCream', iceCream)
-  .config(stateRoutes);
+const name = 'error';
 
-/*@ngInject*/
-function errorFormFields() {
+
+function fields() {
   this.contents = {
     title: 'Error Notification',
     subhead: 'easy validation tools',
@@ -82,24 +79,23 @@ function errorFormFields() {
     }];
   };
 }
-
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('error', {
-      url: '/errors',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(errorFormFields) {
-              return errorFormFields.fields;
+            formFields: function(errorFF) {
+              return errorFF.fields;
             },
-            contents: function(errorFormFields) {
-              return errorFormFields.contents;
+            contents: function(errorFF) {
+              return errorFF.contents;
             },
-            formData: function(errorFormFields) {
-              return errorFormFields.formData;
+            formData: function(errorFF) {
+              return errorFF.formData;
             }
           }
         }
@@ -119,3 +115,10 @@ function iceCream() {
     }
   };
 }
+
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes)
+  .directive('iceCream', iceCream);
+
+

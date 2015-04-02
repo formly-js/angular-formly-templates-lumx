@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.switch', [])
-  .service('switchFormFields', switchFormFields)
-  .config(stateRoutes);
+const name = 'switch';
 
-function switchFormFields() {
+function fields() {
   this.contents = {
     title: 'Switch',
     docFile: 'docs/switch.md'
@@ -59,24 +57,27 @@ function switchFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('switch', {
-      url: '/switch',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(switchFormFields) {
-              return switchFormFields.fields;
+            formFields: function(switchFF) {
+              return switchFF.fields;
             },
-            contents: function(switchFormFields) {
-              return switchFormFields.contents;
+            contents: function(switchFF) {
+              return switchFF.contents;
             },
-            formData: function(switchFormFields) {
-              return switchFormFields.formData;
+            formData: function(switchFF) {
+              return switchFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

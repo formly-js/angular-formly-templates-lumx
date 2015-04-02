@@ -28,7 +28,7 @@
     "state": "error",
     "text": "Errors"
   }, {
-    "state": "theme",
+    "state": "themes",
     "text": "Themes"
   }, {
     "state": "inline",
@@ -49,5 +49,9 @@
   }, {
     "state": "ctrlLink",
     "text": "Controller / Link"
+  }],
+  "EXPERIMENTAL": [{
+    "state": "googlePlaces",
+    "text": "Google Places"
   }]
 }

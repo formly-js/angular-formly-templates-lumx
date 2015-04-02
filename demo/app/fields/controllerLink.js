@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.ctrlLink', [])
-  .service('ctrlLinkFormFields', ctrlLinkFormFields)
-  .config(stateRoutes);
+const name = 'ctrlLink';
 
-function ctrlLinkFormFields() {
+function fields() {
   this.contents = {
     title: 'Controller / Link',
     docsLink: 'http://formly-js.github.io/angular-formly/#/example/advanced/custom-controller-and-link'
@@ -48,24 +46,28 @@ function ctrlLinkFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('ctrlLink', {
-      url: '/ctrlLink',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(ctrlLinkFormFields) {
-              return ctrlLinkFormFields.fields;
+            formFields: function(ctrlLinkFF) {
+              return ctrlLinkFF.fields;
             },
-            contents: function(ctrlLinkFormFields) {
-              return ctrlLinkFormFields.contents;
+            contents: function(ctrlLinkFF) {
+              return ctrlLinkFF.contents;
             },
-            formData: function(ctrlLinkFormFields) {
-              return ctrlLinkFormFields.formData;
+            formData: function(ctrlLinkFF) {
+              return ctrlLinkFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);
+

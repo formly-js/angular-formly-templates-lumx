@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.modelOptions', [])
-  .service('modelOptionsFormFields', modelOptionsFormFields)
-  .config(stateRoutes);
+const name = 'modelOptions';
 
-function modelOptionsFormFields() {
+function fields() {
   this.contents = {
     title: 'Model Options',
     description: 'docs/notes/modelOptionsDescription.md',
@@ -94,24 +92,29 @@ function modelOptionsFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('modelOptions', {
-      url: '/modelOptions',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(modelOptionsFormFields) {
-              return modelOptionsFormFields.fields;
+            formFields: function(modelOptionsFF) {
+              return modelOptionsFF.fields;
             },
-            contents: function(modelOptionsFormFields) {
-              return modelOptionsFormFields.contents;
+            contents: function(modelOptionsFF) {
+              return modelOptionsFF.contents;
             },
-            formData: function(modelOptionsFormFields) {
-              return modelOptionsFormFields.formData;
+            formData: function(modelOptionsFF) {
+              return modelOptionsFF.formData;
             }
           }
         }
       }
     });
 }
+
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);
+

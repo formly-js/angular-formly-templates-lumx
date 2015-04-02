@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.themes', [])
-  .service('themeFormFields', themeFormFields)
-  .config(stateRoutes);
+const name = 'themes';
 
-function themeFormFields() {
+function fields() {
   this.contents = {
     title: 'Themes',
     subhead: 'backgrounds + dark/light font themes',
@@ -77,24 +75,27 @@ function themeFormFields() {
 
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('theme', {
-      url: '/themes',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(themeFormFields) {
-              return themeFormFields.fields;
+            formFields: function(themesFF) {
+              return themesFF.fields;
             },
-            contents: function(themeFormFields) {
-              return themeFormFields.contents;
+            contents: function(themesFF) {
+              return themesFF.contents;
             },
-            formData: function(themeFormFields) {
-              return themeFormFields.formData;
+            formData: function(themesFF) {
+              return themesFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);

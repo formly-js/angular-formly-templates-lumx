@@ -1,8 +1,6 @@
-export default angular.module('shmck.formFields.radio', [])
-  .service('radioFormFields', radioFormFields)
-  .config(stateRoutes);
+const name = 'radio';
 
-function radioFormFields() {
+function fields() {
   this.contents = {
     title: 'Radio',
     docFile: 'docs/radio.md'
@@ -74,26 +72,30 @@ function radioFormFields() {
   };
 }
 
+
 function stateRoutes($stateProvider) {
   $stateProvider
-    .state('radio', {
-      url: '/radio',
+    .state(`${name}`, {
+      url: `/${name}`,
       views: {
         'form@': {
           template: require('../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
-            formFields: function(radioFormFields) {
-              return radioFormFields.fields;
+            formFields: function(radioFF) {
+              return radioFF.fields;
             },
-            contents: function(radioFormFields) {
-              return radioFormFields.contents;
+            contents: function(radioFF) {
+              return radioFF.contents;
             },
-            formData: function(radioFormFields) {
-              return radioFormFields.formData;
+            formData: function(radioFF) {
+              return radioFF.formData;
             }
           }
         }
       }
     });
 }
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes);
