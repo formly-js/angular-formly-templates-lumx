@@ -34,3 +34,9 @@
 .inline--after {
   display: inline-block;
 }
+
+.radio-button__inline {
+  display: inline-block;
+  margin-right: 10px;
+}
+

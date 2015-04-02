@@ -13,6 +13,7 @@
       'description': 'item 1 help description',
       'checked': false, // ng-checked
       'disabled': false, // ng-disabled
+      'inline': false
     }]
   }
 }

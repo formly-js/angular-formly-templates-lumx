@@ -1,7 +1,8 @@
 <div class="radio-group">
-	<h3><label>{{to.label}}</label></h3>
+	<h3 ng-if="::to.label"><label>{{::to.label}}</label></h3>
 
 	<div class="radio-button"
+	     ng-class="{'radio-button__inline': to.inline}"
 	     ng-repeat="o in to.options">
 		<input ng-model="$parent.model[$parent.options.key]"
 		       id="{{::id + '_' + $index}}"
@@ -10,7 +11,8 @@
 		       class="radio-button__input"
 		       ng-value="::o.value"
 		       aria-labelledby="{{::id + '_' + $index + '_radioButton'}}">
-		<label for="{{::id + '_' + $index}}" class="radio-button__label">{{::o.name}}</label>
+		<label for="{{::id + '_' + $index}}"
+		       class="radio-button__label">{{::o.name}}</label>
       <span ng-if="::o.description" class="radio-button__help">{{::o.description}}
       </span>
 	</div>

@@ -10,7 +10,8 @@ function radioFormFields() {
 
   this.formData = {
     radio: '',
-    radioWithDescription: ''
+    radioWithDescription: '',
+    radioInline: ''
   };
 
   this.fields = function() {
@@ -48,6 +49,24 @@ function radioFormFields() {
           name: 'Thirteen',
           value: 13,
           description: 'The Unlucky One',
+          disabled: true
+        }]
+      }
+    }, {
+      key: 'radioInline',
+      type: 'lx-radio',
+      templateOptions: {
+        label: 'What\'s your least favorite number?',
+        inline: true,
+        options: [{
+          name: 'One',
+          value: 1
+        }, {
+          name: 'Seven',
+          value: 7
+        }, {
+          name: 'Thirteen',
+          value: 13,
           disabled: true
         }]
       }
