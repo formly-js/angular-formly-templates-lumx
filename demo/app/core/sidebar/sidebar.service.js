@@ -1,7 +1,7 @@
 class SidebarService {
   constructor() {
     this.sidebarIsShown = false;
-    this.items = [false, true, true];
+    this.items = [false, false, true, false];
   }
 
   toggleSidebar() {

@@ -12,12 +12,10 @@ function fields() {
     fixedLabel: '',
     fixedIcon: '',
     disabledText: '',
-    textArea: 'Once upon a midnight dreary, while I pondered, weak and weary, \
-      Over many a quaint and curious volume of forgotten forms—',
+    textArea: `Once upon a midnight dreary, while I pondered, weak and weary,
+      Over many a quaint and curious volume of forgotten forms—`,
     validatedText: ''
   };
-
-  var underlined = {'text-decoration': 'underline'};
 
   this.fields = function() {
     return [{

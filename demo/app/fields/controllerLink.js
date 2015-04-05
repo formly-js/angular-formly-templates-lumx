@@ -11,7 +11,7 @@ function fields() {
     confirmation: false
   };
 
-  this.fields = function() {
+  this.fields = function(window) {
     return [{
       key: 'logToConsole',
       type: 'lx-checkbox',
@@ -36,7 +36,7 @@ function fields() {
           if (confirmation) {
             el.unbind('click');
           } else {
-            event.preventDefault();
+            window.event.preventDefault();
           }
         });
       }

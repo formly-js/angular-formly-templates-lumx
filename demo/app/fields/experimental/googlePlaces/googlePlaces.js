@@ -8,7 +8,13 @@ function fields() {
   this.formData = {};
 
   this.fields = function() {
-    return [];
+    return [{
+      key: 'test',
+      type: 'lx-input',
+      templateOptions: {
+        label: 'Test'
+      }
+    }];
   };
 }
 
@@ -18,7 +24,7 @@ function stateRoutes($stateProvider) {
       url: `/${name}`,
       views: {
         'form@': {
-          template: require('../main/main.html'),
+          template: require('../../main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
             formFields: function(googlePlacesFF) {
@@ -35,6 +41,14 @@ function stateRoutes($stateProvider) {
       }
     });
 }
-export default angular.module(`shmck.experimental.${name}`, [])
-  .service(`${name}`, fields)
-  .config(stateRoutes);
+function addTemplate(formlyConfigProvider) {
+  formlyConfigProvider.setType({
+    name: 'custom',
+    templateUrl: 'custom-template.html'
+  });
+}
+
+export default angular.module(`shmck.formFields.${name}`, [])
+  .service(`${name}FF`, fields)
+  .config(stateRoutes)
+  .config(addTemplate);

@@ -17,6 +17,9 @@ export default angular.module('shmck.formFields', [
   require('./validators').name,
   require('./expression').name,
   require('./ngModelAttrs').name,
-  require('./controllerLink').name
+  require('./controllerLink').name,
+  require('./watcher').name
+  /* EXPERIMENTAL */
+  //require('./experimental/googlePlaces').name
 ]);
 
