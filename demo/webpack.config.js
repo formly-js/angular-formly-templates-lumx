@@ -22,7 +22,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js'],
     modulesDirectories: ['node_modules', 'bower_components'],
-    root: [__dirname + '/app/bower_components']
+    root: [__dirname + '/app']
   },
 
   module: {

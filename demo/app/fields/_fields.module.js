@@ -18,8 +18,8 @@ export default angular.module('shmck.formFields', [
   require('./expression').name,
   require('./ngModelAttrs').name,
   require('./controllerLink').name,
-  require('./watcher').name
-  /* EXPERIMENTAL */
-  //require('./experimental/googlePlaces').name
+  require('./watcher').name,
+  /* ADVANCED */
+  require('./advanced/_advanced').name
 ]);
 

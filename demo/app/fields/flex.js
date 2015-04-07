@@ -148,7 +148,7 @@ function stateRoutes($stateProvider) {
       url: `/${name}`,
       views: {
         'form@': {
-          template: require('../main/main.html'),
+          template: require('main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
             formFields: function(flexFF) {

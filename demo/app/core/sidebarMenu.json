@@ -72,5 +72,11 @@
       "state": "watcher",
       "text": "Watchers"
     }
+  ],
+  "ADVANCED": [
+    {
+      "state": "googlePlaces",
+      "text": "Google Places"
+    }
   ]
 }

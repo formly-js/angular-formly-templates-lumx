@@ -1,18 +1,30 @@
 const name = 'googlePlaces';
+require('bower_components/angular-google-places-autocomplete/dist/autocomplete.min.css');
+require('imports?angular!bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js');
 
 function fields() {
   this.contents = {
-    title: 'Google Places'
+    title: 'Google Places',
+    docsLink: 'https://github.com/kuhnza/angular-google-places-autocomplete'
   };
 
   this.formData = {};
 
   this.fields = function() {
     return [{
-      key: 'test',
+      key: 'location',
       type: 'lx-input',
       templateOptions: {
-        label: 'Test'
+        label: 'Location'
+      },
+      ngModelAttrs: {
+        googlePlaces: {
+          attribute: 'g-places-autocomplete',
+          bound: 'g-places-autocomplete'
+        }
+      },
+      expressionProperties: {
+        'templateOptions.googlePlaces': 'model.text'
       }
     }];
   };
@@ -24,7 +36,7 @@ function stateRoutes($stateProvider) {
       url: `/${name}`,
       views: {
         'form@': {
-          template: require('../../main/main.html'),
+          template: require('main/main.html'),
           controller: 'MainCtrl as vm',
           resolve: {
             formFields: function(googlePlacesFF) {
@@ -41,14 +53,8 @@ function stateRoutes($stateProvider) {
       }
     });
 }
-function addTemplate(formlyConfigProvider) {
-  formlyConfigProvider.setType({
-    name: 'custom',
-    templateUrl: 'custom-template.html'
-  });
-}
-
-export default angular.module(`shmck.formFields.${name}`, [])
+export default angular.module(`shmck.formFields.advanced.${name}`, [
+  'google.places'
+])
   .service(`${name}FF`, fields)
-  .config(stateRoutes)
-  .config(addTemplate);
+  .config(stateRoutes);
