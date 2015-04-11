@@ -100,7 +100,6 @@ Basic form elements.
 - [lx-date-picker](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/datePicker.md)
 - [lx-select](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/select.md)
 - [lx-flex](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/flex.md)
-- [lx-title](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs/title.md)
 
 ## Wrappers
 
@@ -196,6 +195,7 @@ Validation messages can be set as defaults in the module file.
 
 
 ##Roadmap
+- more advanced examples
 - e2e tests
 - Requests (?). Post an issue.
 
