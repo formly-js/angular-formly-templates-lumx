@@ -15,6 +15,8 @@ function fields() {
       key: 'location',
       type: 'lx-input',
       templateOptions: {
+        icon: 'city',
+        fixedLabel: true,
         label: 'Location'
       },
       ngModelAttrs: {

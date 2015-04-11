@@ -4,8 +4,7 @@ function fields() {
   this.contents = {
     title: 'Selectors',
     subhead: 'select, multiple-select',
-    docFile: 'docs/select.md',
-    notes: 'docs/notes/selectNotes.md'
+    docFile: 'docs/select.md'
   };
 
   this.formData = {
@@ -375,6 +374,8 @@ function fields() {
       //  fileLabel: 'Input a file...',
       //  label: 'Filename'
       //}
+    }, {
+      template: '<br/><p>Long lists may load slow and cause lag.</p>'
     }];
   };
 }

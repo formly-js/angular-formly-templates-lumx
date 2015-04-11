@@ -14,9 +14,15 @@
 /* spacing fixes */
 .aftl-select {
   position: relative;
+}
+
+.aftl-select-lower {
   bottom: -11px;
 }
 
+.aftl-select-higher {
+  bottom: 11px;
+}
 
 /* inline styles */
 .inline-wrapper {

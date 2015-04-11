@@ -44,78 +44,78 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	(function () {
-		"use strict";
+		'use strict';
 		var USING_TEMPLATES = true;
 		var USING_TEMPLATE_VALIDATION = true;
 		/* Custom validation message defaults here */
 		var VALIDATION_MESSAGES = [{
-			name: "required", message: "This field is required"
+			name: 'required', message: 'This field is required'
 		}, {
-			name: "maxlength", message: "This field is too long."
+			name: 'maxlength', message: 'This field is too long.'
 		}, {
-			name: "minlength", message: "This field is too short."
+			name: 'minlength', message: 'This field is too short.'
 		}];
 		/* Module Templates + Data */
-		var MODULE_NAME = "formlyLumx";
-		var PREFIX = "lx";
+		var MODULE_NAME = 'formlyLumx';
+		var PREFIX = 'lx';
 		var FIELDS = [{
-			name: "checkbox",
+			name: 'checkbox',
 			template: __webpack_require__(1)
 		}, {
-			name: "date-picker",
+			name: 'date-picker',
 			template: __webpack_require__(2)
 		}, {
-			name: "dropdown",
+			name: 'dropdown',
 			template: __webpack_require__(3)
 		}, {
-			name: "flex",
+			name: 'flex',
 			template: __webpack_require__(4)
 		}, {
-			name: "input",
+			name: 'input',
 			template: __webpack_require__(5)
 		}, {
-			name: "radio",
+			name: 'radio',
 			template: __webpack_require__(6)
 		}, {
-			name: "select",
+			name: 'select',
 			template: __webpack_require__(7)
+			//}, {
+			//	name: 'select-async',
+			//	template: require('./fields/lx-select-async.html')
 		}, {
-			name: "select-async",
+			name: 'switch',
 			template: __webpack_require__(8)
 		}, {
-			name: "switch",
+			name: 'textarea',
 			template: __webpack_require__(9)
-		}, {
-			name: "textarea",
-			template: __webpack_require__(10)
 		}];
 		var WRAPPERS = [{
-			name: "wrapper-div",
+			name: 'wrapper-div',
+			template: __webpack_require__(10)
+		}, {
+			name: 'wrapper-errors',
 			template: __webpack_require__(11)
 		}, {
-			name: "wrapper-errors",
+			name: 'wrapper-flex',
 			template: __webpack_require__(12)
 		}, {
-			name: "wrapper-flex",
+			name: 'wrapper-inline',
 			template: __webpack_require__(13)
-		}, {
-			name: "wrapper-inline",
-			template: __webpack_require__(14)
 		}];
 
 		function _prefixer(name) {
-			return PREFIX + "-" + name;
+			return PREFIX + '-' + name;
 		}
 
 		function _wrapperTemplateUrl(name) {
-			return "wrappers/formly-wrappers-" + _prefixer(name) + ".html";
+			return 'wrappers/formly-wrappers-' + _prefixer(name) + '.html';
 		}
 
 		function _fieldTemplateUrl(name) {
-			return "fields/formly-fields-" + _prefixer(name) + ".html";
+			return 'fields/formly-fields-' + _prefixer(name) + '.html';
 		}
 
 		/*@ngInject*/
@@ -135,7 +135,7 @@
 		function addFieldValidationOptions(apiCheck) {
 			/* validation using apiCheck.js */
 			var APICHECK_VALIDATION_FIELDS = [{
-				name: "checkbox",
+				name: 'checkbox',
 				validateOptions: {
 					label: apiCheck.string,
 					description: apiCheck.string,
@@ -143,22 +143,22 @@
 					required: apiCheck.boolean
 				}
 			}, {
-				name: "date-picker",
+				name: 'date-picker',
 				validateOptions: { label: apiCheck.string, required: apiCheck.boolean }
 			}, {
-				name: "input",
+				name: 'input',
 				validateOptions: {
 					label: apiCheck.string,
 					icon: apiCheck.string,
 					fixedLabel: apiCheck.boolean,
 					disabled: apiCheck.boolean,
 					className: apiCheck.string,
-					theme: apiCheck.oneOf(["light", "dark"]),
-					type: apiCheck.oneOf(["text", "number", "email", "password", "url", "tel"]),
+					theme: apiCheck.oneOf(['light', 'dark']),
+					type: apiCheck.oneOf(['text', 'number', 'email', 'password', 'url', 'tel']),
 					required: apiCheck.boolean
 				}
 			}, {
-				name: "radio",
+				name: 'radio',
 				validateOptions: {
 					label: apiCheck.string,
 					description: apiCheck.string,
@@ -170,13 +170,13 @@
 					required: apiCheck.boolean
 				}
 			}, {
-				name: "select",
+				name: 'select',
 				validateOptions: {
 					label: apiCheck.string,
 					placeholder: apiCheck.string,
-					"min-length": apiCheck.number,
-					"allow-clear": apiCheck.boolean,
-					"ng-attr-multiple": apiCheck.boolean,
+					'min-length': apiCheck.number,
+					'allow-clear': apiCheck.boolean,
+					'ng-attr-multiple': apiCheck.boolean,
 					selected: apiCheck.string,
 					selected2: apiCheck.string,
 					choice: apiCheck.string,
@@ -185,7 +185,7 @@
 					required: apiCheck.boolean
 				}
 			}, {
-				name: "switch",
+				name: 'switch',
 				validateOptions: {
 					label: apiCheck.string,
 					description: apiCheck.string,
@@ -193,11 +193,11 @@
 					required: apiCheck.boolean
 				}
 			}, {
-				name: "textarea",
+				name: 'textarea',
 				validateOptions: {
 					label: apiCheck.string,
 					icon: apiCheck.string,
-					theme: apiCheck.oneOf(["light", "dark"]),
+					theme: apiCheck.oneOf(['light', 'dark']),
 					required: apiCheck.boolean,
 					rows: apiCheck.number,
 					cols: apiCheck.number
@@ -244,7 +244,7 @@
 				formlyValidationMessages.addStringMessage(validation.name, validation.message);
 			});
 			formlyValidationMessages.messages.pattern = function (viewValue, modelValue) {
-				return (viewValue || modelValue) + " is invalid";
+				return (viewValue || modelValue) + ' is invalid';
 			};
 		}
 		setDefaults.$inject = ["formlyConfig", "formlyValidationMessages"];
@@ -261,7 +261,7 @@
 		}
 		cacheTemplates.$inject = ["$templateCache"];
 
-		angular.module(MODULE_NAME, ["formly"]).config(setWrappers).run(setFields).run(setDefaults).run(cacheTemplates);
+		angular.module(MODULE_NAME, ['formly']).config(setWrappers).run(setFields).run(setDefaults).run(cacheTemplates);
 	})();
 
 /***/ },
@@ -304,46 +304,40 @@
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"aftl-select\">\n\t<h3 ng-if=\"::to.label\"><label>\n\t\t{{to.label}} {{::to.required ? '*' : ''}}\n\t</label></h3>\n\t<lx-select ng-model=\"model[options.key]\"\n\t           choices=\"to.options\"\n\t           placeholder=\"{{::to.placeholder}}\"\n\t           min-length=\"::to.minLength\"\n\t           allow-clear=\"::to.allowClear\"\n\t           ng-attr-multiple=\"{{::to.multiple}}\">\n\n\t\t<lx-select-selected>\n\t\t\t{{$selected[to.selected] || $selected}} {{::to.selected2 ? ' - ' +\n\t\t\t$selected[to.selected2] : ''}}\n\t\t</lx-select-selected>\n\n\t\t<lx-select-choices>\n\t\t\t{{$choice[to.choice] || $choice}} {{::to.choice2 ? ' - ' +\n\t\t\t$choice[to.choice2] : ''}}\n\t\t</lx-select-choices>\n\n\t</lx-select>\n</div>"
+	module.exports = "<div class=\"aftl-select\">\n\t<h3 ng-if=\"::to.label\"><label>\n\t\t{{to.label}} {{::to.required ? '*' : ''}}\n\t</label></h3>\n\t<lx-select ng-model=\"model[options.key]\"\n\t           choices=\"to.options\"\n\t           placeholder=\"{{::to.placeholder}}\"\n\t           min-length=\"::to.minLength\"\n\t           allow-clear=\"::to.allowClear\"\n\t           ng-attr-multiple=\"{{::to.multiple}}\">\n\n\t\t<lx-select-selected>\n\t\t\t{{$selected[to.selected] || $selected}} {{::to.selected2 ? ' - ' +\n\t\t\t$selected[to.selected2] : ''}}\n\t\t</lx-select-selected>\n\n\t\t<lx-select-choices>\n\t\t\t{{$choice[to.choice] || $choice}} {{::to.choice2 ? ' - ' +\n\t\t\t$choice[to.choice2] : ''}}\n\t\t</lx-select-choices>\n\n\t</lx-select>\n</div>\n"
 
 /***/ },
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"aftl-select\">\n\t<h3 ng-if=\"::to.label\"><label>\n\t\t{{to.label}} {{::to.required ? '*' : ''}}\n\t</label></h3>\n\t<lx-select ng-model=\"model[options.key]\"\n\t           choices=\"to.options\"\n\t           placeholder=\"{{::to.placeholder}}\"\n\t           min-length=\"::to.minLength\"\n\t           allow-clear=\"::to.allowClear\"\n\t           ng-attr-multiple=\"{{::to.multiple}}\"\n\t           filter=\"to.filter\"\n\t           loading=\"{{to.loading}}\"\n\t           selection-to-model=\"to.toModel\"\n\t           model-to-selection=\"to.toSelection\"\n\t           change=\"to.change\">\n\n\t\t<lx-select-selected>\n\t\t\t{{$selected[to.selected] || $selected}} {{::to.selected2 ? ' - ' +\n\t\t\t$selected[to.selected2] : ''}}\n\t\t</lx-select-selected>\n\n\t\t<lx-select-choices>\n\t\t\t{{$choice[to.choice] || $choice}} {{::to.choice2 ? ' - ' +\n\t\t\t$choice[to.choice2] : ''}}\n\t\t</lx-select-choices>\n\n\t</lx-select>\n</div>"
+	module.exports = "<div class=\"switch\">\n\t<input ng-model=\"model[options.key]\"\n\t       type=\"checkbox\"\n\t       role=\"checkbox\"\n\t       class=\"switch__input\"/>\n\t<label for={{::id}} class=\"switch__label\" aria-label=\"{{::to.label}}\">{{to.label}}</label>\n\t<span ng-if=\"::to.description\"\n\t      class=\"switch__help\">{{::to.description}}</span>\n</div>\n\n"
 
 /***/ },
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div class=\"switch\">\n\t<input ng-model=\"model[options.key]\"\n\t       type=\"checkbox\"\n\t       role=\"checkbox\"\n\t       class=\"switch__input\"/>\n\t<label for={{::id}} class=\"switch__label\" aria-label=\"{{::to.label}}\">{{to.label}}</label>\n\t<span ng-if=\"::to.description\"\n\t      class=\"switch__help\">{{::to.description}}</span>\n</div>\n\n"
+	module.exports = "<lx-text-field model=\"::model[options.key]\"\n               fixed-label=\"::to.fixedLabel\"\n               icon=\"{{::to.icon}}\"\n               theme=\"{{::to.theme}}\"\n               label=\"{{to.label}} {{::to.required ? '*' : ''}}\"\n               valid=\"fc.$valid && fc.$touched\"\n               error=\"fc.$invalid && fc.$touched\">\n    <textarea ng-model=\"model[options.key]\"\n              aria-label=\"{{::to.label}}\"\n              rows=\"{{::to.rows}}\" cols=\"{{::to.cols}}\">\n    </textarea>\n</lx-text-field>\n"
 
 /***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<lx-text-field model=\"::model[options.key]\"\n               fixed-label=\"::to.fixedLabel\"\n               icon=\"{{::to.icon}}\"\n               theme=\"{{::to.theme}}\"\n               label=\"{{to.label}} {{::to.required ? '*' : ''}}\"\n               valid=\"fc.$valid && fc.$touched\"\n               error=\"fc.$invalid && fc.$touched\">\n    <textarea ng-model=\"model[options.key]\"\n              aria-label=\"{{::to.label}}\"\n              rows=\"{{::to.rows}}\" cols=\"{{::to.cols}}\">\n    </textarea>\n</lx-text-field>\n"
+	module.exports = "<div ng-class=\"::to.div.className\"\n\tng-style=\"::to.div.style\">\n\t<formly-transclude></formly-transclude>\n</div>"
 
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div ng-class=\"::to.div.className\"\n\tng-style=\"::to.div.style\">\n\t<formly-transclude></formly-transclude>\n</div>"
+	module.exports = "<div>\n\t<formly-transclude></formly-transclude>\n\t<ul class=\"form-error\" ng-messages=\"fc.$error\"\n\t    ng-show=\"options.validation.errorExistsAndShouldBeVisible\">\n\t\t<li ng-repeat=\"(name, message) in ::options.validation.messages\"\n\t\t    ng-message={{::name}}>\n\t\t\t{{message(fc.$viewValue, fc.$modelValue, this)}}\n\t\t</li>\n\t</ul>\n\t<span class=\"form-pending\"\n\t      ng-if=\"to.pending && fc.$pending && fc.$touched\">\n\t{{::to.pending || 'Checking...'}}\n\t</span>\n</div>\n"
 
 /***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "<div>\n\t<formly-transclude></formly-transclude>\n\t<ul class=\"form-error\" ng-messages=\"fc.$error\"\n\t    ng-show=\"options.validation.errorExistsAndShouldBeVisible\">\n\t\t<li ng-repeat=\"(name, message) in ::options.validation.messages\"\n\t\t    ng-message={{::name}}>\n\t\t\t{{message(fc.$viewValue, fc.$modelValue, this)}}\n\t\t</li>\n\t</ul>\n\t<span class=\"form-pending\"\n\t      ng-if=\"to.pending && fc.$pending && fc.$touched\">\n\t{{::to.pending || 'Checking...'}}\n\t</span>\n</div>\n"
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
 	module.exports = "<div ng-class=\"::to.div.className\"\n     ng-style=\"::to.div.style || {}\"\n     flex-item=\"::to.flex.item\"\n     flex-order=\"::to.flex-order\">\n\t<formly-transclude></formly-transclude>\n</div>"
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = "<span class=\"inline-wrapper\">\n\t<span class=\"inline--before\">{{::to.inline.before}}</span>\n\t<span class=\"inline--content\">\n\t\t<formly-transclude></formly-transclude>\n\t</span>\n\t<span class=\"inline--after\">{{::to.inline.after}}</span>\n</span>"

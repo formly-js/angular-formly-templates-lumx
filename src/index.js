@@ -34,9 +34,9 @@
 	}, {
 		name: 'select',
 		template: require('./fields/lx-select.html')
-	}, {
-		name: 'select-async',
-		template: require('./fields/lx-select-async.html')
+	//}, {
+	//	name: 'select-async',
+	//	template: require('./fields/lx-select-async.html')
 	}, {
 		name: 'switch',
 		template: require('./fields/lx-switch.html')
