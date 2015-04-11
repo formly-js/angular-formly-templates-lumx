@@ -1,7 +1,7 @@
 FormlyLumx
 ==========
 
-[![Join the chat at https://gitter.im/formly-js/angular-formly-templates-lumx](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/formly-js/angular-formly-templates-lumx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/formly-js/angular-formly-templates-lumx](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/formly-js/angular-formly-templates-lumx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
