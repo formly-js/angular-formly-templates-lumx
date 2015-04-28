@@ -203,3 +203,7 @@ Validation messages can be set as defaults in the module file.
 ## Known Issues
 
 LumX has a conflict with a similarly complete framework, Bootstrap, resulting in errors for dropdowns including "lx-select" & "lx-multiple-select". Solution: choose one css framework or the other.
+
+## Post an Issue
+
+Link to this [Plunker](http://plnkr.co/edit/9ITRera58qzCaaaXsKT0).
