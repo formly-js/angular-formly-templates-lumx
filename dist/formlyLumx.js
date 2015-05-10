@@ -167,6 +167,7 @@
 						value: apiCheck.oneOfType([apiCheck.string, apiCheck.number]),
 						disabled: apiCheck.boolean
 					}),
+					inline: apiCheck.boolean,
 					required: apiCheck.boolean
 				}
 			}, {

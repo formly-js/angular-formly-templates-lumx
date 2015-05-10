@@ -21,5 +21,6 @@ export default angular.module('shmck.formFields', [
   require('./watcher').name,
   /* ADVANCED */
   require('./advanced/_advanced').name
+  //,require('./test').name
 ]);
 

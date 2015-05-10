@@ -1,0 +1,14 @@
+<div flex-item>
+  <div ng-hide="model[options.key].hasFile">
+    <file-upload controller="{{::to.controller}}"
+                 controller-as="{{::to.controllerAs}}"
+                 upload-function="{{::to.uploadFunction}}"
+                 label="{{::to.label}} {{::to.required ? '*' : ''}}">
+    </file-upload>
+  </div>
+  <div id="{{ this.options.key }}"></div>
+  <div ng-if="model[options.key].hasFile" style="padding: 25px 0 15px">
+    <a href="{{ ::model[options.key].url }}" target="_blank" class="btn btn--m btn--blue btn--raised" lx-ripple> {{::to.downloadBtn}} {{::to.label}}</a>
+    <button ng-click="model[options.key].hasFile = null" class="btn btn--m btn--blue btn--flat" lx-ripple>{{::to.replaceBtn}}</button>
+  </div>
+</div>

@@ -113,7 +113,7 @@ function fields() {
           templateOptions: {
             type: 'text',
             fixedLabel: true,
-            label: 'Street Name'
+            label: 'Street'
           }
         }, {
           key: 'addressStreetType',
