@@ -2,11 +2,11 @@
 .DS_Store
 .idea
 npm-debug.log
-bower_components
-node_modules
-demoOld
-build
-edits
+bower_components/
+node_modules/
+demoOld/
+build/
+edits/
 todo.txt
 gulpfile.js
 demo/node_modules
@@ -16,3 +16,4 @@ demo/Procfile
 demo/server
 demo/.editorconfig
 demo/.idea
+demo2/
