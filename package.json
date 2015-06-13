@@ -4,20 +4,21 @@
   "description": "Angular-Formly templates based on the LumX Framework",
   "main": "gulpfile.js",
   "devDependencies": {
-    "autoprefixer-core": "~5.1.11",
-    "babel-loader": "~5.2.16",
-    "css-loader": "~0.12.0",
-    "csswring": "~3.0.4",
-    "jshint": "~2.6.3",
+    "autoprefixer-core": "~5.2.0",
+    "babel-loader": "~5.1.4",
+    "css-loader": "~0.14.5",
+    "csswring": "~3.0.5",
+    "jshint": "~2.8.0",
     "jshint-loader": "~0.8.3",
-    "ng-annotate": "~0.15.4",
-    "ng-annotate-loader": "~0.1.1",
-    "postcss": "~4.1.9",
-    "postcss-loader": "~0.4.3",
-    "postcss-nested": "~0.3.1",
+    "ng-annotate": "~1.0.0",
+    "ng-annotate-loader": "~0.0.4",
+    "postcss": "~4.1.11",
+    "postcss-loader": "~0.4.4",
+    "postcss-nested": "~0.3.2",
     "raw-loader": "~0.5.1",
-    "sass-loader": "~1.0.1",
-    "webpack": "~1.8.11"
+    "sass-loader": "~1.0.2",
+    "webpack": "~1.9.10",
+    "node-sass": "~3.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

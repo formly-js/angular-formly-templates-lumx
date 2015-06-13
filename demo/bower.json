@@ -9,7 +9,7 @@
     "ShMcK <me@shmck.com>"
   ],
   "dependencies": {
-    "lumx": "~0.3.24",
+    "lumx": "~0.35",
     "angular-formly-templates-lumx": "~1.5.2",
     "angular-markdown-directive": "~0.3.1",
     "mdi": "~1.0.8-beta",
