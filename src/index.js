@@ -86,72 +86,103 @@
   function addFieldValidationOptions(apiCheck) {  /* validation using apiCheck.js */
     var APICHECK_VALIDATION_FIELDS = [{
       name: 'checkbox',
-      validateOptions: {
-        label: apiCheck.string,
-        description: apiCheck.string,
-        checked: apiCheck.boolean,
-        required: apiCheck.boolean
+      apiCheck: function(check) {
+        return {
+          templateOptions: {
+            label: check.string,
+            description: check.string,
+            checked: check.boolean,
+            required: check.boolean
+          }
+        };
       }
     }, {
       name: 'date-picker',
-      validateOptions: {'label': apiCheck.string, 'required': apiCheck.boolean}
+      apiCheck: function(check) {
+        return {
+          templateOptions: {
+            'label': check.string,
+            'required': check.boolean
+          }
+        };
+      }
     }, {
       name: 'input',
-      validateOptions: {
-        label: apiCheck.string,
-        icon: apiCheck.string,
-        fixedLabel: apiCheck.boolean,
-        disabled: apiCheck.boolean,
-        className: apiCheck.string,
-        theme: apiCheck.oneOf(['light', 'dark']),
-        type: apiCheck.oneOf(['text', 'number', 'email', 'password', 'url', 'tel']),
-        required: apiCheck.boolean
+      apiCheck: function(check) {
+        return {
+          templateOptions: {
+            label: check.string,
+            icon: check.string,
+            fixedLabel: check.boolean,
+            disabled: check.boolean,
+            className: check.string,
+            theme: check.oneOf(['light', 'dark']),
+            type: check.oneOf(['text', 'number', 'email', 'password', 'url', 'tel']),
+            required: check.boolean
+          }
+        };
       }
     }, {
       name: 'radio',
-      validateOptions: {
-        label: apiCheck.string,
-        description: apiCheck.string,
-        options: apiCheck.arrayOf({
-          name: apiCheck.string,
-          value: apiCheck.oneOfType([apiCheck.string, apiCheck.number]),
-          disabled: apiCheck.boolean
+      apiCheck: function(check) {
+        return {
+      templateOptions: {
+        label: check.string,
+        description: check.string,
+        options: check.arrayOf({
+          name: check.string,
+          value: check.oneOfType([check.string, check.number]),
+          disabled: check.boolean
         }),
-        inline: apiCheck.boolean,
-        required: apiCheck.boolean
+        inline: check.boolean,
+        required: check.boolean
       }
+    };
+  }
     }, {
       name: 'select',
-      validateOptions: {
-        label: apiCheck.string,
-        placeholder: apiCheck.string,
-        'min-length': apiCheck.number,
-        'allow-clear': apiCheck.boolean,
-        'ng-attr-multiple': apiCheck.boolean,
-        selected: apiCheck.string,
-        selected2: apiCheck.string,
-        choice: apiCheck.string,
-        choice2: apiCheck.string,
-        choices: apiCheck.array,
-        required: apiCheck.boolean
+      apiCheck: function(check) {
+        return {
+          templateOptions: {
+            label: check.string,
+            placeholder: check.string,
+            'min-length': check.number,
+            'allow-clear': check.boolean,
+            'ng-attr-multiple': check.boolean,
+            selected: check.string,
+            selected2: check.string,
+            choice: check.string,
+            choice2: check.string,
+            choices: check.array,
+            required: check.boolean
+          }
+        };
       }
     }, {
       name: 'switch',
-      validateOptions: {
-        label: apiCheck.string,
-        description: apiCheck.string,
-        checked: apiCheck.boolean,
-        required: apiCheck.boolean
+      apiCheck: function(check) {
+        return {
+          templateOptions: {
+            label: check.string,
+            description: check.string,
+            checked: check.boolean,
+            required: check.boolean
+          }
+        };
       }
     }, {
       name: 'textarea',
-      validateOptions: {
-        label: apiCheck.string,
-        icon: apiCheck.string,
-        theme: apiCheck.oneOf(['light', 'dark']),
-        required: apiCheck.boolean,
-        rows: apiCheck.number,
-        cols: apiCheck.number
+      apiCheck: function(check) {
+        return {
+          templateOptions: {
+            label: check.string,
+            icon: check.string,
+            theme: check.oneOf(['light', 'dark']),
+            required: check.boolean,
+            rows: check.number,
+            cols: check.number
+          }
+        };
       }
     }];
     APICHECK_VALIDATION_FIELDS.map(function (validationField) {

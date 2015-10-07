@@ -1,3 +1,5 @@
+#2.0.0
+- updated to work with latest version of Angular-Formly (7.1.2)
 #1.5.2
 - inline radio buttons
 
