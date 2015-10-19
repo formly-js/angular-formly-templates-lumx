@@ -21,7 +21,7 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js'],
-    modulesDirectories: ['node_modules', 'bower_components'],
+    modulesDirectories: ['node_modules', 'app/bower_components'],
     root: [__dirname + '/app']
   },
 
@@ -62,7 +62,7 @@ module.exports = {
 
   postcss: [
     require('postcss-nested'),
-    require('autoprefixer-core'),
+    require('autoprefixer'),
     require('csswring')
   ]
   //plugins: [

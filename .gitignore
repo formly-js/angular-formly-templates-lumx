@@ -1,13 +1,10 @@
-.gitignore
 .DS_Store
 .idea
 npm-debug.log
 bower_components/
 node_modules/
 demoOld/
-build/
 edits/
-todo.txt
 gulpfile.js
 demo/node_modules
 demo/e2e

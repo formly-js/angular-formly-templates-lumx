@@ -1,8 +1,8 @@
 {
   "name": "Formly LumX",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "authors": [
-    "ShMcK <me@ShMcK.com>"
+    "ShMcK <shawn.j.mckay@gmail.com>"
   ],
   "description": "Angular-Formly templates based on the LumX Framework",
   "main": [
@@ -33,7 +33,7 @@
     "angular": "^1.3.16",
     "angular-messages": "^1.3.16",
     "angular-aria": "^1.3.16",
-    "angular-formly": "^7.0.0",
+    "angular-formly": "^7.1.2",
     "lumx": "^0.3.35"
   }
 }

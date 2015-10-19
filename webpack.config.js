@@ -42,7 +42,7 @@ module.exports = {
 	},
 	postcss: [
 		require('postcss-nested'),
-		require('autoprefixer-core'),
+		require('autoprefixer'),
 		require('csswring')
 	],
 	plugins: [

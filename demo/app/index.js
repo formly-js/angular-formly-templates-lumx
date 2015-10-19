@@ -19,7 +19,7 @@ angular.module('app', [
   require('./main/main').name,
   require('./fields/_fields.module').name
 ])
-  .constant('version', '1.5.2')
+  .constant('version', '2.0.2')
   .config(function routerSetup($urlRouterProvider) {
     $urlRouterProvider
       .otherwise('/input');
