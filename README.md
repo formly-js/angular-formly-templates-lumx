@@ -5,7 +5,7 @@ FormlyLumx
 
 LumX Templates for Angular-Formly. Modern & flexible forms configured easily in a JSON object.
 
-# Currently 2.0.3
+# Currently 2.0.4
 - View [demo](https://af-lumx.herokuapp.com/ "Formly-Lumx Demo").
 - See the [docs](https://github.com/formly-js/angular-formly-templates-lumx/tree/master/docs "Formly-Lumx Documentation") for template APIs.
 - See the [changelog](https://github.com/formly-js/angular-formly-templates-lumx/blob/master/CHANGELOG.md "Formly-LumX Changes") for details.
@@ -194,6 +194,28 @@ Validation messages can be set as defaults in the module file.
 }
 ```
 
+## Change / Generate your own templates
+
+1. Add or change your file in `src/fields`. 
+2. Create a configuration in `src/index.js`. For example:
+
+
+    {
+        name: 'checkbox',
+        template: require('./fields/lx-checkbox.html'),
+        apiCheck: function(check) {
+            return {
+                templateOptions: {
+                    label: check.string,
+                    description: check.string,
+                    checked: check.boolean,
+                    required: check.boolean
+                }
+            };
+        }
+    }
+
+3. Compile templates into `/dist`. In the console, in the folder run `npm install` to setup and `webpack` to build.
 
 ##Roadmap
 - more advanced examples

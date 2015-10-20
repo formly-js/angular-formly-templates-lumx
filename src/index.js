@@ -43,9 +43,7 @@
     name: 'flex',
     template: require('./fields/lx-flex.html'),
     apiCheck: function(check) {
-      return {
-        templateOptions: {}
-      };
+      return {};
     }
   }, {
     name: 'input',
@@ -180,10 +178,10 @@
         FIELDS.map(function (field) {
           formlyConfig.setType({
             name: _prefixer(field.name),
-            templateUrl: _fieldTemplateUrl(field.name) //,
-            //apiCheck: function (c) {
-            //  return field.apiCheck(c);
-            //}
+            templateUrl: _fieldTemplateUrl(field.name),
+            apiCheck: function (c) {
+              return field.apiCheck;
+            }
           });
         });
       }

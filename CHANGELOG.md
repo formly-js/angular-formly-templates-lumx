@@ -1,5 +1,9 @@
-#2.0.0
+#2.0.4
+- working version with new ApiCheck
+
+#2.0.3
 - updated to work with latest version of Angular-Formly (7.1.2)
+
 #1.5.2
 - inline radio buttons
 
