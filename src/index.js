@@ -180,11 +180,10 @@
         FIELDS.map(function (field) {
           formlyConfig.setType({
             name: _prefixer(field.name),
-            templateUrl: _fieldTemplateUrl(field.name),
-            apiCheck: function (c) {
-              return field.apiCheck(c);
-            },
-            apiCheckInstance: c
+            templateUrl: _fieldTemplateUrl(field.name) //,
+            //apiCheck: function (c) {
+            //  return field.apiCheck(c);
+            //}
           });
         });
       }

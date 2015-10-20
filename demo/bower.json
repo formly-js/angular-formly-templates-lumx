@@ -12,7 +12,7 @@
     "lumx": "^0.3.35",
     "angular-formly-templates-lumx": "^2.0.2",
     "angular-markdown-directive": "~0.3.1",
-    "mdi": "~1.0.8-beta",
+    "mdi": "latest",
     "showdown": "~0.4.0",
     "angular-google-places-autocomplete": "~0.2.5"
   }
