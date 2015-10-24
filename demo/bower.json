@@ -1,6 +1,6 @@
 {
   "name": "FormlyLumxDemo",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "repository": {
     "type": "git",
     "url": "github.com/formlyjs/angular-formly-templates-lumx"
@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "lumx": "^0.3.35",
-    "angular-formly-templates-lumx": "^2.0.2",
+    "angular-formly-templates-lumx": "^2.0.5",
     "angular-markdown-directive": "~0.3.1",
     "mdi": "latest",
     "showdown": "~0.4.0",
