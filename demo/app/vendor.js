@@ -2,9 +2,9 @@ export default () => {
   /**
    *  Styles, fonts & icons
    */
-    //require('file!./bower_components/mdi/css/materialdesignicons.css');
+  //require('node-bourbon');
+  //require('node-mdi');
   require('./index.scss');
-//  require('file!./bower_components/mdi/fonts/');
 
   /**
    *  JS
@@ -20,6 +20,7 @@ export default () => {
   require('angular-ui-router');
   require('angular-formly');
   global.moment = require('moment');
+  //require('../node_modules/node-mdi/materialdesignicons.min.css');
   require('imports?angular!./bower_components/lumx/dist/lumx.js');
   require('imports?angular!./bower_components/angular-formly-templates-lumx/dist/formlyLumx.js');
   require('imports?angular!./bower_components/angular-markdown-directive/markdown.js');

@@ -2,7 +2,10 @@
 
 var webpack = require('webpack'),
   path = require('path'),
-  bowerRoot = __dirname + '/app/bower_components';
+  bowerRoot = __dirname + '/app/bower_components',
+  //BowerWebpackPlugin = require("bower-webpack-plugin")
+  bourbon = require('node-bourbon').includePaths;
+  //mdi = require('node-mdi').includePaths;
 
 module.exports = {
   context: __dirname + '/app',
@@ -21,7 +24,7 @@ module.exports = {
 
   resolve: {
     extensions: ['', '.js'],
-    modulesDirectories: ['node_modules', 'app/bower_components'],
+    modulesDirectories: ['node_modules', 'bower_components'],
     root: [__dirname + '/app']
   },
 
@@ -42,7 +45,8 @@ module.exports = {
         loader: 'raw'
       }, {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        //loader: "style!css!sass"
+        loader: "style!css!sass?includePaths[]=" + bourbon
       }, {
         test: /\.css$/,
         loader: 'style!css!postcss'
@@ -62,7 +66,7 @@ module.exports = {
 
   postcss: [
     require('postcss-nested'),
-    require('autoprefixer'),
+    require('autoprefixer-core'),
     require('csswring')
   ]
   //plugins: [

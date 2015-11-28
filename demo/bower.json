@@ -1,19 +1,20 @@
 {
   "name": "FormlyLumxDemo",
-  "version": "2.0.5",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "github.com/formlyjs/angular-formly-templates-lumx"
   },
   "authors": [
-    "ShMcK <shawn.j.mckay@gmail.com>"
+    "ShMcK <me@shmck.com>"
   ],
   "dependencies": {
-    "lumx": "^0.3.35",
-    "angular-formly-templates-lumx": "^2.0.5",
+    "lumx": "~0.3.96",
+    "angular-formly-templates-lumx": "~2.0.5",
     "angular-markdown-directive": "~0.3.1",
-    "mdi": "latest",
+    "mdi": "~1.0.8-beta",
     "showdown": "~0.4.0",
-    "angular-google-places-autocomplete": "~0.2.5"
+    "angular-google-places-autocomplete": "~0.2.5",
+    "bourbon": "~4.2.6"
   }
 }
