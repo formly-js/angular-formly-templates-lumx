@@ -10,7 +10,7 @@
           'wrap': 'nowrap', // nowrap | wrap | wrap-reverse
           'align': 'space-between', // flex-start | flex-end | center | space-between | space-around | stretch
           'item': 5  // width (between 1 & 12)
-    }
+    },
     'className': 'bgc-red-500', // ng-class
     'style': 'height: 200px'
      'fields': [{

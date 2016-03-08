@@ -3,7 +3,7 @@
 {
   key: 'someKey',
   type: 'lx-input',
-  wrapper: 'lx-wrapper-inline'
+  wrapper: 'lx-wrapper-inline',
   templateOptions: {
     label: 'example',
     inline: {

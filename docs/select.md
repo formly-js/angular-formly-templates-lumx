@@ -2,7 +2,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-select' // 'lx-select-multiple'
+  'type': 'lx-select', // 'lx-select-multiple'
   'templateOptions': {
     'multiple': true, // {{ default: false}}
     'label': 'The label', // default: 'Select'
