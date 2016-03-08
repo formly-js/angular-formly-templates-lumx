@@ -3,7 +3,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-textarea'
+  'type': 'lx-textarea',
   'templateOptions': {
     'type': 'text', // html input type values [text, email, password, url, number]
     'label': 'Some Label', // acts as a placeholder & label

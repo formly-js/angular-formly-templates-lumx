@@ -2,10 +2,10 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-checkbox'
+  'type': 'lx-checkbox',
   'templateOptions': {
   'label': 'A checkbox label',
-    'description': 'A checkbox help description,
+    'description': 'A checkbox help description',
     'disabled': false, // ng-disabled
     'checked': false // ng-checked
   }

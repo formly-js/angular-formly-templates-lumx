@@ -2,7 +2,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-date-picker'
+  'type': 'lx-date-picker',
   'templateOptions': {
     'label': 'A checkbox label',
     'description': 'A description',

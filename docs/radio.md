@@ -2,7 +2,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-radio-buttons'
+  'type': 'lx-radio-buttons',
   'templateOptions': {
     'label': 'Choose an item: ',
     'disabled': false,

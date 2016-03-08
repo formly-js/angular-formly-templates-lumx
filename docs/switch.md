@@ -2,7 +2,7 @@
 ```javascript
 {
   'key': 'modelName',
-  'type': 'lx-switch'
+  'type': 'lx-switch',
   'templateOptions': {
     'label': 'A switch label',
     'description': 'A switch help description',

@@ -10,7 +10,7 @@ Read more about [LumX color styles](http://ui.lumapps.com/css/colors).
 ```javascript
 { key: 'key', 
     type: 'lx-text',
-    wrapper: 'lx-wrapper-div' // <- div wrapper
+    wrapper: 'lx-wrapper-div', // <- div wrapper
     templateOptions: {
       div: {
         className: 'bgc-blue-grey-500' // <- div background color
